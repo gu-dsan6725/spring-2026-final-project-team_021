@@ -1,0 +1,32 @@
+[project]
+name = "debatetrader"
+version = "0.1.0"
+description = "Multi-agent LLM framework for U.S. stock trading with bull-bear debate"
+requires-python = ">=3.10"
+dependencies = [
+    "yfinance>=0.2.40",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "requests>=2.31.0",
+    "pyarrow>=14.0.0",
+    "python-dotenv>=1.0.0",
+    "pytrends>=4.9.2",
+    "groq>=0.11.0",
+    # Agent / LLM dependencies (to be expanded in Milestone 3)
+    # "anthropic>=0.25.0",
+    # "langchain>=0.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.0.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
