@@ -1,3 +1,22 @@
+"""
+Technical Analyst Agent
+
+Summary
+-------
+This module implements the Technical Analyst agent for the trading system.
+
+Responsibilities
+- Receive a technical snapshot (price + indicators)
+- Evaluate technical signals (trend, momentum, RSI)
+- Produce a structured analysis report
+
+Input
+- snapshot dictionary from technical_features.py
+
+Output
+- AnalystOutput object containing signal, confidence, and explanation
+"""
+
 from __future__ import annotations
 
 from src.schemas.analyst_output import AnalystOutput
