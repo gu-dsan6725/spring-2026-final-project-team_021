@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 
 
 def validate_prices(
-    yf_path: str  = os.path.join(PRICE_DIR, "yfinance_ohlcv.parquet"),
+    yf_path: str  = os.path.join(PRICE_DIR, "price_ohlcv.parquet"),
     av_path: str  = os.path.join(PRICE_DIR, "alpha_vantage_ohlcv.parquet"),
     output_dir: str = PRICE_DIR,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
@@ -127,11 +127,11 @@ def validate_prices(
 
 
 def run():
-    yf_path = os.path.join(PRICE_DIR, "yfinance_ohlcv.parquet")
+    yf_path = os.path.join(PRICE_DIR, "price_ohlcv.parquet")
     av_path = os.path.join(PRICE_DIR, "alpha_vantage_ohlcv.parquet")
 
     if not os.path.exists(yf_path):
-        logger.error(f"Missing: {yf_path}  — run yahoo_finance_collector.py first.")
+        logger.error(f"Missing: {yf_path}  — run price_collector.py first.")
         return
     if not os.path.exists(av_path):
         logger.error(f"Missing: {av_path}  — run alpha_vantage_collector.py first.")

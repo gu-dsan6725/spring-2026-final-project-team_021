@@ -20,7 +20,7 @@ uv run python src/demo/run_technical_agent.py
 from src.features.technical_features import build_technical_snapshot
 from src.agents.technical_analyst import TechnicalAnalyst
 
-PARQUET_PATH = "data/sample/price/yfinance_ohlcv.parquet"
+PARQUET_PATH = "data/sample/price/price_ohlcv.parquet"
 
 
 def main():
