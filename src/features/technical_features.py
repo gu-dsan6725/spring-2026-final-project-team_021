@@ -1,3 +1,23 @@
+"""
+Technical Feature Builder
+
+Summary
+-------
+This module loads historical OHLCV price data from parquet files and computes
+technical indicators for a given stock.
+
+Responsibilities
+----------------
+- Read price data for a selected ticker
+- Compute trend and momentum indicators such as SMA, RSI, and MACD
+- Build a single technical snapshot for one stock as of a chosen date
+
+Output
+------
+A dictionary containing technical features that can be passed to the
+Technical Analyst agent.
+"""
+
 from __future__ import annotations
 
 import pandas as pd
