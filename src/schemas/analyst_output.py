@@ -3,32 +3,29 @@ Shared Analyst Output Schema
 
 Summary
 -------
-This module defines the standard output format used by analyst agents.
+This module defines the standard JSON-friendly output format used by
+the Technical Analyst and Fundamental Analyst.
 
 Purpose
 -------
-It ensures that all analyst agents return results in a consistent structure,
-so downstream components such as Bull, Bear, or Judge agents can consume them
-without additional parsing logic.
-
-Used By
--------
-- Technical Analyst
-- Fundamental Analyst
-- Future debate-stage agents
+It ensures both analyst agents return results in the same structure so
+their outputs can be saved, compared, and later consumed by downstream
+agents or evaluation scripts.
 """
 
-from typing import Any
-from pydantic import BaseModel
+from typing import Any, Literal
+
+from pydantic import BaseModel, Field
 
 
 class AnalystOutput(BaseModel):
-    agent_name: str
-    ticker: str
-    signal: str
-    confidence: float
-    summary: str
-    bullish_factors: list[str]
-    bearish_factors: list[str]
-    risk_flags: list[str]
-    key_metrics_used: dict[str, Any]
+    agent_name: str = Field(..., description="Name of the analyst agent")
+    ticker: str = Field(..., description="Stock ticker symbol")
+    analysis_date: str = Field(..., description="Analysis date in YYYY-MM-DD format")
+    signal: Literal["bullish", "bearish", "neutral"] = Field(..., description="Directional signal")
+    confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score between 0 and 1")
+    summary: str = Field(..., description="Short natural language summary of the analysis")
+    bullish_factors: list[str] = Field(default_factory=list, description="Bullish evidence")
+    bearish_factors: list[str] = Field(default_factory=list, description="Bearish evidence")
+    risk_flags: list[str] = Field(default_factory=list, description="Risk warnings or caveats")
+    key_metrics_used: dict[str, Any] = Field(default_factory=dict, description="Key metrics referenced")
