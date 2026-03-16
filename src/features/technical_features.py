@@ -81,7 +81,11 @@ def build_technical_snapshot(
     df = df[df["ticker"] == ticker].copy()
 
     if df.empty:
-        raise ValueError(f"No price data found for ticker={ticker}")
+        available_tickers = sorted(pd.read_parquet(parquet_path)["ticker"].astype(str).str.upper().dropna().unique().tolist())
+        raise ValueError(
+            f"No price data found for ticker={ticker}. "
+            f"Available tickers in price parquet: {available_tickers}"
+        )
 
     df["date"] = pd.to_datetime(df["date"])
     df = df.sort_values("date")

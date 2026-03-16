@@ -7,14 +7,17 @@ This module implements the Fundamental Analyst agent for DebateTrader.
 
 Responsibilities
 ----------------
-- Receive a cleaned fundamental snapshot for a stock
-- Evaluate valuation, growth, profitability, leverage, and liquidity
+- Receive a cleaned and standardized fundamental snapshot for a stock
+- Evaluate valuation, growth, profitability, leverage, liquidity,
+  and cash flow
 - Produce a structured JSON-friendly analysis report
 
 Current Version
 ---------------
-This version is rule-based and uses the Yahoo Finance fundamentals snapshot
-as its input. It is designed as a milestone-stage analyst implementation.
+This version is rule-based and uses normalized fundamental features.
+Percentage-like metrics are expected to be in decimal form, such as:
+- 15% -> 0.15
+- 47.3% -> 0.473
 """
 
 from __future__ import annotations
@@ -23,12 +26,13 @@ from src.schemas.analyst_output import AnalystOutput
 
 
 class FundamentalAnalyst:
-    """Rule-based fundamental analyst agent."""
+    """Rule-based fundamental analyst agent using standardized inputs."""
 
     def analyze(self, snapshot: dict) -> AnalystOutput:
         ticker = snapshot["ticker"]
         analysis_date = snapshot["analysis_date"]
         f = snapshot["fundamental_features"]
+        raw_f = snapshot.get("raw_fundamental_features", {})
 
         bullish_factors: list[str] = []
         bearish_factors: list[str] = []
@@ -53,10 +57,13 @@ class FundamentalAnalyst:
         operating_cash_flow = f.get("operating_cash_flow")
         dividend_yield = f.get("dividend_yield")
 
+        # Growth
         if revenue_growth_yoy is not None:
             if revenue_growth_yoy > 0.05:
                 bullish_score += 1
-                bullish_factors.append("Revenue growth is positive and above a modest growth threshold.")
+                bullish_factors.append(
+                    "Revenue growth is positive and above a modest growth threshold."
+                )
             elif revenue_growth_yoy < 0:
                 bearish_score += 1
                 bearish_factors.append("Revenue growth is negative year-over-year.")
@@ -69,6 +76,7 @@ class FundamentalAnalyst:
                 bearish_score += 1
                 bearish_factors.append("Earnings growth is negative year-over-year.")
 
+        # Profitability
         if gross_margin is not None:
             if gross_margin > 0.40:
                 bullish_score += 1
@@ -80,7 +88,9 @@ class FundamentalAnalyst:
         if operating_margin is not None:
             if operating_margin > 0.15:
                 bullish_score += 1
-                bullish_factors.append("Operating margin indicates solid operating profitability.")
+                bullish_factors.append(
+                    "Operating margin indicates solid operating profitability."
+                )
             elif operating_margin < 0.05:
                 bearish_score += 1
                 bearish_factors.append("Operating margin is thin.")
@@ -109,27 +119,32 @@ class FundamentalAnalyst:
                 bearish_score += 1
                 bearish_factors.append("Return on assets is negative.")
 
+        # Leverage and liquidity
         if debt_to_equity is not None:
             if debt_to_equity > 2.0:
                 bearish_score += 1
-                bearish_factors.append("Debt-to-equity is elevated, implying higher leverage risk.")
+                bearish_factors.append(
+                    "Debt-to-equity appears elevated relative to a moderate leverage threshold."
+                )
                 risk_flags.append("Leverage risk")
-            elif debt_to_equity < 1.0:
-                bullish_score += 1
-                bullish_factors.append("Debt-to-equity is moderate.")
 
         if current_ratio is not None:
             if current_ratio >= 1.2:
                 bullish_score += 1
-                bullish_factors.append("Current ratio suggests adequate short-term liquidity.")
+                bullish_factors.append(
+                    "Current ratio suggests adequate short-term liquidity."
+                )
             elif current_ratio < 1.0:
                 bearish_score += 1
-                bearish_factors.append("Current ratio is below 1.0, suggesting weaker short-term liquidity.")
+                bearish_factors.append(
+                    "Current ratio is below 1.0, suggesting weaker short-term liquidity."
+                )
                 risk_flags.append("Liquidity risk")
 
         if quick_ratio is not None and quick_ratio < 1.0:
             risk_flags.append("Quick liquidity risk")
 
+        # Cash flow
         if free_cash_flow is not None:
             if free_cash_flow > 0:
                 bullish_score += 1
@@ -138,27 +153,44 @@ class FundamentalAnalyst:
                 bearish_score += 1
                 bearish_factors.append("Free cash flow is negative.")
 
-        if operating_cash_flow is not None and operating_cash_flow < 0:
-            bearish_score += 1
-            bearish_factors.append("Operating cash flow is negative.")
-            risk_flags.append("Cash flow risk")
+        if operating_cash_flow is not None:
+            if operating_cash_flow > 0:
+                bullish_score += 1
+                bullish_factors.append("Operating cash flow is positive.")
+            elif operating_cash_flow < 0:
+                bearish_score += 1
+                bearish_factors.append("Operating cash flow is negative.")
+                risk_flags.append("Cash flow risk")
 
+        # Valuation
         if pe_ratio_ttm is not None:
             if pe_ratio_ttm > 35:
                 bearish_score += 1
-                bearish_factors.append("Trailing P/E is high, suggesting valuation risk.")
+                bearish_factors.append(
+                    "Trailing P/E is high, suggesting valuation risk."
+                )
                 risk_flags.append("Valuation risk")
             elif 0 < pe_ratio_ttm < 20:
                 bullish_score += 1
-                bullish_factors.append("Trailing P/E is within a relatively moderate range.")
+                bullish_factors.append(
+                    "Trailing P/E is within a relatively moderate range."
+                )
 
         if pe_ratio_forward is not None and pe_ratio_ttm is not None:
             if pe_ratio_forward < pe_ratio_ttm:
                 bullish_score += 1
-                bullish_factors.append("Forward P/E is below trailing P/E, implying improving earnings expectations.")
+                bullish_factors.append(
+                    "Forward P/E is below trailing P/E, implying improving earnings expectations."
+                )
 
-        if dividend_yield is not None and dividend_yield > 0.02:
-            bullish_factors.append("Dividend yield provides some shareholder return support.")
+        # Dividend yield
+        if dividend_yield is not None:
+            if 0 < dividend_yield <= 0.10:
+                bullish_factors.append(
+                    "Dividend yield contributes some shareholder return support."
+                )
+            else:
+                risk_flags.append("Dividend yield scaling should be verified")
 
         score_diff = bullish_score - bearish_score
 
@@ -169,14 +201,22 @@ class FundamentalAnalyst:
         else:
             signal = "neutral"
 
-        confidence = min(0.95, 0.50 + abs(score_diff) * 0.07)
+        confidence = min(0.85, 0.50 + abs(score_diff) * 0.04)
 
         if signal == "bullish":
-            summary = "Fundamental indicators are broadly supportive, with stronger bullish than bearish evidence."
+            summary = (
+                "Fundamental indicators are broadly supportive, with stronger "
+                "bullish than bearish evidence."
+            )
         elif signal == "bearish":
-            summary = "Fundamental indicators are broadly weak, with stronger bearish than bullish evidence."
+            summary = (
+                "Fundamental indicators are broadly weak, with stronger bearish "
+                "than bullish evidence."
+            )
         else:
-            summary = "Fundamental indicators are mixed, without a strong directional edge."
+            summary = (
+                "Fundamental indicators are mixed, without a strong directional edge."
+            )
 
         return AnalystOutput(
             agent_name="FundamentalAnalyst",

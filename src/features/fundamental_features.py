@@ -4,31 +4,34 @@ Fundamental Feature Builder
 Summary
 -------
 This module reads the Yahoo Finance fundamentals snapshot parquet file
-and extracts a cleaned fundamental snapshot for a selected ticker.
+and extracts a cleaned and standardized fundamental snapshot for a
+selected ticker.
 
 Responsibilities
 ----------------
 - Load point-in-time fundamental snapshot data
 - Filter data for a target ticker
 - Select the most useful fields for analysis
-- Convert pandas/numpy values into JSON-safe Python types
-- Return a single fundamental snapshot dictionary
+- Convert pandas/numpy values into JSON-safe native Python types
+- Standardize percentage-like fields into decimal form
+- Return both normalized and raw feature dictionaries for downstream use
 
-Input
------
-- parquet_path: path to fundamentals snapshot parquet file
-- ticker: stock ticker
-- as_of_date: optional date filter; if omitted, use the latest available row
-
-Output
-------
-A dictionary containing fundamental features for one ticker.
+Standardization Rules
+---------------------
+- Percentage-like fields are normalized to decimal form
+  Example:
+    15.7   -> 0.157
+    0.157  -> 0.157
+    152    -> 1.52
+- Ratio / multiple fields are kept in their original numeric scale
+  Example:
+    pe_ratio_ttm, debt_to_equity, current_ratio
 """
 
 from __future__ import annotations
 
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 FUNDAMENTAL_COLUMNS = [
@@ -61,6 +64,42 @@ FUNDAMENTAL_COLUMNS = [
     "payout_ratio",
 ]
 
+ALREADY_DECIMAL_FIELDS = {
+    "gross_margin",
+    "operating_margin",
+    "net_margin",
+    "roa",
+    "roe",
+}
+
+PERCENTAGE_MAY_NEED_SCALING_FIELDS = {
+    "revenue_growth_yoy",
+    "earnings_growth_yoy",
+    "dividend_yield",
+    "payout_ratio",
+}
+
+RAW_SCALE_FIELDS = {
+    "market_cap",
+    "pe_ratio_ttm",
+    "pe_ratio_forward",
+    "price_to_book",
+    "ev_to_revenue",
+    "ev_to_ebitda",
+    "eps_ttm",
+    "eps_forward",
+    "book_value_per_share",
+    "debt_to_equity",
+    "current_ratio",
+    "quick_ratio",
+    "total_revenue",
+    "total_debt",
+    "total_cash",
+    "free_cash_flow",
+    "operating_cash_flow",
+    "beta",
+}
+
 
 def to_python_scalar(value):
     """
@@ -81,13 +120,52 @@ def to_python_scalar(value):
     return value
 
 
+def normalize_percentage_like(value: float | int | None) -> float | None:
+    """
+    Normalize percentage-like values to decimal form.
+
+    Examples
+    --------
+    15.7   -> 0.157
+    0.157  -> 0.157
+    152    -> 1.52
+    0.42   -> 0.42
+    -12.0  -> -0.12
+    """
+    if value is None:
+        return None
+
+    if abs(value) > 1:
+        return value / 100.0
+
+    return value
+
+
+def normalize_fundamental_value(field_name: str, value):
+    """
+    Normalize a raw fundamental value into the project's internal scale.
+    """
+    value = to_python_scalar(value)
+
+    if value is None:
+        return None
+
+    if field_name in ALREADY_DECIMAL_FIELDS:
+        return value
+
+    if field_name in PERCENTAGE_MAY_NEED_SCALING_FIELDS:
+        return normalize_percentage_like(value)
+
+    return value
+
+
 def build_fundamental_snapshot(
     parquet_path: str,
     ticker: str,
     as_of_date: str | None = None,
 ) -> dict:
     """
-    Build a fundamental snapshot for a ticker.
+    Build a standardized fundamental snapshot for a ticker.
 
     Parameters
     ----------
@@ -101,15 +179,32 @@ def build_fundamental_snapshot(
     Returns
     -------
     dict
-        Fundamental snapshot dictionary.
+        Fundamental snapshot dictionary containing:
+        - ticker
+        - analysis_date
+        - company_info
+        - fundamental_features (normalized)
+        - raw_fundamental_features (raw source values)
     """
     df = pd.read_parquet(parquet_path)
     df["ticker"] = df["ticker"].astype(str).str.upper()
     ticker = ticker.upper()
+
     df = df[df["ticker"] == ticker].copy()
 
     if df.empty:
-        raise ValueError(f"No fundamentals data found for ticker={ticker}")
+        available_tickers = sorted(
+            pd.read_parquet(parquet_path)["ticker"]
+            .astype(str)
+            .str.upper()
+            .dropna()
+            .unique()
+            .tolist()
+        )
+        raise ValueError(
+            f"No fundamentals data found for ticker={ticker}. "
+            f"Available tickers in fundamentals parquet: {available_tickers}"
+        )
 
     df["snapshot_date"] = pd.to_datetime(df["snapshot_date"])
     df = df.sort_values("snapshot_date")
@@ -119,14 +214,20 @@ def build_fundamental_snapshot(
         df = df[df["snapshot_date"] <= cutoff].copy()
 
     if df.empty:
-        raise ValueError(f"No fundamentals data found for ticker={ticker} on or before {as_of_date}")
+        raise ValueError(
+            f"No fundamentals data found for ticker={ticker} on or before {as_of_date}"
+        )
 
     row = df.iloc[-1]
 
-    features = {}
+    raw_features = {}
+    normalized_features = {}
+
     for col in FUNDAMENTAL_COLUMNS:
         if col in df.columns:
-            features[col] = to_python_scalar(row[col])
+            raw_value = to_python_scalar(row[col])
+            raw_features[col] = raw_value
+            normalized_features[col] = normalize_fundamental_value(col, raw_value)
 
     company_name = row["company_name"] if "company_name" in row.index else None
     sector = row["sector"] if "sector" in row.index else None
@@ -140,5 +241,6 @@ def build_fundamental_snapshot(
             "sector": None if pd.isna(sector) else str(sector),
             "industry": None if pd.isna(industry) else str(industry),
         },
-        "fundamental_features": features,
+        "fundamental_features": normalized_features,
+        "raw_fundamental_features": raw_features,
     }
