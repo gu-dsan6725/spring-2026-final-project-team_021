@@ -5,22 +5,18 @@ from fredapi import Fred
 
 # FRED API key
 FRED_KEY = "3b3e95c3c710ec27689f1b341582c671"
-
 fred = Fred(api_key=FRED_KEY)
 
 # date range
-START_DATE = "2025-07-01"
+START_DATE = "2025-04-01"
 END_DATE = "2025-12-31"
-
 
 # save directory
 BASE_DIR = "data/sample"
 MACRO_DIR = os.path.join(BASE_DIR, "macro")
 
-
 # macro indicators
 INDICATORS = {
-
     "Fed_Funds_Rate": "FEDFUNDS",
     "CPI": "CPIAUCSL",
     "Unemployment": "UNRATE",
@@ -58,9 +54,7 @@ def fetch_macro():
         macro_data[name] = series
 
     df = pd.DataFrame(macro_data)
-
     df.index = pd.to_datetime(df.index)
-
     df = df.sort_index()
 
     # forward fill lower frequency data
@@ -68,7 +62,6 @@ def fetch_macro():
 
     # convert to monthly frequency
     df = df.resample("M").last()
-
     return df
 
 
@@ -94,13 +87,9 @@ def compute_macro_features(df):
 def save_data(df):
 
     filepath = os.path.join(MACRO_DIR, "macro_data.csv")
-
     df = df.reset_index()
-
     df = df.rename(columns={"index": "Date"})
-
     df.to_csv(filepath, index=False)
-
     print("Saved:", filepath)
 
 
@@ -108,11 +97,8 @@ def save_data(df):
 def run_pipeline():
 
     ensure_dir()
-
     macro = fetch_macro()
-
     macro = compute_macro_features(macro)
-
     save_data(macro)
 
     print("\nMacro Data Preview:\n")
