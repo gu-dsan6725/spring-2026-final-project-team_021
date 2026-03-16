@@ -14,7 +14,7 @@ END_DATE = "2025-12-31"
 
 
 # save directory
-BASE_DIR = "data"
+BASE_DIR = "data/sample"
 MACRO_DIR = os.path.join(BASE_DIR, "macro")
 
 
