@@ -19,7 +19,7 @@ START_DATE = "2025-07-01"
 END_DATE = "2025-12-31"
 
 # save directory
-BASE_DIR = "data"
+BASE_DIR = "data/sample"
 NEWS_DIR = os.path.join(BASE_DIR, "news")
 
 
@@ -33,17 +33,6 @@ def ensure_dir():
     if not os.path.exists(NEWS_DIR):
         os.makedirs(NEWS_DIR)
 
-
-
-# ticker normalization
-def normalize_ticker(ticker):
-
-    if ticker == "BRK.B":
-        return "BRK-B"
-
-    return ticker
-
-
 # convert timestamp
 def convert_timestamp(df):
 
@@ -51,7 +40,6 @@ def convert_timestamp(df):
         df["datetime"] = pd.to_datetime(df["datetime"], unit="s")
 
     return df
-
 
 
 # fetch news
@@ -63,7 +51,7 @@ def fetch_news():
 
         print("Fetching news for:", ticker)
 
-        t = normalize_ticker(ticker)
+        t = ticker
 
         news = client.company_news(
             t,
@@ -91,7 +79,6 @@ def fetch_news():
 
     return all_news
 
-
 # save news
 def save_news(news_dict):
 
@@ -109,7 +96,6 @@ def save_news(news_dict):
         df.to_csv(filepath, index=False)
 
         print("Saved:", filepath)
-
 
 # combine dataset
 def combine_news(news_dict):
@@ -129,7 +115,6 @@ def combine_news(news_dict):
     combined = combined.sort_values("datetime")
 
     return combined
-
 
 # pipeline
 def run_pipeline():
