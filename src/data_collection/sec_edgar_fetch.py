@@ -9,7 +9,7 @@ HEADERS = {
 
 TICKERS = ["AAPL", "GOOGL", "LLY", "BRK.B", "AMZN", "XOM"]
 
-SAVE_DIR = "data/fundamentals"
+SAVE_DIR = "data/sample/SEC_EDGAR_fundamentals"
 
 START_YEAR = 2024
 
