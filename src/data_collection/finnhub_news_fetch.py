@@ -10,7 +10,7 @@ API_KEY = "d6qooa9r01qgdhqbpgm0d6qooa9r01qgdhqbpgmg"
 client = finnhub.Client(api_key=API_KEY)
 
 
-# tickers
+# stock universe
 TICKERS = ["AAPL", "GOOGL", "LLY", "BRK.B", "AMZN", "XOM"]
 
 
@@ -18,20 +18,16 @@ TICKERS = ["AAPL", "GOOGL", "LLY", "BRK.B", "AMZN", "XOM"]
 START_DATE = "2025-07-01"
 END_DATE = "2025-12-31"
 
+
 # save directory
 BASE_DIR = "data/sample"
 NEWS_DIR = os.path.join(BASE_DIR, "news")
 
-
-
 # create directories
 def ensure_dir():
 
-    if not os.path.exists(BASE_DIR):
-        os.makedirs(BASE_DIR)
-
-    if not os.path.exists(NEWS_DIR):
-        os.makedirs(NEWS_DIR)
+    os.makedirs(BASE_DIR, exist_ok=True)
+    os.makedirs(NEWS_DIR, exist_ok=True)
 
 # convert timestamp
 def convert_timestamp(df):
@@ -42,42 +38,76 @@ def convert_timestamp(df):
     return df
 
 
+# generate monthly ranges
+def generate_month_ranges(start, end):
+    months = pd.date_range(start, end, freq="MS")
+    ranges = []
+
+    for m in months:
+        start_date = m.strftime("%Y-%m-%d")
+        end_date = (m + pd.offsets.MonthEnd(1)).strftime("%Y-%m-%d")
+        ranges.append((start_date, end_date))
+    return ranges
+
+
 # fetch news
 def fetch_news():
 
     all_news = {}
 
+    ranges = generate_month_ranges(START_DATE, END_DATE)
+
     for ticker in TICKERS:
 
-        print("Fetching news for:", ticker)
+        print("\nFetching news for:", ticker)
 
-        t = ticker
+        frames = []
 
-        news = client.company_news(
-            t,
-            _from=START_DATE,
-            to=END_DATE
-        )
+        for start, end in ranges:
 
-        df = pd.DataFrame(news)
+            print("   range:", start, "->", end)
 
-        if not df.empty:
+            news = client.company_news(
+                ticker,
+                _from=start,
+                to=end
+            )
 
-            df = df[[
-                "headline",
-                "summary",
-                "datetime",
-                "source",
-                "url"
-            ]]
+            df = pd.DataFrame(news)
 
-            df = convert_timestamp(df)
+            if not df.empty:
 
-            df["ticker"] = ticker
+                df = df[[
+                    "headline",
+                    "summary",
+                    "datetime",
+                    "source",
+                    "url"
+                ]]
 
-        all_news[ticker] = df
+                df = convert_timestamp(df)
+
+                df["ticker"] = ticker
+
+                frames.append(df)
+
+        if len(frames) > 0:
+
+            combined = pd.concat(frames)
+
+            # remove duplicates
+            combined = combined.drop_duplicates(subset=["headline", "datetime"])
+
+            combined = combined.sort_values("datetime")
+
+            all_news[ticker] = combined
+
+        else:
+
+            all_news[ticker] = pd.DataFrame()
 
     return all_news
+
 
 # save news
 def save_news(news_dict):
@@ -97,6 +127,7 @@ def save_news(news_dict):
 
         print("Saved:", filepath)
 
+
 # combine dataset
 def combine_news(news_dict):
 
@@ -114,7 +145,10 @@ def combine_news(news_dict):
 
     combined = combined.sort_values("datetime")
 
+    combined = combined.drop_duplicates(subset=["headline", "datetime"])
+
     return combined
+
 
 # pipeline
 def run_pipeline():
@@ -136,7 +170,7 @@ def run_pipeline():
 
         combined.to_csv(combined_path, index=False)
 
-        print("Saved combined news:", combined_path)
+        print("\nSaved combined news:", combined_path)
 
         print("\nNews preview:\n")
 
