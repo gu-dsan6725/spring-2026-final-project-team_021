@@ -136,14 +136,26 @@ def main() -> None:
     """Run analyst pipeline for all requested tickers."""
     args = parse_args()
 
+    failed_tickers = []
+
     for ticker in args.ticker:
-        run_for_ticker(
-            ticker=ticker,
-            price_path=args.price_path,
-            fundamentals_path=args.fundamentals_path,
-            output_dir=args.output_dir,
-            analysis_date=args.date,
-        )
+        try:
+            run_for_ticker(
+                ticker=ticker,
+                price_path=args.price_path,
+                fundamentals_path=args.fundamentals_path,
+                output_dir=args.output_dir,
+                analysis_date=args.date,
+            )
+        except Exception as e:
+            failed_tickers.append((ticker, str(e)))
+            print(f"\n=== {ticker} FAILED ===")
+            print(f"Reason: {e}")
+
+    if failed_tickers:
+        print("\nSummary of failed tickers:")
+        for ticker, reason in failed_tickers:
+            print(f"- {ticker}: {reason}")
 
 
 if __name__ == "__main__":
