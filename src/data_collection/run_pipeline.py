@@ -1,21 +1,20 @@
 """
-DebateTrader Data Pipeline — Milestone 2 entry point.
+DebateTrader Data Pipeline entry point.
 
 Steps:
-  1. Yahoo Finance  — OHLCV + fundamentals       (no API key needed)
-  2. Alpha Vantage  — OHLCV for cross-validation  (ALPHA_VANTAGE_API_KEY_1/_2/_3)
-  3. Price Validator — merge & flag discrepancies  (requires steps 1 + 2)
-  4. Google Trends  — retail investor attention    (no API key needed)
+  1. Price          — daily OHLCV via Yahoo Finance      (no API key needed)
+  2. Fundamentals   — quarterly SEC EDGAR + Yahoo Finance (no API key needed)
+                      → quarterly_fundamentals.parquet
+  3. Google Trends  — retail investor attention          (no API key needed)
 
 Usage (from project root):
     python src/data_collection/run_pipeline.py
 
     # Skip individual steps:
-    python src/data_collection/run_pipeline.py --skip-alpha-vantage --skip-validation
+    python src/data_collection/run_pipeline.py --skip-price --skip-fundamentals
 
 Environment (.env):
-    ALPHA_VANTAGE_API_KEY_1 / _2 / _3   — for step 2
-    GROQ_API_KEY                         — for step 4 (search term generation)
+    GROQ_API_KEY   — for step 3 (search term generation via Groq)
 """
 from __future__ import annotations
 
@@ -30,7 +29,7 @@ load_dotenv()   # Load .env before any other import reads os.environ
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 from src.data_collection.config import (
     TICKERS, SAMPLE_START, SAMPLE_END,
-    DATA_DIR, PRICE_DIR, FUNDAMENTALS_DIR,
+    DATA_DIR, FUNDAMENTALS_DIR,
 )
 
 logging.basicConfig(
@@ -45,56 +44,26 @@ logger = logging.getLogger(__name__)
 # Step runners
 # ---------------------------------------------------------------------------
 
-def step_yfinance(skip: bool) -> None:
+def step_price(skip: bool) -> None:
     if skip:
-        logger.info("[SKIP] Yahoo Finance")
+        logger.info("[SKIP] Price")
         return
     logger.info("=" * 60)
-    logger.info("STEP 1 / 4  —  Yahoo Finance (OHLCV + fundamentals)")
+    logger.info("STEP 1 / 3  —  Price (Yahoo Finance OHLCV)")
     logger.info("=" * 60)
-    from src.data_collection.yahoo_finance_collector import run
+    from src.data_collection.price_collector import run
     run(tickers=TICKERS, start=SAMPLE_START, end=SAMPLE_END)
 
 
-def step_alpha_vantage(skip: bool) -> None:
+def step_fundamentals(skip: bool) -> None:
     if skip:
-        logger.info("[SKIP] Alpha Vantage")
-        return
-    has_key = any(
-        os.environ.get(f"ALPHA_VANTAGE_API_KEY_{i}", "").strip()
-        for i in range(1, 4)
-    )
-    if not has_key:
-        logger.warning(
-            "[SKIP] Alpha Vantage — no ALPHA_VANTAGE_API_KEY_N found in .env.\n"
-            "       Free keys: https://www.alphavantage.co/support/#api-key"
-        )
+        logger.info("[SKIP] Fundamentals")
         return
     logger.info("=" * 60)
-    logger.info("STEP 2 / 4  —  Alpha Vantage (price cross-validation)")
+    logger.info("STEP 2 / 3  —  Fundamentals (SEC EDGAR primary + Yahoo Finance supplementary)")
     logger.info("=" * 60)
-    from src.data_collection.alpha_vantage_collector import run
-    run(tickers=TICKERS, start=SAMPLE_START, end=SAMPLE_END)
-
-
-def step_validation(skip: bool) -> None:
-    if skip:
-        logger.info("[SKIP] Price validation")
-        return
-    yf_path = os.path.join(PRICE_DIR, "yfinance_ohlcv.parquet")
-    av_path = os.path.join(PRICE_DIR, "alpha_vantage_ohlcv.parquet")
-    if not (os.path.exists(yf_path) and os.path.exists(av_path)):
-        logger.warning(
-            "[SKIP] Price validation — one or both source files missing.\n"
-            f"       Expected: {yf_path}\n"
-            f"                 {av_path}"
-        )
-        return
-    logger.info("=" * 60)
-    logger.info("STEP 3 / 4  —  Price cross-validation (YF vs AV)")
-    logger.info("=" * 60)
-    from src.data_collection.price_validator import run
-    run()
+    from src.data_collection.fundamental_collector import run
+    run(tickers=TICKERS, end=SAMPLE_END)
 
 
 def step_google_trends(skip: bool) -> None:
@@ -102,24 +71,34 @@ def step_google_trends(skip: bool) -> None:
         logger.info("[SKIP] Google Trends")
         return
     logger.info("=" * 60)
-    logger.info("STEP 4 / 4  —  Google Trends (retail attention proxy)")
+    logger.info("STEP 3 / 3  —  Google Trends (retail attention proxy)")
     logger.info("=" * 60)
 
-    # Pass company names so Groq can generate better search terms
-    # (e.g. "BRK.B" + "Berkshire Hathaway Inc." → "Berkshire Hathaway stock")
+    # Pass company names so Groq can generate better search terms.
+    # Read from the integrated quarterly fundamentals parquet (company_name
+    # is not stored there), so fall back to a static mapping derived from
+    # yfinance .info on first use, or just use ticker symbols.
     import pandas as pd
     company_names: dict[str, str] = {}
-    snapshot_path = os.path.join(FUNDAMENTALS_DIR, "yfinance_fundamentals_snapshot.parquet")
-    if os.path.exists(snapshot_path):
-        snap = pd.read_parquet(snapshot_path)
-        company_names = dict(
-            zip(snap["ticker"], snap["company_name"].fillna(""))
-        )
-        logger.info(f"  Loaded {len(company_names)} company names for Groq prompts.")
+    quarterly_path = os.path.join(FUNDAMENTALS_DIR, "quarterly_fundamentals.parquet")
+    if os.path.exists(quarterly_path):
+        # Company names aren't stored in the fundamentals parquet; fetch them
+        # from yfinance .info (read-only, no file saved — just for Groq prompts).
+        try:
+            import yfinance as yf
+            from src.data_collection.config import YFINANCE_TICKER_MAP
+            for ticker in TICKERS:
+                yf_sym = YFINANCE_TICKER_MAP.get(ticker, ticker)
+                name = yf.Ticker(yf_sym).info.get("longName", "")
+                if name:
+                    company_names[ticker] = name
+            logger.info(f"  Loaded {len(company_names)} company names for Groq prompts.")
+        except Exception as exc:
+            logger.warning(f"  Could not fetch company names: {exc}. Using ticker symbols.")
     else:
         logger.warning(
-            "  yfinance_fundamentals_snapshot.parquet not found. "
-            "Groq will use ticker symbols only."
+            "  quarterly_fundamentals.parquet not found. "
+            "Run step 4 first, or Groq will use ticker symbols only."
         )
 
     from src.data_collection.google_trends_collector import run
@@ -172,20 +151,18 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="DebateTrader data collection pipeline (Milestone 2)"
     )
-    parser.add_argument("--skip-yfinance",      action="store_true")
-    parser.add_argument("--skip-alpha-vantage", action="store_true")
-    parser.add_argument("--skip-validation",    action="store_true")
-    parser.add_argument("--skip-google-trends",  action="store_true")
+    parser.add_argument("--skip-price",         action="store_true")
+    parser.add_argument("--skip-fundamentals",  action="store_true")
+    parser.add_argument("--skip-google-trends", action="store_true")
     args = parser.parse_args()
 
-    logger.info("DebateTrader Data Pipeline — Milestone 2")
+    logger.info("DebateTrader Data Pipeline")
     logger.info(f"  Tickers : {TICKERS}")
     logger.info(f"  Period  : {SAMPLE_START} → {SAMPLE_END}")
     logger.info(f"  Output  : {DATA_DIR}/")
 
-    step_yfinance(args.skip_yfinance)
-    step_alpha_vantage(args.skip_alpha_vantage)
-    step_validation(args.skip_validation)
+    step_price(args.skip_price)
+    step_fundamentals(args.skip_fundamentals)
     step_google_trends(args.skip_google_trends)
 
     print_summary()

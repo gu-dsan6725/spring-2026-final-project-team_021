@@ -9,7 +9,7 @@ ticker and saves both outputs as JSON files.
 Responsibilities
 ----------------
 - Build a technical snapshot from price parquet data
-- Build a fundamental snapshot from fundamentals snapshot parquet data
+- Build a fundamental snapshot from quarterly fundamentals parquet data
 - Run both analyst agents
 - Save the resulting reports to JSON files
 
@@ -38,8 +38,8 @@ from src.features.fundamental_features import build_fundamental_snapshot
 from src.features.technical_features import build_technical_snapshot
 
 
-DEFAULT_PRICE_PATH = "data/sample/price/yfinance_ohlcv.parquet"
-DEFAULT_FUNDAMENTALS_PATH = "data/sample/fundamentals/yfinance_fundamentals_snapshot.parquet"
+DEFAULT_PRICE_PATH = "data/sample/price/price_ohlcv.parquet"
+DEFAULT_FUNDAMENTALS_PATH = "data/sample/fundamentals/quarterly_fundamentals.parquet"
 DEFAULT_OUTPUT_DIR = "outputs/analyst_reports"
 
 
@@ -121,7 +121,7 @@ def parse_args() -> argparse.Namespace:
         "--fundamentals-path",
         type=str,
         default=DEFAULT_FUNDAMENTALS_PATH,
-        help="Path to fundamentals snapshot parquet file",
+        help="Path to quarterly fundamentals parquet file",
     )
     parser.add_argument(
         "--output-dir",
