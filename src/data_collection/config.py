@@ -31,6 +31,8 @@ DATA_DIR         = "data/sample"
 PRICE_DIR        = os.path.join(DATA_DIR, "price")
 FUNDAMENTALS_DIR = os.path.join(DATA_DIR, "fundamentals")
 SENTIMENT_DIR    = os.path.join(DATA_DIR, "sentiment")
+NEWS_DIR = os.path.join(DATA_DIR, "news")
+MACRO_DIR = os.path.join(DATA_DIR, "macro")
 
 # ---------------------------------------------------------------------------
 # Google Trends  (retail attention proxy for Sentiment Analyst)
