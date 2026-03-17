@@ -26,8 +26,9 @@ Schema (long format, one row = one ticker × one week):
   date              — week start (Monday), datetime64
   ticker            — canonical ticker symbol
   search_interest   — 0–100 relative search volume (Google Trends scale)
-  search_term       — keyword sent to Google Trends
-  geo               — search region ("US")
+
+Note: search_term is cached in data/cache/search_terms_cache.json.
+      geo is always "US" (configured in config.py via GT_GEO).
 
 Downstream consumer: Sentiment Analyst agent
 """
@@ -44,7 +45,7 @@ from pytrends.request import TrendReq
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 from src.data_collection.config import (
-    TICKERS, SAMPLE_START, SAMPLE_END, SENTIMENT_DIR,
+    TICKERS, SAMPLE_START, SAMPLE_END, SENTIMENT_DIR, GT_RATE_LIMIT_SLEEP, GT_GEO,
 )
 
 logging.basicConfig(
@@ -59,8 +60,8 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 CACHE_FILE       = os.path.join("data", "cache", "search_terms_cache.json")
 GROQ_MODEL       = "llama-3.1-8b-instant"   # fast + cheap for this task
-GEO              = "US"                      # US retail investor focus
-RATE_LIMIT_SLEEP = 5.0                       # seconds between pytrends requests
+GEO              = GT_GEO                    # from config.py
+RATE_LIMIT_SLEEP = GT_RATE_LIMIT_SLEEP       # from config.py
 
 
 # ---------------------------------------------------------------------------
@@ -259,8 +260,6 @@ def collect_google_trends(
                     "date":            pd.Timestamp(date).normalize(),
                     "ticker":          ticker,
                     "search_interest": round(float(value), 2),
-                    "search_term":     term,
-                    "geo":             geo,
                 })
             logger.info(
                 f"    {len(series)} weeks  "

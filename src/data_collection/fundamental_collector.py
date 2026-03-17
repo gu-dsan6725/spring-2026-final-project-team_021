@@ -86,6 +86,7 @@ from src.data_collection.config import (
     YFINANCE_TICKER_MAP,
     SAMPLE_END,
     FUNDAMENTALS_DIR,
+    FUNDAMENTAL_HISTORY_YEARS,
 )
 
 logging.basicConfig(
@@ -101,7 +102,7 @@ logger = logging.getLogger(__name__)
 
 SEC_HEADERS = {"User-Agent": "DebateTrader Research (lh1085@georgetown.edu)"}
 SEC_RATE_SLEEP = 0.2          # seconds between SEC API calls (be polite)
-FUNDAMENTAL_HISTORY_YEARS = 6  # years of quarterly history to pull
+# FUNDAMENTAL_HISTORY_YEARS is imported from config.py
 
 # SEC EDGAR sometimes uses different ticker symbols
 SEC_TICKER_MAP = {"BRK.B": "BRK-B"}
@@ -113,6 +114,20 @@ _KEY_COLS = ["period_end", "fiscal_year", "fiscal_period"]
 # Filters out YTD / full-year accumulations from income-statement XBRL entries.
 _QUARTER_DAYS_MIN = 60
 _QUARTER_DAYS_MAX = 120
+
+# Duration window for annual (10-K) filings used in Q4 derivation.
+_ANNUAL_DAYS_MIN = 330
+_ANNUAL_DAYS_MAX = 400
+
+# Flow metrics: Q4 = Annual − (Q1+Q2+Q3).  Balance-sheet metrics are
+# instantaneous, so Q4 value = the annual year-end value directly.
+_FLOW_METRICS = frozenset([
+    "revenue", "gross_profit", "cost_of_revenue", "operating_income",
+    "net_income", "r_and_d_expense", "sga_expense", "interest_expense",
+    "income_tax_expense", "depreciation_amortization", "capex",
+    "ebitda", "free_cash_flow", "operating_cash_flow",
+    "investing_cash_flow", "financing_cash_flow",
+])
 
 # ---------------------------------------------------------------------------
 # SEC EDGAR helpers
@@ -205,6 +220,13 @@ def _extract_sec_series(
         df["val"] = pd.to_numeric(df["val"], errors="coerce")
         df = df.drop(columns=["_fy_int"])
 
+        # --- Sanity check: period_end year must be within ±1 of fiscal_year ---
+        # Rejects mislabeled XBRL entries (e.g. comparative-period data tagged
+        # with the current fiscal_year) that would corrupt Q1–Q3 sums.
+        # Allows a 1-year gap for companies like AAPL whose Q1 ends in
+        # December of the prior calendar year (fiscal_year=2022, period_end.year=2021).
+        df = df[abs(df["period_end"].dt.year - df["fiscal_year"]) <= 1].copy()
+
         # --- For flow metrics: drop YTD / annual accumulations ---
         # Many companies report both a 9-month YTD figure (in 10-Q) and a
         # Q3-only figure; the `start` field lets us compute the duration.
@@ -219,11 +241,28 @@ def _extract_sec_series(
         if df.empty:
             continue
 
-        # --- Deduplicate: same (period_end, fiscal_period, fiscal_year) →
-        #     keep the row with the latest filed_date (handles amendments) ---
+        # --- Deduplicate ---
+        # Step 1: same (period_end, fp, fy) → keep latest filed_date (handles amendments)
         df = df.sort_values("filed_date").drop_duplicates(
             subset=["period_end", "fiscal_period", "fiscal_year"], keep="last"
         )
+        # Step 2: same (fp, fy) → pick the row with the LATEST period_end.
+        #
+        # Flow metrics (is_flow=True): period_end is driven by the reporting window;
+        #   latest filed_date = most recently amended figure → sort by filed_date.
+        # Balance-sheet metrics (is_flow=False): multiple period_end values appear
+        #   for the same (fy, fp) because 10-Q filings include both the CURRENT
+        #   quarter-end date AND the prior year-end as a comparative column.
+        #   The correct row is always the one with the LATER period_end (actual
+        #   quarter end), not the comparative prior-year-end.  Sort by period_end.
+        if is_flow:
+            df = df.sort_values("filed_date").drop_duplicates(
+                subset=["fiscal_year", "fiscal_period"], keep="last"
+            )
+        else:
+            df = df.sort_values("period_end").drop_duplicates(
+                subset=["fiscal_year", "fiscal_period"], keep="last"
+            )
 
         df = (
             df[["period_end", "filed_date", "fiscal_year", "fiscal_period", "val"]]
@@ -234,6 +273,147 @@ def _extract_sec_series(
         return df
 
     return None
+
+
+def _extract_sec_annual_series(
+    facts: dict,
+    concepts: list[str],
+    start_year: int,
+    is_flow: bool = True,
+) -> Optional[pd.DataFrame]:
+    """
+    Extract full-year (10-K) data for a metric.  Used to derive Q4 values.
+
+    Returns a DataFrame with columns:
+        period_end, filed_date, fiscal_year, <concept_name>
+    One row per fiscal_year (latest 10-K if multiple).
+    Returns None if no valid annual data found.
+    """
+    us_gaap = facts.get("facts", {}).get("us-gaap", {})
+
+    for concept in concepts:
+        if concept not in us_gaap:
+            continue
+        usd_units = us_gaap[concept].get("units", {}).get("USD")
+        if not usd_units:
+            continue
+
+        df = pd.DataFrame(usd_units)
+        needed = {"end", "val", "fp", "fy", "form", "filed"}
+        if not needed.issubset(df.columns):
+            continue
+
+        # Annual 10-K rows only
+        df = df[(df["fp"] == "FY") & (df["form"] == "10-K")].copy()
+        df["_fy_int"] = pd.to_numeric(df["fy"], errors="coerce")
+        df = df[df["_fy_int"] >= start_year].copy()
+
+        if df.empty:
+            continue
+
+        df["period_end"] = pd.to_datetime(df["end"])
+        df["filed_date"] = pd.to_datetime(df["filed"])
+        df["fiscal_year"] = df["_fy_int"].astype(int)
+        df["val"] = pd.to_numeric(df["val"], errors="coerce")
+        df = df.drop(columns=["_fy_int"])
+
+        # Sanity check: period_end year must be within ±1 of fiscal_year
+        df = df[abs(df["period_end"].dt.year - df["fiscal_year"]) <= 1].copy()
+
+        # For flow metrics: keep only full-year durations (~365 days)
+        if is_flow and "start" in df.columns:
+            df["_start"] = pd.to_datetime(df["start"], errors="coerce")
+            df["_dur"] = (df["period_end"] - df["_start"]).dt.days
+            df = df[
+                (df["_dur"] >= _ANNUAL_DAYS_MIN) & (df["_dur"] <= _ANNUAL_DAYS_MAX)
+            ].copy()
+            df = df.drop(columns=["_start", "_dur"])
+
+        if df.empty:
+            continue
+
+        # One row per fiscal_year: keep latest filed_date
+        df = df.sort_values("filed_date").drop_duplicates(
+            subset=["fiscal_year"], keep="last"
+        )
+
+        df = (
+            df[["period_end", "filed_date", "fiscal_year", "val"]]
+            .rename(columns={"val": concept})
+            .reset_index(drop=True)
+        )
+        return df
+
+    return None
+
+
+def _derive_q4_rows(
+    quarterly_df: pd.DataFrame,
+    annual_frames: dict[str, pd.DataFrame],
+    is_flow_map: dict[str, bool],
+) -> pd.DataFrame:
+    """
+    Derive Q4 rows from annual (FY) and quarterly (Q1+Q2+Q3) data.
+
+    For flow metrics  : Q4 = Annual − (Q1 + Q2 + Q3)
+    For balance-sheet : Q4 = annual year-end value (same physical date)
+
+    Only generates Q4 for fiscal years where Q1, Q2, AND Q3 are all present
+    in quarterly_df and where annual data exists.
+
+    Returns a DataFrame of Q4 rows (may be empty).
+    """
+    if not annual_frames:
+        return pd.DataFrame()
+
+    # Determine period_end and filed_date for Q4 from ANY annual frame
+    annual_meta: dict[int, dict] = {}
+    for metric, adf in annual_frames.items():
+        for _, arow in adf.iterrows():
+            fy = int(arow["fiscal_year"])
+            if fy not in annual_meta:
+                annual_meta[fy] = {
+                    "period_end": arow["period_end"],
+                    "filed_date": arow["filed_date"],
+                }
+
+    q4_rows = []
+    for fy, meta in annual_meta.items():
+        q_sub = quarterly_df[quarterly_df["fiscal_year"] == fy]
+        present = set(q_sub["fiscal_period"].tolist())
+        if not {"Q1", "Q2", "Q3"}.issubset(present):
+            continue  # incomplete quarter data — skip
+
+        row: dict = {
+            "fiscal_year":   fy,
+            "fiscal_period": "Q4",
+            "period_end":    meta["period_end"],
+            "filed_date":    meta["filed_date"],
+        }
+
+        for metric, adf in annual_frames.items():
+            a_rows = adf[adf["fiscal_year"] == fy]
+            if a_rows.empty or metric not in a_rows.columns:
+                continue
+            annual_val = a_rows.iloc[0][metric]
+
+            if is_flow_map.get(metric, True):
+                # Flow: Q4 = Annual − sum(Q1+Q2+Q3)
+                if metric not in q_sub.columns:
+                    row[metric] = float("nan")
+                else:
+                    q_vals = q_sub[q_sub["fiscal_period"].isin(["Q1", "Q2", "Q3"])][metric]
+                    if pd.isna(annual_val) or q_vals.isna().all():
+                        row[metric] = float("nan")
+                    else:
+                        row[metric] = annual_val - q_vals.sum(min_count=1)
+            else:
+                # Balance sheet: year-end value IS Q4
+                row[metric] = annual_val
+
+        q4_rows.append(row)
+
+    return pd.DataFrame(q4_rows) if q4_rows else pd.DataFrame()
 
 
 # ---------------------------------------------------------------------------
@@ -360,40 +540,60 @@ def _fetch_sec_fundamentals(cik: str, start_year: int) -> Optional[pd.DataFrame]
     ]
 
     frames: dict[str, pd.DataFrame] = {}
+    annual_frames: dict[str, pd.DataFrame] = {}
+    is_flow_map: dict[str, bool] = {}
+
     for metric, concepts, is_flow in metric_specs:
+        is_flow_map[metric] = is_flow
+
+        # Quarterly (Q1–Q3) series
         s = _extract_sec_series(facts, concepts, start_year, is_flow)
         if s is not None:
-            # Rename the concept column to the canonical metric name
             val_col = [c for c in s.columns if c not in _KEY_COLS + ["filed_date"]][0]
             frames[metric] = s.rename(columns={val_col: metric})
         else:
-            logger.debug(f"    {metric}: no SEC data found")
+            logger.debug(f"    {metric}: no SEC quarterly data found")
+
+        # Annual (FY / 10-K) series — used to derive Q4
+        a = _extract_sec_annual_series(facts, concepts, start_year, is_flow)
+        if a is not None:
+            val_col = [c for c in a.columns if c not in ["period_end", "filed_date", "fiscal_year"]][0]
+            annual_frames[metric] = a.rename(columns={val_col: metric})
 
     if not frames:
         return None
 
-    # --- Merge all metric frames on key columns ---
-    # filed_date may differ per metric; take the max (most recent filing)
-    # across all metrics for each (period_end, fiscal_year, fiscal_period).
+    # --- Merge all quarterly metric frames on (fiscal_year, fiscal_period) ---
+    # Join on (fy, fp) only; reconcile period_end by taking the MAX across all
+    # sources (the most-recent date is almost always the correct period_end).
+    _MERGE_KEYS = ["fiscal_year", "fiscal_period"]
     merged: Optional[pd.DataFrame] = None
-    for metric, df in frames.items():
+    pe_cols: list[str] = []   # track all period_end columns across merges
+    fd_cols: list[str] = []   # track all filed_date columns
+
+    for i, (metric, df) in enumerate(frames.items()):
         metric_col = [c for c in df.columns if c not in _KEY_COLS + ["filed_date"]][0]
-        right = df[_KEY_COLS + ["filed_date", metric_col]].copy()
+        pe_col = f"_pe_{i}"
+        fd_col = f"_fd_{i}"
+        right = (
+            df[_MERGE_KEYS + ["period_end", "filed_date", metric_col]]
+            .rename(columns={"period_end": pe_col, "filed_date": fd_col})
+        )
+        pe_cols.append(pe_col)
+        fd_cols.append(fd_col)
 
         if merged is None:
             merged = right
         else:
-            merged = pd.merge(
-                merged.rename(columns={"filed_date": "_fd_l"}),
-                right.rename(columns={"filed_date": "_fd_r"}),
-                on=_KEY_COLS,
-                how="outer",
-            )
-            merged["filed_date"] = merged[["_fd_l", "_fd_r"]].max(axis=1)
-            merged = merged.drop(columns=["_fd_l", "_fd_r"])
+            merged = pd.merge(merged, right, on=_MERGE_KEYS, how="outer")
 
     if merged is None:
         return None
+
+    # Reconcile period_end: use MAX across all concept sources (most accurate)
+    merged["period_end"] = merged[pe_cols].max(axis=1)
+    merged["filed_date"] = merged[fd_cols].max(axis=1)
+    merged = merged.drop(columns=pe_cols + fd_cols)
 
     # Fallback: derive total_liabilities = assets − equity when direct value
     # is unavailable (common for financial companies like BRK.B).
@@ -404,8 +604,14 @@ def _fetch_sec_fundamentals(cik: str, start_year: int) -> Optional[pd.DataFrame]
             )
             logger.debug("  total_liabilities derived from assets − equity")
 
-    merged = merged.sort_values("period_end").reset_index(drop=True)
-    logger.info(f"  SEC: {len(merged)} quarterly rows")
+    # --- Derive Q4 rows from annual (10-K) data ---
+    q4_df = _derive_q4_rows(merged, annual_frames, is_flow_map)
+    if not q4_df.empty:
+        logger.info(f"  SEC: derived {len(q4_df)} Q4 rows from annual filings")
+        merged = pd.concat([merged, q4_df], ignore_index=True)
+
+    merged = merged.sort_values(["fiscal_year", "fiscal_period"]).reset_index(drop=True)
+    logger.info(f"  SEC: {len(merged)} rows total (Q1–Q4)")
     return merged
 
 
@@ -565,7 +771,6 @@ def _fetch_yf_quarterly(ticker: str) -> Optional[pd.DataFrame]:
         sub = stmt_df[["period_end", col]].rename(columns={col: metric}).dropna(
             subset=[metric]
         )
-        nonlocal result
         if result is None:
             result = sub
         else:
@@ -679,14 +884,17 @@ def _compute_ratios(df: pd.DataFrame) -> pd.DataFrame:
     if "net_income" in df and "revenue" in df:
         df["net_margin"] = _safe_div(df["net_income"], df["revenue"])
 
-    # --- Return ratios ---
+    # --- Return ratios (annualized: quarterly figure × 4) ---
+    # Multiplying by 4 makes these comparable to the annual ROE/ROA figures
+    # reported by financial data providers and avoids understatement vs. a
+    # company reporting on an annual basis.
     if "net_income" in df and "total_equity" in df:
-        df["roe"] = _safe_div(df["net_income"], df["total_equity"])
+        df["roe"] = _safe_div(df["net_income"] * 4, df["total_equity"])
     if "net_income" in df and "total_assets" in df:
-        df["roa"] = _safe_div(df["net_income"], df["total_assets"])
-    # Asset turnover: how efficiently assets generate revenue
+        df["roa"] = _safe_div(df["net_income"] * 4, df["total_assets"])
+    # Asset turnover annualized: (quarterly revenue × 4) / ending assets
     if "revenue" in df and "total_assets" in df:
-        df["asset_turnover"] = _safe_div(df["revenue"], df["total_assets"])
+        df["asset_turnover"] = _safe_div(df["revenue"] * 4, df["total_assets"])
 
     # --- Liquidity ratios ---
     if "current_assets" in df and "current_liabilities" in df:
@@ -731,11 +939,14 @@ def _compute_yoy_growth(df: pd.DataFrame) -> pd.DataFrame:
         revenue_growth_yoy[Q2 FY2025]
             = (revenue[Q2 FY2025] − revenue[Q2 FY2024]) / |revenue[Q2 FY2024]|
 
+    When the prior-year value is negative (e.g. a loss quarter), the growth
+    percentage is economically meaningless and is set to NaN.
+
     This correctly removes seasonality effects; computing QoQ growth on
     a quarterly time series is generally not meaningful for fundamental
     analysis of cyclical businesses.
     """
-    df = df.copy().sort_values(["fiscal_period", "fiscal_year"])
+    df = df.copy().sort_values("period_end").reset_index(drop=True)
 
     for metric, growth_col in [
         ("revenue",           "revenue_growth_yoy"),
@@ -745,12 +956,10 @@ def _compute_yoy_growth(df: pd.DataFrame) -> pd.DataFrame:
         if metric not in df.columns:
             continue
 
-        # Build prior-year frame: shift fiscal_year + 1 so it aligns with
-        # the "current year" row of the same fiscal_period.
         prior = (
             df[["fiscal_period", "fiscal_year", metric]]
             .copy()
-            .assign(fiscal_year=df["fiscal_year"] + 1)
+            .assign(fiscal_year=lambda x: x["fiscal_year"] + 1)
             .rename(columns={metric: f"_{metric}_prior"})
         )
         df = pd.merge(df, prior, on=["fiscal_period", "fiscal_year"], how="left")
@@ -759,6 +968,8 @@ def _compute_yoy_growth(df: pd.DataFrame) -> pd.DataFrame:
             df[metric] - df[prior_col],
             df[prior_col].abs(),
         )
+        # Growth rate is undefined when the base period is negative
+        df.loc[df[prior_col] < 0, growth_col] = float("nan")
         df = df.drop(columns=[prior_col])
 
     return df.sort_values("period_end").reset_index(drop=True)

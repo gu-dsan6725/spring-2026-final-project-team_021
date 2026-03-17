@@ -11,7 +11,6 @@ NOTE: Fundamental data collection is handled separately by
 
 Downstream consumers:
   - Technical Analyst agent  (OHLCV)
-  - Price Validator          (cross-validation against Alpha Vantage)
 """
 from __future__ import annotations
 
@@ -48,6 +47,8 @@ def collect_ohlcv(
     output_dir: str = PRICE_DIR,
 ) -> pd.DataFrame:
     """Download daily OHLCV from Yahoo Finance for all tickers."""
+    # yfinance end is exclusive, so add 1 day to include the end date itself
+    end_exclusive = (pd.to_datetime(end) + pd.Timedelta(days=1)).strftime("%Y-%m-%d")
     logger.info(f"[PriceCollector] Collecting OHLCV  {start} → {end}  tickers={tickers}")
     os.makedirs(output_dir, exist_ok=True)
 
@@ -56,7 +57,7 @@ def collect_ohlcv(
         yf_sym = YFINANCE_TICKER_MAP.get(canonical, canonical)
         logger.info(f"  {canonical} (yf={yf_sym}) ...")
         try:
-            df = yf.Ticker(yf_sym).history(start=start, end=end, auto_adjust=False)
+            df = yf.Ticker(yf_sym).history(start=start, end=end_exclusive, auto_adjust=False)
 
             if df.empty:
                 logger.warning(f"  No data returned for {canonical}")
