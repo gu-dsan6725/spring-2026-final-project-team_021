@@ -11,7 +11,7 @@ from pathlib import Path
 PARQUET_FILES = [
     "data/sample/price/price_ohlcv.parquet",
     "data/sample/fundamentals/quarterly_fundamentals.parquet",
-    "data/sample/sentiment/google_trends_weekly.parquet",
+    "data/sample/sentiment/google_trends_daily.parquet",
 ]
 
 for parquet_path in PARQUET_FILES:

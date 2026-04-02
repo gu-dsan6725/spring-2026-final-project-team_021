@@ -18,12 +18,12 @@ Design decisions:
      Cache lives at data/cache/search_terms_cache.json (commit to git).
      Groq fallback: "<ticker> stock" if GROQ_API_KEY is absent or call fails.
 
-  3. Weekly resolution (matches DebateTrader's weekly run cycle).
+  3. Daily resolution (pytrends returns daily data for timeframes ≤ 269 days).
 
-Output: data/sample/sentiment/google_trends_weekly.parquet
+Output: data/sample/sentiment/google_trends_daily.parquet
 
-Schema (long format, one row = one ticker × one week):
-  date              — week start (Monday), datetime64
+Schema (long format, one row = one ticker × one day):
+  date              — date, datetime64
   ticker            — canonical ticker symbol
   search_interest   — 0–100 relative search volume (Google Trends scale)
 
@@ -158,7 +158,7 @@ def _fetch_single(
     max_retries: int = 3,
 ) -> pd.Series | None:
     """
-    Fetch weekly interest_over_time for a single search term.
+    Fetch daily interest_over_time for a single search term.
     Returns a Series indexed by date, or None on failure.
 
     Note: retries/backoff_factor are NOT passed to TrendReq because
@@ -209,7 +209,7 @@ def collect_google_trends(
     output_dir: str = SENTIMENT_DIR,
 ) -> pd.DataFrame:
     """
-    Collect weekly Google Trends search interest for all tickers.
+    Collect daily Google Trends search interest for all tickers.
 
     Args:
         tickers       : list of canonical ticker symbols
@@ -219,7 +219,7 @@ def collect_google_trends(
         output_dir    : where to write the parquet file
 
     Returns:
-        Long-format DataFrame (one row per ticker × week).
+        Long-format DataFrame (one row per ticker × day).
     """
     company_names = company_names or {}
     timeframe     = f"{start} {end}"
@@ -283,7 +283,7 @@ def collect_google_trends(
         .reset_index(drop=True)
     )
 
-    out_path = os.path.join(output_dir, "google_trends_weekly.parquet")
+    out_path = os.path.join(output_dir, "google_trends_daily.parquet")
     df_long.to_parquet(out_path, index=False, engine="pyarrow")
     logger.info(
         f"[GoogleTrends] Saved → {out_path}  ({len(df_long)} rows)"
