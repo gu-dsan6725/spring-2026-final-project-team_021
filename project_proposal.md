@@ -14,15 +14,14 @@ The primary objective of this project is to evaluate the overall effectiveness o
 
 ## Data Sources
 
-| Source | Data Type | Update Frequency | Access Method |
-|--------|-----------|-----------------|---------------|
-| Yahoo Finance (`yfinance`) | Historical OHLCV data, basic fundamentals (P/E, EPS, revenue growth) | Daily | Python library |
-| Alpha Vantage | Historical and real-time price data, used to cross-validate Yahoo Finance | Daily | REST API |
-| SEC EDGAR | 10-K and 10-Q filings for fundamental analysis | Quarterly | REST API |
-| Finnhub News API | Company-specific news headlines and summaries | Daily | REST API |
-| FRED (`fredapi`) | Macroeconomic indicators: Fed funds rate, CPI, yield curve, unemployment | Monthly / as released | Python library |
-| Stocktwits API | Retail investor sentiment scores per ticker | Daily | REST API |
-| Alpaca Markets API | Paper trading execution, real-time quotes during market hours | Real-time | REST API |
+| Source | Data Type | Analyst Agent | Update Frequency | Access Method |
+|--------|-----------|---------------|-----------------|---------------|
+| Yahoo Finance (`yfinance`) | Historical OHLCV price data; supplementary quarterly fundamentals (P/E, margins, cash flow) to fill SEC EDGAR gaps | Technical Analyst; Fundamental Analyst | Daily | Python library |
+| SEC EDGAR (XBRL API) | 10-K and 10-Q filings: income statement, balance sheet, and cash flow metrics | Fundamental Analyst | Quarterly | REST API |
+| FRED (`fredapi`) | Macroeconomic indicators: Fed funds rate, CPI, 10Y Treasury yield, unemployment rate, GDP, industrial production | Macro Analyst | Monthly | Python library |
+| Finnhub News API | Company-specific news headlines and summaries | News & Trend Analyst | Daily | REST API |
+| Google Trends (`pytrends`) | Daily retail investor search interest (0–100 scale) per ticker | News & Trend Analyst | Daily | Python library |
+| Alpaca Markets API | Paper trading execution; real-time quotes during market hours | (execution layer, not analyst input) | Real-time | REST API |
 
 
 ## Agent Architecture
@@ -35,20 +34,21 @@ The primary objective of this project is to evaluate the overall effectiveness o
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
-|                     DATA LAYER (Daily)                        |
-| yfinance  Alpha Vantage  SEC EDGAR  Finnhub  FRED  Stocktwits |
+|                      DATA LAYER                               |
+|     yfinance   SEC EDGAR   FRED   Finnhub   Google Trends     |
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
-|              ANALYST TEAM (Weekly, parallel)                  |
+|                  ANALYST TEAM (parallel)                      |
 |                                                               |
 |  +-------------+  +-------------+  +----------+  +----------+ |
-|  | Fundamental |  |  Technical  |  |  News &  |  |Sentiment | |
-|  |  Analyst    |  |  Analyst    |  |  Macro   |  |Analyst   | |
-|  |             |  |             |  | Analyst  |  |          | |
-|  | P/E, EPS,   |  | RSI, MACD,  |  | FOMC,    |  |Stocktwits| |
-|  | Revenue,    |  | Moving Avg, |  | CPI,News |  |          | |
-|  | Margins     |  | Volume      |  | headlines|  |          | |
+|  | Fundamental |  |  Technical  |  |  Macro   |  | News &   | |
+|  |  Analyst    |  |  Analyst    |  |  Analyst |  | Trend    | |
+|  |             |  |             |  |          |  | Analyst  | |
+|  | SEC EDGAR,  |  | RSI, MACD,  |  | Fed rate,|  | Finnhub  | |
+|  | yfinance    |  | Moving Avg, |  | CPI, GDP,|  | news,    | |
+|  | (Quarterly) |  | (Weekly)     |  | (Monthly)|  | G-Trends | |
+|  |             |  |             |  |          |  | (Weekly)  | |
 |  +------+------+  +------+------+  +----+-----+  +----+-----+ |
 |         +----------------+--------------+------------+        |
 |                       Structured Reports                      |
