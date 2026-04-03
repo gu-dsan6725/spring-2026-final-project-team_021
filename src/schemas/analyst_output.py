@@ -1,31 +1,47 @@
 """
-Shared Analyst Output Schema
+Shared analyst output schema.
 
-Summary
--------
-This module defines the standard JSON-friendly output format used by
-the Technical Analyst and Fundamental Analyst.
-
-Purpose
--------
-It ensures both analyst agents return results in the same structure so
-their outputs can be saved, compared, and later consumed by downstream
-agents or evaluation scripts.
+This dataclass-based model keeps the same interface used elsewhere in the
+project (`model_dump`, `model_dump_json`) without requiring pydantic.
 """
 
-from typing import Any, Literal
+from __future__ import annotations
 
-from pydantic import BaseModel, Field
+import json
+from dataclasses import asdict, dataclass, field
+from typing import Any
+
+try:
+    from typing import Literal
+except ImportError:  # pragma: no cover - Python < 3.8 compatibility
+    from typing_extensions import Literal
 
 
-class AnalystOutput(BaseModel):
-    agent_name: str = Field(..., description="Name of the analyst agent")
-    ticker: str = Field(..., description="Stock ticker symbol")
-    analysis_date: str = Field(..., description="Analysis date in YYYY-MM-DD format")
-    signal: Literal["bullish", "bearish", "neutral"] = Field(..., description="Directional signal")
-    confidence: float = Field(..., ge=0.0, le=1.0, description="Confidence score between 0 and 1")
-    summary: str = Field(..., description="Short natural language summary of the analysis")
-    bullish_factors: list[str] = Field(default_factory=list, description="Bullish evidence")
-    bearish_factors: list[str] = Field(default_factory=list, description="Bearish evidence")
-    risk_flags: list[str] = Field(default_factory=list, description="Risk warnings or caveats")
-    key_metrics_used: dict[str, Any] = Field(default_factory=dict, description="Key metrics referenced")
+class _SchemaBase:
+    """Small compatibility layer matching the subset of pydantic APIs in use."""
+
+    def model_dump(self, mode: str | None = None) -> dict:
+        _ = mode
+        return asdict(self)
+
+    def model_dump_json(self, indent: int | None = None) -> str:
+        return json.dumps(
+            self.model_dump(mode="json"),
+            indent=indent,
+            ensure_ascii=False,
+            default=str,
+        )
+
+
+@dataclass
+class AnalystOutput(_SchemaBase):
+    agent_name: str
+    ticker: str
+    analysis_date: str
+    signal: Literal["bullish", "bearish", "neutral"]
+    confidence: float
+    summary: str
+    bullish_factors: list[str] = field(default_factory=list)
+    bearish_factors: list[str] = field(default_factory=list)
+    risk_flags: list[str] = field(default_factory=list)
+    key_metrics_used: dict[str, Any] = field(default_factory=dict)

@@ -1,0 +1,225 @@
+{
+  "agent_name": "JudgeAgent",
+  "week_end_date": "2025-08-31",
+  "input_data_date": "2025-08-31",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_summary": "For the week ending 2025-08-31, the judge prefers a concentrated long book in AMZN, BRK.B, GOOGL, LLY, XOM, AAPL while avoiding or underweighting the remaining names.",
+  "allocation_method": "Allocate 100% across stocks with bullish judge signals, proportional to each stock's judge conviction score; bearish and neutral names receive 0%.",
+  "holdings": [
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "Amazon's strong fundamentals, technical indicators, and supportive macro conditions make it an attractive investment opportunity.",
+      "rationale": [
+        "Amazon's revenue growth is positive and above a modest growth threshold.",
+        "The company's gross margin is strong, and its net margin is healthy.",
+        "Return on equity is strong, and return on assets is solid.",
+        "Free cash flow is positive, and operating cash flow is positive.",
+        "The stock has positive momentum, with the 12-day EMA above the 26-day EMA and MACD above its signal line."
+      ],
+      "dissenting_points": [
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Low relative trading volume",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
+      "rationale": [
+        "BullAgent's thesis is more comprehensive and well-supported, covering both fundamental and technical factors.",
+        "BullAgent's supporting evidence is more robust, including multiple indicators of positive momentum and solid operating profitability.",
+        "BearAgent's counter-evidence is more focused on the negative revenue growth, but BullAgent's rebuttal points effectively address this concern.",
+        "The analyst reports also support the Bull case, with FundamentalAnalyst and NewsTrendsAnalyst presenting bullish signals and TechnicalAnalyst's neutral signal not outweighing the bullish factors."
+      ],
+      "dissenting_points": [
+        "BearAgent's mixed macro conditions and negative revenue growth are valid concerns that could impact the stock's performance.",
+        "The overbought risk is a concern, as it suggests that the stock may be due for a correction."
+      ],
+      "risk_flags": [
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "The bull case presented by BullAgent is more convincing than the bear case presented by BearAgent, with a stronger thesis and more robust supporting evidence.",
+      "rationale": [
+        "BullAgent's thesis is more comprehensive, covering both fundamental and technical indicators, as well as macro and news trends.",
+        "BullAgent's supporting evidence is more robust, including strong return on equity and operating cash flow, positive technical indicators, and supportive macro and news trends.",
+        "BearAgent's counter-evidence is not sufficient to outweigh the bearish fundamental and macro evidence presented by BullAgent."
+      ],
+      "dissenting_points": [
+        "BearAgent's high debt-to-equity ratio and negative industrial production growth suggest that the stock's positive momentum may be unsustainable.",
+        "BearAgent's weak consumer sentiment and housing permits growth are bearish indicators that should be considered."
+      ],
+      "risk_flags": [
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "Eli Lilly and Company (LLY) is poised for continued growth driven by strong profitability, positive revenue growth, and supportive macro conditions.",
+      "rationale": [
+        "Strong profitability and liquidity metrics outweigh the company's elevated leverage and weak momentum.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
+        "Macro conditions are mixed, but the yield-curve proxy is positive, which is less recessionary than an inverted curve."
+      ],
+      "dissenting_points": [
+        "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "The stock has negative 20-day return momentum."
+      ],
+      "risk_flags": [
+        "Leverage risk",
+        "Overbought risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-07",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "ExxonMobil (XOM) presents a strong bullish case due to solid fundamental and technical factors, despite some mixed macro conditions and overbought risk.",
+      "rationale": [
+        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows (FundamentalAnalyst)",
+        "Positive momentum with multiple bullish factors, but at risk of being overbought (TechnicalAnalyst)",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence (NewsTrendsAnalyst)"
+      ],
+      "dissenting_points": [
+        "Mixed macro conditions, with some negative growth indicators (MacroAnalyst)",
+        "Overbought risk, with RSI above 70 (TechnicalAnalyst)",
+        "Quick liquidity risk (FundamentalAnalyst)"
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news (NewsTrendsAnalyst)",
+        "Overbought risk (TechnicalAnalyst)",
+        "Quick liquidity risk (FundamentalAnalyst)",
+        "Retail attention spike may indicate crowded positioning (NewsTrendsAnalyst)"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-08-31",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.65,
+      "summary": "AAPL is poised for continued growth driven by strong fundamental metrics, positive technical momentum, and a favorable macroeconomic backdrop.",
+      "rationale": [
+        "Strong fundamental metrics, including positive revenue growth, solid profitability, and healthy margins.",
+        "Positive technical momentum, with price above the 20-day moving average and positive return momentum.",
+        "Favorable macroeconomic backdrop, with a positive yield-curve proxy and growing retail sales."
+      ],
+      "dissenting_points": [
+        "Liquidity concerns, with a current ratio below 1.0, suggesting weaker short-term liquidity.",
+        "Weakening technical momentum, with MACD below its signal line, indicating weakening momentum."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-08-31",
+        "macro": "2025-08-31",
+        "news_trends": "2025-08-31"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    }
+  ],
+  "bullish_tickers": [
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM",
+    "AAPL"
+  ],
+  "bearish_tickers": [],
+  "neutral_tickers": [],
+  "total_allocated_pct": 100.0,
+  "cash_pct": 0.0
+}

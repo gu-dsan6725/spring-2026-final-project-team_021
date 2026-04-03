@@ -27,6 +27,8 @@ A dictionary containing a technical feature snapshot for one ticker.
 
 from __future__ import annotations
 
+from pathlib import Path
+
 import pandas as pd
 
 
@@ -53,6 +55,14 @@ def compute_macd(series: pd.Series) -> tuple[pd.Series, pd.Series]:
     return macd, signal
 
 
+def _read_price_table(path: str) -> pd.DataFrame:
+    """Read price input from parquet or CSV based on file suffix."""
+    file_path = Path(path)
+    if file_path.suffix.lower() == ".csv":
+        return pd.read_csv(file_path)
+    return pd.read_parquet(file_path)
+
+
 def build_technical_snapshot(
     parquet_path: str,
     ticker: str,
@@ -75,13 +85,20 @@ def build_technical_snapshot(
     dict
         Technical snapshot dictionary.
     """
-    df = pd.read_parquet(parquet_path)
+    df = _read_price_table(parquet_path)
     df["ticker"] = df["ticker"].astype(str).str.upper()
     ticker = ticker.upper()
     df = df[df["ticker"] == ticker].copy()
 
     if df.empty:
-        available_tickers = sorted(pd.read_parquet(parquet_path)["ticker"].astype(str).str.upper().dropna().unique().tolist())
+        available_tickers = sorted(
+            _read_price_table(parquet_path)["ticker"]
+            .astype(str)
+            .str.upper()
+            .dropna()
+            .unique()
+            .tolist()
+        )
         raise ValueError(
             f"No price data found for ticker={ticker}. "
             f"Available tickers in price parquet: {available_tickers}"

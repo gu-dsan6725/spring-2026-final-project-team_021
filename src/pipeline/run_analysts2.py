@@ -30,6 +30,7 @@ DEFAULT_PRICE_PATH = "data/sample/price/yfinance_ohlcv.parquet"
 DEFAULT_FUNDAMENTALS_PATH = "data/sample/fundamentals/yfinance_fundamentals_snapshot.parquet"
 DEFAULT_NEWS_PATH = "data/sample/news/all_news.csv"
 DEFAULT_MACRO_PATH = "data/sample/macro/macro_data.csv"
+DEFAULT_GOOGLE_TRENDS_PATH = "data/sample/sentiment/google_trends_daily.csv"
 DEFAULT_OUTPUT_DIR = "outputs/analyst_reports2"
 
 
@@ -56,6 +57,7 @@ def run_for_ticker(
     fundamentals_path: str,
     news_path: str,
     macro_path: str,
+    google_trends_path: str,
     output_dir: str,
     analysis_date: str | None = None,
 ) -> None:
@@ -82,6 +84,7 @@ def run_for_ticker(
     news_macro_snapshot = build_news_macro_snapshot(
         news_csv_path=news_path,
         macro_csv_path=macro_path,
+        google_trends_csv_path=google_trends_path,
         ticker=ticker,
         as_of_date=analysis_date,
         company_name=company_name,
@@ -153,6 +156,12 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_OUTPUT_DIR,
         help="Directory where JSON reports will be saved",
     )
+    parser.add_argument(
+        "--google-trends-path",
+        type=str,
+        default=DEFAULT_GOOGLE_TRENDS_PATH,
+        help="Path to Google Trends CSV file",
+    )
     return parser.parse_args()
 
 
@@ -170,6 +179,7 @@ def main() -> None:
                 fundamentals_path=args.fundamentals_path,
                 news_path=args.news_path,
                 macro_path=args.macro_path,
+                google_trends_path=args.google_trends_path,
                 output_dir=args.output_dir,
                 analysis_date=args.date,
             )
