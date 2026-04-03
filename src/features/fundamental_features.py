@@ -36,6 +36,8 @@ Standardization Rules
 """
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -188,6 +190,55 @@ def normalize_fundamental_value(field_name: str, value) -> float | None:
     return value
 
 
+def _read_fundamental_table(path: str) -> pd.DataFrame:
+    """Read fundamentals input from parquet or CSV based on file suffix."""
+    file_path = Path(path)
+    if file_path.suffix.lower() == ".csv":
+        return pd.read_csv(file_path)
+    return pd.read_parquet(file_path)
+
+
+def _snapshot_from_row(row, ticker: str | None = None) -> dict:
+    """Build the standard snapshot dictionary from a selected fundamentals row."""
+    resolved_ticker = ticker or str(row["ticker"]).upper()
+
+    raw_features: dict = {}
+    normalized_features: dict = {}
+    for col in FUNDAMENTAL_COLUMNS:
+        if col in row.index:
+            raw_value = to_python_scalar(row[col])
+            raw_features[col] = raw_value
+            normalized_features[col] = normalize_fundamental_value(col, raw_value)
+
+    period_end = row["period_end"] if "period_end" in row.index else None
+    fiscal_year = row["fiscal_year"] if "fiscal_year" in row.index else None
+    fiscal_period = row["fiscal_period"] if "fiscal_period" in row.index else None
+    filed_date = pd.to_datetime(row["filed_date"]).date()
+
+    return {
+        "ticker": resolved_ticker,
+        "analysis_date": str(filed_date),
+        "period_end": (
+            str(pd.to_datetime(period_end).date())
+            if period_end is not None and not pd.isna(period_end)
+            else None
+        ),
+        "fiscal_info": {
+            "fiscal_year": None if fiscal_year is None or pd.isna(fiscal_year) else int(fiscal_year),
+            "fiscal_period": None if fiscal_period is None or pd.isna(fiscal_period) else str(fiscal_period),
+        },
+        "fundamental_features": normalized_features,
+        "raw_fundamental_features": raw_features,
+    }
+
+
+def build_fundamental_snapshot_from_row(row, ticker: str | None = None) -> dict:
+    """Build a standardized fundamental snapshot directly from one row."""
+    if isinstance(row, dict):
+        row = pd.Series(row)
+    return _snapshot_from_row(row=row, ticker=ticker)
+
+
 # ---------------------------------------------------------------------------
 # Main builder
 # ---------------------------------------------------------------------------
@@ -222,15 +273,19 @@ def build_fundamental_snapshot(
         fundamental_features      : dict  (normalized values)
         raw_fundamental_features  : dict  (raw source values)
     """
-    df = pd.read_parquet(parquet_path)
+    df = _read_fundamental_table(parquet_path)
     df["ticker"] = df["ticker"].astype(str).str.upper()
     ticker = ticker.upper()
 
     df = df[df["ticker"] == ticker].copy()
     if df.empty:
         available = sorted(
-            pd.read_parquet(parquet_path)["ticker"]
-            .astype(str).str.upper().dropna().unique().tolist()
+            _read_fundamental_table(parquet_path)["ticker"]
+            .astype(str)
+            .str.upper()
+            .dropna()
+            .unique()
+            .tolist()
         )
         raise ValueError(
             f"No fundamentals data found for ticker={ticker}. "
@@ -246,36 +301,16 @@ def build_fundamental_snapshot(
         df = df[df["filed_date"] <= cutoff].copy()
 
     if df.empty:
+        full_df = _read_fundamental_table(parquet_path)
+        full_df["ticker"] = full_df["ticker"].astype(str).str.upper()
+        earliest_filed = full_df[full_df["ticker"] == ticker]["filed_date"].min()
         raise ValueError(
             f"No fundamentals data available for ticker={ticker} "
             f"with filed_date <= {as_of_date}. "
             f"Earliest filed_date in dataset: "
-            f"{pd.read_parquet(parquet_path)[pd.read_parquet(parquet_path)['ticker'].str.upper() == ticker]['filed_date'].min()}"
+            f"{earliest_filed}"
         )
 
     # Most recently filed row (latest information available as of as_of_date)
     row = df.iloc[-1]
-
-    raw_features: dict = {}
-    normalized_features: dict = {}
-    for col in FUNDAMENTAL_COLUMNS:
-        if col in df.columns:
-            raw_value = to_python_scalar(row[col])
-            raw_features[col] = raw_value
-            normalized_features[col] = normalize_fundamental_value(col, raw_value)
-
-    period_end = row["period_end"] if "period_end" in row.index else None
-    fiscal_year = row["fiscal_year"] if "fiscal_year" in row.index else None
-    fiscal_period = row["fiscal_period"] if "fiscal_period" in row.index else None
-
-    return {
-        "ticker": ticker,
-        "analysis_date": str(row["filed_date"].date()),
-        "period_end": str(pd.to_datetime(period_end).date()) if period_end is not None and not pd.isna(period_end) else None,
-        "fiscal_info": {
-            "fiscal_year": None if fiscal_year is None or pd.isna(fiscal_year) else int(fiscal_year),
-            "fiscal_period": None if fiscal_period is None or pd.isna(fiscal_period) else str(fiscal_period),
-        },
-        "fundamental_features": normalized_features,
-        "raw_fundamental_features": raw_features,
-    }
+    return _snapshot_from_row(row=row, ticker=ticker)

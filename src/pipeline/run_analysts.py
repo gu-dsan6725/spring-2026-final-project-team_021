@@ -63,10 +63,11 @@ def run_for_ticker(
         ticker=ticker,
         as_of_date=analysis_date,
     )
+    effective_analysis_date = analysis_date or technical_snapshot["analysis_date"]
     fundamental_snapshot = build_fundamental_snapshot(
         parquet_path=fundamentals_path,
         ticker=ticker,
-        as_of_date=analysis_date,
+        as_of_date=effective_analysis_date,
     )
 
     technical_agent = TechnicalAnalyst()
@@ -75,7 +76,7 @@ def run_for_ticker(
     technical_report = technical_agent.analyze(technical_snapshot)
     fundamental_report = fundamental_agent.analyze(fundamental_snapshot)
 
-    report_date = analysis_date or technical_report.analysis_date
+    report_date = effective_analysis_date
 
     technical_output_path = os.path.join(
         output_dir,
