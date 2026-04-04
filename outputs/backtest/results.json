@@ -1,0 +1,323 @@
+{
+  "initial_capital": 1000000.0,
+  "price_file": "data/sample/price/price_ohlcv.parquet",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "strategy": {
+    "periods": [
+      {
+        "entry_date": "2025-08-04",
+        "exit_date": "2025-08-11",
+        "holdings": {
+          "AMZN": {
+            "weight_pct": 33.34,
+            "entry_price": 217.4,
+            "exit_price": 221.78,
+            "exit_price_col": "open",
+            "return_pct": 2.0147,
+            "contribution_pct": 0.6717
+          },
+          "BRK.B": {
+            "weight_pct": 33.33,
+            "entry_price": 468.05,
+            "exit_price": 466.46,
+            "exit_price_col": "open",
+            "return_pct": -0.3397,
+            "contribution_pct": -0.1132
+          },
+          "GOOGL": {
+            "weight_pct": 33.33,
+            "entry_price": 190.29,
+            "exit_price": 200.94,
+            "exit_price_col": "open",
+            "return_pct": 5.5967,
+            "contribution_pct": 1.8654
+          }
+        },
+        "portfolio_return_pct": 2.4239,
+        "capital_start": 1000000.0,
+        "capital_end": 1024238.73,
+        "week_end_date": "2025-08-03",
+        "defensive_mode": false,
+        "rules_triggered": []
+      },
+      {
+        "entry_date": "2025-08-11",
+        "exit_date": "2025-08-18",
+        "holdings": {
+          "AAPL": {
+            "weight_pct": 20.0,
+            "entry_price": 227.92,
+            "exit_price": 231.7,
+            "exit_price_col": "open",
+            "return_pct": 1.6585,
+            "contribution_pct": 0.3317
+          },
+          "AMZN": {
+            "weight_pct": 20.0,
+            "entry_price": 221.78,
+            "exit_price": 230.23,
+            "exit_price_col": "open",
+            "return_pct": 3.8101,
+            "contribution_pct": 0.762
+          },
+          "GOOGL": {
+            "weight_pct": 20.0,
+            "entry_price": 200.94,
+            "exit_price": 204.2,
+            "exit_price_col": "open",
+            "return_pct": 1.6224,
+            "contribution_pct": 0.3245
+          },
+          "LLY": {
+            "weight_pct": 20.0,
+            "entry_price": 629.42,
+            "exit_price": 695.02,
+            "exit_price_col": "open",
+            "return_pct": 10.4223,
+            "contribution_pct": 2.0845
+          },
+          "XOM": {
+            "weight_pct": 20.0,
+            "entry_price": 107.11,
+            "exit_price": 106.1,
+            "exit_price_col": "open",
+            "return_pct": -0.943,
+            "contribution_pct": -0.1886
+          }
+        },
+        "portfolio_return_pct": 3.3141,
+        "capital_start": 1024238.73,
+        "capital_end": 1058182.56,
+        "week_end_date": "2025-08-10",
+        "defensive_mode": false,
+        "rules_triggered": []
+      },
+      {
+        "entry_date": "2025-08-18",
+        "exit_date": "2025-08-25",
+        "holdings": {
+          "AAPL": {
+            "weight_pct": 20.0,
+            "entry_price": 231.7,
+            "exit_price": 226.48,
+            "exit_price_col": "open",
+            "return_pct": -2.2529,
+            "contribution_pct": -0.4506
+          },
+          "AMZN": {
+            "weight_pct": 20.0,
+            "entry_price": 230.23,
+            "exit_price": 227.35,
+            "exit_price_col": "open",
+            "return_pct": -1.2509,
+            "contribution_pct": -0.2502
+          },
+          "BRK.B": {
+            "weight_pct": 20.0,
+            "entry_price": 477.97,
+            "exit_price": 489.01,
+            "exit_price_col": "open",
+            "return_pct": 2.3098,
+            "contribution_pct": 0.462
+          },
+          "GOOGL": {
+            "weight_pct": 20.0,
+            "entry_price": 204.2,
+            "exit_price": 206.43,
+            "exit_price_col": "open",
+            "return_pct": 1.0921,
+            "contribution_pct": 0.2184
+          },
+          "XOM": {
+            "weight_pct": 20.0,
+            "entry_price": 106.1,
+            "exit_price": 110.9,
+            "exit_price_col": "open",
+            "return_pct": 4.524,
+            "contribution_pct": 0.9048
+          }
+        },
+        "portfolio_return_pct": 0.8844,
+        "capital_start": 1058182.56,
+        "capital_end": 1067541.21,
+        "week_end_date": "2025-08-17",
+        "defensive_mode": false,
+        "rules_triggered": []
+      },
+      {
+        "entry_date": "2025-08-25",
+        "exit_date": "2025-09-02",
+        "holdings": {
+          "AAPL": {
+            "weight_pct": 20.0,
+            "entry_price": 226.48,
+            "exit_price": 229.25,
+            "exit_price_col": "open",
+            "return_pct": 1.2231,
+            "contribution_pct": 0.2446
+          },
+          "AMZN": {
+            "weight_pct": 20.0,
+            "entry_price": 227.35,
+            "exit_price": 223.52,
+            "exit_price_col": "open",
+            "return_pct": -1.6846,
+            "contribution_pct": -0.3369
+          },
+          "GOOGL": {
+            "weight_pct": 20.0,
+            "entry_price": 206.43,
+            "exit_price": 208.44,
+            "exit_price_col": "open",
+            "return_pct": 0.9737,
+            "contribution_pct": 0.1947
+          },
+          "LLY": {
+            "weight_pct": 20.0,
+            "entry_price": 711.0,
+            "exit_price": 727.99,
+            "exit_price_col": "open",
+            "return_pct": 2.3896,
+            "contribution_pct": 0.4779
+          },
+          "XOM": {
+            "weight_pct": 20.0,
+            "entry_price": 110.9,
+            "exit_price": 114.18,
+            "exit_price_col": "open",
+            "return_pct": 2.9576,
+            "contribution_pct": 0.5915
+          }
+        },
+        "portfolio_return_pct": 1.1719,
+        "capital_start": 1067541.21,
+        "capital_end": 1080051.4,
+        "week_end_date": "2025-08-24",
+        "defensive_mode": false,
+        "rules_triggered": []
+      },
+      {
+        "entry_date": "2025-09-02",
+        "exit_date": "2025-09-08",
+        "holdings": {
+          "AMZN": {
+            "weight_pct": 16.67,
+            "entry_price": 223.52,
+            "exit_price": 234.94,
+            "exit_price_col": "open",
+            "return_pct": 5.1092,
+            "contribution_pct": 0.8517
+          },
+          "BRK.B": {
+            "weight_pct": 16.67,
+            "entry_price": 504.24,
+            "exit_price": 499.0,
+            "exit_price_col": "open",
+            "return_pct": -1.0392,
+            "contribution_pct": -0.1732
+          },
+          "GOOGL": {
+            "weight_pct": 16.67,
+            "entry_price": 208.44,
+            "exit_price": 235.47,
+            "exit_price_col": "open",
+            "return_pct": 12.9678,
+            "contribution_pct": 2.1617
+          },
+          "LLY": {
+            "weight_pct": 16.67,
+            "entry_price": 727.99,
+            "exit_price": 729.71,
+            "exit_price_col": "open",
+            "return_pct": 0.2363,
+            "contribution_pct": 0.0394
+          },
+          "XOM": {
+            "weight_pct": 16.67,
+            "entry_price": 114.18,
+            "exit_price": 109.73,
+            "exit_price_col": "open",
+            "return_pct": -3.8974,
+            "contribution_pct": -0.6497
+          },
+          "AAPL": {
+            "weight_pct": 16.65,
+            "entry_price": 229.25,
+            "exit_price": 239.3,
+            "exit_price_col": "open",
+            "return_pct": 4.3839,
+            "contribution_pct": 0.7299
+          }
+        },
+        "portfolio_return_pct": 2.9598,
+        "capital_start": 1080051.4,
+        "capital_end": 1112018.78,
+        "week_end_date": "2025-08-31",
+        "defensive_mode": false,
+        "rules_triggered": []
+      }
+    ],
+    "metrics": {
+      "num_periods": 5,
+      "total_return_pct": 11.2019,
+      "annualised_return_pct": 201.6936,
+      "sharpe_ratio": 14.3937,
+      "max_drawdown_pct": 0.0,
+      "win_rate_pct": 100.0,
+      "avg_weekly_return_pct": 2.1508,
+      "weekly_return_std_pct": 1.0775
+    }
+  },
+  "benchmark_equal_weight": {
+    "description": "Equal-weight buy-and-hold of all 6 tickers, rebalanced each period",
+    "periods": [
+      {
+        "entry_date": "2025-08-04",
+        "exit_date": "2025-08-11",
+        "portfolio_return_pct": -0.0653,
+        "capital_end": 999347.38
+      },
+      {
+        "entry_date": "2025-08-11",
+        "exit_date": "2025-08-18",
+        "portfolio_return_pct": 3.173,
+        "capital_end": 1031056.33
+      },
+      {
+        "entry_date": "2025-08-18",
+        "exit_date": "2025-08-25",
+        "portfolio_return_pct": 1.1202,
+        "capital_end": 1042606.31
+      },
+      {
+        "entry_date": "2025-08-25",
+        "exit_date": "2025-09-02",
+        "portfolio_return_pct": 1.4956,
+        "capital_end": 1058199.88
+      },
+      {
+        "entry_date": "2025-09-02",
+        "exit_date": "2025-09-08",
+        "portfolio_return_pct": 2.9601,
+        "capital_end": 1089523.51
+      }
+    ],
+    "metrics": {
+      "num_periods": 5,
+      "total_return_pct": 8.9524,
+      "annualised_return_pct": 143.9275,
+      "sharpe_ratio": 9.3055,
+      "max_drawdown_pct": 0.0653,
+      "win_rate_pct": 80.0,
+      "avg_weekly_return_pct": 1.7367,
+      "weekly_return_std_pct": 1.3458
+    }
+  }
+}
