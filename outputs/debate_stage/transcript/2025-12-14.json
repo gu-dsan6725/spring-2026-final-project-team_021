@@ -1,0 +1,2686 @@
+{
+  "week_end_date": "2025-12-14",
+  "input_data_date": "2025-12-14",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "macro_report_date": "2025-11-30",
+  "bull_report": {
+    "agent_name": "BullAgent",
+    "week_end_date": "2025-12-14",
+    "input_data_date": "2025-12-14",
+    "stance": "bullish",
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "LLY",
+      "XOM"
+    ],
+    "company_views": [
+      {
+        "ticker": "AAPL",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.85,
+        "thesis": "AAPL is poised for continued growth due to strong fundamental metrics, positive technical momentum, and supportive macro conditions.",
+        "reasons": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "counterpoints": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Quick liquidity risk"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      {
+        "ticker": "AMZN",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.7,
+        "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and recent news trends that are neutral.",
+        "reasons": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid."
+        ],
+        "counterpoints": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      {
+        "ticker": "BRK.B",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.7,
+        "thesis": "BRK.B is a solid long-term investment opportunity due to its strong profitability metrics, positive macro conditions, and supportive news trends.",
+        "reasons": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+        ],
+        "counterpoints": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      {
+        "ticker": "GOOGL",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.85,
+        "thesis": "GOOGL is a strong buy due to its solid financial position, positive technical indicators, and supportive macro conditions.",
+        "reasons": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "counterpoints": [
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "risk_flags": [
+          "No recent company news available (NewsTrendsAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      {
+        "ticker": "LLY",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.85,
+        "thesis": "Eli Lilly's strong fundamental profile and supportive macro conditions will drive continued revenue growth and profitability, outweighing near-term bearish factors.",
+        "reasons": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "counterpoints": [
+          "Price is below the 20-day moving average.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.7
+        }
+      },
+      {
+        "ticker": "XOM",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.85,
+        "thesis": "ExxonMobil (XOM) is poised for a strong performance due to its solid fundamentals, positive technical signs, and supportive macro conditions.",
+        "reasons": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot."
+        ],
+        "counterpoints": [
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Quick liquidity risk",
+          "Retail attention spike may indicate crowded positioning"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      }
+    ]
+  },
+  "bear_report": {
+    "agent_name": "BearAgent",
+    "week_end_date": "2025-12-14",
+    "input_data_date": "2025-12-14",
+    "stance": "bearish",
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "LLY",
+      "XOM"
+    ],
+    "company_views": [
+      {
+        "ticker": "AAPL",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.65,
+        "thesis": "AAPL's fundamental metrics are overstated, and the company is at risk due to weaker short-term liquidity, weakening technical momentum, and macroeconomic headwinds.",
+        "reasons": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "counterpoints": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Macro headwinds",
+          "Quick liquidity risk",
+          "Weakening technical momentum"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.6
+        }
+      },
+      {
+        "ticker": "AMZN",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.85,
+        "thesis": "AMZN is a sell due to its weak technical indicators, quick liquidity risk, and mixed macro conditions.",
+        "reasons": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum."
+        ],
+        "counterpoints": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.8
+        }
+      },
+      {
+        "ticker": "BRK.B",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.65,
+        "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak technical indicators, and potential litigation risks.",
+        "reasons": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum."
+        ],
+        "counterpoints": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Price is below the 20-day moving average.",
+          "Revenue growth is negative year-over-year."
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.55
+        }
+      },
+      {
+        "ticker": "GOOGL",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.6,
+        "thesis": "GOOGL's financial position is overstated due to its high debt-to-equity ratio and weakening technical indicators.",
+        "reasons": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "counterpoints": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      },
+      {
+        "ticker": "LLY",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.65,
+        "thesis": "Eli Lilly's fundamental profile is weakening, and bearish technical and news trends outweigh supportive macro conditions.",
+        "reasons": [
+          "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative.",
+          "Litigious language appears in recent news"
+        ],
+        "counterpoints": [
+          "Eli Lilly has a strong fundamental profile with positive revenue growth, solid profitability, and healthy margins, supported by robust cash flows and a solid balance sheet.",
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability."
+        ],
+        "risk_flags": [
+          "Bearish technical trends",
+          "Litigious language in recent news",
+          "Negative news trends",
+          "Weakening fundamental profile"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.7
+        }
+      },
+      {
+        "ticker": "XOM",
+        "input_data_date": "2025-12-14",
+        "supports_stance": true,
+        "confidence": 0.6,
+        "thesis": "ExxonMobil (XOM) is poised for a decline due to its high debt-to-equity ratio, quick liquidity risk, and weak consumer sentiment.",
+        "reasons": [
+          "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+          "The company exhibits quick liquidity risk.",
+          "Consumer sentiment is weak, which may negatively impact demand for XOM's products.",
+          "Housing permits are weakening, pointing to softer forward activity, which may negatively impact XOM's business."
+        ],
+        "counterpoints": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot."
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio",
+          "Quick liquidity risk",
+          "Weak consumer sentiment",
+          "Weakening housing permits"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      }
+    ]
+  },
+  "judge_report": {
+    "agent_name": "JudgeAgent",
+    "week_end_date": "2025-12-14",
+    "input_data_date": "2025-12-14",
+    "tickers": [
+      "AAPL",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "LLY",
+      "XOM"
+    ],
+    "portfolio_summary": "For the week ending 2025-12-14, the judge prefers a concentrated long book in AAPL, AMZN, BRK.B, GOOGL, LLY while avoiding or underweighting the remaining names.",
+    "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
+    "holdings": [
+      {
+        "ticker": "AAPL",
+        "input_data_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "suggested_position_pct": 20.0,
+        "summary": "AAPL is poised for continued growth due to strong fundamental metrics, positive technical momentum, and supportive macro conditions.",
+        "rationale": [
+          "Strong fundamental metrics, including revenue growth, gross margin, and return on equity.",
+          "Positive technical momentum, with the 20-day moving average above the 50-day moving average and positive 20-day return momentum.",
+          "Supportive macro conditions, with a positive yield-curve proxy, a positive 10Y-3M term spread, and positive GDP growth."
+        ],
+        "dissenting_points": [
+          "Weaker short-term liquidity, with a current ratio below 1.0.",
+          "Weakening technical momentum, with MACD below its signal line and negative 5-day return momentum."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Quick liquidity risk",
+          "Weakening technical momentum"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
+      {
+        "ticker": "AMZN",
+        "input_data_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.65,
+        "suggested_position_pct": 20.0,
+        "summary": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and recent news trends that are neutral.",
+        "rationale": [
+          "The Bull case presented by BullAgent is convincing, with strong fundamental metrics such as positive revenue growth, high gross and net margins, and solid return on equity and assets.",
+          "The MacroAnalyst's bullish factors, including a positive yield-curve proxy and a positive 10Y-3M term spread, support a healthier growth backdrop.",
+          "The TechnicalAnalyst's bearish factors, including price below the 20-day moving average and weak momentum, are offset by the Bull case's strong fundamental metrics and the MacroAnalyst's bullish factors."
+        ],
+        "dissenting_points": [
+          "The Bear case presented by BearAgent is convincing, with multiple bearish factors including price below the 20-day moving average, weak momentum, and negative return momentum.",
+          "The TechnicalAnalyst's bearish factors, including MACD below its signal line and negative 5-day and 20-day return momentum, are concerning."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-31",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.7,
+          "llm_conviction": 0.8
+        }
+      },
+      {
+        "ticker": "BRK.B",
+        "input_data_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.7,
+        "suggested_position_pct": 20.0,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with stronger evidence and a more robust rebuttal to counter-evidence.",
+        "rationale": [
+          "The Bull case presented by BullAgent has a stronger thesis, with a clear and concise argument for why BRK.B is a solid long-term investment opportunity.",
+          "The Bull case presented by BullAgent has more supporting evidence, including strong profitability metrics and positive macro conditions.",
+          "The Bull case presented by BullAgent has a more robust rebuttal to counter-evidence, including a clear explanation of why the bearish technical factors are short-term in nature and do not outweigh the long-term bullish factors."
+        ],
+        "dissenting_points": [
+          "The Bear case presented by BearAgent highlights the negative revenue growth and weak technical indicators, which are valid concerns that should be considered by investors.",
+          "The Bear case presented by BearAgent also raises the potential litigation risks, which could impact the company's stock price in the short-term."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.85,
+          "llm_conviction": 0.75
+        }
+      },
+      {
+        "ticker": "GOOGL",
+        "input_data_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "suggested_position_pct": 20.0,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case has a stronger thesis, more supporting evidence, and better rebuttal points.",
+        "rationale": [
+          "The Bull case has a stronger thesis, as it highlights the company's solid financial position, positive technical indicators, and supportive macro conditions.",
+          "The Bull case has more supporting evidence, including strong return on equity and adequate short-term liquidity, positive momentum and a strong moving average setup, and broadly supportive macro conditions.",
+          "The Bull case has better rebuttal points, as it effectively addresses the weakening momentum and negative short-term return by pointing out that they are short-term indicators and do not outweigh the long-term positive momentum and strong moving average setup."
+        ],
+        "dissenting_points": [
+          "The Bear case highlights the company's high debt-to-equity ratio, which may indicate a higher risk of financial distress.",
+          "The Bear case points out that the weakening momentum and negative short-term return are not short-term indicators, but rather a sign of a larger trend."
+        ],
+        "risk_flags": [
+          "No recent company news available (NewsTrendsAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
+      {
+        "ticker": "LLY",
+        "input_data_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "suggested_position_pct": 20.0,
+        "summary": "Eli Lilly's strong fundamental profile and supportive macro conditions outweigh near-term bearish factors.",
+        "rationale": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "dissenting_points": [
+          "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative.",
+          "Litigious language appears in recent news"
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-10-30",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.8,
+          "llm_conviction": 0.9
+        }
+      },
+      {
+        "ticker": "XOM",
+        "input_data_date": "2025-12-14",
+        "signal": "neutral",
+        "confidence": 0.5,
+        "suggested_position_pct": 0.0,
+        "summary": "The debate on XOM is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
+        "rationale": [
+          "The bull and bear cases are too close to justify a directional trade.",
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+          "The company exhibits quick liquidity risk."
+        ],
+        "dissenting_points": [],
+        "risk_flags": [
+          "High debt-to-equity ratio",
+          "Litigious language appears in recent news",
+          "Quick liquidity risk",
+          "Retail attention spike may indicate crowded positioning",
+          "Weak consumer sentiment",
+          "Weakening housing permits"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-11-03",
+          "technical": "2025-12-14",
+          "macro": "2025-11-30",
+          "news_trends": "2025-12-14"
+        },
+        "score_breakdown": {
+          "bull_case_score": 0.0,
+          "bear_case_score": 0.0,
+          "score_margin": 0.0,
+          "bull_case_confidence": 0.85,
+          "bear_case_confidence": 0.6,
+          "risk_count": 6.0,
+          "max_position_size": 1.0
+        }
+      }
+    ],
+    "bullish_tickers": [
+      "AAPL",
+      "AMZN",
+      "BRK.B",
+      "GOOGL",
+      "LLY"
+    ],
+    "bearish_tickers": [],
+    "neutral_tickers": [
+      "XOM"
+    ],
+    "total_allocated_pct": 100.0,
+    "cash_pct": 0.0
+  },
+  "per_ticker_transcript": [
+    {
+      "ticker": "AAPL",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "AAPL",
+          "analysis_date": "2025-10-31",
+          "signal": "bullish",
+          "confidence": 0.8,
+          "summary": "AAPL has strong fundamental metrics, including revenue growth, gross margin, and return on equity, but is at risk due to weaker short-term liquidity.",
+          "bullish_factors": [
+            "Revenue growth is positive and above a modest growth threshold.",
+            "Gross margin is strong.",
+            "Operating margin indicates solid operating profitability.",
+            "Net margin is healthy.",
+            "Return on equity is strong.",
+            "Return on assets is solid.",
+            "Free cash flow is positive.",
+            "Operating cash flow is positive."
+          ],
+          "bearish_factors": [
+            "Current ratio is below 1.0, suggesting weaker short-term liquidity."
+          ],
+          "risk_flags": [
+            "Liquidity risk",
+            "Quick liquidity risk"
+          ],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": 0.0793848098598967,
+            "earnings_growth_yoy": null,
+            "gross_margin": 0.4717760037475845,
+            "operating_margin": 0.3164659496808698,
+            "net_margin": 0.2680498897195167,
+            "debt_to_equity": 1.3380304612588665,
+            "current_ratio": 0.8932929222186667,
+            "quick_ratio": 0.858770399261008,
+            "roe": 1.4900248192803764,
+            "roa": 0.305822553661748,
+            "free_cash_flow": 26486000000.0,
+            "operating_cash_flow": 29728000000.0,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "AAPL",
+          "analysis_date": "2025-12-14",
+          "signal": "bullish",
+          "confidence": 0.7,
+          "summary": "AAPL is showing positive momentum with the 20-day moving average above the 50-day moving average and positive 20-day return momentum, but MACD is weakening.",
+          "bullish_factors": [
+            "Price is above the 20-day moving average.",
+            "The 20-day moving average is above the 50-day moving average.",
+            "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+            "The stock has positive 20-day return momentum."
+          ],
+          "bearish_factors": [
+            "MACD is below its signal line, indicating weakening momentum.",
+            "The stock has negative 5-day return momentum."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 278.0198669433594,
+            "sma_20": 276.04070434570315,
+            "sma_50": 267.47368103027344,
+            "ema_12": 277.90343162380327,
+            "ema_26": 274.575936339081,
+            "rsi_14": 62.90388495823861,
+            "macd": 3.3274952847222607,
+            "macd_signal": 4.094575112143494,
+            "return_5d": -0.0017934540897995843,
+            "return_20d": 0.01952736589834103,
+            "volatility_20d": 0.009608392775851547,
+            "volume_ratio_20d": 0.9185709311634684,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "AAPL",
+          "analysis_date": "2025-12-14",
+          "signal": "neutral",
+          "confidence": 0.5,
+          "summary": "Recent news trends are mixed, without a strong directional edge.",
+          "bullish_factors": [],
+          "bearish_factors": [],
+          "risk_flags": [
+            "No recent company news available"
+          ],
+          "key_metrics_used": {
+            "article_count": 0,
+            "raw_article_count": 0,
+            "relevant_article_count": 0,
+            "relevance_ratio": null,
+            "positive_articles": 0,
+            "negative_articles": 0,
+            "avg_sentiment_score": null,
+            "uncertainty_articles": 0,
+            "litigious_articles": 0,
+            "avg_uncertainty_hits": null,
+            "has_trends_data": true,
+            "current_week_avg": 20.571428571428573,
+            "previous_week_avg": 24.0,
+            "wow_change": -0.1428571428571428,
+            "latest_search_interest": 4.0,
+            "current_week_peak": 30.0,
+            "news_score_diff": 0,
+            "trend_score": 0,
+            "combined_score": 0.0
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "AAPL",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "AAPL is poised for continued growth due to strong fundamental metrics, positive technical momentum, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive.",
+          "Operating cash flow is positive."
+        ],
+        "counter_evidence": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "rebuttal_points": [
+          "While liquidity is a concern, it is not a deal-breaker, and the company's strong fundamental metrics and positive technical momentum suggest that it can weather this storm.",
+          "The weakening MACD is a short-term concern, but the stock's positive 20-day return momentum and strong fundamental metrics suggest that it will continue to grow in the long term.",
+          "The weak consumer sentiment and housing permits are macroeconomic concerns that are outside of AAPL's control, and the company's strong fundamental metrics and positive technical momentum suggest that it will continue to grow despite these headwinds."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "AAPL",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "AAPL's fundamental metrics are overstated, and the company is at risk due to weaker short-term liquidity, weakening technical momentum, and macroeconomic headwinds.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "counter_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid."
+        ],
+        "rebuttal_points": [
+          "While the company's fundamental metrics are strong, they do not necessarily translate to long-term growth, and the risks associated with weaker short-term liquidity and macroeconomic headwinds cannot be ignored.",
+          "The weakening technical momentum and negative 5-day return momentum suggest that the stock's growth is slowing, and the company's strong fundamental metrics may not be enough to overcome these headwinds."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Macro headwinds",
+          "Quick liquidity risk",
+          "Weakening technical momentum"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.6
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "AAPL",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "AAPL is poised for continued growth due to strong fundamental metrics, positive technical momentum, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive.",
+          "Operating cash flow is positive."
+        ],
+        "counter_evidence": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "rebuttal_points": [
+          "While liquidity is a concern, it is not a deal-breaker, and the company's strong fundamental metrics and positive technical momentum suggest that it can weather this storm.",
+          "The weakening MACD is a short-term concern, but the stock's positive 20-day return momentum and strong fundamental metrics suggest that it will continue to grow in the long term.",
+          "The weak consumer sentiment and housing permits are macroeconomic concerns that are outside of AAPL's control, and the company's strong fundamental metrics and positive technical momentum suggest that it will continue to grow despite these headwinds."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "AAPL",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "AAPL's fundamental metrics are overstated, and the company is at risk due to weaker short-term liquidity, weakening technical momentum, and macroeconomic headwinds.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "counter_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid."
+        ],
+        "rebuttal_points": [
+          "While the company's fundamental metrics are strong, they do not necessarily translate to long-term growth, and the risks associated with weaker short-term liquidity and macroeconomic headwinds cannot be ignored.",
+          "The weakening technical momentum and negative 5-day return momentum suggest that the stock's growth is slowing, and the company's strong fundamental metrics may not be enough to overcome these headwinds."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Macro headwinds",
+          "Quick liquidity risk",
+          "Weakening technical momentum"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.6
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "AAPL",
+        "analysis_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "position_size": 0.8,
+        "summary": "AAPL is poised for continued growth due to strong fundamental metrics, positive technical momentum, and supportive macro conditions.",
+        "rationale": [
+          "Strong fundamental metrics, including revenue growth, gross margin, and return on equity.",
+          "Positive technical momentum, with the 20-day moving average above the 50-day moving average and positive 20-day return momentum.",
+          "Supportive macro conditions, with a positive yield-curve proxy, a positive 10Y-3M term spread, and positive GDP growth."
+        ],
+        "dissenting_points": [
+          "Weaker short-term liquidity, with a current ratio below 1.0.",
+          "Weakening technical momentum, with MACD below its signal line and negative 5-day return momentum."
+        ],
+        "risk_flags": [
+          "Liquidity risk",
+          "Quick liquidity risk",
+          "Weakening technical momentum"
+        ],
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "AMZN",
+          "analysis_date": "2025-10-31",
+          "signal": "bullish",
+          "confidence": 0.8,
+          "summary": "AMZN has strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets, but is at risk due to quick liquidity concerns.",
+          "bullish_factors": [
+            "Revenue growth is positive and above a modest growth threshold.",
+            "Gross margin is strong.",
+            "Net margin is healthy.",
+            "Return on equity is strong.",
+            "Return on assets is solid.",
+            "Free cash flow is positive.",
+            "Operating cash flow is positive."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [
+            "Quick liquidity risk"
+          ],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": 0.2591922171047573,
+            "earnings_growth_yoy": null,
+            "gross_margin": 0.5078509621522015,
+            "operating_margin": 0.0966981001171122,
+            "net_margin": 0.1175951467788576,
+            "debt_to_equity": 0.3663626697977172,
+            "current_ratio": 1.0085555031865407,
+            "quick_ratio": 0.7959794258079059,
+            "roe": 0.2292773062865398,
+            "roa": 0.1164247219135043,
+            "free_cash_flow": 430000000.0,
+            "operating_cash_flow": 35525000000.0,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "AMZN",
+          "analysis_date": "2025-12-14",
+          "signal": "bearish",
+          "confidence": 0.9,
+          "summary": "AMZN is bearish due to multiple bearish factors including price below 20-day moving average, weak momentum, and negative return momentum, with high confidence.",
+          "bullish_factors": [],
+          "bearish_factors": [
+            "Price is below the 20-day moving average.",
+            "The 20-day moving average is below the 50-day moving average.",
+            "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+            "MACD is below its signal line, indicating weakening momentum.",
+            "The stock has negative 5-day return momentum.",
+            "The stock has negative 20-day return momentum."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 226.19000244140625,
+            "sma_20": 228.56700057983397,
+            "sma_50": 229.1602001953125,
+            "ema_12": 229.55233596041714,
+            "ema_26": 230.29601548206216,
+            "rsi_14": 58.18452975647681,
+            "macd": -0.7436795216450207,
+            "macd_signal": -0.4267765962655016,
+            "return_5d": -0.014551458875326273,
+            "return_20d": -0.047941742999682124,
+            "volatility_20d": 0.016583800624338074,
+            "volume_ratio_20d": 0.8330468980549477,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "AMZN",
+          "analysis_date": "2025-12-14",
+          "signal": "neutral",
+          "confidence": 0.5,
+          "summary": "Recent news trends are mixed, without a strong directional edge.",
+          "bullish_factors": [],
+          "bearish_factors": [],
+          "risk_flags": [
+            "No recent company news available"
+          ],
+          "key_metrics_used": {
+            "article_count": 0,
+            "raw_article_count": 0,
+            "relevant_article_count": 0,
+            "relevance_ratio": null,
+            "positive_articles": 0,
+            "negative_articles": 0,
+            "avg_sentiment_score": null,
+            "uncertainty_articles": 0,
+            "litigious_articles": 0,
+            "avg_uncertainty_hits": null,
+            "has_trends_data": true,
+            "current_week_avg": 31.428571428571427,
+            "previous_week_avg": 35.285714285714285,
+            "wow_change": -0.10931174089068828,
+            "latest_search_interest": 14.0,
+            "current_week_peak": 40.0,
+            "news_score_diff": 0,
+            "trend_score": 0,
+            "combined_score": 0.0
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "AMZN",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and recent news trends that are neutral.",
+        "confidence": 0.7,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive.",
+          "Operating cash flow is positive.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+        ],
+        "counter_evidence": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
+        ],
+        "rebuttal_points": [
+          "While the technical analyst's bearish factors are concerning, they do not outweigh the fundamental and macro evidence supporting a bullish stance.",
+          "The weak consumer sentiment and housing permits growth are bearish factors, but they are not as significant as the positive macro conditions and fundamental metrics."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "AMZN",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "AMZN is a sell due to its weak technical indicators, quick liquidity risk, and mixed macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum.",
+          "Quick liquidity risk"
+        ],
+        "counter_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive."
+        ],
+        "rebuttal_points": [
+          "While the fundamental metrics are strong, they do not outweigh the weak technical indicators and quick liquidity risk.",
+          "The positive macro conditions are offset by the weak consumer sentiment and housing permits growth, which are bearish factors."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.8
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "AMZN",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and recent news trends that are neutral.",
+        "confidence": 0.7,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive.",
+          "Operating cash flow is positive.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+        ],
+        "counter_evidence": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
+        ],
+        "rebuttal_points": [
+          "While the technical analyst's bearish factors are concerning, they do not outweigh the fundamental and macro evidence supporting a bullish stance.",
+          "The weak consumer sentiment and housing permits growth are bearish factors, but they are not as significant as the positive macro conditions and fundamental metrics."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "AMZN",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "AMZN is a sell due to its weak technical indicators, quick liquidity risk, and mixed macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Price is below the 20-day moving average.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum.",
+          "Quick liquidity risk"
+        ],
+        "counter_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Free cash flow is positive."
+        ],
+        "rebuttal_points": [
+          "While the fundamental metrics are strong, they do not outweigh the weak technical indicators and quick liquidity risk.",
+          "The positive macro conditions are offset by the weak consumer sentiment and housing permits growth, which are bearish factors."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.8
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "AMZN",
+        "analysis_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.65,
+        "position_size": 0.8,
+        "summary": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and recent news trends that are neutral.",
+        "rationale": [
+          "The Bull case presented by BullAgent is convincing, with strong fundamental metrics such as positive revenue growth, high gross and net margins, and solid return on equity and assets.",
+          "The MacroAnalyst's bullish factors, including a positive yield-curve proxy and a positive 10Y-3M term spread, support a healthier growth backdrop.",
+          "The TechnicalAnalyst's bearish factors, including price below the 20-day moving average and weak momentum, are offset by the Bull case's strong fundamental metrics and the MacroAnalyst's bullish factors."
+        ],
+        "dissenting_points": [
+          "The Bear case presented by BearAgent is convincing, with multiple bearish factors including price below the 20-day moving average, weak momentum, and negative return momentum.",
+          "The TechnicalAnalyst's bearish factors, including MACD below its signal line and negative 5-day and 20-day return momentum, are concerning."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk"
+        ],
+        "score_breakdown": {
+          "llm_margin": 0.7,
+          "llm_conviction": 0.8
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "BRK.B",
+          "analysis_date": "2025-11-03",
+          "signal": "neutral",
+          "confidence": 0.5,
+          "summary": "The stock has both bullish and bearish factors, with solid profitability metrics but negative revenue growth.",
+          "bullish_factors": [
+            "Operating margin indicates solid operating profitability.",
+            "Net margin is healthy.",
+            "Return on equity is strong.",
+            "Return on assets is solid."
+          ],
+          "bearish_factors": [
+            "Revenue growth is negative year-over-year."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": -0.0222402871297759,
+            "earnings_growth_yoy": null,
+            "gross_margin": null,
+            "operating_margin": 0.5977536197781856,
+            "net_margin": 0.4830972437918647,
+            "debt_to_equity": null,
+            "current_ratio": null,
+            "quick_ratio": null,
+            "roe": 0.1764421940686523,
+            "roa": 0.1004793782520353,
+            "free_cash_flow": null,
+            "operating_cash_flow": null,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "BRK.B",
+          "analysis_date": "2025-12-14",
+          "signal": "bearish",
+          "confidence": 0.8,
+          "summary": "The stock has multiple bearish factors, including price below the 20-day moving average, weak momentum, and negative return momentum, outweighing a single bullish factor.",
+          "bullish_factors": [
+            "The 20-day moving average is above the 50-day moving average."
+          ],
+          "bearish_factors": [
+            "Price is below the 20-day moving average.",
+            "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+            "MACD is below its signal line, indicating weakening momentum.",
+            "The stock has negative 5-day return momentum.",
+            "The stock has negative 20-day return momentum."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 499.5199890136719,
+            "sma_20": 503.26200103759777,
+            "sma_50": 496.6438000488281,
+            "ema_12": 499.56717409326063,
+            "ema_26": 499.7745218954486,
+            "rsi_14": 44.91675269620224,
+            "macd": -0.20734780218793958,
+            "macd_signal": 1.5071557497833297,
+            "return_5d": -0.009557059442474758,
+            "return_20d": -0.026485542526675454,
+            "volatility_20d": 0.007327584551221859,
+            "volume_ratio_20d": 0.831166364604359,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "BRK.B",
+          "analysis_date": "2025-12-14",
+          "signal": "bullish",
+          "confidence": 0.6,
+          "summary": "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "Recent company news flow is majority positive."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [
+            "Litigious language appears in recent news"
+          ],
+          "key_metrics_used": {
+            "article_count": 27,
+            "raw_article_count": 27,
+            "relevant_article_count": 2,
+            "relevance_ratio": 0.07407407407407407,
+            "positive_articles": 9,
+            "negative_articles": 6,
+            "avg_sentiment_score": 0.14814814814814814,
+            "uncertainty_articles": 6,
+            "litigious_articles": 2,
+            "avg_uncertainty_hits": 0.2962962962962963,
+            "has_trends_data": true,
+            "current_week_avg": 30.857142857142858,
+            "previous_week_avg": 32.142857142857146,
+            "wow_change": -0.04000000000000008,
+            "latest_search_interest": 10.0,
+            "current_week_peak": 42.0,
+            "news_score_diff": 1,
+            "trend_score": 0,
+            "combined_score": 0.4
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "BRK.B is a solid long-term investment opportunity due to its strong profitability metrics, positive macro conditions, and supportive news trends.",
+        "confidence": 0.7,
+        "supporting_evidence": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+          "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot."
+        ],
+        "counter_evidence": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
+        ],
+        "rebuttal_points": [
+          "While revenue growth is negative, the company's profitability metrics remain strong, indicating potential for future growth.",
+          "The bearish technical factors are short-term in nature and do not outweigh the long-term bullish factors.",
+          "The weak consumer sentiment and housing permits are macro factors that are not specific to BRK.B and do not necessarily impact the company's fundamentals."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak technical indicators, and potential litigation risks.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum.",
+          "Litigious language appears in recent news"
+        ],
+        "counter_evidence": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+          "The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
+        ],
+        "rebuttal_points": [
+          "While the company's profitability metrics are strong, they do not necessarily translate to future revenue growth.",
+          "The bearish technical factors are not outweighed by the long-term bullish factors, and the company's fundamentals are not immune to market volatility.",
+          "The potential litigation risks are a significant concern and could impact the company's stock price in the short-term."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Price is below the 20-day moving average.",
+          "Revenue growth is negative year-over-year."
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.55
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "BRK.B is a solid long-term investment opportunity due to its strong profitability metrics, positive macro conditions, and supportive news trends.",
+        "confidence": 0.7,
+        "supporting_evidence": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+          "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot."
+        ],
+        "counter_evidence": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
+        ],
+        "rebuttal_points": [
+          "While revenue growth is negative, the company's profitability metrics remain strong, indicating potential for future growth.",
+          "The bearish technical factors are short-term in nature and do not outweigh the long-term bullish factors.",
+          "The weak consumer sentiment and housing permits are macro factors that are not specific to BRK.B and do not necessarily impact the company's fundamentals."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.6
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak technical indicators, and potential litigation risks.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "Revenue growth is negative year-over-year.",
+          "Price is below the 20-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum.",
+          "Litigious language appears in recent news"
+        ],
+        "counter_evidence": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+          "The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
+        ],
+        "rebuttal_points": [
+          "While the company's profitability metrics are strong, they do not necessarily translate to future revenue growth.",
+          "The bearish technical factors are not outweighed by the long-term bullish factors, and the company's fundamentals are not immune to market volatility.",
+          "The potential litigation risks are a significant concern and could impact the company's stock price in the short-term."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Price is below the 20-day moving average.",
+          "Revenue growth is negative year-over-year."
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.55
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.7,
+        "position_size": 0.8,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with stronger evidence and a more robust rebuttal to counter-evidence.",
+        "rationale": [
+          "The Bull case presented by BullAgent has a stronger thesis, with a clear and concise argument for why BRK.B is a solid long-term investment opportunity.",
+          "The Bull case presented by BullAgent has more supporting evidence, including strong profitability metrics and positive macro conditions.",
+          "The Bull case presented by BullAgent has a more robust rebuttal to counter-evidence, including a clear explanation of why the bearish technical factors are short-term in nature and do not outweigh the long-term bullish factors."
+        ],
+        "dissenting_points": [
+          "The Bear case presented by BearAgent highlights the negative revenue growth and weak technical indicators, which are valid concerns that should be considered by investors.",
+          "The Bear case presented by BearAgent also raises the potential litigation risks, which could impact the company's stock price in the short-term."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_margin": 0.85,
+          "llm_conviction": 0.75
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "GOOGL",
+          "analysis_date": "2025-10-30",
+          "signal": "bullish",
+          "confidence": 0.8,
+          "summary": "GOOGL has a strong financial position with high return on equity and adequate short-term liquidity, supported by positive free and operating cash flows.",
+          "bullish_factors": [
+            "Return on equity is strong.",
+            "Return on assets is solid.",
+            "Current ratio suggests adequate short-term liquidity.",
+            "Free cash flow is positive.",
+            "Operating cash flow is positive."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": null,
+            "earnings_growth_yoy": null,
+            "gross_margin": null,
+            "operating_margin": null,
+            "net_margin": null,
+            "debt_to_equity": 0.0871436436811617,
+            "current_ratio": 1.7473329984932195,
+            "quick_ratio": 1.7473329984932195,
+            "roe": 0.3616643445938785,
+            "roa": 0.2608091054655534,
+            "free_cash_flow": 24461000000.0,
+            "operating_cash_flow": 48414000000.0,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "GOOGL",
+          "analysis_date": "2025-12-14",
+          "signal": "bullish",
+          "confidence": 0.7,
+          "summary": "The stock has multiple bullish factors, including positive momentum and a strong moving average setup, but also some bearish signs, such as weakening momentum and negative short-term return.",
+          "bullish_factors": [
+            "Price is above the 20-day moving average.",
+            "The 20-day moving average is above the 50-day moving average.",
+            "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+            "The stock has positive 20-day return momentum."
+          ],
+          "bearish_factors": [
+            "MACD is below its signal line, indicating weakening momentum.",
+            "The stock has negative 5-day return momentum."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 309.07244873046875,
+            "sma_20": 308.2192138671875,
+            "sma_50": 281.2964263916016,
+            "ema_12": 312.69832121252085,
+            "ema_26": 302.8276007367409,
+            "rsi_14": 57.23433035429213,
+            "macd": 9.870720475779933,
+            "macd_signal": 11.928486165455363,
+            "return_5d": -0.036659624019270476,
+            "return_20d": 0.11100377608191847,
+            "volatility_20d": 0.021848842380825212,
+            "volume_ratio_20d": 0.7615886005611864,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "GOOGL",
+          "analysis_date": "2025-12-14",
+          "signal": "neutral",
+          "confidence": 0.5,
+          "summary": "Recent news trends are mixed, without a strong directional edge.",
+          "bullish_factors": [],
+          "bearish_factors": [],
+          "risk_flags": [
+            "No recent company news available"
+          ],
+          "key_metrics_used": {
+            "article_count": 0,
+            "raw_article_count": 0,
+            "relevant_article_count": 0,
+            "relevance_ratio": null,
+            "positive_articles": 0,
+            "negative_articles": 0,
+            "avg_sentiment_score": null,
+            "uncertainty_articles": 0,
+            "litigious_articles": 0,
+            "avg_uncertainty_hits": null,
+            "has_trends_data": true,
+            "current_week_avg": 23.142857142857142,
+            "previous_week_avg": 24.571428571428573,
+            "wow_change": -0.05813953488372101,
+            "latest_search_interest": 6.0,
+            "current_week_peak": 31.0,
+            "news_score_diff": 0,
+            "trend_score": 0,
+            "combined_score": 0.0
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "GOOGL",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "GOOGL is a strong buy due to its solid financial position, positive technical indicators, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "counter_evidence": [
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "rebuttal_points": [
+          "The weakening momentum and negative short-term return are short-term indicators and do not outweigh the long-term positive momentum and strong moving average setup.",
+          "The weak consumer sentiment and housing permits weakening are offset by the positive GDP growth, industrial production growth, and retail sales growth in the latest macro snapshot."
+        ],
+        "risk_flags": [
+          "No recent company news available (NewsTrendsAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "GOOGL",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "GOOGL's financial position is overstated due to its high debt-to-equity ratio and weakening technical indicators.",
+        "confidence": 0.6,
+        "supporting_evidence": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "counter_evidence": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "rebuttal_points": [
+          "The high debt-to-equity ratio is a significant concern, as it may indicate a higher risk of financial distress.",
+          "The weakening momentum and negative short-term return are not short-term indicators, but rather a sign of a larger trend.",
+          "The weak consumer sentiment and housing permits weakening are not offset by the positive GDP growth, industrial production growth, and retail sales growth, as these indicators are not directly related to the company's financial position."
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "GOOGL",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "GOOGL is a strong buy due to its solid financial position, positive technical indicators, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "counter_evidence": [
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "rebuttal_points": [
+          "The weakening momentum and negative short-term return are short-term indicators and do not outweigh the long-term positive momentum and strong moving average setup.",
+          "The weak consumer sentiment and housing permits weakening are offset by the positive GDP growth, industrial production growth, and retail sales growth in the latest macro snapshot."
+        ],
+        "risk_flags": [
+          "No recent company news available (NewsTrendsAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "GOOGL",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "GOOGL's financial position is overstated due to its high debt-to-equity ratio and weakening technical indicators.",
+        "confidence": 0.6,
+        "supporting_evidence": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)"
+        ],
+        "counter_evidence": [
+          "Strong return on equity and adequate short-term liquidity (FundamentalAnalyst)",
+          "Positive momentum and a strong moving average setup (TechnicalAnalyst)",
+          "Broadly supportive macro conditions (MacroAnalyst)"
+        ],
+        "rebuttal_points": [
+          "The high debt-to-equity ratio is a significant concern, as it may indicate a higher risk of financial distress.",
+          "The weakening momentum and negative short-term return are not short-term indicators, but rather a sign of a larger trend.",
+          "The weak consumer sentiment and housing permits weakening are not offset by the positive GDP growth, industrial production growth, and retail sales growth, as these indicators are not directly related to the company's financial position."
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio (FundamentalAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "GOOGL",
+        "analysis_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "position_size": 0.8,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case has a stronger thesis, more supporting evidence, and better rebuttal points.",
+        "rationale": [
+          "The Bull case has a stronger thesis, as it highlights the company's solid financial position, positive technical indicators, and supportive macro conditions.",
+          "The Bull case has more supporting evidence, including strong return on equity and adequate short-term liquidity, positive momentum and a strong moving average setup, and broadly supportive macro conditions.",
+          "The Bull case has better rebuttal points, as it effectively addresses the weakening momentum and negative short-term return by pointing out that they are short-term indicators and do not outweigh the long-term positive momentum and strong moving average setup."
+        ],
+        "dissenting_points": [
+          "The Bear case highlights the company's high debt-to-equity ratio, which may indicate a higher risk of financial distress.",
+          "The Bear case points out that the weakening momentum and negative short-term return are not short-term indicators, but rather a sign of a larger trend."
+        ],
+        "risk_flags": [
+          "No recent company news available (NewsTrendsAnalyst)",
+          "Weak consumer sentiment and housing permits weakening (MacroAnalyst)",
+          "Weakening momentum and negative short-term return (TechnicalAnalyst)"
+        ],
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    },
+    {
+      "ticker": "LLY",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "LLY",
+          "analysis_date": "2025-10-30",
+          "signal": "bullish",
+          "confidence": 0.9,
+          "summary": "Eli Lilly has a strong fundamental profile with positive revenue growth, solid profitability, and healthy margins, supported by robust cash flows and a solid balance sheet.",
+          "bullish_factors": [
+            "Revenue growth is positive and above a modest growth threshold.",
+            "Gross margin is strong.",
+            "Operating margin indicates solid operating profitability.",
+            "Net margin is healthy.",
+            "Return on equity is strong.",
+            "Return on assets is solid.",
+            "Current ratio suggests adequate short-term liquidity.",
+            "Free cash flow is positive.",
+            "Operating cash flow is positive."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": 0.852988861516434,
+            "earnings_growth_yoy": null,
+            "gross_margin": 0.8290816326530612,
+            "operating_margin": 0.410913140311804,
+            "net_margin": 0.3171730830416799,
+            "debt_to_equity": 1.786494517364132,
+            "current_ratio": 1.546335533084709,
+            "quick_ratio": 1.2428944044602883,
+            "roe": 0.9384994935549084,
+            "roa": 0.1942830494347259,
+            "free_cash_flow": 6027700000.0,
+            "operating_cash_flow": 8835900000.0,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "LLY",
+          "analysis_date": "2025-12-14",
+          "signal": "bearish",
+          "confidence": 0.7,
+          "summary": "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "bullish_factors": [
+            "The 20-day moving average is above the 50-day moving average.",
+            "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+            "The stock has positive 5-day return momentum.",
+            "The stock has positive 20-day return momentum."
+          ],
+          "bearish_factors": [
+            "Price is below the 20-day moving average.",
+            "MACD is below its signal line, indicating weakening momentum."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 1025.7979736328125,
+            "sma_20": 1036.3822540283204,
+            "sma_50": 932.2355322265626,
+            "ema_12": 1016.7986901824873,
+            "ema_26": 997.7060263088142,
+            "rsi_14": 42.790620741630036,
+            "macd": 19.092663873673132,
+            "macd_signal": 31.994057034980635,
+            "return_5d": 0.01702452318978298,
+            "return_20d": 0.006011585010465836,
+            "volatility_20d": 0.016090322263465923,
+            "volume_ratio_20d": 0.9217866088767556,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "LLY",
+          "analysis_date": "2025-12-14",
+          "signal": "bearish",
+          "confidence": 0.7,
+          "summary": "Recent news trends lean cautious, with more bearish than bullish evidence.",
+          "bullish_factors": [],
+          "bearish_factors": [
+            "Recent company news flow is majority negative.",
+            "Average LM news sentiment is modestly negative."
+          ],
+          "risk_flags": [
+            "Litigious language appears in recent news"
+          ],
+          "key_metrics_used": {
+            "article_count": 27,
+            "raw_article_count": 27,
+            "relevant_article_count": 15,
+            "relevance_ratio": 0.5555555555555556,
+            "positive_articles": 7,
+            "negative_articles": 9,
+            "avg_sentiment_score": -0.25925925925925924,
+            "uncertainty_articles": 7,
+            "litigious_articles": 4,
+            "avg_uncertainty_hits": 0.2962962962962963,
+            "has_trends_data": true,
+            "current_week_avg": 26.571428571428573,
+            "previous_week_avg": 27.428571428571427,
+            "wow_change": -0.03124999999999989,
+            "latest_search_interest": 8.0,
+            "current_week_peak": 41.0,
+            "news_score_diff": -2,
+            "trend_score": 0,
+            "combined_score": -0.8
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "LLY",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "Eli Lilly's strong fundamental profile and supportive macro conditions will drive continued revenue growth and profitability, outweighing near-term bearish factors.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Current ratio suggests adequate short-term liquidity.",
+          "Free cash flow is positive."
+        ],
+        "counter_evidence": [
+          "Price is below the 20-day moving average.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
+        ],
+        "rebuttal_points": [
+          "The 20-day moving average is above the 50-day moving average, indicating a potential reversal.",
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.7
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "LLY",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "Eli Lilly's fundamental profile is weakening, and bearish technical and news trends outweigh supportive macro conditions.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative.",
+          "Litigious language appears in recent news"
+        ],
+        "counter_evidence": [
+          "Eli Lilly has a strong fundamental profile with positive revenue growth, solid profitability, and healthy margins, supported by robust cash flows and a solid balance sheet.",
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "rebuttal_points": [
+          "However, the TechnicalAnalyst report highlights that the stock's price is below the 20-day moving average, and MACD is below its signal line, indicating weakening momentum.",
+          "Additionally, the NewsTrendsAnalyst report shows that recent company news flow is majority negative, and average LM news sentiment is modestly negative.",
+          "Furthermore, litigious language appears in recent news, which could be a risk flag for the company."
+        ],
+        "risk_flags": [
+          "Bearish technical trends",
+          "Litigious language in recent news",
+          "Negative news trends",
+          "Weakening fundamental profile"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.7
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "LLY",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "Eli Lilly's strong fundamental profile and supportive macro conditions will drive continued revenue growth and profitability, outweighing near-term bearish factors.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid.",
+          "Current ratio suggests adequate short-term liquidity.",
+          "Free cash flow is positive."
+        ],
+        "counter_evidence": [
+          "Price is below the 20-day moving average.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
+        ],
+        "rebuttal_points": [
+          "The 20-day moving average is above the 50-day moving average, indicating a potential reversal.",
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.7
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "LLY",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "Eli Lilly's fundamental profile is weakening, and bearish technical and news trends outweigh supportive macro conditions.",
+        "confidence": 0.65,
+        "supporting_evidence": [
+          "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative.",
+          "Litigious language appears in recent news"
+        ],
+        "counter_evidence": [
+          "Eli Lilly has a strong fundamental profile with positive revenue growth, solid profitability, and healthy margins, supported by robust cash flows and a solid balance sheet.",
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong."
+        ],
+        "rebuttal_points": [
+          "However, the TechnicalAnalyst report highlights that the stock's price is below the 20-day moving average, and MACD is below its signal line, indicating weakening momentum.",
+          "Additionally, the NewsTrendsAnalyst report shows that recent company news flow is majority negative, and average LM news sentiment is modestly negative.",
+          "Furthermore, litigious language appears in recent news, which could be a risk flag for the company."
+        ],
+        "risk_flags": [
+          "Bearish technical trends",
+          "Litigious language in recent news",
+          "Negative news trends",
+          "Weakening fundamental profile"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.7
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "LLY",
+        "analysis_date": "2025-12-14",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "position_size": 0.8,
+        "summary": "Eli Lilly's strong fundamental profile and supportive macro conditions outweigh near-term bearish factors.",
+        "rationale": [
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Return on assets is solid."
+        ],
+        "dissenting_points": [
+          "The stock has bearish factors such as price below the 20-day moving average and weakening momentum, outweighing the bullish factors.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative.",
+          "Litigious language appears in recent news"
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news"
+        ],
+        "score_breakdown": {
+          "llm_margin": 0.8,
+          "llm_conviction": 0.9
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    },
+    {
+      "ticker": "XOM",
+      "analyst_reports": [
+        {
+          "agent_name": "FundamentalAnalyst",
+          "ticker": "XOM",
+          "analysis_date": "2025-11-03",
+          "signal": "bullish",
+          "confidence": 0.8,
+          "summary": "XOM has solid fundamentals with positive free cash flow and operating cash flow, but also exhibits quick liquidity risk.",
+          "bullish_factors": [
+            "Return on assets is solid.",
+            "Free cash flow is positive.",
+            "Operating cash flow is positive."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [
+            "Quick liquidity risk"
+          ],
+          "key_metrics_used": {
+            "pe_ratio_ttm": null,
+            "pe_ratio_forward": null,
+            "revenue_growth_yoy": null,
+            "earnings_growth_yoy": null,
+            "gross_margin": null,
+            "operating_margin": null,
+            "net_margin": null,
+            "debt_to_equity": 0.1613288251119699,
+            "current_ratio": 1.1368657675016056,
+            "quick_ratio": 0.7869877970456005,
+            "roe": 0.115873058516048,
+            "roa": 0.0664524365012985,
+            "free_cash_flow": 6061000000.0,
+            "operating_cash_flow": 14788000000.0,
+            "dividend_yield": null
+          }
+        },
+        {
+          "agent_name": "TechnicalAnalyst",
+          "ticker": "XOM",
+          "analysis_date": "2025-12-14",
+          "signal": "bullish",
+          "confidence": 0.9,
+          "summary": "XOM is showing strong bullish technical signs, with multiple indicators supporting positive momentum and no bearish factors present.",
+          "bullish_factors": [
+            "Price is above the 20-day moving average.",
+            "The 20-day moving average is above the 50-day moving average.",
+            "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+            "MACD is above its signal line, indicating positive momentum.",
+            "The stock has positive 5-day return momentum.",
+            "The stock has positive 20-day return momentum."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "close": 118.03326416015624,
+            "sma_20": 116.43591117858887,
+            "sma_50": 114.21928024291992,
+            "ema_12": 116.92501328691071,
+            "ema_26": 115.97446394460223,
+            "rsi_14": 56.01658847443074,
+            "macd": 0.9505493423084772,
+            "macd_signal": 0.7735835317111263,
+            "return_5d": 0.019564068543338253,
+            "return_20d": 0.009001333086368968,
+            "volatility_20d": 0.010882561934534322,
+            "volume_ratio_20d": 0.9502619882718106,
+            "source_market_date": "2025-12-12"
+          }
+        },
+        {
+          "agent_name": "MacroAnalyst",
+          "ticker": "MACRO",
+          "analysis_date": "2025-11-30",
+          "signal": "bullish",
+          "confidence": 0.65,
+          "summary": "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+            "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+            "GDP growth is positive in the latest macro snapshot.",
+            "Industrial production growth is positive in the latest macro snapshot.",
+            "Retail sales are growing, which supports consumer demand.",
+            "Payroll employment is still expanding.",
+            "VIX is contained, indicating a calmer risk backdrop."
+          ],
+          "bearish_factors": [
+            "Consumer sentiment is weak.",
+            "Housing permits are weakening, pointing to softer forward activity."
+          ],
+          "risk_flags": [],
+          "key_metrics_used": {
+            "macro_date": "2025-11-28",
+            "macro_data_lag_days": 2,
+            "three_month_treasury": 3.88,
+            "two_year_treasury": 3.47,
+            "fed_funds_rate": 3.88,
+            "inflation_rate": 0.002522783697512633,
+            "unemployment": 4.5,
+            "labor_force_participation": 62.5,
+            "ten_year_treasury": 4.02,
+            "yield_spread_10y2y": 0.55,
+            "yield_spread_10y3m": 0.14,
+            "vix": 16.35,
+            "credit_spread": 1.78,
+            "financial_stress_index": -0.3983,
+            "yield_curve_proxy": 0.55,
+            "gdp_growth": 0.011076458323224235,
+            "industrial_production_growth": 0.0015117456710224619,
+            "retail_sales_growth": 0.005016065910586265,
+            "payroll_employment_growth": 0.0002588253118529367,
+            "consumer_sentiment": 51.0,
+            "housing_permits_growth": -0.01630049610205528
+          }
+        },
+        {
+          "agent_name": "NewsTrendsAnalyst",
+          "ticker": "XOM",
+          "analysis_date": "2025-12-14",
+          "signal": "bullish",
+          "confidence": 0.75,
+          "summary": "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
+          "bullish_factors": [
+            "Recent company news flow is majority positive.",
+            "Average LM news sentiment is modestly positive.",
+            "Google Trends search interest is up 61% week-over-week."
+          ],
+          "bearish_factors": [],
+          "risk_flags": [
+            "Litigious language appears in recent news",
+            "Retail attention spike may indicate crowded positioning"
+          ],
+          "key_metrics_used": {
+            "article_count": 77,
+            "raw_article_count": 77,
+            "relevant_article_count": 21,
+            "relevance_ratio": 0.2727272727272727,
+            "positive_articles": 28,
+            "negative_articles": 15,
+            "avg_sentiment_score": 0.2857142857142857,
+            "uncertainty_articles": 14,
+            "litigious_articles": 1,
+            "avg_uncertainty_hits": 0.22077922077922077,
+            "has_trends_data": true,
+            "current_week_avg": 50.142857142857146,
+            "previous_week_avg": 31.142857142857142,
+            "wow_change": 0.6100917431192662,
+            "latest_search_interest": 0.0,
+            "current_week_peak": 88.0,
+            "news_score_diff": 2,
+            "trend_score": 1,
+            "combined_score": 1.0
+          }
+        }
+      ],
+      "bull_round_1": {
+        "agent_name": "BullAgent",
+        "ticker": "XOM",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "ExxonMobil (XOM) is poised for a strong performance due to its solid fundamentals, positive technical signs, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot.",
+          "Retail sales are growing, which supports consumer demand.",
+          "Payroll employment is still expanding.",
+          "Recent company news flow is majority positive."
+        ],
+        "counter_evidence": [
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "rebuttal_points": [
+          "While consumer sentiment is weak, it is not a significant enough factor to outweigh the overall bullish evidence.",
+          "Housing permits are weakening, but this is not a major concern for XOM's performance, as the company's fundamentals and technical signs remain strong."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Quick liquidity risk",
+          "Retail attention spike may indicate crowded positioning"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "XOM",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "ExxonMobil (XOM) is poised for a decline due to its high debt-to-equity ratio, quick liquidity risk, and weak consumer sentiment.",
+        "confidence": 0.6,
+        "supporting_evidence": [
+          "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+          "The company exhibits quick liquidity risk.",
+          "Consumer sentiment is weak, which may negatively impact demand for XOM's products.",
+          "Housing permits are weakening, pointing to softer forward activity, which may negatively impact XOM's business."
+        ],
+        "counter_evidence": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot.",
+          "Retail sales are growing, which supports consumer demand."
+        ],
+        "rebuttal_points": [
+          "While XOM has solid fundamentals, its high debt-to-equity ratio and quick liquidity risk may outweigh these positives.",
+          "The 20-day moving average being above the 50-day moving average is not a strong enough indicator to outweigh the company's debt and liquidity issues.",
+          "MACD being above its signal line is not a strong enough indicator to outweigh the company's debt and liquidity issues.",
+          "GDP growth being positive does not necessarily translate to XOM's performance, as the company's fundamentals and technical signs remain weak."
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio",
+          "Quick liquidity risk",
+          "Weak consumer sentiment",
+          "Weakening housing permits"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      },
+      "bull_final": {
+        "agent_name": "BullAgent",
+        "ticker": "XOM",
+        "analysis_date": "2025-12-14",
+        "stance": "bullish",
+        "thesis": "ExxonMobil (XOM) is poised for a strong performance due to its solid fundamentals, positive technical signs, and supportive macro conditions.",
+        "confidence": 0.85,
+        "supporting_evidence": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot.",
+          "Retail sales are growing, which supports consumer demand.",
+          "Payroll employment is still expanding.",
+          "Recent company news flow is majority positive."
+        ],
+        "counter_evidence": [
+          "Consumer sentiment is weak.",
+          "Housing permits are weakening, pointing to softer forward activity."
+        ],
+        "rebuttal_points": [
+          "While consumer sentiment is weak, it is not a significant enough factor to outweigh the overall bullish evidence.",
+          "Housing permits are weakening, but this is not a major concern for XOM's performance, as the company's fundamentals and technical signs remain strong."
+        ],
+        "risk_flags": [
+          "Litigious language appears in recent news",
+          "Quick liquidity risk",
+          "Retail attention spike may indicate crowded positioning"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
+        }
+      },
+      "bear_final": {
+        "agent_name": "BearAgent",
+        "ticker": "XOM",
+        "analysis_date": "2025-12-14",
+        "stance": "bearish",
+        "thesis": "ExxonMobil (XOM) is poised for a decline due to its high debt-to-equity ratio, quick liquidity risk, and weak consumer sentiment.",
+        "confidence": 0.6,
+        "supporting_evidence": [
+          "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+          "The company exhibits quick liquidity risk.",
+          "Consumer sentiment is weak, which may negatively impact demand for XOM's products.",
+          "Housing permits are weakening, pointing to softer forward activity, which may negatively impact XOM's business."
+        ],
+        "counter_evidence": [
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "GDP growth is positive in the latest macro snapshot.",
+          "Industrial production growth is positive in the latest macro snapshot.",
+          "Retail sales are growing, which supports consumer demand."
+        ],
+        "rebuttal_points": [
+          "While XOM has solid fundamentals, its high debt-to-equity ratio and quick liquidity risk may outweigh these positives.",
+          "The 20-day moving average being above the 50-day moving average is not a strong enough indicator to outweigh the company's debt and liquidity issues.",
+          "MACD being above its signal line is not a strong enough indicator to outweigh the company's debt and liquidity issues.",
+          "GDP growth being positive does not necessarily translate to XOM's performance, as the company's fundamentals and technical signs remain weak."
+        ],
+        "risk_flags": [
+          "High debt-to-equity ratio",
+          "Quick liquidity risk",
+          "Weak consumer sentiment",
+          "Weakening housing permits"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
+        }
+      },
+      "judge_decision": {
+        "agent_name": "JudgeAgent",
+        "ticker": "XOM",
+        "analysis_date": "2025-12-14",
+        "signal": "neutral",
+        "confidence": 0.5,
+        "position_size": 0.0,
+        "summary": "The debate on XOM is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
+        "rationale": [
+          "The bull and bear cases are too close to justify a directional trade.",
+          "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+          "The 20-day moving average is above the 50-day moving average, indicating positive momentum.",
+          "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+          "The company exhibits quick liquidity risk."
+        ],
+        "dissenting_points": [],
+        "risk_flags": [
+          "High debt-to-equity ratio",
+          "Litigious language appears in recent news",
+          "Quick liquidity risk",
+          "Retail attention spike may indicate crowded positioning",
+          "Weak consumer sentiment",
+          "Weakening housing permits"
+        ],
+        "score_breakdown": {
+          "bull_case_score": 0.0,
+          "bear_case_score": 0.0,
+          "score_margin": 0.0,
+          "bull_case_confidence": 0.85,
+          "bear_case_confidence": 0.6,
+          "risk_count": 6.0,
+          "max_position_size": 1.0
+        }
+      },
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-12-14",
+        "macro": "2025-11-30",
+        "news_trends": "2025-12-14"
+      }
+    }
+  ]
+}

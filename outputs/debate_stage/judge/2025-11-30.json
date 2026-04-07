@@ -1,0 +1,218 @@
+{
+  "agent_name": "JudgeAgent",
+  "week_end_date": "2025-11-30",
+  "input_data_date": "2025-11-30",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_summary": "For the week ending 2025-11-30, the judge prefers a concentrated long book in AMZN, BRK.B, GOOGL, LLY, XOM, AAPL while avoiding or underweighting the remaining names.",
+  "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
+  "holdings": [
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and positive recent news trends.",
+      "rationale": [
+        "Strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets.",
+        "Supportive macro conditions, with a positive yield-curve proxy and a growing economy.",
+        "Positive recent news trends, with a majority of recent news flow being positive."
+      ],
+      "dissenting_points": [
+        "Weak technical indicators, including a price below the 20-day moving average and a MACD below its signal line.",
+        "Potential macro headwinds, including weak consumer sentiment and weakening housing permits."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
+      "rationale": [
+        "BullAgent's thesis is more comprehensive and well-supported, highlighting the company's strong profitability metrics, positive technical indicators, and supportive macro conditions.",
+        "BullAgent's supporting evidence is more robust, including multiple positive technical indicators and a strong MACD, which suggests positive momentum.",
+        "BearAgent's counter-evidence is more focused on short-term indicators, such as revenue growth and consumer sentiment, which may not be as relevant in the long term."
+      ],
+      "dissenting_points": [
+        "BearAgent's thesis is more focused on the company's fundamental weaknesses, such as negative revenue growth and weak consumer sentiment, which may be a concern for future growth.",
+        "BearAgent's supporting evidence is more focused on macro indicators, such as housing permits and Google Trends search interest, which may be more relevant in the short term."
+      ],
+      "risk_flags": [
+        "Low relative trading volume"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
+      "rationale": [
+        "BullAgent's thesis is more comprehensive and well-supported, highlighting GOOGL's solid financial position, positive technical indicators, and supportive macro conditions.",
+        "BullAgent's supporting evidence is more robust, including strong return on equity, adequate short-term liquidity, positive free and operating cash flows, and positive momentum indicators.",
+        "BearAgent's thesis is weaker, relying on offsetting factors that do not outweigh the positive evidence presented by BullAgent."
+      ],
+      "dissenting_points": [
+        "BearAgent's counter-evidence highlights potential risks, including overbought conditions, weak consumer sentiment, and litigious language in recent news.",
+        "However, these risks are not sufficient to outweigh the positive evidence presented by BullAgent."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Weak consumer sentiment"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "Eli Lilly's strong fundamental profile, positive macro conditions, and supportive news trends make it an attractive investment opportunity.",
+      "rationale": [
+        "The FundamentalAnalyst report highlights Eli Lilly's strong fundamental profile with positive revenue growth, solid profitability, and healthy margins.",
+        "The MacroAnalyst report indicates that macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "The NewsTrendsAnalyst report shows that recent news trends are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "dissenting_points": [
+        "The BearAgent report highlights overbought conditions, weak consumer sentiment, and litigious language in recent news as risks that cannot be ignored.",
+        "The TechnicalAnalyst report indicates that the stock has both bullish and bearish indicators, resulting in a neutral view."
+      ],
+      "risk_flags": [
+        "Litigious language in recent news",
+        "Overbought risk",
+        "Weak consumer sentiment",
+        "Weakening housing permits"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.67,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
+      "rationale": [
+        "BullAgent's thesis is more comprehensive and well-supported, covering solid fundamentals, positive macro conditions, and supportive news trends.",
+        "BullAgent's supporting evidence is more robust, including multiple indicators of positive momentum and a strong 20-day return momentum.",
+        "BearAgent's counter-evidence is not as strong, and their rebuttal points are not as convincing, highlighting the potential weaknesses in their case."
+      ],
+      "dissenting_points": [
+        "BearAgent's high debt-to-equity ratio and quick liquidity risk are significant concerns that could impact XOM's stock price.",
+        "BearAgent's weakening momentum indicators, such as MACD and 5-day return momentum, are bearish signals that should not be ignored."
+      ],
+      "risk_flags": [
+        "Low relative trading volume",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-11-30",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 16.65,
+      "summary": "AAPL is poised for continued growth due to strong fundamental and technical indicators, as well as supportive macro conditions.",
+      "rationale": [
+        "Strong fundamental metrics, including revenue growth, gross margin, and return on equity.",
+        "Positive momentum and a bullish MACD, indicating positive momentum.",
+        "Supportive macro conditions, including a positive yield-curve proxy and a positive 10Y-3M term spread."
+      ],
+      "dissenting_points": [
+        "Weaker short-term liquidity, as indicated by a current ratio below 1.0.",
+        "Weak consumer sentiment and housing permits, which may point to softer forward activity."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Low relative trading volume",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    }
+  ],
+  "bullish_tickers": [
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM",
+    "AAPL"
+  ],
+  "bearish_tickers": [],
+  "neutral_tickers": [],
+  "total_allocated_pct": 100.0,
+  "cash_pct": 0.0
+}
