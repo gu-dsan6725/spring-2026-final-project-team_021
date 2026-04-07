@@ -1,0 +1,227 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2025-11-23",
+  "input_data_date": "2025-11-23",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AAPL's fundamental metrics are overstated due to weaker short-term liquidity and mixed macroeconomic conditions.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "MACD is below its signal line, indicating weakening momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Mixed macroeconomic conditions",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AMZN is a sell due to its high valuation, quick liquidity risk, and weakening momentum indicators.",
+      "reasons": [
+        "AMZN has strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets, but is at risk due to quick liquidity concerns.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "The stock has negative 20-day return momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "High valuation risk",
+        "Oversold volatility risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, overbought conditions, and mixed macro conditions that do not strongly support the bullish case.",
+      "reasons": [
+        "Revenue growth is negative year-over-year.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The stock has negative 5-day return momentum.",
+        "RSI is above 70, suggesting overbought conditions.",
+        "Industrial production growth is negative in the latest macro snapshot."
+      ],
+      "counterpoints": [
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Return on equity is strong.",
+        "Return on assets is solid."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.4,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "GOOGL's financial position is overstated due to its high debt-to-equity ratio and weak macroeconomic conditions.",
+      "reasons": [
+        "GOOGL has a high debt-to-equity ratio of 8.71%.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak."
+      ],
+      "counterpoints": [
+        "Return on equity is strong.",
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive."
+      ],
+      "risk_flags": [
+        "Contracting payroll employment.",
+        "Contracting retail sales.",
+        "High debt-to-equity ratio.",
+        "Negative industrial production growth.",
+        "Weak consumer sentiment.",
+        "Weak macroeconomic conditions.",
+        "Weakening housing permits."
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.55,
+      "thesis": "Eli Lilly's strong fundamental profile is overshadowed by overbought conditions, negative macroeconomic indicators, and potential litigation risks.",
+      "reasons": [
+        "RSI is above 70, suggesting overbought conditions.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-11-23",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "ExxonMobil (XOM) is poised for a decline due to its high debt-to-equity ratio, quick liquidity risk, and mixed macroeconomic conditions.",
+      "reasons": [
+        "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+        "The company exhibits quick liquidity risk.",
+        "Macro conditions are mixed, with negative industrial production growth and contracting retail sales.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+        "The stock is showing strong bullish signals with positive momentum and a strong technical setup.",
+        "Macro conditions are mixed, but the yield-curve proxy is positive, supporting a healthier growth backdrop."
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk",
+        "Retail attention spike may indicate crowded positioning"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-23",
+        "macro": "2025-10-31",
+        "news_trends": "2025-11-23"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    }
+  ]
+}
