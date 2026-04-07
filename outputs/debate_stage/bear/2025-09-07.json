@@ -1,7 +1,7 @@
 {
   "agent_name": "BearAgent",
-  "week_end_date": "2025-08-31",
-  "input_data_date": "2025-08-31",
+  "week_end_date": "2025-09-07",
+  "input_data_date": "2025-09-07",
   "stance": "bearish",
   "tickers": [
     "AAPL",
@@ -14,16 +14,16 @@
   "company_views": [
     {
       "ticker": "AAPL",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "AAPL's strong fundamentals are overshadowed by liquidity concerns, weakening technical momentum, and a deteriorating macroeconomic backdrop.",
+      "thesis": "AAPL's strong fundamental metrics are overshadowed by liquidity concerns and mixed macroeconomic indicators, leading to a bearish outlook.",
       "reasons": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-        "MACD is below its signal line, indicating weakening momentum.",
         "Industrial production growth is negative in the latest macro snapshot.",
         "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
@@ -38,21 +38,21 @@
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.7
       }
     },
     {
       "ticker": "AMZN",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "Amazon's strong fundamentals and technical indicators are overshadowed by macroeconomic concerns and potential risks.",
+      "thesis": "Amazon's strong fundamentals and technical signals are overshadowed by negative macro conditions and risk flags, leading to a bearish view.",
       "reasons": [
         "Industrial production growth is negative in the latest macro snapshot.",
         "Payroll employment is contracting.",
@@ -67,37 +67,32 @@
         "Return on equity is strong."
       ],
       "risk_flags": [
-        "Consumer sentiment is weak.",
-        "Housing permits are weakening, pointing to softer forward activity.",
-        "Industrial production growth is negative in the latest macro snapshot.",
         "Litigious language appears in recent news",
-        "Low relative trading volume",
-        "Payroll employment is contracting.",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.7
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "BRK.B",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
-      "confidence": 0.6,
-      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, overbought conditions, and mixed macro conditions.",
+      "confidence": 0.65,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, overbought conditions, and declining search interest.",
       "reasons": [
         "Revenue growth is negative year-over-year.",
+        "The stock has negative 5-day return momentum.",
         "RSI is above 70, suggesting overbought conditions.",
-        "Industrial production growth is negative in the latest macro snapshot.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "Google Trends search interest is down 16% week-over-week.",
+        "Industrial production growth is negative in the latest macro snapshot."
       ],
       "counterpoints": [
         "Operating margin indicates solid operating profitability.",
@@ -106,62 +101,64 @@
         "Operating cash flow is positive."
       ],
       "risk_flags": [
-        "Negative revenue growth",
+        "Declining search interest risk",
+        "Negative revenue growth risk",
         "Overbought risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.5,
-        "evidence_balance": 0.5
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.7
       }
     },
     {
       "ticker": "GOOGL",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "GOOGL's high debt-to-equity ratio and negative industrial production growth indicate a bearish outlook.",
+      "thesis": "Google's (GOOGL) high debt-to-equity ratio, negative industrial production growth, and weakening housing permits indicate a bearish investment opportunity.",
       "reasons": [
-        "The debt-to-equity ratio is 0.0979813510564428, which may indicate a high level of financial leverage.",
-        "Industrial production growth is negative in the latest macro snapshot, indicating a weakening economy.",
-        "The stock has an overbought condition, as RSI is above 70, suggesting that the price may be due for a correction."
+        "The debt-to-equity ratio is 9.79813510564428%, which is a concern.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Housing permits are weakening, pointing to softer forward activity."
       ],
       "counterpoints": [
         "Strong return on equity and operating cash flow, combined with adequate short-term liquidity, support a bullish view.",
-        "Price is above the 20-day moving average, indicating positive momentum.",
-        "Recent company news flow is majority positive, indicating a strong market sentiment."
+        "Recent company news flow is majority positive.",
+        "Average LM news sentiment is modestly positive.",
+        "Google Trends search interest is up 56% week-over-week."
       ],
       "risk_flags": [
         "High debt-to-equity ratio",
         "Negative industrial production growth",
-        "Overbought risk"
+        "Weakening housing permits"
       ],
       "source_report_dates": {
         "fundamental": "2025-07-24",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.6
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "LLY",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "Eli Lilly and Company (LLY) is poised for a decline driven by elevated leverage, weak momentum, and negative macro conditions.",
+      "thesis": "Eli Lilly and Company (LLY) is vulnerable to a decline driven by elevated leverage, liquidity risks, and negative momentum in the stock price.",
       "reasons": [
         "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "The stock has negative 20-day return momentum.",
+        "The stock has negative 5-day return momentum.",
+        "Google Trends search interest is down 27% week-over-week.",
         "Industrial production growth is negative in the latest macro snapshot.",
         "Payroll employment is contracting."
       ],
@@ -173,14 +170,14 @@
       ],
       "risk_flags": [
         "Leverage risk",
-        "Overbought risk",
+        "Macro risk",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-07",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
         "llm_case_strength": 0.7,
@@ -189,35 +186,34 @@
     },
     {
       "ticker": "XOM",
-      "input_data_date": "2025-08-31",
+      "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "ExxonMobil (XOM) presents a bearish case due to quick liquidity risk, overbought conditions, and negative industrial production growth.",
+      "thesis": "ExxonMobil (XOM) presents a bearish fundamental view due to high debt-to-equity ratio, negative industrial production growth, and weakening consumer sentiment.",
       "reasons": [
-        "Quick liquidity risk",
-        "Overbought conditions",
-        "Negative industrial production growth"
+        "High debt-to-equity ratio of 0.1484769205576691.",
+        "Negative industrial production growth of -0.0026429426659077197.",
+        "Weakening consumer sentiment of 58.2."
       ],
       "counterpoints": [
-        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows.",
-        "Price is above the 20-day moving average, and the 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-        "MACD is above its signal line, indicating positive momentum.",
-        "Recent company news flow is majority positive, and average LM news sentiment is modestly positive."
+        "Solid return on assets of 0.0632890747703849.",
+        "Adequate short-term liquidity with a current ratio of 1.2486319156115668.",
+        "Positive free and operating cash flows."
       ],
       "risk_flags": [
-        "Negative industrial production growth",
-        "Overbought risk",
+        "High debt-to-equity ratio",
+        "Litigious language appears in recent news",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
-        "technical": "2025-08-31",
+        "technical": "2025-09-07",
         "macro": "2025-08-31",
-        "news_trends": "2025-08-31"
+        "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.7
       }
     }
   ]

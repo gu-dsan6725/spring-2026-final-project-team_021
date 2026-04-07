@@ -17,7 +17,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "AAPL is a strong buy due to its solid fundamental and technical performance.",
+      "thesis": "AAPL is a strong buy due to its positive fundamental and technical metrics, with a solid bullish case supported by multiple analysts.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -39,8 +39,8 @@
         "news_trends": "2025-08-10"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.9
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -48,7 +48,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.75,
-      "thesis": "Amazon's strong fundamentals, positive technical momentum, and neutral macro conditions support a bullish view.",
+      "thesis": "Amazon's strong fundamentals, positive technical momentum, and neutral macro and news trends support a bullish view.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -82,7 +82,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "BRK.B is a solid investment opportunity due to its strong fundamental factors and positive news trends.",
+      "thesis": "BRK.B is a solid investment opportunity due to its strong fundamental factors, positive news trends, and a relatively stable macroeconomic environment.",
       "reasons": [
         "Operating margin indicates solid operating profitability.",
         "Net margin is healthy.",
@@ -97,7 +97,9 @@
         "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
-        "Low relative trading volume"
+        "Inverted 10Y-3M term spread",
+        "Negative revenue growth",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
@@ -115,7 +117,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
+      "thesis": "GOOGL is a strong buy due to its robust fundamentals and technical indicators.",
       "reasons": [
         "Strong return on equity and operating cash flow.",
         "Price is above the 20-day moving average.",
@@ -124,8 +126,8 @@
         "The stock has positive 5-day return momentum."
       ],
       "counterpoints": [
-        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-        "Google Trends search interest is down 16% week-over-week."
+        "Google Trends search interest is down 16% week-over-week.",
+        "The 10Y-3M term spread is inverted, which is historically a recession warning."
       ],
       "risk_flags": [
         "Front-end inversion risk"
@@ -146,7 +148,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.75,
-      "thesis": "Eli Lilly and Company (LLY) is poised for growth driven by strong profitability, liquidity, and a rebounding stock price.",
+      "thesis": "Eli Lilly and Company (LLY) is poised for growth due to its strong profitability, liquidity, and rebound potential in the market.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -161,6 +163,7 @@
         "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
+        "Front-end inversion risk",
         "Leverage risk",
         "Oversold volatility risk",
         "Quick liquidity risk"

@@ -11,7 +11,7 @@
     "XOM"
   ],
   "portfolio_summary": "For the week ending 2025-08-31, the judge prefers a concentrated long book in AMZN, BRK.B, GOOGL, LLY, XOM, AAPL while avoiding or underweighting the remaining names.",
-  "allocation_method": "Allocate 100% across stocks with bullish judge signals, proportional to each stock's judge conviction score; bearish and neutral names receive 0%.",
+  "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
   "holdings": [
     {
       "ticker": "AMZN",
@@ -19,13 +19,13 @@
       "signal": "bullish",
       "confidence": 0.85,
       "suggested_position_pct": 16.67,
-      "summary": "Amazon's strong fundamentals, technical indicators, and supportive macro conditions make it an attractive investment opportunity.",
+      "summary": "Amazon's strong fundamentals, technical indicators, and supportive macro conditions outweigh the macroeconomic concerns.",
       "rationale": [
         "Amazon's revenue growth is positive and above a modest growth threshold.",
-        "The company's gross margin is strong, and its net margin is healthy.",
-        "Return on equity is strong, and return on assets is solid.",
-        "Free cash flow is positive, and operating cash flow is positive.",
-        "The stock has positive momentum, with the 12-day EMA above the 26-day EMA and MACD above its signal line."
+        "The company's gross margin is strong, and net margin is healthy.",
+        "Return on equity and assets are solid, indicating a strong financial position.",
+        "Free cash flow is positive, and operating cash flow is also positive.",
+        "Technical indicators, such as positive momentum and above-average price, support a bullish view."
       ],
       "dissenting_points": [
         "Industrial production growth is negative in the latest macro snapshot.",
@@ -34,7 +34,6 @@
         "Housing permits are weakening, pointing to softer forward activity."
       ],
       "risk_flags": [
-        "Litigious language appears in recent news",
         "Low relative trading volume",
         "Quick liquidity risk"
       ],
@@ -57,14 +56,13 @@
       "suggested_position_pct": 16.67,
       "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
       "rationale": [
-        "BullAgent's thesis is more comprehensive and well-supported, covering both fundamental and technical factors.",
-        "BullAgent's supporting evidence is more robust, including multiple indicators of positive momentum and solid operating profitability.",
-        "BearAgent's counter-evidence is more focused on the negative revenue growth, but BullAgent's rebuttal points effectively address this concern.",
-        "The analyst reports also support the Bull case, with FundamentalAnalyst and NewsTrendsAnalyst presenting bullish signals and TechnicalAnalyst's neutral signal not outweighing the bullish factors."
+        "BullAgent's thesis is well-supported by the company's solid fundamental factors, including operating profitability and healthy margins.",
+        "The Bull case also presents a more balanced view of the evidence, acknowledging the negative revenue growth but arguing that it is not enough to offset the company's strengths.",
+        "In contrast, the Bear case presented by BearAgent relies heavily on negative revenue growth and overbought conditions, without adequately addressing the company's fundamental strengths."
       ],
       "dissenting_points": [
-        "BearAgent's mixed macro conditions and negative revenue growth are valid concerns that could impact the stock's performance.",
-        "The overbought risk is a concern, as it suggests that the stock may be due for a correction."
+        "BearAgent's argument that the company's negative revenue growth is a major concern is a valid point that should be considered.",
+        "The overbought risk is also a legitimate concern that should be monitored."
       ],
       "risk_flags": [
         "Overbought risk"
@@ -86,17 +84,18 @@
       "signal": "bullish",
       "confidence": 0.85,
       "suggested_position_pct": 16.67,
-      "summary": "The bull case presented by BullAgent is more convincing than the bear case presented by BearAgent, with a stronger thesis and more robust supporting evidence.",
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more supporting evidence.",
       "rationale": [
-        "BullAgent's thesis is more comprehensive, covering both fundamental and technical indicators, as well as macro and news trends.",
-        "BullAgent's supporting evidence is more robust, including strong return on equity and operating cash flow, positive technical indicators, and supportive macro and news trends.",
-        "BearAgent's counter-evidence is not sufficient to outweigh the bearish fundamental and macro evidence presented by BullAgent."
+        "BullAgent's thesis is more comprehensive, covering solid fundamentals, positive technical indicators, and supportive macro and news trends.",
+        "BullAgent's supporting evidence is more extensive, including strong return on equity and operating cash flow, positive technical indicators, and supportive macro and news trends.",
+        "BearAgent's counter-evidence is partially offset by BullAgent's rebuttal points, which highlight the positive aspects of the company's fundamentals and technical indicators."
       ],
       "dissenting_points": [
-        "BearAgent's high debt-to-equity ratio and negative industrial production growth suggest that the stock's positive momentum may be unsustainable.",
-        "BearAgent's weak consumer sentiment and housing permits growth are bearish indicators that should be considered."
+        "BearAgent's high debt-to-equity ratio and negative industrial production growth are significant concerns that may indicate a bearish outlook.",
+        "BearAgent's overbought condition may not be a significant concern, as the stock has positive 5-day and 20-day return momentum."
       ],
       "risk_flags": [
+        "Litigious language appears in recent news",
         "Overbought risk"
       ],
       "source_report_dates": {
@@ -118,14 +117,13 @@
       "suggested_position_pct": 16.67,
       "summary": "Eli Lilly and Company (LLY) is poised for continued growth driven by strong profitability, positive revenue growth, and supportive macro conditions.",
       "rationale": [
-        "Strong profitability and liquidity metrics outweigh the company's elevated leverage and weak momentum.",
-        "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
-        "Macro conditions are mixed, but the yield-curve proxy is positive, which is less recessionary than an inverted curve."
+        "Strong profitability and liquidity metrics suggest the company can manage its leverage.",
+        "Positive revenue growth and strong gross margin indicate solid operating profitability.",
+        "Supportive macro conditions, including a positive yield-curve proxy and growing retail sales, support the company's growth prospects."
       ],
       "dissenting_points": [
-        "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "The stock has negative 20-day return momentum."
+        "Elevated debt-to-equity ratio and weak momentum suggest the company may struggle to manage its debt.",
+        "Overbought conditions, as indicated by the RSI above 70, suggest the stock may be due for a correction."
       ],
       "risk_flags": [
         "Leverage risk",
@@ -149,22 +147,20 @@
       "signal": "bullish",
       "confidence": 0.85,
       "suggested_position_pct": 16.67,
-      "summary": "ExxonMobil (XOM) presents a strong bullish case due to solid fundamental and technical factors, despite some mixed macro conditions and overbought risk.",
+      "summary": "ExxonMobil (XOM) presents a strong bullish case due to solid fundamental metrics, positive technical indicators, and supportive macro and news trends.",
       "rationale": [
-        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows (FundamentalAnalyst)",
-        "Positive momentum with multiple bullish factors, but at risk of being overbought (TechnicalAnalyst)",
-        "Recent news trends are broadly supportive, with more bullish than bearish evidence (NewsTrendsAnalyst)"
+        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows.",
+        "Price is above the 20-day moving average, and the 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+        "MACD is above its signal line, indicating positive momentum.",
+        "Recent company news flow is majority positive, and average LM news sentiment is modestly positive.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve, and retail sales are growing, which supports consumer demand."
       ],
       "dissenting_points": [
-        "Mixed macro conditions, with some negative growth indicators (MacroAnalyst)",
-        "Overbought risk, with RSI above 70 (TechnicalAnalyst)",
-        "Quick liquidity risk (FundamentalAnalyst)"
+        "Quick liquidity risk, overbought risk, and industrial production growth is negative in the latest macro snapshot."
       ],
       "risk_flags": [
-        "Litigious language appears in recent news (NewsTrendsAnalyst)",
-        "Overbought risk (TechnicalAnalyst)",
-        "Quick liquidity risk (FundamentalAnalyst)",
-        "Retail attention spike may indicate crowded positioning (NewsTrendsAnalyst)"
+        "Overbought risk",
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
@@ -183,20 +179,19 @@
       "signal": "bullish",
       "confidence": 0.85,
       "suggested_position_pct": 16.65,
-      "summary": "AAPL is poised for continued growth driven by strong fundamental metrics, positive technical momentum, and a favorable macroeconomic backdrop.",
+      "summary": "AAPL is poised for continued growth driven by strong fundamentals, positive technical momentum, and a favorable macroeconomic backdrop.",
       "rationale": [
-        "Strong fundamental metrics, including positive revenue growth, solid profitability, and healthy margins.",
-        "Positive technical momentum, with price above the 20-day moving average and positive return momentum.",
-        "Favorable macroeconomic backdrop, with a positive yield-curve proxy and growing retail sales."
+        "Strong revenue growth and profitability metrics",
+        "Positive technical momentum with price above the 20-day moving average and positive return momentum",
+        "Favorable macroeconomic backdrop with a positive yield-curve proxy and growing retail sales"
       ],
       "dissenting_points": [
-        "Liquidity concerns, with a current ratio below 1.0, suggesting weaker short-term liquidity.",
-        "Weakening technical momentum, with MACD below its signal line, indicating weakening momentum."
+        "Liquidity concerns and weakening MACD",
+        "Negative macro indicators such as industrial production growth and payroll employment contraction"
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Litigious language appears in recent news",
-        "Quick liquidity risk"
+        "Litigious language appears in recent news"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
