@@ -1,0 +1,226 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2025-09-28",
+  "input_data_date": "2025-09-28",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AAPL's fundamental metrics are overstated due to liquidity issues and weak macro conditions, leading to a potential decline in stock price.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "Amazon's strong revenue growth and high margins mask underlying risks in industrial production, payroll employment, and consumer sentiment, which could lead to a decline in the stock price.",
+      "reasons": [
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "Price is below the 20-day moving average."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Consumer sentiment risk",
+        "Industrial production growth risk",
+        "Oversold volatility risk",
+        "Payroll employment risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weakening momentum, and mixed macro environment.",
+      "reasons": [
+        "Revenue growth is negative year-over-year.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak."
+      ],
+      "counterpoints": [
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
+      ],
+      "risk_flags": [
+        "Mixed macro environment",
+        "Negative revenue growth",
+        "Weakening momentum"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "Google's high debt-to-equity ratio, weakening industrial production growth, and negative consumer sentiment support a bearish view.",
+      "reasons": [
+        "The debt-to-equity ratio is 9.79813510564428%, which is a concern.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "counterpoints": [
+        "Return on equity is strong.",
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive."
+      ],
+      "risk_flags": [
+        "Low relative trading volume"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "Eli Lilly and Company (LLY) is vulnerable to a decline in its stock price due to elevated leverage, weakening momentum, and negative return momentum, outweighing its strong profitability and revenue growth.",
+      "reasons": [
+        "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+        "Price is below the 20-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "The stock has negative 20-day return momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Leverage risk",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-07",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-09-28",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "ExxonMobil (XOM) presents a bearish case due to overvalued fundamental and technical factors, as well as mixed macro and negative news trends.",
+      "reasons": [
+        "The stock's price is above its 20-day moving average, but the 20-day moving average is not above the 50-day moving average, indicating a potential reversal (TechnicalAnalyst)",
+        "The RSI is above 70, suggesting overbought conditions (TechnicalAnalyst)",
+        "Industrial production growth is negative in the latest macro snapshot (MacroAnalyst)",
+        "Payroll employment is contracting (MacroAnalyst)",
+        "Consumer sentiment is weak (MacroAnalyst)"
+      ],
+      "counterpoints": [
+        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows (FundamentalAnalyst)",
+        "Recent company news flow is majority positive (NewsTrendsAnalyst)",
+        "Google Trends search interest is up 15% week-over-week (NewsTrendsAnalyst)",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve (MacroAnalyst)"
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news (NewsTrendsAnalyst)",
+        "Overbought risk (TechnicalAnalyst)",
+        "Quick liquidity risk (FundamentalAnalyst)",
+        "Retail attention spike may indicate crowded positioning (NewsTrendsAnalyst)"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-09-28",
+        "macro": "2025-08-31",
+        "news_trends": "2025-09-28"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    }
+  ]
+}

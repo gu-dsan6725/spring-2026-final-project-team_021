@@ -25,7 +25,8 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
-LM_LEXICON_PATH = Path("data/reference/lm_lexicon.json")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+LM_LEXICON_PATH = PROJECT_ROOT / "data" / "reference" / "lm_lexicon.json"
 
 COMMON_COMPANY_WORDS = {
     "inc",
@@ -98,6 +99,38 @@ def build_company_aliases(ticker: str, company_name: str | None = None) -> set[s
     return {alias for alias in aliases if alias}
 
 
+def _latest_available_value(row, *candidates: str):
+    """Return the first non-null candidate column from a macro row."""
+    for candidate in candidates:
+        if candidate in row.index:
+            value = to_python_scalar(row.get(candidate))
+            if value is not None:
+                return value
+    return None
+
+
+def _pct_change_from_last_distinct(series: pd.Series) -> float | None:
+    """Compute pct change between the last two distinct non-null values."""
+    cleaned = pd.to_numeric(series, errors="coerce").dropna()
+    if cleaned.empty:
+        return None
+    distinct = cleaned.loc[cleaned.shift() != cleaned]
+    if len(distinct) < 2:
+        return None
+    previous = float(distinct.iloc[-2])
+    current = float(distinct.iloc[-1])
+    if previous == 0:
+        return None
+    return (current - previous) / previous
+
+
+def _growth_from_column(df: pd.DataFrame, column: str) -> float | None:
+    """Safely compute growth from the latest two distinct observations."""
+    if column not in df.columns:
+        return None
+    return _pct_change_from_last_distinct(df[column])
+
+
 def estimate_relevance_score(text: str, aliases: set[str]) -> int:
     """Estimate how likely a news item is to be company-specific."""
     lowered = text.lower()
@@ -136,6 +169,7 @@ def build_news_macro_snapshot(
     macro_csv_path: str,
     ticker: str,
     as_of_date: str | None = None,
+    google_trends_csv_path: str | None = None,
     company_name: str | None = None,
     relevance_threshold: int = 1,
     lookback_days: int = 7,
@@ -171,6 +205,18 @@ def build_news_macro_snapshot(
     macro_df = pd.read_csv(macro_csv_path)
     macro_df["Date"] = pd.to_datetime(macro_df["Date"], errors="coerce")
     macro_df = macro_df.dropna(subset=["Date"]).sort_values("Date")
+
+    trends_df = None
+    if google_trends_csv_path:
+        trends_df = pd.read_csv(google_trends_csv_path)
+        trends_df["ticker"] = trends_df["ticker"].astype(str).str.upper()
+        trends_df = trends_df[trends_df["ticker"] == ticker].copy()
+        trends_df["date"] = pd.to_datetime(trends_df["date"], errors="coerce")
+        trends_df["search_interest"] = pd.to_numeric(
+            trends_df["search_interest"],
+            errors="coerce",
+        )
+        trends_df = trends_df.dropna(subset=["date", "search_interest"]).sort_values("date")
 
     if macro_df.empty:
         raise ValueError(f"No macro data found in {macro_csv_path}")
@@ -248,8 +294,101 @@ def build_news_macro_snapshot(
     )
     latest_news_datetime = kept_items[-1]["datetime"] if kept_items else None
 
+    trends_summary = {
+        "has_trends_data": False,
+        "current_week_avg": None,
+        "previous_week_avg": None,
+        "wow_change": None,
+        "latest_search_interest": None,
+        "current_week_peak": None,
+    }
+    if trends_df is not None and not trends_df.empty:
+        current_week_start = cutoff.normalize() - pd.Timedelta(days=6)
+        previous_week_start = current_week_start - pd.Timedelta(days=7)
+        previous_week_end = current_week_start - pd.Timedelta(days=1)
+
+        current_week_df = trends_df[
+            (trends_df["date"] >= current_week_start)
+            & (trends_df["date"] <= cutoff.normalize())
+        ].copy()
+        previous_week_df = trends_df[
+            (trends_df["date"] >= previous_week_start)
+            & (trends_df["date"] <= previous_week_end)
+        ].copy()
+
+        current_week_avg = (
+            float(current_week_df["search_interest"].mean())
+            if not current_week_df.empty
+            else None
+        )
+        previous_week_avg = (
+            float(previous_week_df["search_interest"].mean())
+            if not previous_week_df.empty
+            else None
+        )
+        wow_change = None
+        if (
+            current_week_avg is not None
+            and previous_week_avg is not None
+            and previous_week_avg != 0
+        ):
+            wow_change = (current_week_avg - previous_week_avg) / previous_week_avg
+
+        latest_search_interest = (
+            float(current_week_df["search_interest"].iloc[-1])
+            if not current_week_df.empty
+            else None
+        )
+        current_week_peak = (
+            float(current_week_df["search_interest"].max())
+            if not current_week_df.empty
+            else None
+        )
+        trends_summary = {
+            "has_trends_data": bool(not current_week_df.empty or not previous_week_df.empty),
+            "current_week_avg": current_week_avg,
+            "previous_week_avg": previous_week_avg,
+            "wow_change": wow_change,
+            "latest_search_interest": latest_search_interest,
+            "current_week_peak": current_week_peak,
+        }
+
     macro_date = pd.Timestamp(macro_row["Date"]).normalize()
     macro_data_lag_days = int((cutoff.normalize() - macro_date).days)
+    inflation_rate = _latest_available_value(macro_row, "InflationRate")
+    if inflation_rate is None and "CPI" in macro_cut.columns:
+        inflation_rate = _pct_change_from_last_distinct(macro_cut["CPI"])
+
+    yield_curve_proxy = _latest_available_value(macro_row, "YieldCurveProxy", "Yield_Spread_10Y2Y")
+    if yield_curve_proxy is None:
+        ten_year = _latest_available_value(macro_row, "10Y_Treasury")
+        two_year = _latest_available_value(macro_row, "2Y_Treasury")
+        if ten_year is not None and two_year is not None:
+            yield_curve_proxy = float(ten_year) - float(two_year)
+
+    gdp_growth = _latest_available_value(macro_row, "GDPGrowth")
+    if gdp_growth is None and "GDP" in macro_cut.columns:
+        gdp_growth = _pct_change_from_last_distinct(macro_cut["GDP"])
+
+    industrial_production_growth = _latest_available_value(
+        macro_row,
+        "IndustrialProductionGrowth",
+    )
+    if industrial_production_growth is None and "IndustrialProduction" in macro_cut.columns:
+        industrial_production_growth = _pct_change_from_last_distinct(
+            macro_cut["IndustrialProduction"]
+        )
+    retail_sales_growth = _growth_from_column(macro_cut, "RetailSales")
+    real_retail_sales_growth = _growth_from_column(macro_cut, "RealRetailSales")
+    personal_income_growth = _growth_from_column(macro_cut, "PersonalIncome")
+    disposable_income_growth = _growth_from_column(macro_cut, "DisposableIncome")
+    payroll_employment_growth = _growth_from_column(macro_cut, "PayrollEmployment")
+    housing_starts_growth = _growth_from_column(macro_cut, "HousingStarts")
+    housing_permits_growth = _growth_from_column(macro_cut, "HousingPermits")
+    money_supply_m2_growth = _growth_from_column(macro_cut, "MoneySupply_M2")
+    dollar_index_growth = _growth_from_column(macro_cut, "DollarIndex")
+    wti_oil_growth = _growth_from_column(macro_cut, "WTI_Oil")
+    bank_credit_growth = _growth_from_column(macro_cut, "BankCredit")
 
     return {
         "ticker": ticker,
@@ -277,18 +416,84 @@ def build_news_macro_snapshot(
                 "avg_uncertainty_hits": avg_uncertainty_hits,
                 "latest_news_datetime": latest_news_datetime,
             },
+            "trends_summary": trends_summary,
             "macro_features": {
                 "macro_date": str(macro_date.date()),
                 "macro_data_lag_days": macro_data_lag_days,
-                "fed_funds_rate": to_python_scalar(macro_row.get("Fed_Funds_Rate")),
-                "inflation_rate": to_python_scalar(macro_row.get("InflationRate")),
-                "unemployment": to_python_scalar(macro_row.get("Unemployment")),
-                "ten_year_treasury": to_python_scalar(macro_row.get("10Y_Treasury")),
-                "yield_curve_proxy": to_python_scalar(macro_row.get("YieldCurveProxy")),
-                "gdp_growth": to_python_scalar(macro_row.get("GDPGrowth")),
-                "industrial_production_growth": to_python_scalar(
-                    macro_row.get("IndustrialProductionGrowth")
+                "three_month_treasury": _latest_available_value(macro_row, "3M_Treasury"),
+                "two_year_treasury": _latest_available_value(macro_row, "2Y_Treasury"),
+                "five_year_treasury": _latest_available_value(macro_row, "5Y_Treasury"),
+                "fed_funds_rate": _latest_available_value(macro_row, "Fed_Funds_Rate"),
+                "ten_year_treasury": _latest_available_value(macro_row, "10Y_Treasury"),
+                "thirty_year_treasury": _latest_available_value(macro_row, "30Y_Treasury"),
+                "yield_spread_10y2y": _latest_available_value(
+                    macro_row, "Yield_Spread_10Y2Y"
                 ),
+                "yield_spread_10y3m": _latest_available_value(
+                    macro_row, "Yield_Spread_10Y3M"
+                ),
+                "vix": _latest_available_value(macro_row, "VIX"),
+                "credit_spread": _latest_available_value(macro_row, "CreditSpread"),
+                "dollar_index": _latest_available_value(macro_row, "DollarIndex"),
+                "dollar_index_growth": dollar_index_growth,
+                "wti_oil": _latest_available_value(macro_row, "WTI_Oil"),
+                "wti_oil_growth": wti_oil_growth,
+                "bank_credit": _latest_available_value(macro_row, "BankCredit"),
+                "bank_credit_growth": bank_credit_growth,
+                "financial_stress_index": _latest_available_value(
+                    macro_row, "FinancialStressIndex"
+                ),
+                "cpi": _latest_available_value(macro_row, "CPI"),
+                "core_cpi": _latest_available_value(macro_row, "Core_CPI"),
+                "pce": _latest_available_value(macro_row, "PCE"),
+                "core_pce": _latest_available_value(macro_row, "Core_PCE"),
+                "ppi": _latest_available_value(macro_row, "PPI"),
+                "inflation_rate": inflation_rate,
+                "unemployment": _latest_available_value(macro_row, "Unemployment"),
+                "payroll_employment": _latest_available_value(
+                    macro_row, "PayrollEmployment"
+                ),
+                "payroll_employment_growth": payroll_employment_growth,
+                "labor_force_participation": _latest_available_value(
+                    macro_row, "LaborForceParticipation"
+                ),
+                "yield_curve_proxy": yield_curve_proxy,
+                "industrial_production": _latest_available_value(
+                    macro_row, "IndustrialProduction"
+                ),
+                "gdp_growth": gdp_growth,
+                "industrial_production_growth": industrial_production_growth,
+                "capacity_utilization": _latest_available_value(
+                    macro_row, "CapacityUtilization"
+                ),
+                "retail_sales": _latest_available_value(macro_row, "RetailSales"),
+                "retail_sales_growth": retail_sales_growth,
+                "real_retail_sales": _latest_available_value(
+                    macro_row, "RealRetailSales"
+                ),
+                "real_retail_sales_growth": real_retail_sales_growth,
+                "personal_income": _latest_available_value(
+                    macro_row, "PersonalIncome"
+                ),
+                "personal_income_growth": personal_income_growth,
+                "disposable_income": _latest_available_value(
+                    macro_row, "DisposableIncome"
+                ),
+                "disposable_income_growth": disposable_income_growth,
+                "consumer_sentiment": _latest_available_value(
+                    macro_row, "ConsumerSentiment"
+                ),
+                "housing_starts": _latest_available_value(macro_row, "HousingStarts"),
+                "housing_starts_growth": housing_starts_growth,
+                "housing_permits": _latest_available_value(macro_row, "HousingPermits"),
+                "housing_permits_growth": housing_permits_growth,
+                "case_shiller_home_price": _latest_available_value(
+                    macro_row, "CaseShillerHomePrice"
+                ),
+                "money_supply_m2": _latest_available_value(macro_row, "MoneySupply_M2"),
+                "money_supply_m2_growth": money_supply_m2_growth,
+                "gdp": _latest_available_value(macro_row, "GDP"),
+                "gdp_per_capita": _latest_available_value(macro_row, "GDP_Per_Capita"),
             },
             "recent_news_items": kept_items,
         },

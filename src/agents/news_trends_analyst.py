@@ -24,6 +24,7 @@ class NewsTrendsAnalyst:
         ticker = snapshot["ticker"]
         analysis_date = snapshot["analysis_date"]
         news = snapshot["news_macro_features"]["news_summary"]
+        trends = snapshot["news_macro_features"].get("trends_summary", {})
 
         bullish_factors: list[str] = []
         bearish_factors: list[str] = []
@@ -42,6 +43,12 @@ class NewsTrendsAnalyst:
         uncertainty_articles = news.get("uncertainty_articles")
         litigious_articles = news.get("litigious_articles")
         avg_uncertainty_hits = news.get("avg_uncertainty_hits")
+        has_trends_data = trends.get("has_trends_data")
+        current_week_avg = trends.get("current_week_avg")
+        previous_week_avg = trends.get("previous_week_avg")
+        wow_change = trends.get("wow_change")
+        latest_search_interest = trends.get("latest_search_interest")
+        current_week_peak = trends.get("current_week_peak")
 
         if article_count == 0:
             risk_flags.append("No recent company news available")
@@ -68,6 +75,23 @@ class NewsTrendsAnalyst:
             if litigious_articles is not None and litigious_articles > 0:
                 risk_flags.append("Litigious language appears in recent news")
 
+        trend_score = 0
+        if has_trends_data:
+            if wow_change is not None:
+                if wow_change >= 0.15:
+                    trend_score = 1
+                    bullish_factors.append(
+                        f"Google Trends search interest is up {wow_change:.0%} week-over-week."
+                    )
+                elif wow_change <= -0.15:
+                    trend_score = -1
+                    bearish_factors.append(
+                        f"Google Trends search interest is down {abs(wow_change):.0%} week-over-week."
+                    )
+
+            if current_week_peak is not None and current_week_peak >= 80:
+                risk_flags.append("Retail attention spike may indicate crowded positioning")
+
         # Relevance-based risk flags are temporarily disabled.
         # The current heuristic relies on headline/summary text only, while
         # some news items may mention the company mainly in the full article
@@ -79,16 +103,19 @@ class NewsTrendsAnalyst:
         #     elif relevance_ratio is not None and relevance_ratio < 0.4:
         #         risk_flags.append("Low estimated news relevance ratio")
 
-        score_diff = bullish_score - bearish_score
+        news_score_diff = bullish_score - bearish_score
+        news_component = max(-1.0, min(1.0, news_score_diff / 2.0))
+        trend_component = float(trend_score)
+        combined_score = 0.8 * news_component + 0.2 * trend_component
 
-        if score_diff >= 2:
+        if combined_score >= 0.35:
             signal = "bullish"
-        elif score_diff <= -2:
+        elif combined_score <= -0.35:
             signal = "bearish"
         else:
             signal = "neutral"
 
-        confidence = min(0.85, 0.50 + abs(score_diff) * 0.04)
+        confidence = min(0.85, 0.50 + abs(combined_score) * 0.25)
         if article_count and avg_uncertainty_hits is not None and avg_uncertainty_hits >= 0.5:
             confidence = max(0.5, confidence - 0.04)
 
@@ -120,5 +147,14 @@ class NewsTrendsAnalyst:
                 "uncertainty_articles": uncertainty_articles,
                 "litigious_articles": litigious_articles,
                 "avg_uncertainty_hits": avg_uncertainty_hits,
+                "has_trends_data": has_trends_data,
+                "current_week_avg": current_week_avg,
+                "previous_week_avg": previous_week_avg,
+                "wow_change": wow_change,
+                "latest_search_interest": latest_search_interest,
+                "current_week_peak": current_week_peak,
+                "news_score_diff": news_score_diff,
+                "trend_score": trend_score,
+                "combined_score": round(combined_score, 4),
             },
         )

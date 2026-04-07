@@ -1,0 +1,36 @@
+{
+  "agent_name": "TechnicalAnalyst",
+  "ticker": "AAPL",
+  "analysis_date": "2026-01-04",
+  "signal": "bearish",
+  "confidence": 0.8,
+  "summary": "The bearish factors outweigh the bullish factors, with multiple indicators suggesting weakening momentum and negative return momentum, while the low relative trading volume is a risk flag.",
+  "bullish_factors": [
+    "The 20-day moving average is above the 50-day moving average."
+  ],
+  "bearish_factors": [
+    "Price is below the 20-day moving average.",
+    "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+    "MACD is below its signal line, indicating weakening momentum.",
+    "The stock has negative 5-day return momentum.",
+    "The stock has negative 20-day return momentum."
+  ],
+  "risk_flags": [
+    "Low relative trading volume"
+  ],
+  "key_metrics_used": {
+    "close": 271.6058349609375,
+    "sma_20": 275.21497344970703,
+    "sma_50": 272.334921875,
+    "ema_12": 273.3357335416229,
+    "ema_26": 273.425970743719,
+    "rsi_14": 31.27715949493475,
+    "macd": -0.0902372020960911,
+    "macd_signal": 0.6290718487290191,
+    "return_5d": -0.001835841104918634,
+    "return_20d": -0.05007168772861703,
+    "volatility_20d": 0.0061399867169967,
+    "volume_ratio_20d": 0.662247734848562,
+    "source_market_date": "2025-12-31"
+  }
+}

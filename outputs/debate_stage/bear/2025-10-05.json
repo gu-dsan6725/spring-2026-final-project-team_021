@@ -1,0 +1,221 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2025-10-05",
+  "input_data_date": "2025-10-05",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AAPL's fundamental metrics are overstated, and the company is at risk of liquidity issues, which could lead to a decline in stock price.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "The decline in Google Trends search interest is a minor concern, but it is not a significant enough factor to outweigh the overall bullish thesis.",
+        "RSI is above 70, suggesting overbought conditions."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Overbought risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Amazon's strong fundamentals and macro conditions are overshadowed by bearish technical indicators and weak consumer sentiment, leading to a bearish view.",
+      "reasons": [
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "The stock has negative 20-day return momentum."
+      ],
+      "counterpoints": [
+        "Amazon's revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.55,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weakening momentum, and weak consumer sentiment.",
+      "reasons": [
+        "Revenue growth is negative year-over-year.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Consumer sentiment is weak."
+      ],
+      "counterpoints": [
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
+      ],
+      "risk_flags": [
+        "Negative revenue growth",
+        "Weak consumer sentiment",
+        "Weakening momentum"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Google's high debt-to-equity ratio, weak consumer sentiment, and litigious language in recent news pose significant risks to its investment appeal.",
+      "reasons": [
+        "High debt-to-equity ratio (FundamentalAnalyst)",
+        "Weak consumer sentiment (MacroAnalyst)",
+        "Litigious language appears in recent news (NewsTrendsAnalyst)"
+      ],
+      "counterpoints": [
+        "Strong return on equity and operating cash flow (FundamentalAnalyst)",
+        "Positive momentum and moving averages (TechnicalAnalyst)",
+        "Broadly supportive macro conditions (MacroAnalyst)",
+        "Recent news trends are broadly supportive (NewsTrendsAnalyst)"
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio (FundamentalAnalyst)",
+        "Litigious language appears in recent news (NewsTrendsAnalyst)",
+        "Weak consumer sentiment (MacroAnalyst)"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Eli Lilly and Company (LLY) is poised for a decline driven by elevated leverage, overbought conditions, and weak macro sentiment.",
+      "reasons": [
+        "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+        "RSI is above 70, suggesting overbought conditions.",
+        "Consumer sentiment is weak.",
+        "Litigious language appears in recent news"
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Leverage risk",
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-07",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-10-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "ExxonMobil (XOM) presents a bearish case due to weak macro conditions, negative news trends, and technical indicators that suggest weakening momentum.",
+      "reasons": [
+        "Consumer sentiment is weak.",
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Quick liquidity risk",
+        "Retail attention spike may indicate crowded positioning"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-10-05",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    }
+  ]
+}
