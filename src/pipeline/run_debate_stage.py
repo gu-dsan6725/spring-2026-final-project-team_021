@@ -75,6 +75,16 @@ def _parse_date(value: str) -> tuple[int, int, int]:
     return int(year), int(month), int(day)
 
 
+def _validate_date(value: str, *, label: str) -> str:
+    import datetime as _dt
+
+    try:
+        parsed = _dt.date(*_parse_date(value))
+    except (TypeError, ValueError) as exc:
+        raise ValueError(f"{label} must be a valid date in YYYY-MM-DD format, got {value}") from exc
+    return parsed.isoformat()
+
+
 def _date_to_ordinal(value: str) -> int:
     year, month, day = _parse_date(value)
     return (year * 10000) + (month * 100) + day
@@ -241,6 +251,23 @@ def _available_complete_week_dates(
         complete_dates.append(week_date)
 
     return complete_dates
+
+
+def _filter_week_dates(
+    week_dates: list[str],
+    start_date: str | None = None,
+    end_date: str | None = None,
+) -> list[str]:
+    filtered = list(week_dates)
+
+    if start_date is not None:
+        start_ordinal = _date_to_ordinal(start_date)
+        filtered = [week_date for week_date in filtered if _date_to_ordinal(week_date) >= start_ordinal]
+    if end_date is not None:
+        end_ordinal = _date_to_ordinal(end_date)
+        filtered = [week_date for week_date in filtered if _date_to_ordinal(week_date) <= end_ordinal]
+
+    return filtered
 
 
 def _source_report_dates(
@@ -605,6 +632,18 @@ def parse_args() -> argparse.Namespace:
         help="Optional Sunday date for the debate output in YYYY-MM-DD format",
     )
     parser.add_argument(
+        "--start-date",
+        type=str,
+        default=None,
+        help="Optional inclusive start date used to filter weekly debate runs by week_end_date",
+    )
+    parser.add_argument(
+        "--end-date",
+        type=str,
+        default=None,
+        help="Optional inclusive end date used to filter weekly debate runs by week_end_date",
+    )
+    parser.add_argument(
         "--all-weeks",
         action="store_true",
         help="Run the weekly debate stage for every available common week",
@@ -652,9 +691,17 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     tickers = [str(ticker).upper() for ticker in args.ticker]
+    start_date = _validate_date(args.start_date, label="--start-date") if args.start_date else None
+    end_date = _validate_date(args.end_date, label="--end-date") if args.end_date else None
+
+    if start_date and end_date and _date_to_ordinal(start_date) > _date_to_ordinal(end_date):
+        raise ValueError(f"--start-date must be on or before --end-date, got {start_date} > {end_date}")
+
+    if args.week_end and (start_date or end_date):
+        raise ValueError("--week-end cannot be combined with --start-date or --end-date")
 
     if args.week_end:
-        week_end_dates = [args.week_end]
+        week_end_dates = [_validate_date(args.week_end, label="--week-end")]
     else:
         week_end_dates = _available_complete_week_dates(
             tickers=tickers,
@@ -663,11 +710,17 @@ def main() -> None:
             fundamental_dir=args.fundamental_dir,
             macro_dir=args.macro_dir,
         )
+        week_end_dates = _filter_week_dates(
+            week_dates=week_end_dates,
+            start_date=start_date,
+            end_date=end_date,
+        )
 
     if not week_end_dates:
         raise FileNotFoundError(
-            "No complete weekly datasets are available for the requested tickers. "
-            "Check historical technical/news/fundamental/macro reports."
+            "No complete weekly datasets are available for the requested tickers "
+            "within the requested date selection. Check historical technical/news/"
+            "fundamental/macro reports and the selected date range."
         )
 
     for week_end_date in week_end_dates:
