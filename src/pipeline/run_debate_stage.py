@@ -358,16 +358,21 @@ def _normalized_allocations(decisions: list[dict]) -> dict[str, float]:
         return {str(decision["ticker"]): 0.0 for decision in decisions}
 
     total_score = sum(scores.values())
-    allocations = {
-        ticker: round((score / total_score) * 100.0, 2)
-        for ticker, score in scores.items()
-    }
-
-    total_allocated = round(sum(allocations.values()), 2)
-    remainder = round(100.0 - total_allocated, 2)
-    if abs(remainder) > 0 and allocations:
-        top_ticker = max(allocations, key=allocations.get)
-        allocations[top_ticker] = round(allocations[top_ticker] + remainder, 2)
+    if total_score <= 1.0:
+        allocations = {
+            ticker: round(score * 100.0, 2)
+            for ticker, score in scores.items()
+        }
+    else:
+        allocations = {
+            ticker: round((score / total_score) * 100.0, 2)
+            for ticker, score in scores.items()
+        }
+        total_allocated = round(sum(allocations.values()), 2)
+        remainder = round(100.0 - total_allocated, 2)
+        if abs(remainder) > 0 and allocations:
+            top_ticker = max(allocations, key=allocations.get)
+            allocations[top_ticker] = round(allocations[top_ticker] + remainder, 2)
 
     for decision in decisions:
         allocations.setdefault(str(decision["ticker"]), 0.0)
@@ -543,8 +548,9 @@ def run_for_week(
         tickers=sorted(tickers),
         portfolio_summary=_portfolio_summary(week_end_date, judge_allocations),
         allocation_method=(
-            "Allocate 100% across stocks with bullish judge signals, proportional to each "
-            "stock's judge conviction score; bearish and neutral names receive 0%."
+            "Use each bullish stock's raw judge conviction as its target weight. "
+            "If combined bullish weights exceed 100%, scale them down proportionally; "
+            "otherwise leave the remainder as cash. Bearish and neutral names receive 0%."
         ),
         holdings=judge_allocations,
         bullish_tickers=[item.ticker for item in judge_allocations if item.signal == "bullish"],

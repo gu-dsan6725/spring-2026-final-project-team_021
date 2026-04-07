@@ -16,12 +16,12 @@
       "ticker": "AAPL",
       "input_data_date": "2025-08-10",
       "supports_stance": true,
-      "confidence": 0.7,
-      "thesis": "AAPL is a sell due to its weak short-term liquidity and mixed macro conditions.",
+      "confidence": 0.8,
+      "thesis": "AAPL is a sell due to its weak short-term liquidity and mixed macro conditions, with a strong bearish case supported by multiple risk flags.",
       "reasons": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
         "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-        "Macro conditions are mixed, without a strong directional edge."
+        "Front-end inversion risk is a concern."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
@@ -41,8 +41,8 @@
         "news_trends": "2025-08-10"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.6,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
       }
     },
     {
@@ -50,7 +50,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "Amazon's bearish technical momentum, mixed macro conditions, and negative news trends outweigh its strong fundamentals, supporting a bearish view.",
+      "thesis": "Amazon's strong fundamentals are offset by bearish technical momentum and neutral macro and news trends, leading to a bearish view.",
       "reasons": [
         "Price is below the 20-day moving average.",
         "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
@@ -83,8 +83,8 @@
       "ticker": "BRK.B",
       "input_data_date": "2025-08-10",
       "supports_stance": true,
-      "confidence": 0.75,
-      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, bearish technical indicators, and mixed macro conditions.",
+      "confidence": 0.85,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak technical indicators, and mixed macroeconomic environment.",
       "reasons": [
         "Revenue growth is negative year-over-year.",
         "Price is below the 20-day moving average.",
@@ -99,8 +99,9 @@
         "Operating cash flow is positive."
       ],
       "risk_flags": [
-        "Front-end inversion risk",
-        "Low relative trading volume"
+        "Inverted 10Y-3M term spread",
+        "Negative revenue growth",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
@@ -117,17 +118,16 @@
       "ticker": "GOOGL",
       "input_data_date": "2025-08-10",
       "supports_stance": true,
-      "confidence": 0.6,
-      "thesis": "GOOGL's high debt-to-equity ratio and inverted term spread indicate a high risk of recession, which could negatively impact the company's stock performance.",
+      "confidence": 0.7,
+      "thesis": "GOOGL's high debt-to-equity ratio and inverted term spread pose significant risks to its financial stability and future growth.",
       "reasons": [
-        "The debt-to-equity ratio is 9.79813510564428%, which is a concern for the company's financial health.",
+        "The debt-to-equity ratio is 9.79813510564428%, indicating a high level of leverage.",
         "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-        "Google Trends search interest is down 16% week-over-week, indicating a potential decline in consumer interest in the company's products or services."
+        "Google Trends search interest is down 16% week-over-week, indicating a potential decline in consumer interest."
       ],
       "counterpoints": [
         "Strong return on equity and operating cash flow, combined with adequate short-term liquidity, support a bullish view.",
-        "Price is above the 20-day moving average, and the 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-        "MACD is above its signal line, indicating positive momentum, and the stock has positive 5-day and 20-day return momentum."
+        "Price is above the 20-day moving average, and the 12-day EMA is above the 26-day EMA, supporting positive momentum."
       ],
       "risk_flags": [
         "Decline in Google Trends search interest",
@@ -141,8 +141,8 @@
         "news_trends": "2025-08-10"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.5
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -150,7 +150,7 @@
       "input_data_date": "2025-08-10",
       "supports_stance": true,
       "confidence": 0.65,
-      "thesis": "Eli Lilly and Company (LLY) is vulnerable to a decline driven by elevated leverage, weak momentum, and a potentially crowded positioning.",
+      "thesis": "Eli Lilly and Company (LLY) is vulnerable to a decline due to its elevated leverage, weak momentum, and negative return momentum, which may outweigh its strong profitability and liquidity metrics.",
       "reasons": [
         "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
         "Price is below the 20-day moving average.",
@@ -165,6 +165,7 @@
         "Net margin is healthy."
       ],
       "risk_flags": [
+        "Front-end inversion risk",
         "Leverage risk",
         "Oversold volatility risk",
         "Quick liquidity risk"
@@ -213,7 +214,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.8
+        "evidence_balance": 0.5
       }
     }
   ]

@@ -1,0 +1,217 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2025-10-26",
+  "input_data_date": "2025-10-26",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AAPL's strong fundamental metrics and technical indicators are overshadowed by liquidity concerns and weak consumer sentiment, leading to a bearish outlook.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Consumer sentiment is weak.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve, but this is not a direct indicator of AAPL's performance.",
+        "The 10Y-3M term spread is positive, which supports a healthier growth backdrop, but this is not a direct indicator of AAPL's performance."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Consumer sentiment risk",
+        "Liquidity risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Amazon's strong fundamentals and positive technical momentum are overshadowed by weak consumer sentiment and a quick liquidity risk, making it a less compelling long-term investment opportunity.",
+      "reasons": [
+        "Consumer sentiment is weak.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "Quick liquidity risk"
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Quick liquidity risk",
+        "Weak consumer sentiment"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak technical indicators, and potential macroeconomic headwinds.",
+      "reasons": [
+        "Revenue growth is negative year-over-year.",
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
+      ],
+      "risk_flags": [
+        "Negative revenue growth",
+        "Potential macroeconomic headwinds",
+        "Weak technical indicators"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "GOOGL's high debt-to-equity ratio and weak consumer sentiment outweigh its solid fundamentals and positive technical signals.",
+      "reasons": [
+        "GOOGL's debt-to-equity ratio is 9.79813510564428%, which is a potential risk factor.",
+        "Consumer sentiment is weak, which could negatively impact consumer demand and ultimately the company's revenue and profitability.",
+        "The company's recent news trends are mixed, without a strong directional edge, and there is no recent company news available."
+      ],
+      "counterpoints": [
+        "Strong return on equity and operating cash flow, combined with adequate short-term liquidity, support a bullish view.",
+        "GOOGL is showing strong bullish signals with positive momentum and key metrics supporting a buy, but with moderate volatility.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio",
+        "No recent company news available",
+        "Weak consumer sentiment"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, weakening momentum, and weak consumer sentiment.",
+      "reasons": [
+        "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Consumer sentiment is weak.",
+        "Litigious language appears in recent news"
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Leverage risk",
+        "Litigious language appears in recent news",
+        "Weak consumer sentiment",
+        "Weakening momentum"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-07",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-10-26",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "ExxonMobil (XOM) presents a bearish case due to a high debt-to-equity ratio, negative 20-day return momentum, and weak consumer sentiment.",
+      "reasons": [
+        "High debt-to-equity ratio",
+        "Negative 20-day return momentum",
+        "Weak consumer sentiment"
+      ],
+      "counterpoints": [
+        "Solid return on assets",
+        "Adequate short-term liquidity",
+        "Positive free and operating cash flows",
+        "Price is above the 20-day moving average"
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio",
+        "Negative 20-day return momentum",
+        "Weak consumer sentiment"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    }
+  ]
+}
