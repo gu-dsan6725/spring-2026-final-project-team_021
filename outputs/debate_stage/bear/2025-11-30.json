@@ -1,0 +1,225 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2025-11-30",
+  "input_data_date": "2025-11-30",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "AAPL's strong fundamental metrics are outweighed by liquidity concerns and weak macro conditions, leading to a bearish outlook.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "Litigious language appears in recent news"
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Low relative trading volume",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "AMZN's high valuation, weak technical indicators, and potential macro headwinds make it a bearish stock.",
+      "reasons": [
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "High valuation",
+        "Potential macro headwinds",
+        "Weak technical indicators"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.55,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its negative revenue growth, weak consumer sentiment, and litigious language in recent news.",
+      "reasons": [
+        "Revenue growth is negative year-over-year.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "Google Trends search interest is down 24% week-over-week.",
+        "Litigious language appears in recent news"
+      ],
+      "counterpoints": [
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Return on equity is strong.",
+        "Return on assets is solid."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Low relative trading volume"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.55,
+      "thesis": "GOOGL's strong financial position and positive cash flows are offset by overbought conditions, weak consumer sentiment, and litigious language in recent news.",
+      "reasons": [
+        "Return on equity is strong.",
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
+      ],
+      "counterpoints": [
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+        "MACD is above its signal line, indicating positive momentum."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Weak consumer sentiment",
+        "Weakening housing permits"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.55,
+      "thesis": "Eli Lilly's strong fundamental profile is offset by overbought conditions, weak consumer sentiment, and litigious language in recent news, making it a less attractive investment opportunity.",
+      "reasons": [
+        "RSI is above 70, suggesting overbought conditions.",
+        "Consumer sentiment is weak.",
+        "Litigious language appears in recent news",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Litigious language in recent news",
+        "Overbought risk",
+        "Weak consumer sentiment",
+        "Weakening housing permits"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.4
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2025-11-30",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "ExxonMobil (XOM) is poised for a decline due to its high debt-to-equity ratio, quick liquidity risk, and negative short-term momentum.",
+      "reasons": [
+        "XOM has a high debt-to-equity ratio of 0.1613288251119699.",
+        "The stock has quick liquidity risk, which could lead to a decline in its stock price.",
+        "Price is below the 20-day moving average, indicating potential weakness.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "XOM has solid fundamentals with positive free cash flow and operating cash flow.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
+        "The 20-day moving average is above the 50-day moving average, indicating positive momentum."
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio",
+        "Low relative trading volume",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2025-11-30",
+        "macro": "2025-11-30",
+        "news_trends": "2025-11-30"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.5,
+        "evidence_balance": 0.5
+      }
+    }
+  ]
+}
