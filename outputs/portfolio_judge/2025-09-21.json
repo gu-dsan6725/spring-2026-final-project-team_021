@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-09-21",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "LLY tops the ranking on exceptional fundamental growth (37.6% revenue, 84% gross margin) combined with solid technicals, making it the highest-conviction pick despite leverage risk. AAPL earns the second slot with the strongest technical momentum in the group (RSI 64, volume 2.9x, 9% 20d return) backed by robust fundamentals. XOM gets meaningful weight for its uniquely clean technical picture (all 7 bullish factors, zero bearish) plus positive news sentiment. GOOGL is excluded due to extreme overbought conditions (RSI 90.6) creating high mean-reversion risk, and BRK.B is excluded due to negative revenue growth and weak technicals.",
+  "ranking": [
+    "LLY",
+    "AAPL",
+    "XOM",
+    "AMZN",
+    "GOOGL",
+    "BRK.B"
+  ],
+  "holdings": {
+    "LLY": {
+      "weight_pct": 35.0,
+      "reason": "Best fundamental growth story (37.6% revenue growth, 84% gross margin, 43% operating margin) with solid technicals and judge confidence of 0.85."
+    },
+    "AAPL": {
+      "weight_pct": 30.0,
+      "reason": "Strongest technical momentum in the universe (RSI 64, volume 2.9x average, all MAs aligned) backed by strong profitability metrics and positive FCF."
+    },
+    "XOM": {
+      "weight_pct": 20.0,
+      "reason": "Cleanest technical setup with all 7 bullish factors and zero bearish, plus positive news sentiment and majority-positive article flow differentiating it from peers."
+    },
+    "AMZN": {
+      "weight_pct": 10.0,
+      "reason": "Strong fundamentals and mostly bullish technicals but MACD below signal line indicates genuinely weakening momentum, warranting reduced weight versus top picks."
+    },
+    "GOOGL": {
+      "weight_pct": 0.0,
+      "reason": "RSI at 90.6 signals extreme overbought conditions with 27% already gained in 20 days; mean-reversion risk dominates despite strong underlying fundamentals."
+    },
+    "BRK.B": {
+      "weight_pct": 5.0,
+      "reason": "Weakest bull case with negative revenue growth, price below 20-day MA, MACD below signal, and judge confidence of only 0.65; minimal allocation reflects low conviction."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

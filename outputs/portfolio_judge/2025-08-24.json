@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-08-24",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL leads with the cleanest fundamental profile (lowest leverage, strong ROE/ROA, above-average volume, no fundamental bearish factors) and a bear case that mischaracterized its D/E ratio. AMZN follows with superior revenue growth and positive news trends, though short-term momentum is negative. XOM and AAPL receive smaller allocations given overbought conditions and thinner fundamental data respectively. LLY is minimally weighted due to negative 20d momentum, litigious news, and bearish news trends despite strong underlying fundamentals. BRK.B is excluded on a bearish judge signal.",
+  "ranking": [
+    "GOOGL",
+    "AMZN",
+    "XOM",
+    "AAPL",
+    "LLY",
+    "BRK.B"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 32.0,
+      "reason": "Cleanest bull case: lowest leverage (D/E 0.098), strong ROE/ROA, above-average trading volume, positive 5d and 20d momentum, and a bear case built on a factually weak D/E argument."
+    },
+    "AMZN": {
+      "weight_pct": 25.0,
+      "reason": "Best revenue growth (13.3%) and margins among tech peers, positive news sentiment, strong cash flows, though negative short-term momentum warrants slightly lower weight than GOOGL."
+    },
+    "XOM": {
+      "weight_pct": 18.0,
+      "reason": "Positive 5d and 20d momentum, strongest news sentiment score in the universe, and solid cash flows; limited by thin fundamental data and litigious news flag."
+    },
+    "AAPL": {
+      "weight_pct": 15.0,
+      "reason": "Strong profitability metrics and free cash flow, but RSI at 76.7 is the most overbought in the group, volume ratio is low, and current ratio below 1.0 adds liquidity concern."
+    },
+    "LLY": {
+      "weight_pct": 10.0,
+      "reason": "Exceptional revenue growth (37.6%) and margins justify a small position, but negative 20d momentum (-12.2%), litigious news language, and bearish news trends are meaningful near-term headwinds."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish; negative revenue growth, overbought conditions, and majority-negative news flow drove the bear verdict."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-12-07",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "LLY earns the largest allocation due to its exceptional fundamental profile (85% revenue growth, 83% gross margin, 94% ROE) with a very weak bear case, making it the highest-conviction long. AAPL receives the second-largest weight given clean bullish signals across all four analyst dimensions with only minor liquidity concerns. GOOGL gets a smaller allocation due to overbought technicals (RSI 80) and negative news sentiment despite strong underlying fundamentals. BRK.B, AMZN, and XOM are excluded or minimized due to negative revenue growth, bearish technicals, and insufficient fundamental support respectively.",
+  "ranking": [
+    "LLY",
+    "AAPL",
+    "GOOGL",
+    "BRK.B",
+    "AMZN",
+    "XOM"
+  ],
+  "holdings": {
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest fundamental case in the universe with 85% revenue growth and 83% gross margin; bear case has the lowest confidence and case strength of any ticker."
+    },
+    "AAPL": {
+      "weight_pct": 30.0,
+      "reason": "Clean bullish signals across fundamentals, technicals, and macro with only minor liquidity concerns that are well-rebutted by strong cash generation."
+    },
+    "GOOGL": {
+      "weight_pct": 15.0,
+      "reason": "Strong fundamentals and positive technicals but RSI at 80 signals overbought conditions and negative news sentiment warrants a reduced position."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Underlying analyst signals are neutral/mixed with negative revenue growth and bearish short-term technicals; insufficient conviction relative to other holdings."
+    },
+    "AMZN": {
+      "weight_pct": 0.0,
+      "reason": "Bearish technical analyst signal with negative 5-day and 20-day returns and price below 20-SMA creates meaningful near-term headwind that offsets strong fundamentals."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Weakest fundamental case in the universe with minimal bullish factors reported, bearish technical signal, and neutral news trends."
+    }
+  },
+  "total_allocated_pct": 85.0
+}

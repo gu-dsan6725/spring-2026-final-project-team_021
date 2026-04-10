@@ -1,7 +1,7 @@
 """
 Run the risk management layer on debate stage outputs.
 
-For each available week (or a specified week), this script:
+For each available week this script:
   1. Reads the Judge report and debate transcript for that week.
   2. Applies rule-based portfolio constraints (confidence floor, single-position
      cap, sector concentration cap, minimum holdings / defensive mode).
@@ -11,19 +11,20 @@ For each available week (or a specified week), this script:
 Usage examples
 --------------
 # Run on all available weeks:
-python -m src.pipeline.run_risk_management --all-weeks
+python -m src.pipeline.run_risk_management
 
-# Run on a specific week:
-python -m src.pipeline.run_risk_management --week-end 2025-08-03
+# Filter by date range (typical range: 2025-08-03 to yesterday):
+python -m src.pipeline.run_risk_management --start-date 2025-08-03 --end-date 2026-04-09
 
 # Override thresholds:
-python -m src.pipeline.run_risk_management --all-weeks \\
+python -m src.pipeline.run_risk_management \\
     --confidence-floor 0.60 --max-single-pct 25 --max-sector-pct 35
 """
 
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import os
 from pathlib import Path
@@ -59,6 +60,18 @@ def _available_weeks(judge_dir: str) -> list[str]:
     if not base.exists():
         return []
     return sorted(p.stem for p in base.glob("*.json"))
+
+
+def _filter_weeks(
+    weeks: list[str],
+    start_date: str | None,
+    end_date: str | None,
+) -> list[str]:
+    if start_date:
+        weeks = [w for w in weeks if w >= start_date]
+    if end_date:
+        weeks = [w for w in weeks if w <= end_date]
+    return weeks
 
 
 def run_for_week(
@@ -102,16 +115,23 @@ def run_for_week(
 
 
 def parse_args() -> argparse.Namespace:
+    yesterday = (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
     parser = argparse.ArgumentParser(
         description="Apply risk management rules to Judge debate outputs."
     )
     parser.add_argument(
-        "--week-end", type=str, default=None,
-        help="Run for a specific Sunday date (YYYY-MM-DD).",
+        "--start-date",
+        type=str,
+        default=None,
+        help="Only process weeks on or after this date (YYYY-MM-DD). "
+             "Suggested default: 2025-08-03.",
     )
     parser.add_argument(
-        "--all-weeks", action="store_true",
-        help="Run for every available week in the judge output directory.",
+        "--end-date",
+        type=str,
+        default=None,
+        help=f"Only process weeks on or before this date (YYYY-MM-DD). "
+             f"Suggested default: yesterday ({yesterday}).",
     )
     parser.add_argument(
         "--judge-dir", type=str, default=DEFAULT_JUDGE_DIR,
@@ -154,16 +174,17 @@ def main() -> None:
         min_holdings=args.min_holdings,
     )
 
-    if args.week_end:
-        weeks = [args.week_end]
-    elif args.all_weeks:
-        weeks = _available_weeks(args.judge_dir)
-        if not weeks:
-            raise FileNotFoundError(
-                f"No judge JSON files found under {args.judge_dir}."
-            )
-    else:
-        raise ValueError("Specify --week-end DATE or --all-weeks.")
+    weeks = _available_weeks(args.judge_dir)
+    if not weeks:
+        raise FileNotFoundError(
+            f"No judge JSON files found under {args.judge_dir}."
+        )
+    weeks = _filter_weeks(weeks, args.start_date, args.end_date)
+    if not weeks:
+        raise ValueError(
+            f"No weeks found in range [{args.start_date}, {args.end_date}]. "
+            "Check --start-date and --end-date."
+        )
 
     for week in weeks:
         run_for_week(

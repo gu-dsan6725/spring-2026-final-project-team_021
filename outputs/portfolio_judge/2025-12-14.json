@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-12-14",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL and AAPL lead with judge confidence of 0.85 each, clean fundamental profiles, and positive technical momentum across multiple timeframes; GOOGL edges ahead due to zero liquidity risk flags and a very low debt-to-equity ratio. LLY has exceptional fundamentals (85% revenue growth, 83% gross margin) but is penalized by bearish news/technical signals and litigation risk. BRK.B has negative revenue growth and weak technicals, making it a lower-conviction hold. AMZN is technically broken across all momentum indicators with a bearish technical signal at 0.9 confidence, reducing conviction despite strong fundamentals. XOM receives zero weight as the judge returned a neutral signal.",
+  "ranking": [
+    "GOOGL",
+    "AAPL",
+    "LLY",
+    "BRK.B",
+    "AMZN",
+    "XOM"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Highest-quality bull case with 0.85 judge confidence, no liquidity or leverage risk, strong ROE/ROA, positive technical momentum, and the bear rebuttal was weak (debt-to-equity of 0.087 is actually very low, not high)."
+    },
+    "AAPL": {
+      "weight_pct": 28.0,
+      "reason": "Strong fundamentals across all profitability metrics, positive technical momentum with price above both 20d and 50d MAs, and 0.85 judge confidence; minor liquidity concern is manageable given massive free cash flow."
+    },
+    "LLY": {
+      "weight_pct": 20.0,
+      "reason": "Exceptional fundamental profile with 85% revenue growth and 83% gross margin driving 0.85 judge confidence, but bearish news sentiment, litigation risk, and price below 20d MA warrant a reduced position."
+    },
+    "BRK.B": {
+      "weight_pct": 10.0,
+      "reason": "Solid profitability metrics and positive macro support a 0.70 judge confidence bullish signal, but negative revenue growth and weak technicals across all momentum indicators limit conviction."
+    },
+    "AMZN": {
+      "weight_pct": 7.0,
+      "reason": "Strong fundamentals are overshadowed by a technically bearish setup with all six momentum indicators negative and a 0.90-confidence bearish technical signal, warranting only a small position on fundamental value."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Judge returned a neutral signal with 0.50 confidence; bull and bear cases were deemed too close to justify a directional trade."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

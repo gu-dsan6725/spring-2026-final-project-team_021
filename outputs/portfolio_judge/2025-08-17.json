@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-08-17",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL and AAPL lead with the strongest combination of fundamentals and technicals, where the bear cases were weakest and bull cases most compelling. AMZN earns a meaningful allocation on superior revenue growth and clean technicals, while BRK.B and XOM receive smaller positions given mixed technical signals and weaker fundamental stories. LLY is excluded entirely due to a bearish judge verdict with deteriorating technicals.",
+  "ranking": [
+    "GOOGL",
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "XOM",
+    "LLY"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Strongest bull case with clean technicals (RSI 68, 10% 20-day return), very low leverage, high ROE, and a bear case that was factually weak on the debt argument."
+    },
+    "AAPL": {
+      "weight_pct": 30.0,
+      "reason": "Excellent technical momentum (RSI 68, strong MACD, 9.8% 20-day return), robust margins and FCF, with liquidity concerns immaterial given Apple's cash generation."
+    },
+    "AMZN": {
+      "weight_pct": 20.0,
+      "reason": "Best revenue growth in the universe (13.3%), strong margins, and clean technicals with RSI at neutral 48 suggesting more upside room than AAPL/GOOGL."
+    },
+    "BRK.B": {
+      "weight_pct": 8.0,
+      "reason": "Solid profitability and positive news flow support a small position, but negative revenue growth and mixed EMA signals limit conviction."
+    },
+    "XOM": {
+      "weight_pct": 7.0,
+      "reason": "Positive news sentiment and solid FCF warrant a small allocation, but bearish technical analyst signal with price below 20-day MA and negative 20-day momentum cap the position."
+    },
+    "LLY": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish with deteriorating technicals (RSI 33, price below 20-day MA, negative 20-day momentum) and elevated leverage risk."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

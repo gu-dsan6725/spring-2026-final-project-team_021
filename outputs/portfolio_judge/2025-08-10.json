@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-08-10",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL leads the ranking with the cleanest bull case: strong technicals (price above 20-day MA, positive MACD, positive 5- and 20-day momentum), solid fundamentals (strong ROE/ROA, positive FCF), and the fewest unresolved risk flags (only front-end inversion, which is shared across all tickers). AAPL is second with equally strong technicals and fundamentals, though its sub-1.0 current ratio is a minor concern. AMZN earns a smaller allocation given its bearish technical picture (price below 20-day MA, negative MACD, negative 20-day momentum) despite strong fundamentals. LLY is deeply oversold with severe negative momentum (-21% 20-day return) and elevated leverage, making it speculative. XOM has weak technicals and limited fundamental data disclosed. BRK.B receives zero weight as the judge explicitly ruled bearish.",
+  "ranking": [
+    "GOOGL",
+    "AAPL",
+    "AMZN",
+    "LLY",
+    "XOM",
+    "BRK.B"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 38.0,
+      "reason": "Strongest combined bull case: clean technicals with price above 20-day MA, positive MACD and 20-day momentum, strong ROE/ROA, low debt, and fewest risk flags among bullish tickers."
+    },
+    "AAPL": {
+      "weight_pct": 32.0,
+      "reason": "Strong technicals (RSI near 70, price well above 20-day MA, high volume ratio) and excellent fundamentals (strong margins, FCF, ROE) with only minor liquidity concern offsetting the bull case."
+    },
+    "AMZN": {
+      "weight_pct": 15.0,
+      "reason": "Strong fundamentals and judge bullish at 0.85 confidence, but bearish technical picture (price below 20-day MA, negative MACD, negative 20-day momentum) meaningfully weakens near-term conviction."
+    },
+    "LLY": {
+      "weight_pct": 10.0,
+      "reason": "Exceptional revenue growth (37%) and margins support a long-term bull case, but severe near-term technical deterioration (-21% 20-day return, RSI below 30) and elevated leverage warrant a small, speculative position."
+    },
+    "XOM": {
+      "weight_pct": 5.0,
+      "reason": "Positive news sentiment and solid FCF provide some support, but weak technicals across all indicators and limited fundamental data disclosed reduce conviction to a minimal allocation."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge ruled bearish with 0.85 confidence; negative revenue growth, price below 20-day MA, and weak momentum across all technical indicators preclude any allocation."
+    }
+  },
+  "total_allocated_pct": 100.0
+}
