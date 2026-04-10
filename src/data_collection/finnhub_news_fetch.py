@@ -1,20 +1,19 @@
 import os
+import sys
 import finnhub
 import pandas as pd
-from datetime import datetime
-from config import (TICKERS, SAMPLE_START, SAMPLE_END, NEWS_DIR)
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
+from src.data_collection.config import (TICKERS, SAMPLE_START, SAMPLE_END, NEWS_DIR)
 
 # API KEY
 API_KEY = "d6qooa9r01qgdhqbpgm0d6qooa9r01qgdhqbpgmg"
-client = finnhub.Client(api_key=API_KEY)
 
-# date range
-START_DATE = SAMPLE_START
-END_DATE = SAMPLE_END
 
 # create directories
 def ensure_dir():
     os.makedirs(NEWS_DIR, exist_ok=True)
+
 
 # convert timestamp
 def convert_timestamp(df):
@@ -22,11 +21,11 @@ def convert_timestamp(df):
         df["datetime"] = pd.to_datetime(df["datetime"], unit="s")
     return df
 
+
 # generate monthly ranges
 def generate_month_ranges(start, end):
     months = pd.date_range(start, end, freq="MS")
     ranges = []
-
     for m in months:
         start_date = m.strftime("%Y-%m-%d")
         end_date = (m + pd.offsets.MonthEnd(1)).strftime("%Y-%m-%d")
@@ -35,36 +34,25 @@ def generate_month_ranges(start, end):
 
 
 # fetch news
-def fetch_news():
+def fetch_news(tickers: list[str], start: str, end: str, client: finnhub.Client) -> dict:
     all_news = {}
-    ranges = generate_month_ranges(START_DATE, END_DATE)
+    ranges = generate_month_ranges(start, end)
 
-    for ticker in TICKERS:
+    for ticker in tickers:
         print("\nFetching news for:", ticker)
         frames = []
-        for start, end in ranges:
-            print("   range:", start, "->", end)
-            news = client.company_news(
-                ticker,
-                _from=start,
-                to=end
-            )
+        for rng_start, rng_end in ranges:
+            print("   range:", rng_start, "->", rng_end)
+            news = client.company_news(ticker, _from=rng_start, to=rng_end)
             df = pd.DataFrame(news)
             if not df.empty:
-                df = df[[
-                    "headline",
-                    "summary",
-                    "datetime",
-                    "source",
-                    "url"
-                ]]
+                df = df[["headline", "summary", "datetime", "source", "url"]]
                 df = convert_timestamp(df)
                 df["ticker"] = ticker
                 frames.append(df)
 
-        if len(frames) > 0:
+        if frames:
             combined = pd.concat(frames)
-            # remove duplicates
             combined = combined.drop_duplicates(subset=["headline", "datetime"])
             combined = combined.sort_values("datetime")
             all_news[ticker] = combined
@@ -75,55 +63,51 @@ def fetch_news():
 
 
 # save news
-def save_news(news_dict):
+def save_news(news_dict: dict, news_dir: str = NEWS_DIR) -> None:
     for ticker, df in news_dict.items():
         if df.empty:
             print("No news for:", ticker)
             continue
-
-        filepath = os.path.join(
-            NEWS_DIR,
-            f"{ticker}_news.csv"
-        )
+        filepath = os.path.join(news_dir, f"{ticker}_news.csv")
         df.to_csv(filepath, index=False)
         print("Saved:", filepath)
 
 
 # combine dataset
-def combine_news(news_dict):
-    frames = []
-    for df in news_dict.values():
-        if not df.empty:
-            frames.append(df)
-
-    if len(frames) == 0:
+def combine_news(news_dict: dict) -> pd.DataFrame | None:
+    frames = [df for df in news_dict.values() if not df.empty]
+    if not frames:
         return None
-
     combined = pd.concat(frames)
     combined = combined.sort_values("datetime")
     combined = combined.drop_duplicates(subset=["headline", "datetime"])
     return combined
 
 
-# pipeline
-def run_pipeline():
-    ensure_dir()
-    news = fetch_news()
-    save_news(news)
+def run(
+    tickers: list[str] = TICKERS,
+    start: str = SAMPLE_START,
+    end: str = SAMPLE_END,
+    news_dir: str = NEWS_DIR,
+) -> None:
+    """Collect Finnhub news for *tickers* over [start, end] and save to *news_dir*."""
+    os.makedirs(news_dir, exist_ok=True)
+    client = finnhub.Client(api_key=API_KEY)
+    news = fetch_news(tickers=tickers, start=start, end=end, client=client)
+    save_news(news, news_dir=news_dir)
     combined = combine_news(news)
-
     if combined is not None:
-
-        combined_path = os.path.join(
-            NEWS_DIR,
-            "all_news.csv"
-        )
-
+        combined_path = os.path.join(news_dir, "all_news.csv")
         combined.to_csv(combined_path, index=False)
         print("\nSaved combined news:", combined_path)
         print("\nNews preview:\n")
         print(combined.head())
 
-# run
+
+# backward-compatible entry point
+def run_pipeline():
+    run()
+
+
 if __name__ == "__main__":
     run_pipeline()

@@ -4,17 +4,23 @@ DebateTrader Data Pipeline entry point.
 Steps:
   1. Price          — daily OHLCV via Yahoo Finance      (no API key needed)
   2. Fundamentals   — quarterly SEC EDGAR + Yahoo Finance (no API key needed)
-                      → quarterly_fundamentals.parquet
   3. Google Trends  — retail investor attention          (no API key needed)
+  4. News           — company headlines via Finnhub       (API key hardcoded)
+  5. Macro          — 35 FRED indicators                  (API key hardcoded)
 
 Usage (from project root):
     python src/data_collection/run_pipeline.py
+
+    # Custom date range and tickers:
+    python src/data_collection/run_pipeline.py \\
+        --start-date 2025-07-01 --end-date 2025-12-31 \\
+        --tickers AAPL GOOGL AMZN
 
     # Skip individual steps:
     python src/data_collection/run_pipeline.py --skip-price --skip-fundamentals
 
 Environment (.env):
-    GROQ_API_KEY   — for step 3 (search term generation via Groq)
+    GROQ_API_KEY   — for step 3 (search term generation via Groq, optional)
 """
 from __future__ import annotations
 
@@ -22,13 +28,14 @@ import sys
 import os
 import logging
 import argparse
+import datetime
 
 from dotenv import load_dotenv
 load_dotenv()   # Load .env before any other import reads os.environ
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", ".."))
 from src.data_collection.config import (
-    TICKERS, SAMPLE_START, SAMPLE_END,
+    TICKERS, SAMPLE_START,
     DATA_DIR, FUNDAMENTALS_DIR,
 )
 
@@ -40,54 +47,51 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def _yesterday() -> str:
+    return (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
+
+
 # ---------------------------------------------------------------------------
 # Step runners
 # ---------------------------------------------------------------------------
 
-def step_price(skip: bool) -> None:
+def step_price(skip: bool, tickers: list[str], start: str, end: str) -> None:
     if skip:
         logger.info("[SKIP] Price")
         return
     logger.info("=" * 60)
-    logger.info("STEP 1 / 3  —  Price (Yahoo Finance OHLCV)")
+    logger.info("STEP 1 / 5  —  Price (Yahoo Finance OHLCV)")
     logger.info("=" * 60)
     from src.data_collection.price_collector import run
-    run(tickers=TICKERS, start=SAMPLE_START, end=SAMPLE_END)
+    run(tickers=tickers, start=start, end=end)
 
 
-def step_fundamentals(skip: bool) -> None:
+def step_fundamentals(skip: bool, tickers: list[str], end: str) -> None:
     if skip:
         logger.info("[SKIP] Fundamentals")
         return
     logger.info("=" * 60)
-    logger.info("STEP 2 / 3  —  Fundamentals (SEC EDGAR primary + Yahoo Finance supplementary)")
+    logger.info("STEP 2 / 5  —  Fundamentals (SEC EDGAR primary + Yahoo Finance supplementary)")
     logger.info("=" * 60)
     from src.data_collection.fundamental_collector import run
-    run(tickers=TICKERS, end=SAMPLE_END)
+    run(tickers=tickers, end=end)
 
 
-def step_google_trends(skip: bool) -> None:
+def step_google_trends(skip: bool, tickers: list[str], start: str, end: str) -> None:
     if skip:
         logger.info("[SKIP] Google Trends")
         return
     logger.info("=" * 60)
-    logger.info("STEP 3 / 3  —  Google Trends (retail attention proxy)")
+    logger.info("STEP 3 / 5  —  Google Trends (retail attention proxy)")
     logger.info("=" * 60)
 
-    # Pass company names so Groq can generate better search terms.
-    # Read from the integrated quarterly fundamentals parquet (company_name
-    # is not stored there), so fall back to a static mapping derived from
-    # yfinance .info on first use, or just use ticker symbols.
-    import pandas as pd
     company_names: dict[str, str] = {}
     quarterly_path = os.path.join(FUNDAMENTALS_DIR, "quarterly_fundamentals.parquet")
     if os.path.exists(quarterly_path):
-        # Company names aren't stored in the fundamentals parquet; fetch them
-        # from yfinance .info (read-only, no file saved — just for Groq prompts).
         try:
             import yfinance as yf
             from src.data_collection.config import YFINANCE_TICKER_MAP
-            for ticker in TICKERS:
+            for ticker in tickers:
                 yf_sym = YFINANCE_TICKER_MAP.get(ticker, ticker)
                 name = yf.Ticker(yf_sym).info.get("longName", "")
                 if name:
@@ -98,12 +102,33 @@ def step_google_trends(skip: bool) -> None:
     else:
         logger.warning(
             "  quarterly_fundamentals.parquet not found. "
-            "Run step 4 first, or Groq will use ticker symbols only."
+            "Run step 2 first, or Groq will use ticker symbols only."
         )
 
     from src.data_collection.google_trends_collector import run
-    run(tickers=TICKERS, start=SAMPLE_START, end=SAMPLE_END,
-        company_names=company_names)
+    run(tickers=tickers, start=start, end=end, company_names=company_names)
+
+
+def step_news(skip: bool, tickers: list[str], start: str, end: str) -> None:
+    if skip:
+        logger.info("[SKIP] News")
+        return
+    logger.info("=" * 60)
+    logger.info("STEP 4 / 5  —  News (Finnhub company headlines)")
+    logger.info("=" * 60)
+    from src.data_collection.finnhub_news_fetch import run
+    run(tickers=tickers, start=start, end=end)
+
+
+def step_macro(skip: bool, start: str, end: str) -> None:
+    if skip:
+        logger.info("[SKIP] Macro")
+        return
+    logger.info("=" * 60)
+    logger.info("STEP 5 / 5  —  Macro (FRED indicators)")
+    logger.info("=" * 60)
+    from src.data_collection.fred_macro_fetch import run
+    run(start=start, end=end)
 
 
 # ---------------------------------------------------------------------------
@@ -149,21 +174,41 @@ def print_summary() -> None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="DebateTrader data collection pipeline (Milestone 2)"
+        description="DebateTrader data collection pipeline"
     )
-    parser.add_argument("--skip-price",         action="store_true")
-    parser.add_argument("--skip-fundamentals",  action="store_true")
-    parser.add_argument("--skip-google-trends", action="store_true")
+    parser.add_argument(
+        "--start-date", type=str, default=SAMPLE_START,
+        help=f"Collection start date YYYY-MM-DD (default: {SAMPLE_START})",
+    )
+    parser.add_argument(
+        "--end-date", type=str, default=None,
+        help="Collection end date YYYY-MM-DD (default: yesterday)",
+    )
+    parser.add_argument(
+        "--tickers", nargs="+", default=TICKERS,
+        help=f"Ticker symbols to collect (default: {' '.join(TICKERS)})",
+    )
+    parser.add_argument("--skip-price",         action="store_true", help="Skip price collection")
+    parser.add_argument("--skip-fundamentals",  action="store_true", help="Skip fundamentals collection")
+    parser.add_argument("--skip-google-trends", action="store_true", help="Skip Google Trends collection")
+    parser.add_argument("--skip-news",          action="store_true", help="Skip Finnhub news collection")
+    parser.add_argument("--skip-macro",         action="store_true", help="Skip FRED macro collection")
     args = parser.parse_args()
 
+    tickers   = [t.upper() for t in args.tickers]
+    start     = args.start_date
+    end       = args.end_date or _yesterday()
+
     logger.info("DebateTrader Data Pipeline")
-    logger.info(f"  Tickers : {TICKERS}")
-    logger.info(f"  Period  : {SAMPLE_START} → {SAMPLE_END}")
+    logger.info(f"  Tickers : {tickers}")
+    logger.info(f"  Period  : {start} → {end}")
     logger.info(f"  Output  : {DATA_DIR}/")
 
-    step_price(args.skip_price)
-    step_fundamentals(args.skip_fundamentals)
-    step_google_trends(args.skip_google_trends)
+    step_price(args.skip_price, tickers=tickers, start=start, end=end)
+    step_fundamentals(args.skip_fundamentals, tickers=tickers, end=end)
+    step_google_trends(args.skip_google_trends, tickers=tickers, start=start, end=end)
+    step_news(args.skip_news, tickers=tickers, start=start, end=end)
+    step_macro(args.skip_macro, start=start, end=end)
 
     print_summary()
     logger.info("Pipeline finished.")
