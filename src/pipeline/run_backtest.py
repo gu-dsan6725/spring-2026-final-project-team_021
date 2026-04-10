@@ -102,7 +102,8 @@ def next_trading_day_after_n_days(
     dates = price_df.index.get_level_values("date").unique().sort_values()
     future = dates[dates > shifted]
     if future.empty:
-        raise ValueError(f"No trading day after {shifted.date()}")
+        # Fall back to the last available trading day in the price data
+        return dates[-1]
     return future[0]
 
 

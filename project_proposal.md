@@ -7,7 +7,7 @@
 
 This project presents DebateTrader, a multi-agent large language model (LLM) framework for simulated U.S. stock trading that uses structured adversarial debate as its core decision-making mechanism. While LLM-based trading agents can outperform traditional quantitative baselines in short-horizon backtests, a fundamental limitation remains: single-agent systems are prone to confirmation bias, where the model selectively emphasizes evidence that supports a directional view without rigorous stress-testing of the opposing case.
 
-DebateTrader addresses this by introducing a two-stage architecture. In the first stage, four specialized analysts independently process distinct data modalities, including fundamental indicators, technical signals, news sentiment, and macroeconomic indicators, and generate structured analytical reports for each stock in a screened pool drawn from the S&P 500. In the second stage, a Bull Agent and a Bear Agent each construct investment theses by synthesizing the analyst reports from their respective directional perspectives. After two rounds of structured rebuttal, a Judge Agent evaluates argument quality and evidentiary strength to produce a final trading signal, position sizing recommendation, and a calibrated confidence score. A Risk Management Agent then enforces portfolio-level constraints before execution via Alpaca's paper trading API.
+DebateTrader addresses this by introducing a two-stage architecture. In the first stage, four specialized analysts independently process distinct data modalities, including fundamental indicators, technical signals, news sentiment, and macroeconomic indicators, and generate structured analytical reports for each stock in a curated six-stock demo universe. In the second stage, a Bull Agent and a Bear Agent each construct investment theses by synthesizing the analyst reports from their respective directional perspectives. After one round of structured rebuttal (configurable to two), a Judge Agent evaluates argument quality and evidentiary strength to produce a final trading signal, position sizing recommendation, and a calibrated confidence score. A Risk Management Agent then enforces portfolio-level constraints, and performance is evaluated through a historical backtest simulation.
 
 The primary objective of this project is to evaluate the overall effectiveness of DebateTrader as a trading system. A key hypothesis is that the degree of disagreement between Bull and Bear Agents, operationalized as the Judge's confidence score, is predictive of subsequent signal accuracy. High-conviction decisions, where one side substantially outargues the other, are expected to yield higher win rates than low-conviction decisions where evidence is balanced. Portfolio performance will be evaluated against S&P 500 buy-and-hold, a 60/40 portfolio benchmark, and a single-agent LLM baseline using Sharpe ratio, maximum drawdown, and win rate as primary metrics.
 
@@ -21,7 +21,7 @@ The primary objective of this project is to evaluate the overall effectiveness o
 | FRED (`fredapi`) | Macroeconomic indicators: Fed funds rate, CPI, 10Y Treasury yield, unemployment rate, GDP, industrial production | Macro Analyst | Monthly | Python library |
 | Finnhub News API | Company-specific news headlines and summaries | News & Trend Analyst | Daily | REST API |
 | Google Trends (`pytrends`) | Daily retail investor search interest (0–100 scale) per ticker | News & Trend Analyst | Daily | Python library |
-| Alpaca Markets API | Paper trading execution; real-time quotes during market hours | (execution layer, not analyst input) | Real-time | REST API |
+| Yahoo Finance (`yfinance`) | Historical OHLCV for backtest entry/exit pricing; ETF prices for benchmarks (SPY, AGG) | (backtest layer, not analyst input) | Daily | Python library |
 
 
 ## Agent Architecture
@@ -29,8 +29,8 @@ The primary objective of this project is to evaluate the overall effectiveness o
 ```
 +---------------------------------------------------------------+
 |                STOCK UNIVERSE (Demo)                          |
-|  S&P 500 filtered by GICS classification: 11 sectors,         |
-|  top 3 stocks by market cap per sector = 33 stocks total      |
+|  6 stocks from S&P 500: 1 per GICS sector                    |
+|  AAPL, AMZN, BRK.B, GOOGL, LLY, XOM                         |
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
@@ -55,13 +55,13 @@ The primary objective of this project is to evaluate the overall effectiveness o
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
-|                  DEBATE STAGE (Weekly)                        |
+|               DEBATE STAGE (Weekly, Sundays)                  |
 |                                                               |
 |   +--------------+                   +--------------+         |
-|   |  Bull Agent  | <-------------->  |  Bear Agent  |         |
+|   |  Bull Agent  | ─────────────>    |  Bear Agent  |         |
 |   |              |                   |              |         |
-|   | Synthesizes  | <-------------->  | Synthesizes  |         |
-|   | bullish case |                   | bearish case |         |
+|   | Synthesizes  | <─────────────    | Synthesizes  |         |
+|   | bullish case |  (1 round, opt 2) | bearish case |         |
 |   +--------------+                   +--------------+         |
 |                            |                                  |
 |                 +----------v----------+                       |
@@ -81,7 +81,9 @@ The primary objective of this project is to evaluate the overall effectiveness o
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
-|           PAPER TRADING EXECUTION (Monday open)               |
-|                   Alpaca Markets API                          |
+|              BACKTEST SIMULATION (Historical)                  |
+|  Entry: open of first trading day after each Sunday           |
+|  Exit:  open of first trading day after next Sunday           |
+|  Benchmarks: Equal-weight, SPY B&H, 60/40 (SPY+AGG)          |
 +------------------------------+--------------------------------+
 ```
