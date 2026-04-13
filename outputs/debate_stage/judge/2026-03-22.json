@@ -1,0 +1,214 @@
+{
+  "agent_name": "JudgeAgent",
+  "week_end_date": "2026-03-22",
+  "input_data_date": "2026-03-22",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_summary": "For the week ending 2026-03-22, the judge prefers a concentrated long book in AAPL, AMZN, GOOGL, LLY, XOM while avoiding or underweighting the remaining names.",
+  "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
+  "holdings": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-03-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 20.0,
+      "summary": "AAPL is poised for continued growth driven by strong fundamental performance, rebound potential, and a favorable macroeconomic backdrop.",
+      "rationale": [
+        "Strong fundamental performance with positive revenue growth, solid profitability, and healthy margins.",
+        "Rebound potential with recent trading volume meaningfully above its 20-day average.",
+        "Favorable macroeconomic backdrop with a positive yield-curve proxy and a positive 10Y-3M term spread."
+      ],
+      "dissenting_points": [
+        "Liquidity risk is a concern, but it is not a deal-breaker, and the company's strong fundamental performance and rebound potential outweigh this risk.",
+        "The recent trading volume is a positive sign, indicating that investors are taking notice of the stock's rebound potential."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Oversold volatility risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-03-22",
+      "signal": "bullish",
+      "confidence": 0.7,
+      "suggested_position_pct": 20.0,
+      "summary": "AMZN has strong fundamental metrics and a positive technical outlook, outweighing mixed macro conditions and neutral news trends.",
+      "rationale": [
+        "The FundamentalAnalyst report highlights strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets.",
+        "The TechnicalAnalyst report shows a single bullish factor, MACD above its signal line, indicating positive momentum, outweighing multiple bearish factors.",
+        "The MacroAnalyst report's mixed macro conditions do not outweigh the positive fundamental metrics and technical outlook.",
+        "The NewsTrendsAnalyst report's neutral news trends do not have a significant impact on the overall bullish thesis."
+      ],
+      "dissenting_points": [
+        "Payroll employment is contracting, and consumer sentiment is weak, which could weigh on the stock.",
+        "Google Trends search interest is down 25% week-over-week, which could indicate a decline in consumer interest."
+      ],
+      "risk_flags": [
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.8,
+        "llm_conviction": 0.6
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-03-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 20.0,
+      "summary": "The BullAgent's thesis is more convincing due to its strong financials and improving macro conditions, outweighing the bearish factors from the TechnicalAnalyst report.",
+      "rationale": [
+        "The BullAgent's thesis highlights the company's solid financials, positive cash flows, and improving macro conditions.",
+        "The FundamentalAnalyst report supports the BullAgent's thesis, citing strong return on equity and solid return on assets.",
+        "The TechnicalAnalyst report's bearish factors are short-term in nature and do not outweigh the long-term financial strength of GOOGL."
+      ],
+      "dissenting_points": [
+        "The TechnicalAnalyst report highlights weak momentum and negative return momentum, which could impact the stock's price in the near term.",
+        "The decline in Google Trends search interest is a significant concern, as highlighted by the NewsTrendsAnalyst report."
+      ],
+      "risk_flags": [
+        "Debt levels are a concern, but the current ratio suggests adequate short-term liquidity."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-03-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 20.0,
+      "summary": "Eli Lilly & Co. is poised for continued growth driven by strong fundamentals and positive technical indicators.",
+      "rationale": [
+        "Strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity.",
+        "Positive technical indicators, including oversold conditions and rebound potential.",
+        "Bearish momentum and volatility risks identified by the Technical Analyst are being mitigated by the company's solid profitability and healthy liquidity."
+      ],
+      "dissenting_points": [
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative.",
+        "Bearish momentum and volatility risks identified by the Technical Analyst cannot be ignored."
+      ],
+      "risk_flags": [
+        "Oversold volatility risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-03-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 20.0,
+      "summary": "ExxonMobil (XOM) is poised for a strong upward trajectory due to its positive free cash flow, stable profitability metrics, and strong technical indicators.",
+      "rationale": [
+        "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent.",
+        "The Bull case has a higher confidence level (0.85) compared to the Bear case (0.55).",
+        "The Bull case has stronger supporting evidence, including positive free cash flow, operating cash flow, and strong technical indicators.",
+        "The Bear case has weaker supporting evidence, including mixed macro conditions and negative news trends."
+      ],
+      "dissenting_points": [
+        "The Bear case highlights the company's exposure to quick liquidity risk, which could be a concern for investors.",
+        "The Bear case also notes that the company's debt-to-equity ratio and profitability metrics are relatively stable, but not necessarily strong."
+      ],
+      "risk_flags": [
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-18",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.8,
+        "llm_conviction": 0.9
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-03-22",
+      "signal": "neutral",
+      "confidence": 0.5,
+      "suggested_position_pct": 0.0,
+      "summary": "The Bull case presented by BullAgent is strong, but the Bear case presented by BearAgent is even stronger. The Bull case relies heavily on the company's positive free cash flow and operating cash flow, but the Bear case presents more compelling evidence of the company's thin operating margin and negative revenue growth.",
+      "rationale": [
+        "The Bear case presents more compelling evidence of the company's thin operating margin and negative revenue growth.",
+        "The Bull case relies heavily on the company's positive free cash flow and operating cash flow, but this may not be sustainable in the long term.",
+        "The TechnicalAnalyst report presents multiple bearish technical indicators that outweigh a single bullish factor of increased trading volume."
+      ],
+      "dissenting_points": [
+        "The Bull case presents some strong evidence of the company's positive free cash flow and operating cash flow.",
+        "The NewsTrendsAnalyst report presents recent news trends that are broadly supportive of the company."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-03-02",
+        "technical": "2026-03-22",
+        "macro": "2026-02-28",
+        "news_trends": "2026-03-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.4,
+        "llm_conviction": 0.6
+      }
+    }
+  ],
+  "bullish_tickers": [
+    "AAPL",
+    "AMZN",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "bearish_tickers": [],
+  "neutral_tickers": [
+    "BRK.B"
+  ],
+  "total_allocated_pct": 100.0,
+  "cash_pct": 0.0
+}

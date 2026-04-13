@@ -115,6 +115,54 @@ Output:
 
 ---
 
+### News & Trends Analyst
+
+The News & Trends Analyst evaluates short-horizon market narrative and retail attention around each company.
+
+It uses company news, sentiment scoring, and Google Trends data to summarize whether recent information flow is supportive, cautious, or mixed.
+
+Responsibilities:
+
+* Evaluate recent company-news tone
+* Measure positive vs negative news balance
+* Track changes in Google Trends attention
+* Flag risks such as litigious news tone or attention spikes
+
+Output:
+
+* `signal`
+* `confidence`
+* `summary`
+* `bullish_factors`
+* `bearish_factors`
+* `risk_flags`
+
+---
+
+### Macro Analyst
+
+The Macro Analyst evaluates the broad macroeconomic environment that may affect all tickers in the universe.
+
+It uses macro indicators such as interest rates, inflation, labor-market conditions, credit conditions, and volatility regime measures.
+
+Responsibilities:
+
+* Evaluate growth and recession-sensitive indicators
+* Assess the interest-rate and inflation backdrop
+* Monitor financial stress and market-volatility conditions
+* Highlight macro risks that may pressure equity positioning
+
+Output:
+
+* `signal`
+* `confidence`
+* `summary`
+* `bullish_factors`
+* `bearish_factors`
+* `risk_flags`
+
+---
+
 ## Debate Stage
 
 After analysts generate signals, the system enters a structured debate process.
@@ -192,4 +240,3 @@ python src/data_collection/run_pipeline.py
 * Improve evaluation framework and backtesting
 * Add more data sources (options, alternative data, etc.)
 * Enhance risk management and portfolio allocation
-

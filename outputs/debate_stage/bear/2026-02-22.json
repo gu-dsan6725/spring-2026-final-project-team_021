@@ -1,0 +1,221 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2026-02-22",
+  "input_data_date": "2026-02-22",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.75,
+      "thesis": "AAPL's strong fundamentals are overshadowed by liquidity risk and weakening technical momentum, leading to a bearish outlook.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Retail sales are contracting, suggesting weaker consumer demand."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Quick liquidity risk",
+        "Weakening technical momentum"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "AMZN is at risk of a significant decline due to its high valuation, weakening macro conditions, and potential liquidity issues.",
+      "reasons": [
+        "AMZN has strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets, but is at risk of quick liquidity issues.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "The 20-day moving average is below the 50-day moving average."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Oversold volatility risk",
+        "Quick liquidity risk",
+        "Weakening macro conditions"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "BRK.B is a sell due to its high valuation, weakening macro conditions, and bearish technical indicators.",
+      "reasons": [
+        "The company's high valuation, as indicated by its high operating margin and net margin, suggests that the stock is overpriced.",
+        "Macro conditions are weakening, with contracting retail sales and weak consumer sentiment, which could negatively impact the company's fundamental value.",
+        "The stock has multiple bearish technical indicators, including a 20-day moving average below the 50-day moving average and negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "The stock has multiple bullish technical indicators, including positive momentum and a strong MACD."
+      ],
+      "risk_flags": [
+        "Bearish technical indicators",
+        "High valuation",
+        "Weakening macro conditions"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "GOOGL is a sell due to its weakening technicals, high debt levels, and mixed macro conditions.",
+      "reasons": [
+        "Bearish technical view, with price below the 20-day moving average and weakening momentum (TechnicalAnalyst)",
+        "High debt levels, with a debt-to-equity ratio of 0.1427787075722731 (FundamentalAnalyst)",
+        "Mixed macro conditions, with retail sales contracting and consumer sentiment weak (MacroAnalyst)"
+      ],
+      "counterpoints": [
+        "Strong return on equity and solid return on assets (FundamentalAnalyst)",
+        "Positive macro conditions, including a positive yield-curve proxy and a positive 10Y-3M term spread (MacroAnalyst)",
+        "Neutral news trends, with Google Trends search interest up 17% week-over-week (NewsTrendsAnalyst)"
+      ],
+      "risk_flags": [
+        "High debt levels are a concern, and could lead to a downgrade in credit rating or a decrease in investor confidence.",
+        "Weakening technicals could lead to a further decline in stock price."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "Eli Lilly & Co. is poised for a decline driven by weak technical indicators, mixed macro conditions, and potential litigation risks.",
+      "reasons": [
+        "The stock LLY has multiple bearish factors, including being below its 20-day moving average and 50-day moving average, weak momentum, and negative return momentum over both 5-day and 20-day periods.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "Litigious language appears in recent news"
+      ],
+      "counterpoints": [
+        "Eli Lilly & Co. exhibits strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity, outweighing the lack of bearish factors and risk flags.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The stock has negative 20-day return momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-02-22",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "ExxonMobil (XOM) is vulnerable to a decline due to its exposure to quick liquidity risk, negative news trends, and weakening momentum.",
+      "reasons": [
+        "Quick liquidity risk",
+        "Recent company news flow is majority negative.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "XOM has a positive free cash flow and operating cash flow.",
+        "The company's debt-to-equity ratio and profitability metrics are relatively stable.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Quick liquidity risk",
+        "The stock has negative 5-day return momentum."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-18",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    }
+  ]
+}
