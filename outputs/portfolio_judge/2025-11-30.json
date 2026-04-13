@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-11-30",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "LLY leads with the strongest fundamental case in the universe (85% revenue growth, 0.9 analyst confidence, exceptional margins) and a bear case that fails to address the business-specific drivers. AAPL earns the second slot with clean technicals and solid fundamentals where the bear case is structurally weak. BRK.B provides defensive exposure with strong technicals and a low-conviction bear. AMZN and GOOGL receive minimal weight due to technical deterioration and overbought/crowded conditions respectively, while XOM is excluded given its mixed-to-bearish technical picture and thin fundamental support.",
+  "ranking": [
+    "LLY",
+    "AAPL",
+    "BRK.B",
+    "AMZN",
+    "GOOGL",
+    "XOM"
+  ],
+  "holdings": {
+    "LLY": {
+      "weight_pct": 35.0,
+      "reason": "Highest fundamental analyst confidence (0.9), exceptional 85% revenue growth, best-in-class margins, and a bear case that relies on macro factors irrelevant to pharma fundamentals."
+    },
+    "AAPL": {
+      "weight_pct": 28.0,
+      "reason": "Clean technical setup with RSI at 67, price above all MAs, positive MACD, and strong fundamentals; bear case is structurally weak relying on a current ratio below 1 that is normal for AAPL."
+    },
+    "BRK.B": {
+      "weight_pct": 18.0,
+      "reason": "Strong technical momentum (7.4% 20-day return, RSI 66, MACD positive) with a very low-conviction bear case (0.55 confidence), providing defensive quality exposure."
+    },
+    "AMZN": {
+      "weight_pct": 10.0,
+      "reason": "Strong fundamentals with 26% revenue growth but technically weak with price below 20-day MA and MACD below signal line, warranting a reduced position."
+    },
+    "GOOGL": {
+      "weight_pct": 9.0,
+      "reason": "Solid financial position but RSI at 74 signals overbought conditions, retail attention spike suggests crowded positioning, and litigious news adds near-term risk."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Weakest bull case with price below 20-day MA, negative 5-day momentum, MACD below signal, and a thin fundamental profile missing key metrics; risk/reward does not justify inclusion."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

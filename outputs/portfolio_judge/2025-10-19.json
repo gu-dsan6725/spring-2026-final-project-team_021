@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-10-19",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL leads with the strongest combination of bullish technicals (price above both MAs, positive momentum, RSI 62) and clean fundamentals (high ROE/ROA, low leverage, strong liquidity), making it the highest-conviction pick. AAPL follows with excellent margins and FCF despite mixed technicals. LLY earns a moderate allocation given exceptional revenue growth and strong technicals, but litigation risk and negative news flow cap the position. AMZN and XOM are excluded due to uniformly bearish technicals and thinner fundamental support respectively, while BRK.B gets a small allocation as a defensive holding with negative revenue growth limiting upside.",
+  "ranking": [
+    "GOOGL",
+    "AAPL",
+    "LLY",
+    "BRK.B",
+    "AMZN",
+    "XOM"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Cleanest bull case: price above both MAs, strong 5-day momentum, high ROE/ROA, minimal leverage, and adequate liquidity with the weakest bear rebuttal in the universe."
+    },
+    "AAPL": {
+      "weight_pct": 28.0,
+      "reason": "Strong margins, FCF, and revenue growth with manageable liquidity risk; technical headwinds are modest and the judge's 0.85 confidence supports a meaningful allocation."
+    },
+    "LLY": {
+      "weight_pct": 18.0,
+      "reason": "Exceptional 37.6% revenue growth and bullish technicals are compelling, but litigious news language and elevated leverage (D/E 2.18) warrant a reduced position."
+    },
+    "BRK.B": {
+      "weight_pct": 10.0,
+      "reason": "Defensive holding with solid margins and low leverage, but negative revenue growth and bearish technicals limit upside conviction."
+    },
+    "AMZN": {
+      "weight_pct": 0.0,
+      "reason": "All six technical indicators are bearish with negative price momentum on both 5-day and 20-day horizons; bear case is too strong to justify a position despite solid fundamentals."
+    },
+    "XOM": {
+      "weight_pct": 9.0,
+      "reason": "Positive news flow and macro support provide some basis, but missing revenue/margin data and bearish technicals make this the weakest fundamental case; small allocation for diversification."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

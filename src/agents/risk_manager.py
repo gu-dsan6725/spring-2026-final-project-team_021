@@ -1,31 +1,39 @@
 """
-Rule-based Risk Manager for DebateTrader.
+Rule-based Risk Manager for DebateTrader (Portfolio Judge variant).
 
-Applies portfolio-level constraints to the Judge Agent's weekly allocation,
+Applies portfolio-level constraints to the Portfolio Judge's weekly allocation,
 then calls an LLM to generate a plain-English risk commentary based on the
 full debate transcript.
 
 Rules (tuned for the 6-stock demo universe):
 ---------------------------------------------------------------------------
-CONFIDENCE_FLOOR      = 0.55   Exclude bullish positions where Judge
-                                confidence < 0.55 (signal too weak).
-MAX_SINGLE_PCT        = 30.0   No single ticker may exceed 30% of the
+MAX_SINGLE_PCT        = 55.0   No single ticker may exceed 55% of the
                                 portfolio.
-MAX_SECTOR_PCT        = 40.0   No GICS sector may exceed 40% of the
+MAX_SECTOR_PCT        = 55.0   No GICS sector may exceed 55% of the
                                 portfolio.
-MIN_HOLDINGS          = 3      At least 3 tickers must pass the confidence
-                                floor to deploy directionally.  If fewer
-                                than 3 pass, defensive mode activates.
-                                Rationale: with only 1-2 bullish names the
-                                single-position cap (40%) cannot be enforced
-                                (no spare positions to absorb excess weight),
-                                so the whole-portfolio signal is treated as
-                                too weak to act on directionally.
-DEFENSIVE_MODE                 Triggered when < MIN_HOLDINGS tickers pass
-                                the confidence floor.  The portfolio
-                                switches to equal-weight across all tickers
-                                (since cash is not used in this framework).
+MIN_HOLDINGS          = 3      If the Portfolio Judge allocates fewer than 3
+                                non-zero positions, defensive mode activates.
+DEFENSIVE_MODE                 Triggered when non-zero holdings < MIN_HOLDINGS.
+                                The portfolio switches to equal-weight across
+                                all tickers (since cash is not used in this
+                                framework).
 ---------------------------------------------------------------------------
+
+Input format
+------------
+Reads outputs from run_portfolio_judge.py:
+  {
+    "week_end_date": "...",
+    "tickers": [...],
+    "holdings": {
+      "AAPL": {"weight_pct": 35.0, "reason": "..."},
+      ...
+    },
+    "total_allocated_pct": 95.0   ← may be < 100 if LLM under-allocated
+  }
+
+If total_allocated_pct != 100%, non-zero weights are renormalized to 100%
+before any rules are applied.
 
 Redistribution logic
 --------------------
@@ -60,10 +68,8 @@ SECTOR_MAP: dict[str, str] = {
 # ---------------------------------------------------------------------------
 # Risk thresholds
 # ---------------------------------------------------------------------------
-CONFIDENCE_FLOOR: float = 0.55
-MAX_SINGLE_PCT:   float = 40.0   # 6-stock universe: 2 bullish → 50% each → cap fires;
-                                  # 3+ bullish → ≤33% each → cap never fires
-MAX_SECTOR_PCT:   float = 40.0
+MAX_SINGLE_PCT:   float = 55.0
+MAX_SECTOR_PCT:   float = 55.0
 MIN_HOLDINGS:     int   = 3
 MAX_REDISTRIBUTION_PASSES: int = 10
 
@@ -111,13 +117,11 @@ class RiskManager:
 
     def __init__(
         self,
-        confidence_floor: float = CONFIDENCE_FLOOR,
         max_single_pct: float = MAX_SINGLE_PCT,
         max_sector_pct: float = MAX_SECTOR_PCT,
         min_holdings: int = MIN_HOLDINGS,
         sector_map: dict[str, str] | None = None,
     ) -> None:
-        self.confidence_floor = confidence_floor
         self.max_single_pct = max_single_pct
         self.max_sector_pct = max_sector_pct
         self.min_holdings = min_holdings
@@ -133,36 +137,36 @@ class RiskManager:
         transcript: dict[str, Any],
     ) -> RiskReport:
         """
-        Apply risk rules to a judge report and return a RiskReport.
+        Apply risk rules to a portfolio judge report and return a RiskReport.
 
         Parameters
         ----------
         judge_report : dict
-            Parsed content of outputs/debate_stage/judge/{date}.json.
+            Parsed content of outputs/portfolio_judge/{date}.json.
         transcript : dict
             Parsed content of outputs/debate_stage/transcript/{date}.json.
         """
         week_end_date = str(judge_report.get("week_end_date", ""))
-        holdings = judge_report.get("holdings", [])
+        holdings_raw: dict[str, dict] = judge_report.get("holdings", {})
+        tickers: list[str] = judge_report.get("tickers", list(holdings_raw.keys()))
 
-        # Step 1: extract original bullish allocations
-        original_alloc = self._extract_original_allocations(holdings)
-
-        # Step 2: build candidate pool (pass confidence floor)
-        candidates, excluded_by_confidence = self._filter_by_confidence(holdings)
+        # Step 1: extract and normalize original allocations
+        original_alloc = self._extract_and_normalize(holdings_raw, tickers)
 
         rules_triggered: list[str] = []
         adjustments: list[PositionAdjustment] = []
 
-        # Step 3: check for defensive mode
-        defensive_mode = len(candidates) < self.min_holdings
+        # Step 2: check for defensive mode (< MIN_HOLDINGS non-zero positions)
+        nonzero_count = sum(1 for v in original_alloc.values() if v > 0)
+        defensive_mode = nonzero_count < self.min_holdings
+
         if defensive_mode:
             rules_triggered.append(
-                f"DEFENSIVE_MODE: only {len(candidates)} ticker(s) passed confidence "
-                f"floor {self.confidence_floor:.2f}; switching to equal-weight across "
-                f"all {len(holdings)} tickers."
+                f"DEFENSIVE_MODE: Portfolio Judge allocated {nonzero_count} non-zero "
+                f"position(s) (minimum {self.min_holdings}); switching to equal-weight "
+                f"across all {len(tickers)} tickers."
             )
-            adjusted_alloc = self._equal_weight_all(holdings)
+            adjusted_alloc = self._equal_weight_all(tickers)
             for ticker, orig in original_alloc.items():
                 adj = adjusted_alloc.get(ticker, 0.0)
                 if abs(orig - adj) > 0.01:
@@ -172,34 +176,14 @@ class RiskManager:
                         original_pct=orig,
                         adjusted_pct=adj,
                         reason=(
-                            f"Fewer than {self.min_holdings} tickers passed the confidence "
-                            f"floor; portfolio set to equal weight."
+                            f"Fewer than {self.min_holdings} non-zero positions; "
+                            f"portfolio set to equal weight."
                         ),
                     ))
         else:
-            if excluded_by_confidence:
-                rules_triggered.append(
-                    f"CONFIDENCE_FLOOR ({self.confidence_floor:.2f}): excluded "
-                    f"{', '.join(excluded_by_confidence)}."
-                )
-                for ticker in excluded_by_confidence:
-                    orig = original_alloc.get(ticker, 0.0)
-                    if orig > 0:
-                        adjustments.append(PositionAdjustment(
-                            ticker=ticker,
-                            rule_triggered="CONFIDENCE_FLOOR",
-                            original_pct=orig,
-                            adjusted_pct=0.0,
-                            reason=(
-                                f"Judge confidence below threshold "
-                                f"{self.confidence_floor:.2f}."
-                            ),
-                        ))
+            adjusted_alloc = dict(original_alloc)
 
-            # Step 4: start from Judge's original allocations (excluding filtered tickers)
-            adjusted_alloc = self._judge_allocations_with_exclusions(candidates, holdings)
-
-            # Step 5: apply single-position cap
+            # Step 3: apply single-position cap
             adjusted_alloc, single_adj = self._apply_single_cap(adjusted_alloc)
             if single_adj:
                 rules_triggered.append(
@@ -208,7 +192,7 @@ class RiskManager:
                 )
                 adjustments.extend(single_adj)
 
-            # Step 6: apply sector cap
+            # Step 4: apply sector cap
             adjusted_alloc, sector_adj = self._apply_sector_cap(adjusted_alloc)
             if sector_adj:
                 rules_triggered.append(
@@ -217,12 +201,12 @@ class RiskManager:
                 )
                 adjustments.extend(sector_adj)
 
-            # Step 7: final renormalization to 100%
+            # Step 5: final renormalization to 100%
             adjusted_alloc = self._renormalize(adjusted_alloc)
 
         sector_exposures = self._compute_sector_exposures(adjusted_alloc)
 
-        # Step 8: LLM risk commentary
+        # Step 6: LLM risk commentary
         print("[RiskManager] requesting LLM risk commentary...")
         commentary = self._llm_commentary(
             week_end_date=week_end_date,
@@ -242,7 +226,6 @@ class RiskManager:
             sector_exposures=sector_exposures,
             llm_risk_commentary=commentary,
             parameters={
-                "confidence_floor": self.confidence_floor,
                 "max_single_pct": self.max_single_pct,
                 "max_sector_pct": self.max_sector_pct,
                 "min_holdings": self.min_holdings,
@@ -253,55 +236,36 @@ class RiskManager:
     # Private helpers
     # ------------------------------------------------------------------
 
-    def _extract_original_allocations(self, holdings: list[dict]) -> dict[str, float]:
-        return {
-            str(h["ticker"]): float(h.get("suggested_position_pct", 0.0))
-            for h in holdings
+    def _extract_and_normalize(
+        self, holdings_raw: dict[str, dict], tickers: list[str]
+    ) -> dict[str, float]:
+        """
+        Extract weight_pct from portfolio judge holdings dict.
+        If weights don't sum to 100%, renormalize only the non-zero positions.
+        """
+        alloc: dict[str, float] = {
+            t: max(0.0, float(holdings_raw.get(t, {}).get("weight_pct", 0.0)))
+            for t in tickers
         }
+        total = sum(alloc.values())
+        if total > 0 and abs(total - 100.0) > 0.01:
+            nonzero_total = sum(v for v in alloc.values() if v > 0)
+            if nonzero_total > 0:
+                factor = 100.0 / nonzero_total
+                alloc = {
+                    t: (round(v * factor, 4) if v > 0 else 0.0)
+                    for t, v in alloc.items()
+                }
+                alloc = self._fix_rounding(alloc, only_nonzero=True)
+        return alloc
 
-    def _filter_by_confidence(
-        self, holdings: list[dict]
-    ) -> tuple[list[dict], list[str]]:
-        """Return (passing_holdings, excluded_tickers)."""
-        passing, excluded = [], []
-        for h in holdings:
-            signal = str(h.get("signal", "neutral"))
-            confidence = float(h.get("confidence", 0.0))
-            if signal == "bullish" and confidence >= self.confidence_floor:
-                passing.append(h)
-            elif signal == "bullish" and confidence < self.confidence_floor:
-                excluded.append(str(h["ticker"]))
-        return passing, excluded
-
-    def _equal_weight_all(self, holdings: list[dict]) -> dict[str, float]:
-        n = len(holdings)
+    def _equal_weight_all(self, tickers: list[str]) -> dict[str, float]:
+        n = len(tickers)
         if n == 0:
             return {}
         per = round(100.0 / n, 4)
-        alloc = {str(h["ticker"]): per for h in holdings}
+        alloc = {t: per for t in tickers}
         alloc = self._fix_rounding(alloc)
-        return alloc
-
-    def _judge_allocations_with_exclusions(
-        self, candidates: list[dict], all_holdings: list[dict]
-    ) -> dict[str, float]:
-        """
-        Start from the Judge's original suggested_position_pct.
-        Tickers excluded by the confidence floor are zeroed out; their
-        weight is redistributed proportionally among the remaining
-        candidates.
-        """
-        candidate_tickers = {str(h["ticker"]) for h in candidates}
-        alloc: dict[str, float] = {}
-        for h in all_holdings:
-            ticker = str(h["ticker"])
-            alloc[ticker] = (
-                float(h.get("suggested_position_pct", 0.0))
-                if ticker in candidate_tickers
-                else 0.0
-            )
-        # Renormalize so excluded weight is spread across remaining positions
-        alloc = self._renormalize(alloc)
         return alloc
 
     def _apply_single_cap(
@@ -328,9 +292,6 @@ class RiskManager:
                 ))
                 alloc[ticker] = self.max_single_pct
 
-            # Only redistribute to currently held (positive-weight) uncapped positions.
-            # If all positions are capped (e.g. only 3 holdings with a 30% cap),
-            # skip redistribution and let _renormalize restore proportional weights.
             uncapped = {
                 t: v for t, v in alloc.items()
                 if v > 0 and v < self.max_single_pct and t not in violators
@@ -363,7 +324,6 @@ class RiskManager:
                 if not tickers_in_sector:
                     continue
                 excess = sector_total - self.max_sector_pct
-                # Reduce each ticker in this sector proportionally
                 for ticker in tickers_in_sector:
                     share = alloc[ticker] / sector_total
                     reduction = excess * share
@@ -399,7 +359,6 @@ class RiskManager:
         alloc = dict(alloc)
         total_target = sum(targets.values())
         if total_target <= 0:
-            # Spread equally if no weight to anchor on
             n = len(targets)
             if n:
                 per = excess / n
@@ -461,7 +420,6 @@ class RiskManager:
         payload = {
             "week_end_date": week_end_date,
             "risk_parameters": {
-                "confidence_floor": self.confidence_floor,
                 "max_single_pct": self.max_single_pct,
                 "max_sector_pct": self.max_sector_pct,
                 "min_holdings": self.min_holdings,
@@ -499,17 +457,14 @@ class RiskManager:
     def _condense_judge_for_llm(
         judge_report: dict[str, Any], adjusted_alloc: dict[str, float]
     ) -> list[dict]:
+        holdings: dict[str, dict] = judge_report.get("holdings", {})
         result = []
-        for h in judge_report.get("holdings", []):
-            ticker = str(h["ticker"])
+        for ticker, data in holdings.items():
             result.append({
                 "ticker": ticker,
-                "signal": h.get("signal"),
-                "confidence": h.get("confidence"),
-                "judge_position_pct": h.get("suggested_position_pct"),
+                "portfolio_judge_weight_pct": data.get("weight_pct"),
                 "adjusted_position_pct": adjusted_alloc.get(ticker, 0.0),
-                "summary": h.get("summary"),
-                "risk_flags": h.get("risk_flags", []),
+                "reason": data.get("reason", ""),
             })
         return result
 

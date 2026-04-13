@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-11-23",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL stands out as the top pick with the cleanest technical picture (TechnicalAnalyst confidence 0.9, all bullish factors, zero bearish technical flags, +8.4% 5-day momentum, +15.3% 20-day momentum) combined with strong fundamentals and minimal debt. LLY earns second place on the strength of exceptional revenue growth (85%), the highest fundamental analyst confidence (0.9), and broadly positive news sentiment, though the extreme RSI (89) warrants a size discount. AAPL and AMZN are both bullish but carry more technical weakness; AMZN's RSI of 19 and deeply negative momentum make it a mean-reversion bet rather than a conviction long. BRK.B received a neutral judge signal and is excluded.",
+  "ranking": [
+    "GOOGL",
+    "LLY",
+    "AAPL",
+    "AMZN",
+    "XOM",
+    "BRK.B"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Strongest technical setup in the universe (all bullish, zero bearish technical flags, high volume, strong 5d and 20d momentum) combined with clean balance sheet and high judge confidence."
+    },
+    "LLY": {
+      "weight_pct": 28.0,
+      "reason": "Highest fundamental analyst confidence (0.9), extraordinary revenue growth of 85%, positive news sentiment, and strong profitability; RSI at 89 limits sizing."
+    },
+    "AAPL": {
+      "weight_pct": 18.0,
+      "reason": "Solid fundamentals across all profitability metrics with positive 20-day momentum, though MACD weakness and liquidity flags reduce conviction relative to GOOGL and LLY."
+    },
+    "AMZN": {
+      "weight_pct": 12.0,
+      "reason": "Strong fundamentals and oversold RSI (19) offer rebound potential, but deeply negative 5d/20d momentum and multiple technical bearish flags warrant a smaller position."
+    },
+    "XOM": {
+      "weight_pct": 7.0,
+      "reason": "Solid technicals and positive cash flows, but thin fundamental data coverage, crowded-positioning risk flag, and energy sector macro headwinds limit conviction."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is neutral; negative revenue growth, overbought RSI, and balanced bull/bear cases do not support a long position."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

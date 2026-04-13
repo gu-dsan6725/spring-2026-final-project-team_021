@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-08-31",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "AMZN leads with the strongest combination of revenue growth, clean technicals (MACD above signal, all momentum positive), positive news sentiment, and low leverage — the bear case relies almost entirely on shared macro headwinds. GOOGL follows with exceptional ROE, strong liquidity, and positive technicals, while the bear's D/E argument is factually weak. LLY earns a small allocation given extraordinary fundamental growth (37.6% revenue, 84% gross margin) but is constrained by severe overbought conditions (RSI 83.8) and negative 20-day momentum. BRK.B and XOM are excluded due to extreme overbought RSI readings (89.8 and 95.5 respectively), and AAPL is excluded due to bearish news sentiment and weakening MACD.",
+  "ranking": [
+    "AMZN",
+    "GOOGL",
+    "LLY",
+    "AAPL",
+    "BRK.B",
+    "XOM"
+  ],
+  "holdings": {
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Bearish news sentiment (majority negative articles, litigious language) and weakening MACD undermine the otherwise solid fundamental case."
+    },
+    "AMZN": {
+      "weight_pct": 40.0,
+      "reason": "Best overall evidence quality: 13.3% revenue growth, strong margins, clean technical momentum (MACD above signal, all EMAs aligned), positive news flow, and low leverage make the bull case clearly dominant."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "RSI at 89.8 signals extreme overbought conditions, and negative revenue growth YoY makes the risk/reward unattractive near-term."
+    },
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Strong ROE (31%), excellent liquidity (current ratio 1.9), positive technicals with above-average volume, and majority-positive news; bear case arguments are weak or factually incorrect."
+    },
+    "LLY": {
+      "weight_pct": 15.0,
+      "reason": "Exceptional fundamental growth (37.6% revenue, 84% gross margin) justifies a small allocation, but severely overbought RSI (83.8) and negative 20-day momentum cap position size."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "RSI at 95.5 is the most extreme overbought reading in the universe, with declining search interest and crowded positioning flags creating significant near-term correction risk."
+    }
+  },
+  "total_allocated_pct": 90.0
+}

@@ -1,29 +1,30 @@
 """
-Run the risk management layer on debate stage outputs.
+Run the risk management layer on Portfolio Judge outputs.
 
-For each available week (or a specified week), this script:
-  1. Reads the Judge report and debate transcript for that week.
-  2. Applies rule-based portfolio constraints (confidence floor, single-position
-     cap, sector concentration cap, minimum holdings / defensive mode).
+For each available week this script:
+  1. Reads the Portfolio Judge report and debate transcript for that week.
+  2. Applies rule-based portfolio constraints (minimum holdings / defensive
+     mode, single-position cap, sector concentration cap).
   3. Calls an LLM to produce a plain-English risk commentary from the transcript.
   4. Saves a JSON risk report to outputs/risk_management/{date}.json.
 
 Usage examples
 --------------
 # Run on all available weeks:
-python -m src.pipeline.run_risk_management --all-weeks
+python -m src.pipeline.run_risk_management
 
-# Run on a specific week:
-python -m src.pipeline.run_risk_management --week-end 2025-08-03
+# Filter by date range (typical range: 2025-08-03 to yesterday):
+python -m src.pipeline.run_risk_management --start-date 2025-08-03 --end-date 2026-04-09
 
 # Override thresholds:
-python -m src.pipeline.run_risk_management --all-weeks \\
-    --confidence-floor 0.60 --max-single-pct 25 --max-sector-pct 35
+python -m src.pipeline.run_risk_management \\
+    --max-single-pct 55 --max-sector-pct 55
 """
 
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import os
 from pathlib import Path
@@ -33,7 +34,7 @@ from src.agents.risk_manager import RiskManager
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-DEFAULT_JUDGE_DIR      = "outputs/debate_stage/judge"
+DEFAULT_JUDGE_DIR      = "outputs/portfolio_judge"
 DEFAULT_TRANSCRIPT_DIR = "outputs/debate_stage/transcript"
 DEFAULT_OUTPUT_DIR     = "outputs/risk_management"
 
@@ -61,6 +62,18 @@ def _available_weeks(judge_dir: str) -> list[str]:
     return sorted(p.stem for p in base.glob("*.json"))
 
 
+def _filter_weeks(
+    weeks: list[str],
+    start_date: str | None,
+    end_date: str | None,
+) -> list[str]:
+    if start_date:
+        weeks = [w for w in weeks if w >= start_date]
+    if end_date:
+        weeks = [w for w in weeks if w <= end_date]
+    return weeks
+
+
 def run_for_week(
     week_end_date: str,
     judge_dir: str,
@@ -73,7 +86,7 @@ def run_for_week(
     output_path     = _resolve(output_dir)     / f"{week_end_date}.json"
 
     if not judge_path.exists():
-        raise FileNotFoundError(f"Judge report not found: {judge_path}")
+        raise FileNotFoundError(f"Portfolio Judge report not found: {judge_path}")
     if not transcript_path.exists():
         raise FileNotFoundError(f"Transcript not found: {transcript_path}")
 
@@ -102,20 +115,27 @@ def run_for_week(
 
 
 def parse_args() -> argparse.Namespace:
+    yesterday = (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
     parser = argparse.ArgumentParser(
-        description="Apply risk management rules to Judge debate outputs."
+        description="Apply risk management rules to Portfolio Judge outputs."
     )
     parser.add_argument(
-        "--week-end", type=str, default=None,
-        help="Run for a specific Sunday date (YYYY-MM-DD).",
+        "--start-date",
+        type=str,
+        default=None,
+        help="Only process weeks on or after this date (YYYY-MM-DD). "
+             "Suggested default: 2025-08-03.",
     )
     parser.add_argument(
-        "--all-weeks", action="store_true",
-        help="Run for every available week in the judge output directory.",
+        "--end-date",
+        type=str,
+        default=None,
+        help=f"Only process weeks on or before this date (YYYY-MM-DD). "
+             f"Suggested default: yesterday ({yesterday}).",
     )
     parser.add_argument(
         "--judge-dir", type=str, default=DEFAULT_JUDGE_DIR,
-        help="Directory containing judge JSON files.",
+        help=f"Directory containing Portfolio Judge JSON files (default: {DEFAULT_JUDGE_DIR}).",
     )
     parser.add_argument(
         "--transcript-dir", type=str, default=DEFAULT_TRANSCRIPT_DIR,
@@ -126,20 +146,16 @@ def parse_args() -> argparse.Namespace:
         help="Directory where risk report JSON files will be saved.",
     )
     parser.add_argument(
-        "--confidence-floor", type=float, default=0.55,
-        help="Minimum Judge confidence to include a bullish position (default: 0.55).",
+        "--max-single-pct", type=float, default=55.0,
+        help="Maximum single-ticker allocation in percent (default: 55.0).",
     )
     parser.add_argument(
-        "--max-single-pct", type=float, default=40.0,
-        help="Maximum single-ticker allocation in percent (default: 40.0).",
-    )
-    parser.add_argument(
-        "--max-sector-pct", type=float, default=40.0,
-        help="Maximum sector allocation in percent (default: 40.0).",
+        "--max-sector-pct", type=float, default=55.0,
+        help="Maximum sector allocation in percent (default: 55.0).",
     )
     parser.add_argument(
         "--min-holdings", type=int, default=3,
-        help="Minimum number of holdings before defensive mode activates (default: 3).",
+        help="Minimum non-zero positions before defensive mode activates (default: 3).",
     )
     return parser.parse_args()
 
@@ -148,22 +164,22 @@ def main() -> None:
     args = parse_args()
 
     manager = RiskManager(
-        confidence_floor=args.confidence_floor,
         max_single_pct=args.max_single_pct,
         max_sector_pct=args.max_sector_pct,
         min_holdings=args.min_holdings,
     )
 
-    if args.week_end:
-        weeks = [args.week_end]
-    elif args.all_weeks:
-        weeks = _available_weeks(args.judge_dir)
-        if not weeks:
-            raise FileNotFoundError(
-                f"No judge JSON files found under {args.judge_dir}."
-            )
-    else:
-        raise ValueError("Specify --week-end DATE or --all-weeks.")
+    weeks = _available_weeks(args.judge_dir)
+    if not weeks:
+        raise FileNotFoundError(
+            f"No Portfolio Judge JSON files found under {args.judge_dir}."
+        )
+    weeks = _filter_weeks(weeks, args.start_date, args.end_date)
+    if not weeks:
+        raise ValueError(
+            f"No weeks found in range [{args.start_date}, {args.end_date}]. "
+            "Check --start-date and --end-date."
+        )
 
     for week in weeks:
         run_for_week(

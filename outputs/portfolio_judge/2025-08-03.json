@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2025-08-03",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL is the highest-conviction pick with bullish signals across both fundamentals and technicals, minimal leverage, and a weak bear case. AMZN earns a meaningful allocation on strong fundamental momentum and bullish news trends despite mixed technicals. BRK.B receives a small allocation given its bullish judge verdict but is discounted due to stale fundamental data and a fully bearish technical picture. AAPL, LLY, and XOM are excluded as judge decisions are bearish.",
+  "ranking": [
+    "GOOGL",
+    "AMZN",
+    "BRK.B",
+    "AAPL",
+    "LLY",
+    "XOM"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 50.0,
+      "reason": "Only ticker with bullish technical analyst signal plus strong fundamentals, low leverage, and a clearly weak bear case making it the highest-conviction long."
+    },
+    "AMZN": {
+      "weight_pct": 35.0,
+      "reason": "Strong revenue growth, high margins, bullish news trends, and positive EMA crossover support the bull case despite short-term price weakness below 20-day SMA."
+    },
+    "BRK.B": {
+      "weight_pct": 10.0,
+      "reason": "Bullish judge verdict on solid financials and cash flows, but discounted due to stale fundamental data (May 2025) and a fully bearish technical picture with no bullish technical factors."
+    },
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish with 0.85 confidence; multiple bearish technical indicators and liquidity concerns outweigh strong fundamentals."
+    },
+    "LLY": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish; negative FCF, elevated leverage, bearish technicals, and majority-negative news flow all weigh against a long position."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish with 0.85 confidence; negative technical momentum across all indicators and quick liquidity risk exclude it from the portfolio."
+    }
+  },
+  "total_allocated_pct": 95.0
+}
