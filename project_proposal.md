@@ -7,9 +7,9 @@
 
 This project presents DebateTrader, a multi-agent large language model (LLM) framework for simulated U.S. stock trading that uses structured adversarial debate as its core decision-making mechanism. While LLM-based trading agents can outperform traditional quantitative baselines in short-horizon backtests, a fundamental limitation remains: single-agent systems are prone to confirmation bias, where the model selectively emphasizes evidence that supports a directional view without rigorous stress-testing of the opposing case.
 
-DebateTrader addresses this by introducing a two-stage architecture. In the first stage, four specialized analysts independently process distinct data modalities, including fundamental indicators, technical signals, news sentiment, and macroeconomic indicators, and generate structured analytical reports for each stock in a curated six-stock demo universe. In the second stage, a Bull Agent and a Bear Agent each construct investment theses by synthesizing the analyst reports from their respective directional perspectives. After one round of structured rebuttal (configurable to two), a Judge Agent evaluates argument quality and evidentiary strength to produce a final trading signal, position sizing recommendation, and a calibrated confidence score. A Risk Management Agent then enforces portfolio-level constraints, and performance is evaluated through a historical backtest simulation.
+DebateTrader addresses this through a three-stage architecture. In the first stage, four specialized analysts independently process distinct data modalities, including fundamental indicators, technical signals, news sentiment, and macroeconomic indicators, and generate structured analytical reports for each stock in a curated six-stock demo universe. In the second stage, a Bull Agent and a Bear Agent each construct investment theses by synthesizing the analyst reports from their respective directional perspectives. After one round of structured rebuttal, a per-stock Judge Agent evaluates argument quality and evidentiary strength to produce a trading signal and confidence score for each ticker individually. In the third stage, a Portfolio Judge Agent receives all six tickers' full debate transcripts simultaneously in a single LLM call, performs cross-ticker ranking, and constructs a conviction-differentiated portfolio allocation — avoiding the mechanical equal-weight degeneracy that arises when per-stock signals are normalized independently. A Risk Management Agent then enforces portfolio-level constraints, and performance is evaluated through a historical backtest simulation.
 
-The primary objective of this project is to evaluate the overall effectiveness of DebateTrader as a trading system. A key hypothesis is that the degree of disagreement between Bull and Bear Agents, operationalized as the Judge's confidence score, is predictive of subsequent signal accuracy. High-conviction decisions, where one side substantially outargues the other, are expected to yield higher win rates than low-conviction decisions where evidence is balanced. Portfolio performance will be evaluated against S&P 500 buy-and-hold, a 60/40 portfolio benchmark, and a single-agent LLM baseline using Sharpe ratio, maximum drawdown, and win rate as primary metrics.
+The primary objective of this project is to evaluate the overall effectiveness of DebateTrader as a trading system. A key hypothesis is that forcing cross-ticker comparison at the portfolio allocation stage produces more differentiated, higher-conviction positions than mechanical normalization of per-stock signals, and that this differentiation translates into improved risk-adjusted returns. Portfolio performance will be evaluated against S&P 500 buy-and-hold, a 60/40 portfolio benchmark, and an equal-weight baseline using Sharpe ratio, maximum drawdown, and win rate as primary metrics.
 
 
 ## Data Sources
@@ -55,29 +55,39 @@ The primary objective of this project is to evaluate the overall effectiveness o
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
-|               DEBATE STAGE (Weekly, Sundays)                  |
+|               DEBATE STAGE (Weekly, per-stock)                |
 |                                                               |
 |   +--------------+                   +--------------+         |
 |   |  Bull Agent  | ─────────────>    |  Bear Agent  |         |
 |   |              |                   |              |         |
 |   | Synthesizes  | <─────────────    | Synthesizes  |         |
-|   | bullish case |  (1 round, opt 2) | bearish case |         |
+|   | bullish case |   (1 round rebuttal) bearish case|         |
 |   +--------------+                   +--------------+         |
 |                            |                                  |
 |                 +----------v----------+                       |
-|                 |    Judge Agent      |                       |
-|                 |                     |                       |
-|                 | Trading direction   |                       |
-|                 | Position size       |                       |
+|                 |  Judge Agent        |                       |
+|                 |  (per-stock)        |                       |
+|                 | Signal + confidence |                       |
 |                 +----------+---------+                        |
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
+|          PORTFOLIO JUDGE (Weekly, cross-ticker)               |
+|                                                               |
+|  Receives all 6 tickers' full debate transcripts in one call  |
+|  Step 1 — Rank tickers by relative conviction                 |
+|  Step 2 — Decide how many to hold                             |
+|  Step 3 — Assign conviction-differentiated weights            |
+|                                                               |
+|  Output: ranked list + weight_pct per ticker                  |
++------------------------------+--------------------------------+
+                               |
++------------------------------v--------------------------------+
 |           RISK MANAGEMENT LAYER (Weekly, Rule-Based)          |
-|  Confidence floor: 0.55 (exclude weak bullish signals)        |
-|  Max single position: 40% of portfolio                        |
-|  Max sector concentration: 40%                                |
-|  Min holdings: 3 (fewer → defensive equal-weight mode)        |
+|  Min holdings: 3 non-zero positions (fewer → equal-weight)    |
+|  Max single position: 55% of portfolio                        |
+|  Max sector concentration: 55%                                |
+|  (excess weight redistributed proportionally)                 |
 +------------------------------+--------------------------------+
                                |
 +------------------------------v--------------------------------+
