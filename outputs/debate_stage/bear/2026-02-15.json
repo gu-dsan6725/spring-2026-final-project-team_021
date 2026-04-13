@@ -1,0 +1,219 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2026-02-15",
+  "input_data_date": "2026-02-15",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "AAPL's strong fundamental performance is overshadowed by liquidity risk and weakening technical momentum, leading to a bearish outlook.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AMZN's fundamental metrics are overstated due to quick liquidity issues and weak momentum, while the macro environment is mixed and does not provide sufficient support for continued growth.",
+      "reasons": [
+        "AMZN is at risk of quick liquidity issues.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Oversold volatility risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "BRK.B is a sell due to its weak news sentiment, negative retail sales growth, and bearish technical indicators.",
+      "reasons": [
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "counterpoints": [
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "The stock has positive 20-day return momentum."
+      ],
+      "risk_flags": [
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The stock has negative 5-day return momentum."
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "GOOGL's financials are overstated, and the stock is due for a correction due to weakening macro conditions and negative news trends.",
+      "reasons": [
+        "Debt levels are a concern, with a debt-to-equity ratio of 0.1427787075722731 (FundamentalAnalyst)",
+        "Price is below the 20-day moving average, indicating a potential downtrend (TechnicalAnalyst)",
+        "Retail sales are contracting, suggesting weaker consumer demand (MacroAnalyst)",
+        "Google Trends search interest is down 23% week-over-week, indicating a decline in interest in the company (NewsTrendsAnalyst)"
+      ],
+      "counterpoints": [
+        "Return on equity is strong, and return on assets is solid (FundamentalAnalyst)",
+        "The 20-day moving average is above the 50-day moving average, indicating a potential rebound (TechnicalAnalyst)",
+        "Positive macro conditions, including a positive yield-curve proxy and a positive 10Y-3M term spread (MacroAnalyst)"
+      ],
+      "risk_flags": [
+        "No recent company news available (NewsTrendsAnalyst)",
+        "Oversold volatility risk (TechnicalAnalyst)"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "Eli Lilly & Co. is vulnerable to a decline in its stock price due to bearish momentum, weak macro conditions, and negative news trends.",
+      "reasons": [
+        "The stock has bearish momentum and is below its moving averages, indicating a potential sell signal.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity.",
+        "Google Trends search interest is down 21% week-over-week."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Bearish momentum and weak macro conditions may lead to a decline in the company's stock price.",
+        "Negative news trends may further exacerbate the decline in the company's stock price."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-02-15",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "ExxonMobil (XOM) is vulnerable to a decline in its stock price due to its exposure to quick liquidity risk, overbought conditions, and weakening macroeconomic indicators.",
+      "reasons": [
+        "ExxonMobil (XOM) is exposed to quick liquidity risk.",
+        "The stock has overbought conditions, with RSI above 70.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
+      ],
+      "counterpoints": [
+        "Return on assets is solid.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+      ],
+      "risk_flags": [
+        "Overbought risk",
+        "Quick liquidity risk",
+        "Weakening macroeconomic indicators"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-02-15",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-15"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    }
+  ]
+}

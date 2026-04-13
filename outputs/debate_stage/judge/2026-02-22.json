@@ -1,0 +1,217 @@
+{
+  "agent_name": "JudgeAgent",
+  "week_end_date": "2026-02-22",
+  "input_data_date": "2026-02-22",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_summary": "For the week ending 2026-02-22, the judge prefers a concentrated long book in AAPL, AMZN, BRK.B, GOOGL, LLY, XOM while avoiding or underweighting the remaining names.",
+  "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
+  "holdings": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.03,
+      "summary": "AAPL is poised for continued growth driven by strong fundamentals, positive macro conditions, and a solid technical setup.",
+      "rationale": [
+        "Strong fundamentals, including positive revenue growth, solid profitability, and healthy margins.",
+        "Positive macro conditions, with more bullish than bearish evidence.",
+        "Solid technical setup, with positive momentum from the 12-day EMA and positive return momentum."
+      ],
+      "dissenting_points": [
+        "Liquidity risk is a concern, but it is not a deal-breaker, and the company's strong fundamentals should help mitigate this risk.",
+        "The technical indicators are mixed, but the positive momentum from the 12-day EMA and the positive return momentum suggest that the stock is poised for a bounce."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "AMZN is poised for continued growth due to strong fundamental metrics, positive technical indicators, and supportive macro conditions.",
+      "rationale": [
+        "Strong fundamental metrics, including positive revenue growth, high gross and net margins, and solid return on equity and assets.",
+        "Positive technical indicators, such as positive 5-day return momentum and oversold conditions.",
+        "Supportive macro conditions, including a positive yield-curve proxy, a positive 10Y-3M term spread, and a contained VIX."
+      ],
+      "dissenting_points": [
+        "Weakening macro conditions, such as contracting retail sales and weak consumer sentiment, could negatively impact the company's growth prospects.",
+        "The oversold volatility risk and quick liquidity risk are significant concerns that could lead to a decline in the stock price."
+      ],
+      "risk_flags": [
+        "Oversold volatility risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case highlights the company's solid operating profitability, healthy net margin, and positive macro conditions, which outweigh the bearish indicators presented by the Bear case.",
+      "rationale": [
+        "The Bull case presents a strong thesis that is supported by multiple lines of evidence, including the company's operating profitability, net margin, and return on equity and assets.",
+        "The Bull case also presents a convincing rebuttal to the Bear case's counter-evidence, highlighting the short-term nature of the bearish indicators and the long-term bullish indicators.",
+        "The analyst reports from FundamentalAnalyst and TechnicalAnalyst also support the Bull case, highlighting the company's strong fundamental value and multiple bullish technical indicators."
+      ],
+      "dissenting_points": [
+        "The Bear case presents some valid concerns about the company's high valuation and weakening macro conditions, which could negatively impact the company's fundamental value.",
+        "The Bear case also highlights some bearish technical indicators, including a 20-day moving average below the 50-day moving average and negative 5-day return momentum."
+      ],
+      "risk_flags": [
+        "Negative 5-day return momentum",
+        "Weakening housing permits"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, due to its stronger evidence balance and higher confidence.",
+      "rationale": [
+        "Strong return on equity and solid return on assets (FundamentalAnalyst)",
+        "Positive macro conditions, including a positive yield-curve proxy and a positive 10Y-3M term spread (MacroAnalyst)",
+        "Neutral news trends, with Google Trends search interest up 17% week-over-week (NewsTrendsAnalyst)"
+      ],
+      "dissenting_points": [
+        "Bearish technical view, with price below the 20-day moving average and weakening momentum (TechnicalAnalyst)",
+        "High debt levels, with a debt-to-equity ratio of 0.1427787075722731 (FundamentalAnalyst)",
+        "Mixed macro conditions, with retail sales contracting and consumer sentiment weak (MacroAnalyst)"
+      ],
+      "risk_flags": [
+        "Debt levels are a concern, but are outweighed by the company's strong return on equity and solid return on assets (FundamentalAnalyst)",
+        "Weakening technicals could lead to a further decline in stock price."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "Eli Lilly & Co. is poised for continued growth driven by strong fundamentals, supportive macro conditions, and positive news trends.",
+      "rationale": [
+        "Strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity.",
+        "Supportive macro conditions with more bullish than bearish evidence.",
+        "Positive news trends with more bullish than bearish evidence."
+      ],
+      "dissenting_points": [
+        "Bearish technical indicators, including being below its 20-day moving average and 50-day moving average, weak momentum, and negative return momentum over both 5-day and 20-day periods.",
+        "Potential litigation risks due to litigious language in recent news."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-02-22",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 14.89,
+      "summary": "ExxonMobil (XOM) is poised for growth due to its stable financials, positive momentum, and supportive macro conditions.",
+      "rationale": [
+        "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent.",
+        "The Bull case has a stronger thesis, with more supporting evidence and a more balanced evidence balance.",
+        "The Bull case also has a higher LLM case strength and a more convincing rebuttal to the Bear case's counter-evidence.",
+        "The analyst reports also support the Bull case, with FundamentalAnalyst and TechnicalAnalyst both presenting bullish signals and MacroAnalyst presenting a broadly supportive macro environment."
+      ],
+      "dissenting_points": [
+        "The Bear case presented by BearAgent highlights the risks of quick liquidity risk, negative news trends, and weakening momentum.",
+        "The Bear case also presents a more balanced view of the company's financials, highlighting the potential risks of the company's debt-to-equity ratio and profitability metrics."
+      ],
+      "risk_flags": [
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Quick liquidity risk",
+        "The stock has negative 5-day return momentum."
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-18",
+        "technical": "2026-02-22",
+        "macro": "2026-01-31",
+        "news_trends": "2026-02-22"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    }
+  ],
+  "bullish_tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "bearish_tickers": [],
+  "neutral_tickers": [],
+  "total_allocated_pct": 100.0,
+  "cash_pct": 0.0
+}

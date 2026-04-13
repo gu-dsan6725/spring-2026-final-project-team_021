@@ -1,0 +1,248 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2026-04-05",
+  "input_data_date": "2026-04-05",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "AAPL's strong fundamental performance is offset by liquidity risk, negative momentum, and a mixed macroeconomic backdrop, leading to a bearish outlook.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Payroll employment is contracting."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.59,
+      "thesis": "AMZN has a credible downside case because [FundamentalAnalyst] Risk flag: Quick liquidity risk and the bullish evidence does not fully neutralize the risks.",
+      "reasons": [
+        "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum.",
+        "[MacroAnalyst] Payroll employment is contracting."
+      ],
+      "counterpoints": [
+        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
+        "[FundamentalAnalyst] Gross margin is strong.",
+        "[FundamentalAnalyst] Net margin is healthy.",
+        "[FundamentalAnalyst] Return on equity is strong."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "FundamentalAnalyst": -4.84,
+        "TechnicalAnalyst": -0.42,
+        "MacroAnalyst": -0.56,
+        "NewsTrendsAnalyst": -1.657,
+        "argument_score": -6.877,
+        "aligned_support": 2.924,
+        "opposing_pressure": 10.402
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.67,
+      "thesis": "BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks.",
+      "reasons": [
+        "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
+        "[FundamentalAnalyst] Operating margin is thin.",
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
+      ],
+      "counterpoints": [
+        "[FundamentalAnalyst] Free cash flow is positive.",
+        "[FundamentalAnalyst] Operating cash flow is positive.",
+        "[TechnicalAnalyst] The stock has positive 5-day return momentum.",
+        "[MacroAnalyst] The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Low relative trading volume"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-03-02",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "FundamentalAnalyst": 0.225,
+        "TechnicalAnalyst": 1.7,
+        "MacroAnalyst": -0.56,
+        "NewsTrendsAnalyst": 0.99,
+        "argument_score": 2.955,
+        "aligned_support": 5.614,
+        "opposing_pressure": 3.259
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.59,
+      "thesis": "GOOGL has a credible downside case because [TechnicalAnalyst] Price is below the 20-day moving average. and the bullish evidence does not fully neutralize the risks.",
+      "reasons": [
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum.",
+        "[TechnicalAnalyst] Directional signal is bearish with confidence 0.70."
+      ],
+      "counterpoints": [
+        "[FundamentalAnalyst] Return on equity is strong.",
+        "[FundamentalAnalyst] Return on assets is solid.",
+        "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity.",
+        "[FundamentalAnalyst] Free cash flow is positive."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "FundamentalAnalyst": -3.6,
+        "TechnicalAnalyst": 1.96,
+        "MacroAnalyst": -0.56,
+        "NewsTrendsAnalyst": 1.138,
+        "argument_score": -0.462,
+        "aligned_support": 6.114,
+        "opposing_pressure": 7.177
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.59,
+      "thesis": "LLY has a credible downside case because [TechnicalAnalyst] Price is below the 20-day moving average. and the bullish evidence does not fully neutralize the risks.",
+      "reasons": [
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum.",
+        "[TechnicalAnalyst] Directional signal is bearish with confidence 0.80."
+      ],
+      "counterpoints": [
+        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
+        "[FundamentalAnalyst] Gross margin is strong.",
+        "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
+        "[FundamentalAnalyst] Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "FundamentalAnalyst": -5.84,
+        "TechnicalAnalyst": 2.24,
+        "MacroAnalyst": -0.56,
+        "NewsTrendsAnalyst": 0.99,
+        "argument_score": -2.57,
+        "aligned_support": 5.924,
+        "opposing_pressure": 9.094
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.59,
+      "thesis": "XOM has a credible downside case because [FundamentalAnalyst] Risk flag: Quick liquidity risk and the bullish evidence does not fully neutralize the risks.",
+      "reasons": [
+        "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum.",
+        "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
+        "[MacroAnalyst] Payroll employment is contracting.",
+        "[MacroAnalyst] VIX is elevated, indicating higher market stress."
+      ],
+      "counterpoints": [
+        "[FundamentalAnalyst] Free cash flow is positive.",
+        "[FundamentalAnalyst] Operating cash flow is positive.",
+        "[FundamentalAnalyst] Directional signal is bullish with confidence 0.70.",
+        "[TechnicalAnalyst] Price is above the 20-day moving average."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-18",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "FundamentalAnalyst": -1.785,
+        "TechnicalAnalyst": -1.54,
+        "MacroAnalyst": -0.56,
+        "NewsTrendsAnalyst": 1.715,
+        "argument_score": -1.57,
+        "aligned_support": 4.424,
+        "opposing_pressure": 6.594
+      }
+    }
+  ]
+}

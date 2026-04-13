@@ -1,0 +1,271 @@
+{
+  "agent_name": "JudgeAgent",
+  "week_end_date": "2026-04-05",
+  "input_data_date": "2026-04-05",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_summary": "For the week ending 2026-04-05, the judge prefers a concentrated long book in GOOGL, LLY, AMZN, XOM while avoiding or underweighting BRK.B.",
+  "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
+  "holdings": [
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-04-05",
+      "signal": "bullish",
+      "confidence": 0.82,
+      "suggested_position_pct": 25.4,
+      "summary": "The judge favors the bullish case for GOOGL with confidence 0.82. GOOGL has a constructive long setup because [FundamentalAnalyst] Return on equity is strong. and the main concerns appear manageable rather than thesis-breaking.",
+      "rationale": [
+        "[FundamentalAnalyst] Return on equity is strong.",
+        "[FundamentalAnalyst] Return on assets is solid.",
+        "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity.",
+        "[FundamentalAnalyst] Free cash flow is positive.",
+        "Upstream analyst alignment favors bullish: FundamentalAnalyst."
+      ],
+      "dissenting_points": [
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-05",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": 2.322,
+        "bear_case_score": -0.462,
+        "score_margin": 2.784,
+        "bull_case_confidence": 0.55,
+        "bear_case_confidence": 0.59,
+        "risk_count": 2.0,
+        "max_position_size": 1.0
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-04-05",
+      "signal": "bullish",
+      "confidence": 0.82,
+      "suggested_position_pct": 25.4,
+      "summary": "The judge favors the bullish case for LLY with confidence 0.82. LLY has a constructive long setup because [FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold. and the main concerns appear manageable rather than thesis-breaking.",
+      "rationale": [
+        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
+        "[FundamentalAnalyst] Gross margin is strong.",
+        "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
+        "[FundamentalAnalyst] Net margin is healthy.",
+        "Upstream analyst alignment favors bullish: FundamentalAnalyst."
+      ],
+      "dissenting_points": [
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-12",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": 4.694,
+        "bear_case_score": -2.57,
+        "score_margin": 7.264,
+        "bull_case_confidence": 0.59,
+        "bear_case_confidence": 0.59,
+        "risk_count": 2.0,
+        "max_position_size": 1.0
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-04-05",
+      "signal": "bullish",
+      "confidence": 0.82,
+      "suggested_position_pct": 25.39,
+      "summary": "The judge favors the bullish case for AMZN with confidence 0.82. AMZN has a constructive long setup because [FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold. and the main concerns appear manageable rather than thesis-breaking.",
+      "rationale": [
+        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
+        "[FundamentalAnalyst] Gross margin is strong.",
+        "[FundamentalAnalyst] Net margin is healthy.",
+        "[FundamentalAnalyst] Return on equity is strong.",
+        "Upstream analyst alignment favors bullish: FundamentalAnalyst, TechnicalAnalyst, NewsTrendsAnalyst."
+      ],
+      "dissenting_points": [
+        "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "[TechnicalAnalyst] The stock has negative 20-day return momentum."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-06",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": 8.452,
+        "bear_case_score": -6.877,
+        "score_margin": 15.329,
+        "bull_case_confidence": 0.68,
+        "bear_case_confidence": 0.59,
+        "risk_count": 3.0,
+        "max_position_size": 1.0
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-04-05",
+      "signal": "bullish",
+      "confidence": 0.8,
+      "suggested_position_pct": 23.81,
+      "summary": "The judge favors the bullish case for XOM with confidence 0.80. XOM has a constructive long setup because [FundamentalAnalyst] Free cash flow is positive. and the main concerns appear manageable rather than thesis-breaking.",
+      "rationale": [
+        "[FundamentalAnalyst] Free cash flow is positive.",
+        "[FundamentalAnalyst] Operating cash flow is positive.",
+        "[FundamentalAnalyst] Directional signal is bullish with confidence 0.70.",
+        "[TechnicalAnalyst] Price is above the 20-day moving average.",
+        "Upstream analyst alignment favors bullish: FundamentalAnalyst, TechnicalAnalyst."
+      ],
+      "dissenting_points": [
+        "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum.",
+        "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
+        "[MacroAnalyst] Payroll employment is contracting."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-02-18",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": 2.814,
+        "bear_case_score": -1.57,
+        "score_margin": 4.384,
+        "bull_case_confidence": 0.57,
+        "bear_case_confidence": 0.59,
+        "risk_count": 3.0,
+        "max_position_size": 1.0
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-04-05",
+      "signal": "neutral",
+      "confidence": 0.5,
+      "suggested_position_pct": 0.0,
+      "summary": "The debate on AAPL is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
+      "rationale": [
+        "The bull and bear cases are too close to justify a directional trade.",
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "The 20-day moving average is below the 50-day moving average."
+      ],
+      "dissenting_points": [],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Liquidity risk",
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": 0.0,
+        "bear_case_score": 0.0,
+        "score_margin": 0.0,
+        "bull_case_confidence": 0.85,
+        "bear_case_confidence": 0.65,
+        "risk_count": 4.0,
+        "max_position_size": 1.0
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-04-05",
+      "signal": "bearish",
+      "confidence": 0.82,
+      "suggested_position_pct": 0.0,
+      "summary": "The judge favors the bearish case for BRK.B with confidence 0.82. BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks.",
+      "rationale": [
+        "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
+        "[FundamentalAnalyst] Operating margin is thin.",
+        "[TechnicalAnalyst] Price is below the 20-day moving average.",
+        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+        "Upstream analyst alignment favors bearish: NewsTrendsAnalyst."
+      ],
+      "dissenting_points": [
+        "[FundamentalAnalyst] Free cash flow is positive.",
+        "[FundamentalAnalyst] Operating cash flow is positive.",
+        "[TechnicalAnalyst] The stock has positive 5-day return momentum.",
+        "[MacroAnalyst] The yield-curve proxy is positive, which is less recessionary than an inverted curve."
+      ],
+      "risk_flags": [
+        "Elevated volatility regime",
+        "Litigious language appears in recent news",
+        "Low relative trading volume"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-03-02",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "bull_case_score": -1.231,
+        "bear_case_score": 2.955,
+        "score_margin": -4.186,
+        "bull_case_confidence": 0.5,
+        "bear_case_confidence": 0.67,
+        "risk_count": 3.0,
+        "max_position_size": 1.0
+      }
+    }
+  ],
+  "bullish_tickers": [
+    "GOOGL",
+    "LLY",
+    "AMZN",
+    "XOM"
+  ],
+  "bearish_tickers": [
+    "BRK.B"
+  ],
+  "neutral_tickers": [
+    "AAPL"
+  ],
+  "total_allocated_pct": 100.0,
+  "cash_pct": 0.0
+}
