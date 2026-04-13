@@ -193,14 +193,3 @@ python src/data_collection/run_pipeline.py
 * Add more data sources (options, alternative data, etc.)
 * Enhance risk management and portfolio allocation
 
----
-
-## TL;DR
-
-DebateTrader treats trading as a structured argument problem:
-
-* Analysts generate signals
-* Bull and Bear debate
-* Judge makes the final decision
-
-Instead of relying on a single model, the system uses multiple perspectives to improve robustness and interpretability.
