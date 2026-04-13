@@ -1,10 +1,10 @@
 """
-Run the risk management layer on debate stage outputs.
+Run the risk management layer on Portfolio Judge outputs.
 
 For each available week this script:
-  1. Reads the Judge report and debate transcript for that week.
-  2. Applies rule-based portfolio constraints (confidence floor, single-position
-     cap, sector concentration cap, minimum holdings / defensive mode).
+  1. Reads the Portfolio Judge report and debate transcript for that week.
+  2. Applies rule-based portfolio constraints (minimum holdings / defensive
+     mode, single-position cap, sector concentration cap).
   3. Calls an LLM to produce a plain-English risk commentary from the transcript.
   4. Saves a JSON risk report to outputs/risk_management/{date}.json.
 
@@ -18,7 +18,7 @@ python -m src.pipeline.run_risk_management --start-date 2025-08-03 --end-date 20
 
 # Override thresholds:
 python -m src.pipeline.run_risk_management \\
-    --confidence-floor 0.60 --max-single-pct 25 --max-sector-pct 35
+    --max-single-pct 55 --max-sector-pct 55
 """
 
 from __future__ import annotations
@@ -34,7 +34,7 @@ from src.agents.risk_manager import RiskManager
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 
-DEFAULT_JUDGE_DIR      = "outputs/debate_stage/judge"
+DEFAULT_JUDGE_DIR      = "outputs/portfolio_judge"
 DEFAULT_TRANSCRIPT_DIR = "outputs/debate_stage/transcript"
 DEFAULT_OUTPUT_DIR     = "outputs/risk_management"
 
@@ -86,7 +86,7 @@ def run_for_week(
     output_path     = _resolve(output_dir)     / f"{week_end_date}.json"
 
     if not judge_path.exists():
-        raise FileNotFoundError(f"Judge report not found: {judge_path}")
+        raise FileNotFoundError(f"Portfolio Judge report not found: {judge_path}")
     if not transcript_path.exists():
         raise FileNotFoundError(f"Transcript not found: {transcript_path}")
 
@@ -117,7 +117,7 @@ def run_for_week(
 def parse_args() -> argparse.Namespace:
     yesterday = (datetime.date.today() - datetime.timedelta(days=1)).isoformat()
     parser = argparse.ArgumentParser(
-        description="Apply risk management rules to Judge debate outputs."
+        description="Apply risk management rules to Portfolio Judge outputs."
     )
     parser.add_argument(
         "--start-date",
@@ -135,7 +135,7 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--judge-dir", type=str, default=DEFAULT_JUDGE_DIR,
-        help="Directory containing judge JSON files.",
+        help=f"Directory containing Portfolio Judge JSON files (default: {DEFAULT_JUDGE_DIR}).",
     )
     parser.add_argument(
         "--transcript-dir", type=str, default=DEFAULT_TRANSCRIPT_DIR,
@@ -146,20 +146,16 @@ def parse_args() -> argparse.Namespace:
         help="Directory where risk report JSON files will be saved.",
     )
     parser.add_argument(
-        "--confidence-floor", type=float, default=0.55,
-        help="Minimum Judge confidence to include a bullish position (default: 0.55).",
+        "--max-single-pct", type=float, default=55.0,
+        help="Maximum single-ticker allocation in percent (default: 55.0).",
     )
     parser.add_argument(
-        "--max-single-pct", type=float, default=40.0,
-        help="Maximum single-ticker allocation in percent (default: 40.0).",
-    )
-    parser.add_argument(
-        "--max-sector-pct", type=float, default=40.0,
-        help="Maximum sector allocation in percent (default: 40.0).",
+        "--max-sector-pct", type=float, default=55.0,
+        help="Maximum sector allocation in percent (default: 55.0).",
     )
     parser.add_argument(
         "--min-holdings", type=int, default=3,
-        help="Minimum number of holdings before defensive mode activates (default: 3).",
+        help="Minimum non-zero positions before defensive mode activates (default: 3).",
     )
     return parser.parse_args()
 
@@ -168,7 +164,6 @@ def main() -> None:
     args = parse_args()
 
     manager = RiskManager(
-        confidence_floor=args.confidence_floor,
         max_single_pct=args.max_single_pct,
         max_sector_pct=args.max_sector_pct,
         min_holdings=args.min_holdings,
@@ -177,7 +172,7 @@ def main() -> None:
     weeks = _available_weeks(args.judge_dir)
     if not weeks:
         raise FileNotFoundError(
-            f"No judge JSON files found under {args.judge_dir}."
+            f"No Portfolio Judge JSON files found under {args.judge_dir}."
         )
     weeks = _filter_weeks(weeks, args.start_date, args.end_date)
     if not weeks:

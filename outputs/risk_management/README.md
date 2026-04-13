@@ -5,7 +5,7 @@ This directory contains weekly risk-adjusted portfolio reports produced by the R
 ## How it fits in the pipeline
 
 ```
-Debate Stage (Judge output)
+Portfolio Judge output
         ↓
 Risk Manager  ←  src/agents/risk_manager.py
         ↓
@@ -20,30 +20,30 @@ Each file corresponds to one week, named after the Sunday `week_end_date` of tha
 
 ```bash
 # All available weeks
-python -m src.pipeline.run_risk_management --all-weeks
+python -m src.pipeline.run_risk_management
 
-# One specific week
-python -m src.pipeline.run_risk_management --week-end 2025-08-03
+# Filter by date range
+python -m src.pipeline.run_risk_management --start-date 2025-08-03 --end-date 2025-12-28
 
 # Override thresholds
-python -m src.pipeline.run_risk_management --all-weeks \
-    --confidence-floor 0.60 \
-    --max-single-pct 25 \
-    --max-sector-pct 35
+python -m src.pipeline.run_risk_management \
+    --max-single-pct 55 \
+    --max-sector-pct 55
 ```
 
 **Inputs required** (per week):
-- `outputs/debate_stage/judge/{date}.json` — Judge Agent verdict
-- `outputs/debate_stage/transcript/{date}.json` — Full debate transcript
+- `outputs/portfolio_judge/{date}.json` — Portfolio Judge allocation
+- `outputs/debate_stage/transcript/{date}.json` — Full debate transcript (for LLM commentary)
 
 ## Risk rules
 
 | Rule | Default | Description |
 |------|---------|-------------|
-| `CONFIDENCE_FLOOR` | 0.55 | Drop bullish positions where Judge confidence < 0.55 |
-| `MAX_SINGLE_PCT` | 40% | No single ticker may exceed 40% of the portfolio |
-| `MAX_SECTOR_PCT` | 40% | No GICS sector may exceed 40% of the portfolio |
-| `MIN_HOLDINGS` | 3 | If fewer than 3 tickers pass the confidence floor, enter **defensive mode** (equal-weight across all 6 tickers) |
+| `MIN_HOLDINGS` | 3 | If Portfolio Judge allocated fewer than 3 non-zero positions, enter **defensive mode** (equal-weight across all 6 tickers) |
+| `MAX_SINGLE_PCT` | 55% | No single ticker may exceed 55% of the portfolio |
+| `MAX_SECTOR_PCT` | 55% | No GICS sector may exceed 55% of the portfolio |
+
+If the Portfolio Judge's weights don't sum to 100%, non-zero positions are renormalized before any rules are applied.
 
 When a cap fires, excess weight is redistributed proportionally to uncapped positions (up to 10 passes).
 
@@ -54,27 +54,26 @@ When a cap fires, excess weight is redistributed proportionally to uncapped posi
   "week_end_date": "2025-12-28",
   "defensive_mode": false,
   "rules_triggered": [],
-  "original_allocations":  { "AAPL": 16.67, ... },
-  "adjusted_allocations":  { "AAPL": 16.67, ... },
+  "original_allocations":  { "AAPL": 30.0, "LLY": 40.0, ... },
+  "adjusted_allocations":  { "AAPL": 30.0, "LLY": 40.0, ... },
   "adjustments": [
     {
-      "ticker": "AAPL",
+      "ticker": "LLY",
       "rule_triggered": "MAX_SINGLE_PCT",
-      "original_pct": 45.0,
-      "adjusted_pct": 40.0,
+      "original_pct": 60.0,
+      "adjusted_pct": 55.0,
       "reason": "..."
     }
   ],
   "sector_exposures": {
-    "Technology": 16.65,
-    "Financials": 16.67,
+    "Technology": 30.0,
+    "Health Care": 40.0,
     ...
   },
   "llm_risk_commentary": "...",
   "parameters": {
-    "confidence_floor": 0.55,
-    "max_single_pct": 40.0,
-    "max_sector_pct": 40.0,
+    "max_single_pct": 55.0,
+    "max_sector_pct": 55.0,
     "min_holdings": 3
   }
 }
@@ -82,9 +81,9 @@ When a cap fires, excess weight is redistributed proportionally to uncapped posi
 
 | Field | Description |
 |-------|-------------|
-| `defensive_mode` | `true` when fewer than `min_holdings` tickers passed the confidence floor |
+| `defensive_mode` | `true` when Portfolio Judge allocated fewer than `min_holdings` non-zero positions |
 | `rules_triggered` | List of rules that fired this week; empty if no adjustments were needed |
-| `original_allocations` | Judge Agent's suggested weights before any risk adjustment |
+| `original_allocations` | Portfolio Judge weights (after renormalization to 100%) before risk adjustment |
 | `adjusted_allocations` | Final weights after all rules applied; used directly by the backtest |
 | `adjustments` | Per-ticker detail of what changed and why |
 | `sector_exposures` | GICS sector breakdown of the final portfolio |

@@ -3,35 +3,34 @@
   "defensive_mode": false,
   "rules_triggered": [],
   "original_allocations": {
-    "AAPL": 20.0,
-    "AMZN": 20.0,
-    "GOOGL": 20.0,
-    "LLY": 20.0,
-    "XOM": 20.0,
-    "BRK.B": 0.0
+    "AAPL": 15.0,
+    "AMZN": 25.0,
+    "BRK.B": 0.0,
+    "GOOGL": 32.0,
+    "LLY": 10.0,
+    "XOM": 18.0
   },
   "adjusted_allocations": {
-    "AAPL": 20.0,
-    "AMZN": 20.0,
-    "GOOGL": 20.0,
-    "LLY": 20.0,
-    "XOM": 20.0,
-    "BRK.B": 0.0
+    "AAPL": 15.0,
+    "AMZN": 25.0,
+    "BRK.B": 0.0,
+    "GOOGL": 32.0,
+    "LLY": 10.0,
+    "XOM": 18.0
   },
   "adjustments": [],
   "sector_exposures": {
-    "Technology": 20.0,
-    "Consumer Discretionary": 20.0,
-    "Communication Services": 20.0,
-    "Health Care": 20.0,
-    "Energy": 20.0,
-    "Financials": 0.0
+    "Technology": 15.0,
+    "Consumer Discretionary": 25.0,
+    "Financials": 0.0,
+    "Communication Services": 32.0,
+    "Health Care": 10.0,
+    "Energy": 18.0
   },
-  "llm_risk_commentary": "This portfolio maintains a concentrated risk posture, with a focus on a limited set of high-conviction positions. The portfolio's sector exposures are also concentrated, with Technology, Consumer Discretionary, and Communication Services accounting for 60% of the overall allocation.\n\nTwo key risk themes emerge across multiple holdings: front-end inversion risk and overbought conditions. All five stocks with a bullish signal (AAPL, AMZN, GOOGL, LLY, and XOM) are flagged for front-end inversion risk, while four of these stocks (AAPL, AMZN, GOOGL, and XOM) are also flagged for overbought conditions. These risks are particularly concerning given the portfolio's concentrated nature.\n\nOne individual position that stands out is LLY, which carries an unusually high risk profile. In addition to front-end inversion risk and overbought conditions, LLY is also flagged for leverage risk, litigious language in recent news, low relative trading volume, and quick liquidity risk. These risks may be mitigated by the stock's strong profitability and favorable macroeconomic environment, but they still warrant close monitoring.\n\nMarket conditions that could invalidate the current positioning include a sharp decline in investor sentiment, a significant increase in interest rates, or a material deterioration in the macroeconomic environment. If these conditions were to materialize, the portfolio's concentrated risk posture and exposure to front-end inversion risk and overbought conditions could lead to significant losses.",
+  "llm_risk_commentary": "[LLM commentary unavailable: Error code: 404 - {'type': 'error', 'error': {'type': 'not_found_error', 'message': 'model: claude-3-5-sonnet-latest'}, 'request_id': 'req_011Ca1xLKQjZHjJSz411MKcx'}] Rules triggered: none. Adjusted portfolio: AAPL 15.0%, AMZN 25.0%, GOOGL 32.0%, LLY 10.0%, XOM 18.0%.",
   "parameters": {
-    "confidence_floor": 0.55,
-    "max_single_pct": 40.0,
-    "max_sector_pct": 40.0,
+    "max_single_pct": 55.0,
+    "max_sector_pct": 55.0,
     "min_holdings": 3
   }
 }
