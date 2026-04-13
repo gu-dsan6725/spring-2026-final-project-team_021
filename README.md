@@ -1,60 +1,93 @@
-# DSAN 6725 Final Project
+# Data Collection
 
-This repository contains information about deliverables, project ideas, and all things related to the final project.
+Collects raw data from external sources and saves it to `data/sample/` as Parquet / CSV files for downstream analyst agents.
 
-## Overview
+## File Overview
 
-DSAN 6725 is an applied AI course. The focus is on building production-quality AI agent systems that solve real problems. All projects must implement AI agents unless an alternative approach is explicitly approved by the professor.
+```
+src/data_collection/
+├── config.py                  # Central config: tickers, date range, output dirs
+├── run_pipeline.py            # Main entry point (all 5 steps)
+├── price_collector.py         # Daily OHLCV (Yahoo Finance)
+├── fundamental_collector.py   # Quarterly fundamentals (SEC EDGAR primary + Yahoo Finance supplementary)
+├── google_trends_collector.py # Retail investor attention proxy (pytrends)
+├── finnhub_news_fetch.py      # Company news headlines (Finnhub)
+├── fred_macro_fetch.py        # 35 macro indicators (FRED)
+└── parquet_to_csv.py          # Utility: export Parquet files to CSV for inspection
+```
 
-This repo provides project ideas but you are not limited to these. You can explore other ideas but it is incumbent upon you (your team) to discuss these ideas and get approval before proceeding. The ideas suggested here are practically useful and have been selected because they have a reasonable chance of success in a 6-week timeframe.
+## Data Sources and Outputs
 
-This repo is organized into the following parts:
+| Script                       | Source                                                   | Output                                                                                                                                           | Format                                                                                                                                                                             |
+| ---------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `price_collector.py`         | Yahoo Finance (`yfinance`)                               | `data/sample/price/price_ohlcv.parquet`                                                                                                          | Long table: 1 row = 1 ticker × 1 day                                                                                                                                               |
+| `fundamental_collector.py`   | SEC EDGAR XBRL (primary) + Yahoo Finance (supplementary) | `data/sample/fundamentals/quarterly_fundamentals.parquet`                                                                                        | Long table: 1 row = 1 ticker × 1 quarter, includes `period_end` and `filed_date`                                                                                                   |
+| `google_trends_collector.py` | pytrends + Groq (search term generation)                 | `data/sample/sentiment/google_trends_daily.parquet`                                                                                              | Long table: 1 row = 1 ticker × 1 day, `search_interest` 0–100                                                                                                                      |
+| `finnhub_news_fetch.py`      | Finnhub News API                                         | `data/sample/news/{TICKER}_news.csv` + `all_news.csv`                                                                                            | One CSV per ticker                                                                                                                                                                 |
+| `fred_macro_fetch.py`        | FRED (`fredapi`)                                         | `data/sample/macro/macro_daily_raw.csv`, `macro_weekly_raw.csv`, `macro_monthly_raw.csv`, `macro_quarterly_raw.csv`, `macro_all_daily_ffill.csv` | Raw files by frequency + one combined daily file (lower-frequency series forward-filled to daily). Trailing NaNs are expected where FRED has not yet published the latest release. |
 
-- [Project Ideas](#project-ideas)
-- [Deliverables](#deliverables)
-- [FAQ](#faq)
-- [Resources](#resources)
+## Usage
 
-## Project Ideas
+**Run the full pipeline** (all 5 steps):
 
-These project ideas have well-defined problem statements, but the implementation details are flexible and open to creative solutions. Use the descriptions provided as springboards for your own approaches to solving these problems.
+```bash
+# From the project root
+python src/data_collection/run_pipeline.py
+```
 
-### Spring 2026 Projects
+**Custom date range and tickers:**
 
-- [AI Tech Debt Forge](./spring-2026/ai-tech-debt-forge.md) - Multi-agent system for codebase modernization with persona-based validation
-- [AI Trading Strategist](./spring-2026/ai-trading-strategist.md) - Paper trading system using Alpaca API for strategy development and backtesting
-- [AI Spark Optimizer](./spring-2026/ai-spark-optimizer.md) - Intelligent Spark job analysis with interpretable performance recommendations
-- [Cloud Cost Refinery](./spring-2026/cloud-cost-refinery.md) - AWS cost optimization agent that generates executable cleanup commands
-- [AI Schema Harmonizer](./spring-2026/ai-schema-harmonizer.md) - Normalize schemas across SaaS tools with observability data focus
-- [AI Data Prep Pipeline](./spring-2026/ai-data-prep-pipeline.md) - Universal document processing for RAG and vector search
+```bash
+python src/data_collection/run_pipeline.py \
+    --start-date 2025-07-01 \
+    --end-date 2025-12-31 \
+    --tickers AAPL GOOGL AMZN
+```
 
-### Archived Projects
+**CLI arguments:**
 
-Previous semester project ideas are available in [spring-2025/](./spring-2025/).
+| Argument               | Default               | Description                            |
+| ---------------------- | --------------------- | -------------------------------------- |
+| `--start-date`         | `2025-07-01`          | Collection start date (YYYY-MM-DD)     |
+| `--end-date`           | Yesterday             | Collection end date (YYYY-MM-DD)       |
+| `--tickers`            | All 6 default tickers | Space-separated list of ticker symbols |
+| `--skip-price`         | —                     | Skip Step 1: price collection          |
+| `--skip-fundamentals`  | —                     | Skip Step 2: fundamentals collection   |
+| `--skip-google-trends` | —                     | Skip Step 3: Google Trends collection  |
+| `--skip-news`          | —                     | Skip Step 4: Finnhub news collection   |
+| `--skip-macro`         | —                     | Skip Step 5: FRED macro collection     |
 
-## Deliverables
+**Export Parquet files to CSV** for manual inspection:
 
-All deliverables are described in [deliverables.md](./deliverables.md).
+```bash
+python src/data_collection/parquet_to_csv.py
+```
 
-Summary of what you will produce:
-- Project paper (8-12 pages, conference format)
-- Code repository (production quality)
-- Working demo
-- Presentation slides
-- Conference-style poster
+## Configuration (`config.py`)
 
-## FAQ
+| Parameter                   | Default                                            | Description                                                                                                                       |
+| --------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `TICKERS`                   | `["AAPL", "GOOGL", "LLY", "BRK.B", "AMZN", "XOM"]` | Stock universe                                                                                                                    |
+| `SAMPLE_START`              | `"2025-07-01"`                                     | Default collection start date (used by all collectors and as `--start-date` default in `run_pipeline.py`)                         |
+| `SAMPLE_END`                | `"2025-12-31"`                                     | Default collection end date for individual collectors run standalone. `run_pipeline.py` overrides this with yesterday at runtime. |
+| `FUNDAMENTAL_HISTORY_YEARS` | `6`                                                | Years of quarterly history pulled from SEC EDGAR / YF                                                                             |
+| `GT_GEO`                    | `"US"`                                             | Google Trends geography                                                                                                           |
+| `GT_RATE_LIMIT_SLEEP`       | `5.0s`                                             | Sleep between pytrends batch requests to avoid throttling                                                                         |
 
-**Can I do this project alone or with more than 4 people?**
-No. Teams must have 2-4 members.
+## Notes
 
-**Can I use any model provider (OpenAI, Anthropic, Google, etc.)?**
-Yes. Use whatever works best for your project.
+**Fundamental data look-ahead prevention**
 
-**What if I want to propose a different project idea?**
-Discuss with the professor before Milestone 1. Your proposal should have a clear problem statement, feasible scope for 6 weeks, and an AI agent architecture.
+`quarterly_fundamentals.parquet` includes two date fields per row:
+- `period_end`: when the fiscal quarter ended
+- `filed_date`: when the 10-Q / 10-K was publicly filed with the SEC
 
-## Resources
+Downstream consumers **must** filter by `filed_date <= analysis_date`, not `period_end`. Using `period_end` as the filter leaks future information into the model.
 
-- Course [bookmarks](https://github.com/gu-dsan6725/bookmarks/tree/main) repository
-- [LangChain](https://python.langchain.com/), [LlamaIndex](https://docs.llamaindex.ai/), [Claude Agent SDK](https://github.com/anthropics/anthropic-cookbook)
+**Google Trends search term cache**
+
+Search terms are generated by Groq and cached in `data/cache/search_terms_cache.json`. If `GROQ_API_KEY` is not set, the collector falls back to `"{ticker} stock"`. The cache file should be committed to git to avoid redundant Groq calls.
+
+**yfinance ticker mapping**
+
+`BRK.B` must be passed to yfinance as `BRK-B`. `config.py` provides `YFINANCE_TICKER_MAP` and `YFINANCE_TICKER_REVERSE` for this conversion; downstream code should use these mappings rather than hardcoding the transformation.

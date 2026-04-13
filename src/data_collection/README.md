@@ -92,5 +92,3 @@ data/sample/
 
 This folder is basically the data backbone of the whole system.
 All agents depend on the outputs generated here.
-
-```
