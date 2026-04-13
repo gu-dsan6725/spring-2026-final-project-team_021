@@ -2,36 +2,37 @@
   "agent_name": "NewsTrendsAnalyst",
   "ticker": "GOOGL",
   "analysis_date": "2025-11-02",
-  "signal": "bullish",
-  "confidence": 0.65,
-  "summary": "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
+  "signal": "neutral",
+  "confidence": 0.55,
+  "summary": "Recent news trends are mixed, without a strong directional edge.",
   "bullish_factors": [
-    "Recent company news flow is majority positive.",
-    "Google Trends search interest is up 73% week-over-week."
+    "Recent company news flow is majority positive."
   ],
-  "bearish_factors": [],
+  "bearish_factors": [
+    "Google Trends search interest is down 46% week-over-week."
+  ],
   "risk_flags": [
     "Litigious language appears in recent news"
   ],
   "key_metrics_used": {
-    "article_count": 185,
-    "raw_article_count": 185,
-    "relevant_article_count": 77,
-    "relevance_ratio": 0.41621621621621624,
+    "article_count": 191,
+    "raw_article_count": 191,
+    "relevant_article_count": 76,
+    "relevance_ratio": 0.39790575916230364,
     "positive_articles": 61,
-    "negative_articles": 37,
-    "avg_sentiment_score": 0.24324324324324326,
-    "uncertainty_articles": 34,
-    "litigious_articles": 4,
-    "avg_uncertainty_hits": 0.22702702702702704,
+    "negative_articles": 43,
+    "avg_sentiment_score": 0.16753926701570682,
+    "uncertainty_articles": 37,
+    "litigious_articles": 6,
+    "avg_uncertainty_hits": 0.23036649214659685,
     "has_trends_data": true,
-    "current_week_avg": 34.857142857142854,
-    "previous_week_avg": 20.142857142857142,
-    "wow_change": 0.7304964539007092,
-    "latest_search_interest": 4.0,
-    "current_week_peak": 69.0,
+    "current_week_avg": 29.0,
+    "previous_week_avg": 54.0,
+    "wow_change": -0.46296296296296297,
+    "latest_search_interest": 29.0,
+    "current_week_peak": 29.0,
     "news_score_diff": 1,
-    "trend_score": 1,
-    "combined_score": 0.6
+    "trend_score": -1,
+    "combined_score": 0.2
   }
 }
