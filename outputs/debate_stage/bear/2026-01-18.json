@@ -1,0 +1,218 @@
+{
+  "agent_name": "BearAgent",
+  "week_end_date": "2026-01-18",
+  "input_data_date": "2026-01-18",
+  "stance": "bearish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "AAPL's fundamental metrics are overshadowed by liquidity concerns and bearish momentum indicators, making it a weak stock.",
+      "reasons": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Oversold volatility risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "AMZN's strong fundamental metrics are offset by its high valuation, quick liquidity risk, and negative 5-day return momentum, making it a potential short-term sell.",
+      "reasons": [
+        "AMZN has a high valuation with a price-to-earnings ratio not available, indicating potential overvaluation.",
+        "The stock has negative 5-day return momentum, indicating a potential short-term correction.",
+        "Quick liquidity risk is a significant concern, as the current ratio is only 1.0085555031865407 and the quick ratio is 0.7959794258079059.",
+        "Retail sales are contracting, suggesting weaker consumer demand, and payroll employment is contracting, which may impact AMZN's revenue growth.",
+        "Consumer sentiment is weak, which may also impact AMZN's revenue growth."
+      ],
+      "counterpoints": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "risk_flags": [
+        "High valuation",
+        "Negative 5-day return momentum",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.5
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "BRK.B is a high-risk investment opportunity due to its weakening technical indicators, cautious news trends, and mixed macroeconomic conditions.",
+      "reasons": [
+        "The stock has multiple bearish factors, including being below its 20-day moving average and weakening momentum, outweighing any potential bullish signals.",
+        "Recent news trends lean cautious, with more bearish than bullish evidence.",
+        "Macro conditions are not broadly supportive, with more bearish than bullish evidence.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting."
+      ],
+      "counterpoints": [
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news",
+        "Payroll employment is contracting.",
+        "Retail sales are contracting, suggesting weaker consumer demand."
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.65,
+      "thesis": "GOOGL's financials are overstated due to its high debt-to-equity ratio and weak consumer demand, while its technical indicators are overbought and its macro conditions are mixed.",
+      "reasons": [
+        "GOOGL's debt-to-equity ratio is 8.71%, which is a risk flag.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak.",
+        "Google Trends search interest is down 22% week-over-week."
+      ],
+      "counterpoints": [
+        "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive outlook for GOOGL.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio",
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.6
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.6,
+      "thesis": "Eli Lilly's stock is overvalued due to its high debt-to-equity ratio, weakening momentum, and negative news trends.",
+      "reasons": [
+        "FundamentalAnalyst's report highlights Eli Lilly's high debt-to-equity ratio, which may indicate financial distress.",
+        "TechnicalAnalyst's report indicates bearish factors, including price below the 20-day moving average and weakening momentum.",
+        "NewsTrendsAnalyst's report suggests recent news trends lean cautious, with more bearish than bullish evidence."
+      ],
+      "counterpoints": [
+        "FundamentalAnalyst's report highlights Eli Lilly's positive revenue growth, solid profitability, and healthy margins.",
+        "MacroAnalyst's report indicates broadly supportive macro conditions, with a positive yield-curve proxy and improving housing permits."
+      ],
+      "risk_flags": [
+        "High debt-to-equity ratio may indicate financial distress.",
+        "Weakening momentum and negative news trends may indicate a risk to the stock's price."
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.5,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-01-18",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "ExxonMobil (XOM) is vulnerable to a decline due to its exposure to quick liquidity risk, cautious news trends, and potential macroeconomic headwinds.",
+      "reasons": [
+        "ExxonMobil has a solid financial position with positive free cash flow and operating cash flow, but is exposed to quick liquidity risk.",
+        "Recent news trends lean cautious, with more bearish than bullish evidence.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak."
+      ],
+      "counterpoints": [
+        "ExxonMobil has a solid financial position with positive free cash flow and operating cash flow.",
+        "XOM is showing strong bullish technical indicators, with multiple positive momentum signals and a strong position above key moving averages.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence."
+      ],
+      "risk_flags": [
+        "Contracting payroll employment",
+        "Contracting retail sales",
+        "Quick liquidity risk",
+        "Weak consumer sentiment"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-01-18",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-18"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
+      }
+    }
+  ]
+}
