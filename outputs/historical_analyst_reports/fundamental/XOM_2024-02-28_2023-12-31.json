@@ -2,15 +2,16 @@
   "agent_name": "FundamentalAnalyst",
   "ticker": "XOM",
   "analysis_date": "2024-02-28",
-  "signal": "bullish",
-  "confidence": 0.8,
-  "summary": "XOM has strong return on equity and solid return on assets, with adequate short-term liquidity, suggesting a bullish view.",
+  "signal": "neutral",
+  "confidence": 0.5,
+  "summary": "Neutral view due to mixed signals from the current ratio and negative return on equity and assets, but no significant risk flags.",
   "bullish_factors": [
-    "Return on equity is strong.",
-    "Return on assets is solid.",
     "Current ratio suggests adequate short-term liquidity."
   ],
-  "bearish_factors": [],
+  "bearish_factors": [
+    "Return on equity is negative.",
+    "Return on assets is negative."
+  ],
   "risk_flags": [],
   "key_metrics_used": {
     "pe_ratio_ttm": null,
@@ -23,8 +24,8 @@
     "debt_to_equity": null,
     "current_ratio": 1.4791015983832445,
     "quick_ratio": 1.4791015983832445,
-    "roe": 0.2652317848458511,
-    "roa": 0.1443463888158122,
+    "roe": -0.057811935430318,
+    "roa": -0.0314628358538147,
     "free_cash_flow": null,
     "operating_cash_flow": null,
     "dividend_yield": null
