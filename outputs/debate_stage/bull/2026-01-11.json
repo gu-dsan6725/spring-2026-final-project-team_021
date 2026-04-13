@@ -1,0 +1,218 @@
+{
+  "agent_name": "BullAgent",
+  "week_end_date": "2026-01-11",
+  "input_data_date": "2026-01-11",
+  "stance": "bullish",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "company_views": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.74,
+      "thesis": "AAPL is poised for growth driven by strong fundamental metrics, oversold conditions, and supportive macro conditions.",
+      "reasons": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "counterpoints": [
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Oversold volatility risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "AMZN is poised for continued growth due to strong fundamental metrics, positive macro conditions, and a favorable technical setup.",
+      "reasons": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong.",
+        "Return on assets is solid."
+      ],
+      "counterpoints": [
+        "The 20-day moving average is below the 50-day moving average.",
+        "RSI is above 70, suggesting overbought conditions.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting."
+      ],
+      "risk_flags": [
+        "Overbought risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-31",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "BRK.B is a strong buy due to its solid operating profitability, healthy net margin, and positive macro conditions.",
+      "reasons": [
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+        "The 10Y-3M term spread is positive, which supports a healthier growth backdrop.",
+        "GDP growth is positive in the latest macro snapshot."
+      ],
+      "counterpoints": [
+        "The stock has bearish factors such as price below the 20-day moving average, weak momentum, and weakening momentum, outweighing the bullish factors.",
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum."
+      ],
+      "risk_flags": [
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "GOOGL is a strong buy due to its solid financials, positive technical indicators, and supportive macro conditions.",
+      "reasons": [
+        "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive outlook for GOOGL.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+        "MACD is above its signal line, indicating positive momentum."
+      ],
+      "counterpoints": [
+        "RSI is above 70, suggesting overbought conditions.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak."
+      ],
+      "risk_flags": [
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "LLY",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "Eli Lilly's strong fundamental metrics, positive macro conditions, and improving technical momentum support a bullish outlook.",
+      "reasons": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
+      ],
+      "counterpoints": [
+        "Price is below the 20-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "Retail sales are contracting, suggesting weaker consumer demand."
+      ],
+      "risk_flags": [
+        "No recent company news available"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-10-30",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "XOM",
+      "input_data_date": "2026-01-11",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive momentum, and supportive macro conditions.",
+      "reasons": [
+        "Return on assets is solid.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average."
+      ],
+      "counterpoints": [
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting.",
+        "Consumer sentiment is weak.",
+        "Google Trends search interest is down 54% week-over-week."
+      ],
+      "risk_flags": [
+        "No recent company news available",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-11-03",
+        "technical": "2026-01-11",
+        "macro": "2025-12-31",
+        "news_trends": "2026-01-11"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    }
+  ]
+}
