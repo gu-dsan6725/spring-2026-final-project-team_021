@@ -1,93 +1,206 @@
-# Data Collection
+# DebateTrader
 
-Collects raw data from external sources and saves it to `data/sample/` as Parquet / CSV files for downstream analyst agents.
+DebateTrader is a multi-agent LLM-based framework for stock trading, where multiple analyst agents generate signals and a structured bull-bear debate produces the final decision.
 
-## File Overview
+The system is designed to separate data processing, analysis, and decision-making into modular components, making the pipeline more interpretable and extensible.
+
+---
+
+## Overview
+
+The system follows a two-stage architecture:
+
+1. **Analyst Stage**  
+   Multiple analyst agents independently analyze the market from different perspectives (technical, fundamental, etc.) and generate structured signals.
+
+2. **Debate Stage**  
+   A Bull agent and a Bear agent construct opposing arguments based on analyst outputs.  
+   A Judge agent evaluates both sides and produces the final trading decision.
+
+---
+
+## System Architecture
 
 ```
-src/data_collection/
-├── config.py                  # Central config: tickers, date range, output dirs
-├── run_pipeline.py            # Main entry point (all 5 steps)
-├── price_collector.py         # Daily OHLCV (Yahoo Finance)
-├── fundamental_collector.py   # Quarterly fundamentals (SEC EDGAR primary + Yahoo Finance supplementary)
-├── google_trends_collector.py # Retail investor attention proxy (pytrends)
-├── finnhub_news_fetch.py      # Company news headlines (Finnhub)
-├── fred_macro_fetch.py        # 35 macro indicators (FRED)
-└── parquet_to_csv.py          # Utility: export Parquet files to CSV for inspection
-```
 
-## Data Sources and Outputs
+Data Collection → Analyst Agents → Debate (Bull vs Bear) → Judge → Final Signal
 
-| Script                       | Source                                                   | Output                                                                                                                                           | Format                                                                                                                                                                             |
-| ---------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `price_collector.py`         | Yahoo Finance (`yfinance`)                               | `data/sample/price/price_ohlcv.parquet`                                                                                                          | Long table: 1 row = 1 ticker × 1 day                                                                                                                                               |
-| `fundamental_collector.py`   | SEC EDGAR XBRL (primary) + Yahoo Finance (supplementary) | `data/sample/fundamentals/quarterly_fundamentals.parquet`                                                                                        | Long table: 1 row = 1 ticker × 1 quarter, includes `period_end` and `filed_date`                                                                                                   |
-| `google_trends_collector.py` | pytrends + Groq (search term generation)                 | `data/sample/sentiment/google_trends_daily.parquet`                                                                                              | Long table: 1 row = 1 ticker × 1 day, `search_interest` 0–100                                                                                                                      |
-| `finnhub_news_fetch.py`      | Finnhub News API                                         | `data/sample/news/{TICKER}_news.csv` + `all_news.csv`                                                                                            | One CSV per ticker                                                                                                                                                                 |
-| `fred_macro_fetch.py`        | FRED (`fredapi`)                                         | `data/sample/macro/macro_daily_raw.csv`, `macro_weekly_raw.csv`, `macro_monthly_raw.csv`, `macro_quarterly_raw.csv`, `macro_all_daily_ffill.csv` | Raw files by frequency + one combined daily file (lower-frequency series forward-filled to daily). Trailing NaNs are expected where FRED has not yet published the latest release. |
+````
 
-## Usage
+- Data collection provides structured inputs
+- Analyst agents generate independent signals
+- Debate stage aggregates and challenges these signals
+- Judge outputs final action and confidence
 
-**Run the full pipeline** (all 5 steps):
+---
+
+## Data Collection
+
+All data is collected through a unified pipeline:
 
 ```bash
-# From the project root
+python src/data_collection/run_pipeline.py
+````
+
+### Data Sources
+
+* **Price** → Yahoo Finance (OHLCV)
+* **Fundamentals** → SEC EDGAR (primary) + Yahoo Finance (supplementary)
+* **Sentiment** → Google Trends (retail attention proxy)
+* **News** → Finnhub company headlines
+* **Macro** → FRED economic indicators
+
+### Output Structure
+
+```
+data/sample/
+├── price/
+├── fundamentals/
+├── sentiment/
+├── news/
+└── macro/
+```
+
+Data is stored in Parquet / CSV format and serves as input to downstream agents.
+
+---
+
+## Analyst Agents
+
+### Technical Analyst
+
+The Technical Analyst focuses on price-based signals using historical market data.
+
+It takes OHLCV data and derives indicators such as moving averages, momentum, and trend signals. Based on these features, it evaluates short-term market behavior.
+
+Responsibilities:
+
+* Identify trends (e.g., price vs moving averages)
+* Detect momentum and reversals
+* Highlight bullish and bearish technical patterns
+
+Output:
+
+* `signal` (bullish / bearish / neutral)
+* `confidence`
+* `bullish_factors`
+* `bearish_factors`
+
+---
+
+### Fundamental Analyst
+
+The Fundamental Analyst evaluates company performance using quarterly financial data.
+
+It uses structured fundamentals along with derived ratios (margins, ROE, leverage, liquidity) and growth metrics.
+
+Important:
+
+* Uses `filed_date` instead of `period_end` to avoid look-ahead bias
+
+Responsibilities:
+
+* Evaluate profitability and growth
+* Assess financial stability
+* Identify risks such as high leverage or weak liquidity
+
+Output:
+
+* `signal`
+* `confidence`
+* `summary`
+* `bullish_factors`
+* `bearish_factors`
+* `risk_flags`
+
+---
+
+## Debate Stage
+
+After analysts generate signals, the system enters a structured debate process.
+
+### Flow
+
+* Bull agent constructs a bullish argument
+* Bear agent constructs a bearish argument
+* Multiple rounds of rebuttal can be applied
+* Judge agent evaluates both sides
+
+### Output
+
+* Final trading signal
+* Position direction
+* Confidence score
+
+This stage helps reduce bias from any single agent and improves robustness.
+
+---
+
+## Project Structure
+
+```
+src/
+├── data_collection/     # Data pipeline (price, fundamentals, sentiment, etc.)
+├── pipeline/            # End-to-end execution (analyst + debate stages)
+├── agents/              # Analyst, Bull, Bear, Judge agents
+├── schemas/             # Data formats shared across agents
+```
+
+---
+
+## How to Run
+
+Run analyst stage:
+
+```bash
+uv run python -m src.pipeline.run_analysts --ticker AAPL
+```
+
+Run debate stage:
+
+```bash
+uv run python -m src.pipeline.run_debate_stage
+```
+
+Run full data pipeline:
+
+```bash
 python src/data_collection/run_pipeline.py
 ```
 
-**Custom date range and tickers:**
+---
 
-```bash
-python src/data_collection/run_pipeline.py \
-    --start-date 2025-07-01 \
-    --end-date 2025-12-31 \
-    --tickers AAPL GOOGL AMZN
-```
+## Key Design Choices
 
-**CLI arguments:**
+* **Multi-agent architecture**
+  Separates different reasoning tasks into specialized agents
 
-| Argument               | Default               | Description                            |
-| ---------------------- | --------------------- | -------------------------------------- |
-| `--start-date`         | `2025-07-01`          | Collection start date (YYYY-MM-DD)     |
-| `--end-date`           | Yesterday             | Collection end date (YYYY-MM-DD)       |
-| `--tickers`            | All 6 default tickers | Space-separated list of ticker symbols |
-| `--skip-price`         | —                     | Skip Step 1: price collection          |
-| `--skip-fundamentals`  | —                     | Skip Step 2: fundamentals collection   |
-| `--skip-google-trends` | —                     | Skip Step 3: Google Trends collection  |
-| `--skip-news`          | —                     | Skip Step 4: Finnhub news collection   |
-| `--skip-macro`         | —                     | Skip Step 5: FRED macro collection     |
+* **Structured outputs (schemas)**
+  Ensures consistency across pipeline stages
 
-**Export Parquet files to CSV** for manual inspection:
+* **No look-ahead bias**
+  Fundamental data uses `filed_date` instead of `period_end`
 
-```bash
-python src/data_collection/parquet_to_csv.py
-```
+* **Modular pipeline**
+  Each component can be run independently or combined
 
-## Configuration (`config.py`)
+---
 
-| Parameter                   | Default                                            | Description                                                                                                                       |
-| --------------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| `TICKERS`                   | `["AAPL", "GOOGL", "LLY", "BRK.B", "AMZN", "XOM"]` | Stock universe                                                                                                                    |
-| `SAMPLE_START`              | `"2025-07-01"`                                     | Default collection start date (used by all collectors and as `--start-date` default in `run_pipeline.py`)                         |
-| `SAMPLE_END`                | `"2025-12-31"`                                     | Default collection end date for individual collectors run standalone. `run_pipeline.py` overrides this with yesterday at runtime. |
-| `FUNDAMENTAL_HISTORY_YEARS` | `6`                                                | Years of quarterly history pulled from SEC EDGAR / YF                                                                             |
-| `GT_GEO`                    | `"US"`                                             | Google Trends geography                                                                                                           |
-| `GT_RATE_LIMIT_SLEEP`       | `5.0s`                                             | Sleep between pytrends batch requests to avoid throttling                                                                         |
+## Future Work
 
-## Notes
+* Integrate LLM-based reasoning directly into analyst agents
+* Improve evaluation framework and backtesting
+* Add more data sources (options, alternative data, etc.)
+* Enhance risk management and portfolio allocation
 
-**Fundamental data look-ahead prevention**
+---
 
-`quarterly_fundamentals.parquet` includes two date fields per row:
-- `period_end`: when the fiscal quarter ended
-- `filed_date`: when the 10-Q / 10-K was publicly filed with the SEC
+## TL;DR
 
-Downstream consumers **must** filter by `filed_date <= analysis_date`, not `period_end`. Using `period_end` as the filter leaks future information into the model.
+DebateTrader treats trading as a structured argument problem:
 
-**Google Trends search term cache**
+* Analysts generate signals
+* Bull and Bear debate
+* Judge makes the final decision
 
-Search terms are generated by Groq and cached in `data/cache/search_terms_cache.json`. If `GROQ_API_KEY` is not set, the collector falls back to `"{ticker} stock"`. The cache file should be committed to git to avoid redundant Groq calls.
-
-**yfinance ticker mapping**
-
-`BRK.B` must be passed to yfinance as `BRK-B`. `config.py` provides `YFINANCE_TICKER_MAP` and `YFINANCE_TICKER_REVERSE` for this conversion; downstream code should use these mappings rather than hardcoding the transformation.
+Instead of relying on a single model, the system uses multiple perspectives to improve robustness and interpretability.
