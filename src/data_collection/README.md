@@ -85,10 +85,3 @@ data/sample/
 
 * `parquet_to_csv.py` 
   Converts parquet files to CSV for easier inspection
-
----
-
-### TL;DR
-
-This folder is basically the data backbone of the whole system.
-All agents depend on the outputs generated here.
