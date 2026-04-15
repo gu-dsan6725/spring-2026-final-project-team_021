@@ -45,6 +45,7 @@ class DebateCase(_SchemaBase):
     rebuttal_points: list[str] = field(default_factory=list)
     risk_flags: list[str] = field(default_factory=list)
     score_breakdown: dict[str, float] = field(default_factory=dict)
+    memory_used: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -60,6 +61,7 @@ class JudgeDecision(_SchemaBase):
     dissenting_points: list[str] = field(default_factory=list)
     risk_flags: list[str] = field(default_factory=list)
     score_breakdown: dict[str, float] = field(default_factory=dict)
+    memory_used: dict = field(default_factory=dict)
 
 
 @dataclass

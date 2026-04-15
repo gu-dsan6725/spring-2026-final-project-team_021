@@ -55,6 +55,7 @@ Both `BullAgent` and `BearAgent` return a `DebateCase` with these fields:
 - `rebuttal_points`: direct responses to the opposing case
 - `risk_flags`: risk notes
 - `score_breakdown`: explainable scoring components
+- `memory_used`: lightweight trace of which short-term and cross-week memory inputs were used
 
 ### `JudgeDecision`
 
@@ -71,10 +72,88 @@ Both `BullAgent` and `BearAgent` return a `DebateCase` with these fields:
 - `dissenting_points`
 - `risk_flags`
 - `score_breakdown`
+- `memory_used`
 
 These schemas are implemented as dataclasses, but they intentionally expose `model_dump()` and `model_dump_json()` compatibility methods so the rest of the project can use them like lightweight Pydantic-style models without requiring Pydantic at runtime.
 
-## 3. What `BullAgent` Does
+## 3. Memory Model
+
+The debate stage now supports two kinds of memory. Both are passed into the
+agents as `memory_context`, but the pipeline owns the lifecycle.
+
+### 3.1 Short-Term Memory
+
+Short-term memory exists only within the current ticker's debate run for the
+current week.
+
+It stores a compact `round_history` summary such as:
+
+- prior bull thesis
+- prior bear thesis
+- top supporting points from each side
+- repeated points carried into later rounds
+
+This is built in [run_debate_stage.py](/E:/GU/6725/spring-2026-final-project-team_021/src/pipeline/run_debate_stage.py:592) and passed to:
+
+- `BullAgent`
+- `BearAgent`
+- `JudgeAgent`
+
+Its purpose is to help the system notice when:
+
+- round 2 is meaningfully rebutting round 1
+- a side is just repeating the same point
+- the judge should discount unchanged arguments
+
+### 3.2 Cross-Week Memory
+
+Cross-week memory is stored per ticker under:
+
+- `outputs/debate_stage/memory/{ticker}.json`
+
+Each weekly snapshot stores a compact record of:
+
+- `week_end_date`
+- bull thesis
+- bear thesis
+- top bull points
+- top bear points
+- judge signal
+- judge confidence
+- risk flags
+- dissenting points
+
+At runtime, the pipeline summarizes the most recent snapshots into a
+`cross_week_memory` object containing:
+
+- `signal_history`
+- `recent_bull_theses`
+- `recent_bear_theses`
+- `recurring_risk_flags`
+- `recurring_dissenting_points`
+
+This lets the current debate use historical continuity and recurring unresolved
+risks without re-reading large historical transcripts each time.
+
+### 3.3 Design Constraint
+
+Memory is background context, not the primary evidence source.
+
+The operating rule is:
+
+- current-week analyst reports define the current evidence
+- memory only adjusts continuity, repeated-argument penalties, and unresolved risks
+
+So memory can influence:
+
+- confidence
+- rationale
+- summary language
+- risk interpretation
+
+But it should not replace the current week's upstream reports.
+
+## 4. What `BullAgent` Does
 
 Implementation: [bull_agent.py](/E:/GU/6725/spring-2026-final-project-team_021/src/agents/DEBATE_STAGE/bull_agent.py:1)
 
@@ -84,8 +163,8 @@ Implementation: [bull_agent.py](/E:/GU/6725/spring-2026-final-project-team_021/s
 
 Its two main public methods are:
 
-- `build_case(analyst_reports, opponent_case=None)`
-- `rebut(analyst_reports, bear_case)`
+- `build_case(analyst_reports, opponent_case=None, memory_context=None)`
+- `rebut(analyst_reports, bear_case, memory_context=None)`
 
 `rebut(...)` is just a thin wrapper around `build_case(...)` that passes the bear case as `opponent_case`.
 
@@ -120,6 +199,7 @@ In `_build_case_with_llm()`, the agent sends the following payload to the LLM:
 - `stance = bullish`
 - `analyst_reports`
 - `opponent_case` if provided
+- `memory_context` if provided
 
 After parsing the JSON response, the agent normalizes and truncates fields:
 
@@ -211,7 +291,13 @@ confidence = 0.5 + max(edge, 0.0) * 0.3 + min(rebuttal_count, 3) * 0.03
 
 The result is clipped to the range `[0.35, 0.9]`.
 
-## 4. What `BearAgent` Does
+When memory is present, the rule-based bull case also uses:
+
+- short-term repeated-point penalties from the latest debate round
+- cross-week bullish continuity bonus
+- cross-week recurring risk penalties
+
+## 5. What `BearAgent` Does
 
 Implementation: [bear_agent.py](/E:/GU/6725/spring-2026-final-project-team_021/src/agents/DEBATE_STAGE/bear_agent.py:1)
 
@@ -219,8 +305,8 @@ Implementation: [bear_agent.py](/E:/GU/6725/spring-2026-final-project-team_021/s
 
 ### Public Methods
 
-- `build_case(analyst_reports, opponent_case=None)`
-- `rebut(analyst_reports, bull_case)`
+- `build_case(analyst_reports, opponent_case=None, memory_context=None)`
+- `rebut(analyst_reports, bull_case, memory_context=None)`
 
 ### LLM Path
 
@@ -281,7 +367,13 @@ If counter-evidence exists, it adds that the bullish evidence does not fully neu
 
 Confidence uses the same formula as `BullAgent`, and is also clipped to `[0.35, 0.9]`.
 
-## 5. What `JudgeAgent` Does
+When memory is present, the rule-based bear case also uses:
+
+- short-term repeated-point penalties from the latest debate round
+- cross-week bearish continuity bonus
+- recurring downside-risk support from prior weeks
+
+## 6. What `JudgeAgent` Does
 
 Implementation: [judge_agent.py](/E:/GU/6725/spring-2026-final-project-team_021/src/agents/DEBATE_STAGE/judge_agent.py:1)
 
@@ -304,7 +396,7 @@ That means the per-ticker judge output is allowed to produce a raw position up t
 
 ### Main Entry Point
 
-`judge(bull_case, bear_case, analyst_reports=None)`
+`judge(bull_case, bear_case, analyst_reports=None, memory_context=None)`
 
 Its control flow mirrors the other agents:
 
@@ -387,6 +479,13 @@ This means:
 - strong confidence from either side slightly boosts the judge's confidence
 - more risk flags reduce confidence
 
+When memory is present, the judge additionally:
+
+- adds recurring cross-week risks into the common risk set
+- boosts confidence slightly when the current signal matches recent directional history
+- reduces confidence when the current signal conflicts with a strong recent directional history
+- reduces confidence when later rounds mostly repeat earlier theses
+
 ### Position Sizing
 
 In rule-based mode, `_position_size()` computes:
@@ -413,9 +512,9 @@ If the final result is `neutral`, the judge explains that the two sides are too 
 
 `dissenting_points` preserves the strongest evidence from the losing side, so the final decision still records what the other side got right.
 
-## 6. Shared Design Patterns Across All Three Agents
+## 7. Shared Design Patterns Across All Three Agents
 
-### 6.1 LLM First, Rules As Fallback
+### 7.1 LLM First, Rules As Fallback
 
 All three agents follow the same operating principle:
 
@@ -427,7 +526,7 @@ This gives the debate stage two important properties:
 - stronger online behavior when model calls are available
 - stable offline or degraded behavior when the LLM path breaks
 
-### 6.2 Accepts Either Dicts Or Model-Like Objects
+### 7.2 Accepts Either Dicts Or Model-Like Objects
 
 Each agent implements `_coerce_report()` and/or `_coerce_case()`:
 
@@ -441,7 +540,7 @@ That makes the stage flexible with:
 - dataclass-backed schema objects
 - Pydantic-style objects with `model_dump()`
 
-### 6.3 Aggressive Cleaning And Bounding
+### 7.3 Aggressive Cleaning And Bounding
 
 To keep outputs stable and safe for downstream code, the agents consistently:
 
@@ -453,7 +552,7 @@ To keep outputs stable and safe for downstream code, the agents consistently:
 
 This matters for JSON persistence, repeatability, and downstream display logic.
 
-## 7. How This Stage Is Persisted In The Pipeline
+## 8. How This Stage Is Persisted In The Pipeline
 
 This directory only defines the agents, but [run_debate_stage.py](/E:/GU/6725/spring-2026-final-project-team_021/src/pipeline/run_debate_stage.py:466) writes the actual outputs to:
 
@@ -461,10 +560,12 @@ This directory only defines the agents, but [run_debate_stage.py](/E:/GU/6725/sp
 - `outputs/debate_stage/bear/{week_end_date}.json`
 - `outputs/debate_stage/judge/{week_end_date}.json`
 - `outputs/debate_stage/transcript/{week_end_date}.json`
+- `outputs/debate_stage/memory/{ticker}.json`
 
 The `transcript` file is the most complete artifact. It includes:
 
 - the original `analyst_reports` for each ticker
+- `memory_context`
 - `bull_round_1`
 - `bear_round_1`
 - `bull_final`
@@ -474,27 +575,59 @@ The `transcript` file is the most complete artifact. It includes:
 
 If you need to debug debate-stage behavior, `transcript` is the best output to inspect first.
 
-## 8. A Real Single-Ticker Flow
+The memory file is the best artifact for debugging cross-week continuity and
+historical risk carry-forward.
+
+## 9. CLI Options For Memory
+
+The weekly batch runner now exposes two memory tuning flags in
+[run_debate_stage.py](/E:/GU/6725/spring-2026-final-project-team_021/src/pipeline/run_debate_stage.py:778):
+
+- `--memory-lookback`
+  - number of prior weeks summarized into the current debate context
+  - default: `4`
+
+- `--memory-max-weeks`
+  - maximum number of weekly memory snapshots retained per ticker
+  - default: `8`
+
+Example:
+
+```bash
+python -m src.pipeline.run_debate_stage --week-end 2026-04-12 --rounds 2 --memory-lookback 6 --memory-max-weeks 12
+```
+
+Constraint:
+
+- `--memory-lookback >= 1`
+- `--memory-max-weeks >= 1`
+- `--memory-max-weeks >= --memory-lookback`
+
+## 10. A Real Single-Ticker Flow
 
 For one ticker, the code effectively does this:
 
 1. Load four upstream analyst reports.
-2. Let `BullAgent` construct the initial bullish case.
-3. Let `BearAgent` respond to that case with a bearish rebuttal.
-4. If configured, run another rebuttal round.
-5. Let `JudgeAgent` compare the final bull and bear cases using evidence, risks, scores, and confidence.
-6. Return a per-ticker direction and raw position suggestion.
-7. Let the weekly pipeline normalize those judge outputs into portfolio-level allocations.
+2. Load summarized cross-week memory for that ticker.
+3. Let `BullAgent` construct the initial bullish case.
+4. Let `BearAgent` respond to that case with a bearish rebuttal.
+5. Store round summaries into short-term memory.
+6. If configured, run another rebuttal round using the same memory context.
+7. Let `JudgeAgent` compare the final bull and bear cases using evidence, risks, scores, confidence, and memory continuity.
+8. Return a per-ticker direction and raw position suggestion.
+9. Update that ticker's cross-week memory file.
+10. Let the weekly pipeline normalize those judge outputs into portfolio-level allocations.
 
-## 9. The Most Important Things To Notice In This Code
+## 11. The Most Important Things To Notice In This Code
 
 - `BullAgent` and `BearAgent` are not perfect mirror images, especially in how they weigh and use `risk_flags`.
 - `JudgeAgent` depends heavily on each side's `argument_score`, so if the final verdict looks wrong, the first place to inspect is often the bull/bear scoring logic, not the judge itself.
 - In the pipeline, `JudgeAgent(max_position_size=1.0)` is an intermediate step, not the final portfolio allocation.
 - `transcript` output is much more useful for debugging than the top-level weekly bull/bear/judge summaries.
+- `memory` is intentionally lightweight and summarized; it is not meant to replace current reports.
 - This is not an open-ended autonomous debate framework. It is a structured, bounded, serial debate layer designed for persistence and fallback reliability.
 
-## 10. Minimal Usage Example
+## 12. Minimal Usage Example
 
 ```python
 from src.agents.DEBATE_STAGE import BullAgent, BearAgent, JudgeAgent
@@ -512,9 +645,21 @@ reports = [
     }
 ]
 
-bull = BullAgent().build_case(reports)
-bear = BearAgent().rebut(reports, bull)
-decision = JudgeAgent().judge(bull, bear, reports)
+memory_context = {
+    "short_term_memory": {"round_history": []},
+    "cross_week_memory": {
+        "signal_history": ["bullish", "bullish"],
+        "recent_bull_theses": ["prior bullish thesis"],
+        "recent_bear_theses": ["prior bearish thesis"],
+        "recurring_risk_flags": ["event volatility"],
+        "recurring_dissenting_points": [],
+        "recent_weeks": [],
+    },
+}
+
+bull = BullAgent().build_case(reports, memory_context=memory_context)
+bear = BearAgent().rebut(reports, bull, memory_context=memory_context)
+decision = JudgeAgent().judge(bull, bear, reports, memory_context=memory_context)
 ```
 
 The returned objects are:
@@ -522,4 +667,3 @@ The returned objects are:
 - `bull`: `DebateCase`
 - `bear`: `DebateCase`
 - `decision`: `JudgeDecision`
-
