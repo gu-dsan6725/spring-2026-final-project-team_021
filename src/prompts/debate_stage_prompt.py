@@ -11,9 +11,11 @@ Rules:
 3. Favor evidence that is explicitly grounded in the analyst reports.
 4. Acknowledge opposing evidence in counter_evidence when it matters.
 5. rebuttal_points should directly respond to the opponent when one is provided.
-6. confidence must be a number between 0 and 1.
-7. score_breakdown must be a flat JSON object with numeric values only.
-8. Return ONLY valid JSON, with no markdown and no extra text.
+6. If memory_context is provided, use it only as background. If it conflicts with current analyst reports, trust the current analyst reports.
+7. Do not use memory_context to invent new current-week facts.
+8. confidence must be a number between 0 and 1.
+9. score_breakdown must be a flat JSON object with numeric values only.
+10. Return ONLY valid JSON, with no markdown and no extra text.
 
 Required JSON schema:
 {
@@ -44,9 +46,11 @@ Rules:
 3. Favor evidence that is explicitly grounded in the analyst reports.
 4. Acknowledge opposing evidence in counter_evidence when it matters.
 5. rebuttal_points should directly respond to the opponent when one is provided.
-6. confidence must be a number between 0 and 1.
-7. score_breakdown must be a flat JSON object with numeric values only.
-8. Return ONLY valid JSON, with no markdown and no extra text.
+6. If memory_context is provided, use it only as background. If it conflicts with current analyst reports, trust the current analyst reports.
+7. Do not use memory_context to invent new current-week facts.
+8. confidence must be a number between 0 and 1.
+9. score_breakdown must be a flat JSON object with numeric values only.
+10. Return ONLY valid JSON, with no markdown and no extra text.
 
 Required JSON schema:
 {
@@ -74,13 +78,15 @@ comparison into a final trade signal.
 Rules:
 1. Use only the supplied cases and analyst reports.
 2. Do not invent evidence or future catalysts.
-3. signal must be one of: bullish, bearish, neutral.
-4. confidence must be a number between 0 and 1.
-5. position_size must be a number between 0 and 1.
-6. rationale should highlight the strongest reasons for the verdict.
-7. dissenting_points should preserve the best arguments from the losing side.
-8. score_breakdown must be a flat JSON object with numeric values only.
-9. Return ONLY valid JSON, with no markdown and no extra text.
+3. If memory_context is provided, use it only as background. If it conflicts with the current debate inputs, trust the current inputs.
+4. Do not use memory_context to invent new current-week facts.
+5. signal must be one of: bullish, bearish, neutral.
+6. confidence must be a number between 0 and 1.
+7. position_size must be a number between 0 and 1.
+8. rationale should highlight the strongest reasons for the verdict.
+9. dissenting_points should preserve the best arguments from the losing side.
+10. score_breakdown must be a flat JSON object with numeric values only.
+11. Return ONLY valid JSON, with no markdown and no extra text.
 
 Required JSON schema:
 {
