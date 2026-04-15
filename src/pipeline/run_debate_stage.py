@@ -46,6 +46,8 @@ DEFAULT_MACRO_DIR = "outputs/historical_analyst_reports/macro"
 DEFAULT_NEWS_DIR = "outputs/historical_analyst_reports/news_trends"
 DEFAULT_OUTPUT_DIR = "outputs/debate_stage"
 DEFAULT_DEBATE_ROUNDS = 1
+DEFAULT_MEMORY_LOOKBACK_WEEKS = 4
+DEFAULT_MEMORY_MAX_WEEKS = 8
 
 
 def _resolve_path(path_str: str | Path) -> Path:
@@ -106,6 +108,14 @@ def _is_sunday(value: str) -> bool:
 def _load_json(path: Path) -> dict:
     with open(path, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _as_list(value) -> list:
+    if isinstance(value, list):
+        return [item for item in value if item is not None]
+    if value is None:
+        return []
+    return [value]
 
 
 def _extract_simple_date_from_stem(stem: str, prefix: str) -> str:
@@ -339,6 +349,159 @@ def _supports_stance(case: dict) -> bool:
     return argument_score > 0 or confidence >= 0.55
 
 
+def _memory_dir(output_dir: str) -> Path:
+    return _resolve_path(output_dir) / "memory"
+
+
+def _memory_path(output_dir: str, ticker: str) -> Path:
+    return _memory_dir(output_dir) / f"{ticker}.json"
+
+
+def _extract_memory_snapshot(
+    week_end_date: str,
+    bull_case: dict,
+    bear_case: dict,
+    judge_decision: dict,
+) -> dict:
+    bull_support = [str(item) for item in bull_case.get("supporting_evidence", [])][:3]
+    bear_support = [str(item) for item in bear_case.get("supporting_evidence", [])][:3]
+    combined_risks = sorted(
+        {str(item) for item in bull_case.get("risk_flags", [])}
+        | {str(item) for item in bear_case.get("risk_flags", [])}
+        | {str(item) for item in judge_decision.get("risk_flags", [])}
+    )
+    return {
+        "week_end_date": week_end_date,
+        "bull_thesis": str(bull_case.get("thesis", "")),
+        "bear_thesis": str(bear_case.get("thesis", "")),
+        "bull_top_points": bull_support,
+        "bear_top_points": bear_support,
+        "judge_signal": str(judge_decision.get("signal", "neutral")),
+        "judge_confidence": round(float(judge_decision.get("confidence", 0.0)), 2),
+        "risk_flags": combined_risks[:6],
+        "dissenting_points": [str(item) for item in judge_decision.get("dissenting_points", [])][:4],
+    }
+
+
+def _summarize_cross_week_memory(memory_data: dict, lookback: int) -> dict:
+    recent_weeks = [
+        item
+        for item in _as_list(memory_data.get("recent_weeks"))
+        if isinstance(item, dict)
+    ]
+    recent_weeks = sorted(
+        recent_weeks,
+        key=lambda item: str(item.get("week_end_date", "")),
+        reverse=True,
+    )[:lookback]
+
+    recurring_risks: dict[str, int] = {}
+    recurring_dissent: dict[str, int] = {}
+    for week in recent_weeks:
+        for risk in [str(item) for item in week.get("risk_flags", [])]:
+            recurring_risks[risk] = recurring_risks.get(risk, 0) + 1
+        for point in [str(item) for item in week.get("dissenting_points", [])]:
+            recurring_dissent[point] = recurring_dissent.get(point, 0) + 1
+
+    recurring_risk_flags = [
+        risk for risk, count in sorted(recurring_risks.items(), key=lambda item: (-item[1], item[0]))
+        if count >= 2
+    ][:4]
+    recurring_dissenting_points = [
+        point
+        for point, count in sorted(recurring_dissent.items(), key=lambda item: (-item[1], item[0]))
+        if count >= 2
+    ][:4]
+
+    return {
+        "recent_weeks": recent_weeks,
+        "signal_history": [str(item.get("judge_signal", "neutral")) for item in recent_weeks],
+        "recent_bull_theses": [str(item.get("bull_thesis", "")) for item in recent_weeks if item.get("bull_thesis")],
+        "recent_bear_theses": [str(item.get("bear_thesis", "")) for item in recent_weeks if item.get("bear_thesis")],
+        "recurring_risk_flags": recurring_risk_flags,
+        "recurring_dissenting_points": recurring_dissenting_points,
+    }
+
+
+def _load_cross_week_memory(
+    ticker: str,
+    output_dir: str,
+    lookback: int = DEFAULT_MEMORY_LOOKBACK_WEEKS,
+) -> dict:
+    path = _memory_path(output_dir=output_dir, ticker=ticker)
+    if not path.exists():
+        return {
+            "ticker": ticker,
+            "recent_weeks": [],
+            "signal_history": [],
+            "recent_bull_theses": [],
+            "recent_bear_theses": [],
+            "recurring_risk_flags": [],
+            "recurring_dissenting_points": [],
+        }
+
+    memory_data = _load_json(path)
+    summary = _summarize_cross_week_memory(memory_data=memory_data, lookback=lookback)
+    summary["ticker"] = ticker
+    return summary
+
+
+def _save_cross_week_memory(
+    ticker: str,
+    week_end_date: str,
+    bull_case: dict,
+    bear_case: dict,
+    judge_decision: dict,
+    output_dir: str,
+    max_weeks: int = DEFAULT_MEMORY_MAX_WEEKS,
+) -> None:
+    path = _memory_path(output_dir=output_dir, ticker=ticker)
+    if path.exists():
+        memory_data = _load_json(path)
+    else:
+        memory_data = {"ticker": ticker, "recent_weeks": []}
+
+    recent_weeks = [
+        item
+        for item in _as_list(memory_data.get("recent_weeks"))
+        if isinstance(item, dict) and str(item.get("week_end_date", "")) != week_end_date
+    ]
+    recent_weeks.append(
+        _extract_memory_snapshot(
+            week_end_date=week_end_date,
+            bull_case=bull_case,
+            bear_case=bear_case,
+            judge_decision=judge_decision,
+        )
+    )
+    recent_weeks = sorted(
+        recent_weeks,
+        key=lambda item: str(item.get("week_end_date", "")),
+        reverse=True,
+    )[:max_weeks]
+
+    memory_data = {
+        "ticker": ticker,
+        "updated_at": week_end_date,
+        "recent_weeks": recent_weeks,
+    }
+    save_json(memory_data, path)
+
+
+def _short_term_round_summary(round_number: int, bull_case: dict, bear_case: dict) -> dict:
+    bull_points = [str(item) for item in bull_case.get("supporting_evidence", [])][:3]
+    bear_points = [str(item) for item in bear_case.get("supporting_evidence", [])][:3]
+    return {
+        "round": round_number,
+        "bull_thesis": str(bull_case.get("thesis", "")),
+        "bull_top_points": bull_points,
+        "bear_thesis": str(bear_case.get("thesis", "")),
+        "bear_top_points": bear_points,
+        "repeated_bull_points": [],
+        "repeated_bear_points": [],
+    }
+
+
 def _build_weekly_case_view(case_obj, input_data_date: str, source_report_dates: dict[str, str]) -> WeeklyDebateView:
     case = case_obj.model_dump(mode="json") if hasattr(case_obj, "model_dump") else dict(case_obj)
     return WeeklyDebateView(
@@ -430,17 +593,47 @@ def _run_debate_for_ticker(
     ticker: str,
     analyst_reports: list[dict],
     rounds: int,
+    cross_week_memory: dict | None = None,
 ) -> tuple[object, object, object, dict]:
     bull_agent = BullAgent()
     bear_agent = BearAgent()
     judge_agent = JudgeAgent(max_position_size=1.0)
+    short_term_memory = {"ticker": ticker, "round_history": []}
+    memory_context = {
+        "short_term_memory": short_term_memory,
+        "cross_week_memory": dict(cross_week_memory or {}),
+    }
 
-    bull_round_1 = bull_agent.build_case(analyst_reports)
-    bear_round_1 = bear_agent.rebut(analyst_reports, bull_round_1)
+    bull_round_1 = bull_agent.build_case(analyst_reports, memory_context=memory_context)
+    bear_round_1 = bear_agent.rebut(analyst_reports, bull_round_1, memory_context=memory_context)
+    short_term_memory["round_history"].append(
+        _short_term_round_summary(
+            round_number=1,
+            bull_case=bull_round_1.model_dump(mode="json"),
+            bear_case=bear_round_1.model_dump(mode="json"),
+        )
+    )
 
     if rounds >= 2:
-        bull_final = bull_agent.rebut(analyst_reports, bear_round_1)
-        bear_final = bear_agent.rebut(analyst_reports, bull_final)
+        bull_final = bull_agent.rebut(analyst_reports, bear_round_1, memory_context=memory_context)
+        bear_final = bear_agent.rebut(analyst_reports, bull_final, memory_context=memory_context)
+        round_2_summary = _short_term_round_summary(
+            round_number=2,
+            bull_case=bull_final.model_dump(mode="json"),
+            bear_case=bear_final.model_dump(mode="json"),
+        )
+        previous_round = short_term_memory["round_history"][-1]
+        round_2_summary["repeated_bull_points"] = [
+            point
+            for point in round_2_summary.get("bull_top_points", [])
+            if point in previous_round.get("bull_top_points", [])
+        ][:2]
+        round_2_summary["repeated_bear_points"] = [
+            point
+            for point in round_2_summary.get("bear_top_points", [])
+            if point in previous_round.get("bear_top_points", [])
+        ][:2]
+        short_term_memory["round_history"].append(round_2_summary)
     else:
         bull_final = bull_round_1
         bear_final = bear_round_1
@@ -449,11 +642,13 @@ def _run_debate_for_ticker(
         bull_case=bull_final,
         bear_case=bear_final,
         analyst_reports=analyst_reports,
+        memory_context=memory_context,
     )
 
     transcript = {
         "ticker": ticker,
         "analyst_reports": analyst_reports,
+        "memory_context": memory_context,
         "bull_round_1": bull_round_1.model_dump(mode="json"),
         "bear_round_1": bear_round_1.model_dump(mode="json"),
         "bull_final": bull_final.model_dump(mode="json"),
@@ -472,6 +667,8 @@ def run_for_week(
     news_dir: str,
     output_dir: str,
     rounds: int,
+    memory_lookback: int,
+    memory_max_weeks: int,
 ) -> None:
     if not _is_sunday(week_end_date):
         raise ValueError(f"week_end_date must be a Sunday, got {week_end_date}")
@@ -494,11 +691,17 @@ def run_for_week(
             macro_path=macro_path,
             news_dir=news_dir,
         )
+        cross_week_memory = _load_cross_week_memory(
+            ticker=ticker,
+            output_dir=output_dir,
+            lookback=memory_lookback,
+        )
 
         bull_case, bear_case, judge_decision, ticker_transcript = _run_debate_for_ticker(
             ticker=ticker,
             analyst_reports=analyst_reports,
             rounds=rounds,
+            cross_week_memory=cross_week_memory,
         )
 
         bull_views.append(
@@ -521,6 +724,15 @@ def run_for_week(
         raw_judge_decisions.append(decision_dict)
         ticker_transcript["source_report_dates"] = source_dates
         transcripts.append(ticker_transcript)
+        _save_cross_week_memory(
+            ticker=ticker,
+            week_end_date=week_end_date,
+            bull_case=bull_case.model_dump(mode="json"),
+            bear_case=bear_case.model_dump(mode="json"),
+            judge_decision=judge_decision.model_dump(mode="json"),
+            output_dir=output_dir,
+            max_weeks=memory_max_weeks,
+        )
 
     allocations = _normalized_allocations(raw_judge_decisions)
 
@@ -685,6 +897,18 @@ def parse_args() -> argparse.Namespace:
         default=DEFAULT_DEBATE_ROUNDS,
         help="Debate rounds per ticker. Default is 1 to reduce LLM calls.",
     )
+    parser.add_argument(
+        "--memory-lookback",
+        type=int,
+        default=DEFAULT_MEMORY_LOOKBACK_WEEKS,
+        help="Number of prior weeks of cross-week memory to summarize into the current debate context.",
+    )
+    parser.add_argument(
+        "--memory-max-weeks",
+        type=int,
+        default=DEFAULT_MEMORY_MAX_WEEKS,
+        help="Maximum number of weekly memory snapshots to retain per ticker.",
+    )
     return parser.parse_args()
 
 
@@ -699,6 +923,15 @@ def main() -> None:
 
     if args.week_end and (start_date or end_date):
         raise ValueError("--week-end cannot be combined with --start-date or --end-date")
+    if args.memory_lookback < 1:
+        raise ValueError(f"--memory-lookback must be at least 1, got {args.memory_lookback}")
+    if args.memory_max_weeks < 1:
+        raise ValueError(f"--memory-max-weeks must be at least 1, got {args.memory_max_weeks}")
+    if args.memory_max_weeks < args.memory_lookback:
+        raise ValueError(
+            f"--memory-max-weeks must be greater than or equal to --memory-lookback, got "
+            f"{args.memory_max_weeks} < {args.memory_lookback}"
+        )
 
     if args.week_end:
         week_end_dates = [_validate_date(args.week_end, label="--week-end")]
@@ -733,6 +966,8 @@ def main() -> None:
             news_dir=args.news_dir,
             output_dir=args.output_dir,
             rounds=args.rounds,
+            memory_lookback=args.memory_lookback,
+            memory_max_weeks=args.memory_max_weeks,
         )
 
 

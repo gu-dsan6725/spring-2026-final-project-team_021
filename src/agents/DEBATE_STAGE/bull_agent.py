@@ -26,6 +26,7 @@ class BullAgent:
         self,
         analyst_reports: list[dict[str, Any] | Any],
         opponent_case: dict[str, Any] | Any | None = None,
+        memory_context: dict[str, Any] | None = None,
     ) -> DebateCase:
         reports = [self._coerce_report(report) for report in analyst_reports]
         if not reports:
@@ -36,20 +37,24 @@ class BullAgent:
             return self._build_case_with_llm(
                 analyst_reports=reports,
                 opponent_case=opponent_case,
+                memory_context=memory_context,
             )
         except Exception as exc:
             print(f"[{self.agent_name}] using rule fallback ({exc})")
             return self._build_case_with_rules(
                 analyst_reports=reports,
                 opponent_case=opponent_case,
+                memory_context=memory_context,
             )
 
     def _build_case_with_llm(
         self,
         analyst_reports: list[dict[str, Any]],
         opponent_case: dict[str, Any] | Any | None,
+        memory_context: dict[str, Any] | None,
     ) -> DebateCase:
         ticker, analysis_date = self._resolve_metadata(analyst_reports)
+        memory_used = self._summarize_memory_usage(memory_context)
 
         payload = {
             "ticker": ticker,
@@ -57,6 +62,7 @@ class BullAgent:
             "stance": self.stance,
             "analyst_reports": analyst_reports,
             "opponent_case": self._coerce_case(opponent_case) if opponent_case is not None else None,
+            "memory_context": memory_context or {},
         }
         raw_output = call_llm(
             messages=[{"role": "user", "content": json.dumps(payload, indent=2, ensure_ascii=False)}],
@@ -77,15 +83,19 @@ class BullAgent:
             rebuttal_points=self._clean_text_list(parsed.get("rebuttal_points"))[:4],
             risk_flags=sorted(set(self._clean_text_list(parsed.get("risk_flags")))),
             score_breakdown=self._coerce_score_breakdown(parsed.get("score_breakdown")),
+            memory_used=memory_used,
         )
 
     def _build_case_with_rules(
         self,
         analyst_reports: list[dict[str, Any]],
         opponent_case: dict[str, Any] | Any | None,
+        memory_context: dict[str, Any] | None,
     ) -> DebateCase:
         reports = analyst_reports
         ticker, analysis_date = self._resolve_metadata(reports)
+        short_term_memory = self._short_term_memory(memory_context)
+        cross_week_memory = self._cross_week_memory(memory_context)
 
         supporting_evidence: list[str] = []
         counter_evidence: list[str] = []
@@ -94,6 +104,10 @@ class BullAgent:
 
         aligned_support = 0.0
         opposing_pressure = 0.0
+        latest_round = self._latest_round(short_term_memory)
+        repeated_bull_points = self._as_list(latest_round.get("repeated_bull_points"))
+        recurring_risks = self._as_list(cross_week_memory.get("recurring_risk_flags"))
+        signal_history = self._as_list(cross_week_memory.get("signal_history"))
 
         for report in reports:
             report_name = str(report.get("agent_name", "UnknownAnalyst"))
@@ -135,6 +149,25 @@ class BullAgent:
                 )
 
             risk_flags.extend(report_risks)
+
+        if signal_history.count("bullish") >= 2:
+            aligned_support += 0.3
+            supporting_evidence.append(
+                "[Memory] Recent judge history has leaned bullish, which supports continuity if the current evidence still holds."
+            )
+
+        if recurring_risks:
+            opposing_pressure += min(len(recurring_risks), 3) * 0.12
+            counter_evidence.extend(
+                f"[Memory] Recurring risk across recent weeks: {risk}" for risk in recurring_risks[:3]
+            )
+            risk_flags.extend(recurring_risks[:3])
+
+        if repeated_bull_points:
+            opposing_pressure += min(len(repeated_bull_points), 2) * 0.08
+            counter_evidence.extend(
+                f"[Memory] Earlier bull round already relied on: {point}" for point in repeated_bull_points[:2]
+            )
 
         rebuttal_points = self._build_rebuttal_points(
             opponent_case=opponent_case,
@@ -178,16 +211,22 @@ class BullAgent:
             rebuttal_points=rebuttal_points,
             risk_flags=unique_risks,
             score_breakdown=score_breakdown,
+            memory_used=self._summarize_memory_usage(memory_context),
         )
 
     def rebut(
         self,
         analyst_reports: list[dict[str, Any] | Any],
         bear_case: dict[str, Any] | Any,
+        memory_context: dict[str, Any] | None = None,
     ) -> DebateCase:
         """Build a bullish case that explicitly rebuts the bear case."""
 
-        return self.build_case(analyst_reports=analyst_reports, opponent_case=bear_case)
+        return self.build_case(
+            analyst_reports=analyst_reports,
+            opponent_case=bear_case,
+            memory_context=memory_context,
+        )
 
     def _build_rebuttal_points(
         self,
@@ -310,3 +349,33 @@ class BullAgent:
         if isinstance(case, dict):
             return case
         raise TypeError("Debate cases must be dictionaries or Pydantic models.")
+
+    @staticmethod
+    def _short_term_memory(memory_context: dict[str, Any] | None) -> dict[str, Any]:
+        if isinstance(memory_context, dict):
+            return dict(memory_context.get("short_term_memory") or {})
+        return {}
+
+    @staticmethod
+    def _cross_week_memory(memory_context: dict[str, Any] | None) -> dict[str, Any]:
+        if isinstance(memory_context, dict):
+            return dict(memory_context.get("cross_week_memory") or {})
+        return {}
+
+    @classmethod
+    def _latest_round(cls, short_term_memory: dict[str, Any]) -> dict[str, Any]:
+        round_history = short_term_memory.get("round_history") or []
+        if isinstance(round_history, list) and round_history and isinstance(round_history[-1], dict):
+            return dict(round_history[-1])
+        return {}
+
+    @classmethod
+    def _summarize_memory_usage(cls, memory_context: dict[str, Any] | None) -> dict[str, Any]:
+        short_term = cls._short_term_memory(memory_context)
+        cross_week = cls._cross_week_memory(memory_context)
+        recurring_risks = cls._as_list(cross_week.get("recurring_risk_flags"))
+        return {
+            "short_term_rounds_seen": float(len(cls._as_list(short_term.get("round_history")))),
+            "cross_week_weeks_seen": float(len(cls._as_list(cross_week.get("recent_weeks")))),
+            "recurring_risks_used": recurring_risks[:3],
+        }
