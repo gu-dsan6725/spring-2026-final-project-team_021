@@ -28,11 +28,11 @@ To enable detailed analysis, we restrict the evaluation to a curated universe of
 
 ## 2. Related Work
 
-Existing work on AI-driven trading systems can be broadly grouped into traditional quantitative models, machine learning approaches, and more recent LLM-based methods. Classical approaches such as factor models and time-series forecasting rely on structured numerical data and predefined assumptions. While these methods are often interpretable, they are limited in incorporating unstructured information such as textual sentiment.
+Existing work on AI-driven trading systems can be broadly grouped into traditional quantitative models, machine learning approaches, and more recent LLM-based methods. Classical approaches such as factor models (Fama and French, 1993) and time-series forecasting methods such as ARIMA (Box et al., 2015) rely on structured numerical data and predefined assumptions. While these methods are often interpretable, they are limited in incorporating unstructured information such as textual sentiment.
 
-Recent work explores the use of LLMs for financial reasoning, including summarizing earnings reports, extracting sentiment from news, and generating trading signals. These approaches benefit from flexible reasoning but are typically built on a single-agent framework, which lacks mechanisms for evaluating conflicting evidence.
+Recent work explores the use of LLMs for financial reasoning, including summarizing earnings reports, extracting sentiment from news, and generating trading signals (Wu et al., 2023; Yang et al., 2023). These approaches benefit from flexible reasoning but are typically built on a single-agent framework, which lacks mechanisms for evaluating conflicting evidence.
 
-Multi-agent systems provide an alternative by decomposing complex reasoning tasks into specialized components. In particular, debate-based frameworks, where agents argue opposing viewpoints, have shown improvements in reasoning quality and robustness. However, most prior work focuses on general reasoning tasks rather than domain-specific applications.
+Multi-agent systems provide an alternative by decomposing complex reasoning tasks into specialized components (Wooldridge, 2009). In particular, recent work shows that structured interaction among multiple agents can improve reasoning quality and factual consistency (Du et al., 2023; Park et al., 2023). However, most prior work focuses on general reasoning or simulation environments rather than domain-specific applications such as finance.
 
 DebateTrader extends these ideas to financial decision-making by combining multi-modal data with structured bull–bear debate and introducing portfolio-level reasoning. This design allows the system to compare assets directly and produce differentiated allocations.
 
@@ -110,3 +110,19 @@ All data is preprocessed to ensure temporal alignment. Financial data is filtere
 The system is evaluated using a historical backtesting framework with weekly rebalancing. At each step, the model generates signals, constructs a portfolio, and simulates returns based on subsequent market data.
 
 Performance is compared against baseline strategies including S&P 500 buy-and-hold, an equal-weight portfolio, and a 60/40 allocation. Evaluation metrics include Sharpe ratio, maximum drawdown, and win rate, capturing both return and risk characteristics.
+
+## Reference
+
+Fama, E. F., & French, K. R. (1993). Common risk factors in the returns on stocks and bonds. Journal of Financial Economics.
+
+Box, G. E. P., Jenkins, G. M., Reinsel, G. C., & Ljung, G. M. (2015). Time Series Analysis: Forecasting and Control. Wiley.
+
+Wu, S., et al. (2023). BloombergGPT: A Large Language Model for Finance. arXiv.
+
+Yang, Y., et al. (2023). FinGPT: Open-Source Financial Large Language Models. arXiv.
+
+Wooldridge, M. (2009). An Introduction to MultiAgent Systems. Wiley.
+
+Du, Y., Li, S., Torralba, A., Tenenbaum, J., & Mordatch, I. (2023). Improving Factuality and Reasoning in Language Models through Multiagent Debate. arXiv.
+
+Park, J. S., et al. (2023). Generative Agents: Interactive Simulacra of Human Behavior. arXiv.
