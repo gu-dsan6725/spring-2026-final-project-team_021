@@ -17,20 +17,24 @@
       "input_data_date": "2025-09-28",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "AAPL is a strong buy due to its solid fundamental metrics, positive technical indicators, and favorable macro conditions.",
+      "thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
       "reasons": [
-        "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
         "Net margin is healthy.",
-        "Return on equity is strong."
+        "Return on equity is strong.",
+        "Return on assets is solid."
       ],
       "counterpoints": [
-        "Current ratio is below 1.0, suggesting weaker short-term liquidity."
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting.",
+        "Litigious language appears in recent news"
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Litigious language appears in recent news"
+        "Litigious language appears in recent news",
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
@@ -40,7 +44,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.8,
-        "evidence_balance": 0.9
+        "evidence_balance": 0.7
       }
     },
     {
@@ -48,19 +52,18 @@
       "input_data_date": "2025-09-28",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "Amazon's strong fundamentals, technical indicators, and neutral macro and news trends support a bullish view.",
+      "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
-        "Net margin is healthy.",
         "Return on equity is strong.",
-        "Return on assets is solid."
+        "The 20-day moving average is above the 50-day moving average.",
+        "RSI is below 30, suggesting oversold conditions and rebound potential."
       ],
       "counterpoints": [
-        "Industrial production growth is negative in the latest macro snapshot.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
-        "Housing permits are weakening, pointing to softer forward activity."
+        "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Price is below the 20-day moving average."
       ],
       "risk_flags": [
         "Oversold volatility risk",
@@ -81,25 +84,26 @@
       "ticker": "BRK.B",
       "input_data_date": "2025-09-28",
       "supports_stance": true,
-      "confidence": 0.75,
-      "thesis": "BRK.B is a solid investment opportunity due to its strong fundamental and technical factors, as well as positive macro and news trends.",
+      "confidence": 0.85,
+      "thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
       "reasons": [
         "Operating margin indicates solid operating profitability.",
         "Net margin is healthy.",
+        "Return on equity is strong.",
         "Free cash flow is positive.",
-        "Operating cash flow is positive.",
-        "Price is above the 20-day moving average."
+        "Operating cash flow is positive."
       ],
       "counterpoints": [
         "Revenue growth is negative year-over-year.",
         "MACD is below its signal line, indicating weakening momentum.",
-        "Industrial production growth is negative in the latest macro snapshot.",
-        "Payroll employment is contracting."
+        "The stock has negative 5-day return momentum.",
+        "RSI is above 70, suggesting overbought conditions."
       ],
       "risk_flags": [
-        "Negative macro indicators",
-        "Negative revenue growth",
-        "Weakening momentum"
+        "Front-end inversion risk",
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Retail attention spike may indicate crowded positioning"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
@@ -108,8 +112,8 @@
         "news_trends": "2025-09-28"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -117,21 +121,24 @@
       "input_data_date": "2025-09-28",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "Google's strong fundamentals, positive technical indicators, and neutral macro and news trends support a bullish view.",
+      "thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
       "reasons": [
-        "Strong return on equity and operating cash flow, combined with adequate short-term liquidity, support a bullish view.",
+        "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
         "Price is above the 20-day moving average.",
-        "The 20-day moving average is above the 50-day moving average.",
         "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-        "The stock has positive 20-day return momentum."
+        "Recent company news flow is majority positive.",
+        "Free cash flow is positive."
       ],
       "counterpoints": [
+        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+        "Google Trends search interest is down 35% week-over-week.",
         "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 5-day return momentum.",
-        "Google Trends search interest is down 16% week-over-week."
+        "RSI is above 70, suggesting overbought conditions."
       ],
       "risk_flags": [
-        "Low relative trading volume"
+        "Front-end inversion risk",
+        "Litigious language appears in recent news",
+        "Overbought risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-07-24",
@@ -149,7 +156,7 @@
       "input_data_date": "2025-09-28",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "Eli Lilly and Company (LLY) is poised for long-term growth driven by its strong profitability, liquidity, and revenue growth, despite some near-term risks.",
+      "thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -165,7 +172,6 @@
       ],
       "risk_flags": [
         "Leverage risk",
-        "Litigious language appears in recent news",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
@@ -184,24 +190,23 @@
       "input_data_date": "2025-09-28",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "ExxonMobil (XOM) presents a strong bullish case due to solid fundamental and technical factors, as well as supportive macro and news trends.",
+      "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
       "reasons": [
-        "Solid return on assets, adequate short-term liquidity, and positive free and operating cash flows (FundamentalAnalyst)",
-        "Price is above the 20-day moving average, and the 20-day moving average is above the 50-day moving average (TechnicalAnalyst)",
-        "Recent company news flow is majority positive, and Google Trends search interest is up 15% week-over-week (NewsTrendsAnalyst)",
-        "The yield-curve proxy is positive, which is less recessionary than an inverted curve (MacroAnalyst)"
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average."
       ],
       "counterpoints": [
-        "Overbought risk due to RSI above 70 (TechnicalAnalyst)",
-        "Industrial production growth is negative in the latest macro snapshot (MacroAnalyst)",
-        "Payroll employment is contracting (MacroAnalyst)",
-        "Consumer sentiment is weak (MacroAnalyst)"
+        "Quick liquidity risk",
+        "Overbought risk",
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Payroll employment is contracting."
       ],
       "risk_flags": [
-        "Litigious language appears in recent news (NewsTrendsAnalyst)",
-        "Overbought risk (TechnicalAnalyst)",
-        "Quick liquidity risk (FundamentalAnalyst)",
-        "Retail attention spike may indicate crowded positioning (NewsTrendsAnalyst)"
+        "Overbought risk",
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
