@@ -10,28 +10,117 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_summary": "For the week ending 2025-10-26, the judge prefers a concentrated long book in LLY, BRK.B while avoiding or underweighting the remaining names.",
+  "portfolio_summary": "For the week ending 2025-10-26, the judge prefers a concentrated long book in AAPL, AMZN, GOOGL, LLY, XOM, BRK.B while avoiding or underweighting the remaining names.",
   "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
   "holdings": [
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-10-26",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.03,
+      "summary": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
+      "rationale": [
+        "The Bull case presented strong evidence of AAPL's profitability and cash flow, including a strong gross margin, operating margin, net margin, return on equity, and return on assets.",
+        "The Technical Analyst's report supported a bullish view with multiple technical indicators, including positive momentum and a strong MACD.",
+        "The Macro Analyst's report indicated broadly supportive macro conditions, with more bullish than bearish evidence."
+      ],
+      "dissenting_points": [
+        "The Bear case highlighted short-term liquidity concerns and mixed macro conditions, which could have a negative impact on AAPL's sales and profitability.",
+        "The NewsTrendsAnalyst report indicated mixed recent news trends without a strong directional edge."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2025-10-26",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
+      "rationale": [
+        "Strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity.",
+        "Positive momentum, with price above the 20-day moving average and MACD above its signal line.",
+        "Supportive macro conditions, with a positive yield-curve proxy and growing industrial production."
+      ],
+      "dissenting_points": [
+        "Quick liquidity risk and weakening momentum, which may indicate a larger problem with the company's financial health."
+      ],
+      "risk_flags": [
+        "Quick liquidity risk",
+        "Weakening momentum"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-10-26",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "The Bull case presented a stronger argument, with a more convincing thesis and supporting evidence.",
+      "rationale": [
+        "The Bull case presented a clear and concise thesis that effectively summarized the key points of their argument.",
+        "The Bull case provided a comprehensive list of supporting evidence, including strong fundamental and technical indicators.",
+        "The Bull case effectively rebutted the Bear case's counter-evidence, highlighting the weaknesses in their argument."
+      ],
+      "dissenting_points": [
+        "The Bear case pointed out the weak consumer sentiment and decline in Google Trends search interest, which could be a concern for the stock's performance."
+      ],
+      "risk_flags": [
+        "Front-end inversion risk",
+        "Litigious language appears in recent news",
+        "No recent company news available",
+        "Overbought risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
     {
       "ticker": "LLY",
       "input_data_date": "2025-10-26",
       "signal": "bullish",
       "confidence": 0.85,
-      "suggested_position_pct": 53.85,
-      "summary": "The judge favors the bullish case for LLY with confidence 0.85. Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow. Recent debate memory supports this directional continuity.",
+      "suggested_position_pct": 17.02,
+      "summary": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
       "rationale": [
-        "Revenue growth is positive and above a modest growth threshold.",
-        "Gross margin is strong.",
-        "Operating margin indicates solid operating profitability.",
-        "Return on equity is strong.",
-        "Upstream analyst alignment favors bullish: FundamentalAnalyst, MacroAnalyst, NewsTrendsAnalyst."
+        "The Bull case presented by BullAgent highlighted the company's strong revenue growth, solid profitability, and healthy margins, which outweigh the risks associated with elevated leverage and negative free cash flow.",
+        "The recent news trends are broadly supportive, with more bullish than bearish evidence, as presented by NewsTrendsAnalyst.",
+        "The technical analysis shows mixed signals, but the bullish factors such as positive momentum and a strong 20-day moving average outweigh the bearish signals, as presented by TechnicalAnalyst."
       ],
       "dissenting_points": [
-        "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-        "[FundamentalAnalyst] Risk flag: Leverage risk",
-        "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
-        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
+        "The Bear case presented by BearAgent highlighted the risks associated with elevated leverage and negative free cash flow, which could potentially offset the company's strong revenue growth and profitability.",
+        "The Bearish factors presented by BearAgent and NewsTrendsAnalyst, such as MACD below its signal line and negative 5-day return momentum, are significant concerns that could impact the company's long-term growth prospects."
       ],
       "risk_flags": [
         "Leverage risk",
@@ -46,186 +135,27 @@
         "news_trends": "2025-10-26"
       },
       "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": -11.976,
-        "score_margin": 11.976,
-        "bull_case_confidence": 0.85,
-        "bear_case_confidence": 0.59,
-        "risk_count": 4.0,
-        "max_position_size": 1.0
-      }
-    },
-    {
-      "ticker": "BRK.B",
-      "input_data_date": "2025-10-26",
-      "signal": "bullish",
-      "confidence": 0.8,
-      "suggested_position_pct": 46.15,
-      "summary": "The judge favors the bullish case for BRK.B with confidence 0.80. We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-      "rationale": [
-        "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong.",
-        "Free cash flow is positive.",
-        "Upstream analyst alignment favors bullish: FundamentalAnalyst, MacroAnalyst, NewsTrendsAnalyst."
-      ],
-      "dissenting_points": [
-        "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
-        "[TechnicalAnalyst] Price is below the 20-day moving average.",
-        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
-      ],
-      "risk_flags": [
-        "Front-end inversion risk",
-        "Litigious language appears in recent news",
-        "Overbought risk",
-        "Retail attention spike may indicate crowded positioning"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-08-04",
-        "technical": "2025-10-26",
-        "macro": "2025-09-30",
-        "news_trends": "2025-10-26"
-      },
-      "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": -4.414,
-        "score_margin": 4.414,
-        "bull_case_confidence": 0.7,
-        "bear_case_confidence": 0.59,
-        "risk_count": 4.0,
-        "max_position_size": 1.0
-      }
-    },
-    {
-      "ticker": "AAPL",
-      "input_data_date": "2025-10-26",
-      "signal": "neutral",
-      "confidence": 0.5,
-      "suggested_position_pct": 0.0,
-      "summary": "The debate on AAPL is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
-      "rationale": [
-        "The bull and bear cases are too close to justify a directional trade.",
-        "Gross margin is strong.",
-        "Operating margin indicates solid operating profitability.",
-        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-        "Consumer sentiment is weak."
-      ],
-      "dissenting_points": [],
-      "risk_flags": [
-        "Front-end inversion risk",
-        "Liquidity risk",
-        "Litigious language appears in recent news",
-        "No recent company news available",
-        "Quick liquidity risk"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-08-01",
-        "technical": "2025-10-26",
-        "macro": "2025-09-30",
-        "news_trends": "2025-10-26"
-      },
-      "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": 0.0,
-        "score_margin": 0.0,
-        "bull_case_confidence": 0.85,
-        "bear_case_confidence": 0.85,
-        "risk_count": 5.0,
-        "max_position_size": 1.0
-      }
-    },
-    {
-      "ticker": "AMZN",
-      "input_data_date": "2025-10-26",
-      "signal": "neutral",
-      "confidence": 0.5,
-      "suggested_position_pct": 0.0,
-      "summary": "The debate on AMZN is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
-      "rationale": [
-        "The bull and bear cases are too close to justify a directional trade.",
-        "Revenue growth is positive and above a modest growth threshold.",
-        "Gross margin is strong.",
-        "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-        "MACD is below its signal line, indicating weakening momentum."
-      ],
-      "dissenting_points": [],
-      "risk_flags": [
-        "Front-end inversion risk",
-        "Litigious language appears in recent news",
-        "No recent company news available",
-        "Quick liquidity risk",
-        "Retail attention spike may indicate crowded positioning",
-        "Weakening momentum"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-08-01",
-        "technical": "2025-10-26",
-        "macro": "2025-09-30",
-        "news_trends": "2025-10-26"
-      },
-      "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": 0.0,
-        "score_margin": 0.0,
-        "bull_case_confidence": 0.85,
-        "bear_case_confidence": 0.7,
-        "risk_count": 6.0,
-        "max_position_size": 1.0
-      }
-    },
-    {
-      "ticker": "GOOGL",
-      "input_data_date": "2025-10-26",
-      "signal": "neutral",
-      "confidence": 0.5,
-      "suggested_position_pct": 0.0,
-      "summary": "The debate on GOOGL is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
-      "rationale": [
-        "The bull and bear cases are too close to justify a directional trade.",
-        "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
-        "Price is above the 20-day moving average.",
-        "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 20-day return momentum."
-      ],
-      "dissenting_points": [],
-      "risk_flags": [
-        "Front-end inversion risk",
-        "Litigious language appears in recent news",
-        "No recent company news available",
-        "Overbought risk"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-07-24",
-        "technical": "2025-10-26",
-        "macro": "2025-09-30",
-        "news_trends": "2025-10-26"
-      },
-      "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": 0.0,
-        "score_margin": 0.0,
-        "bull_case_confidence": 0.95,
-        "bear_case_confidence": 0.7,
-        "risk_count": 4.0,
-        "max_position_size": 1.0
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
       }
     },
     {
       "ticker": "XOM",
       "input_data_date": "2025-10-26",
-      "signal": "neutral",
-      "confidence": 0.5,
-      "suggested_position_pct": 0.0,
-      "summary": "The debate on XOM is inconclusive, so the judge returns a neutral signal with confidence 0.50.",
+      "signal": "bullish",
+      "confidence": 0.85,
+      "suggested_position_pct": 17.02,
+      "summary": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
       "rationale": [
-        "The bull and bear cases are too close to justify a directional trade.",
-        "Return on assets is solid.",
-        "Current ratio suggests adequate short-term liquidity.",
-        "Quick liquidity risk",
-        "MACD is below its signal line, indicating weakening momentum."
+        "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent.",
+        "The Bull case has a higher confidence level (0.85) compared to the Bear case (0.7).",
+        "The Bull case has more supporting evidence, including solid return on assets, adequate short-term liquidity, and positive free cash flow.",
+        "The Bull case has a stronger rebuttal to the Bear case's risk flags, including quick liquidity risk, weakening momentum, and negative return momentum."
       ],
-      "dissenting_points": [],
+      "dissenting_points": [
+        "The Bear case highlights the quick liquidity risk, weakening momentum, and negative return momentum as significant concerns.",
+        "The Bear case argues that the risk flags from FundamentalAnalyst outweigh the bullish factors from FundamentalAnalyst."
+      ],
       "risk_flags": [
         "Front-end inversion risk",
         "Litigious language appears in recent news",
@@ -241,27 +171,55 @@
         "news_trends": "2025-10-26"
       },
       "score_breakdown": {
-        "bull_case_score": 0.0,
-        "bear_case_score": 0.0,
-        "score_margin": 0.0,
-        "bull_case_confidence": 0.85,
-        "bear_case_confidence": 0.7,
-        "risk_count": 6.0,
-        "max_position_size": 1.0
+        "llm_margin": 0.9,
+        "llm_conviction": 0.8
+      }
+    },
+    {
+      "ticker": "BRK.B",
+      "input_data_date": "2025-10-26",
+      "signal": "bullish",
+      "confidence": 0.7,
+      "suggested_position_pct": 14.89,
+      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case highlights the company's solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
+      "rationale": [
+        "The Bull case presents a more comprehensive view of the company's financials, highlighting both the positive and negative aspects.",
+        "The Bull case effectively rebuts the Bear case's concerns about revenue growth and technical indicators.",
+        "The Bull case presents a more optimistic view of the company's future prospects, which is supported by the analyst reports."
+      ],
+      "dissenting_points": [
+        "Revenue growth is negative year-over-year.",
+        "Price is below the 20-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
+      ],
+      "risk_flags": [
+        "Front-end inversion risk",
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Retail attention spike may indicate crowded positioning"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-04",
+        "technical": "2025-10-26",
+        "macro": "2025-09-30",
+        "news_trends": "2025-10-26"
+      },
+      "score_breakdown": {
+        "llm_margin": 0.6,
+        "llm_conviction": 0.8
       }
     }
   ],
   "bullish_tickers": [
-    "LLY",
-    "BRK.B"
-  ],
-  "bearish_tickers": [],
-  "neutral_tickers": [
     "AAPL",
     "AMZN",
     "GOOGL",
-    "XOM"
+    "LLY",
+    "XOM",
+    "BRK.B"
   ],
+  "bearish_tickers": [],
+  "neutral_tickers": [],
   "total_allocated_pct": 100.0,
   "cash_pct": 0.0
 }

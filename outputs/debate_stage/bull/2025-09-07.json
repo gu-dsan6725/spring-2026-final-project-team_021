@@ -26,10 +26,7 @@
         "Return on assets is solid."
       ],
       "counterpoints": [
-        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-        "Industrial production growth is negative in the latest macro snapshot.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity."
       ],
       "risk_flags": [
         "Liquidity risk",
@@ -42,16 +39,16 @@
         "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.9,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
       }
     },
     {
       "ticker": "AMZN",
       "input_data_date": "2025-09-07",
       "supports_stance": true,
-      "confidence": 0.85,
-      "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
+      "confidence": 0.92,
+      "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -61,14 +58,14 @@
       ],
       "counterpoints": [
         "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+        "MACD is below its signal line, indicating weakening momentum.",
         "Price is below the 20-day moving average.",
-        "MACD is below its signal line, indicating weakening momentum."
+        "Industrial production growth is negative in the latest macro snapshot."
       ],
       "risk_flags": [
-        "Front-end inversion risk",
         "Litigious language appears in recent news",
-        "Quick liquidity risk"
+        "Quick liquidity risk",
+        "Weakening momentum"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
@@ -77,15 +74,15 @@
         "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.9,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.85,
+        "evidence_balance": 0.9
       }
     },
     {
       "ticker": "BRK.B",
       "input_data_date": "2025-09-07",
       "supports_stance": true,
-      "confidence": 0.7,
+      "confidence": 0.85,
       "thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
       "reasons": [
         "Operating margin indicates solid operating profitability.",
@@ -96,11 +93,15 @@
       ],
       "counterpoints": [
         "Revenue growth is negative year-over-year.",
-        "The stock has negative 5-day return momentum.",
-        "RSI is above 70, suggesting overbought conditions."
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
-        "Overbought risk"
+        "Front-end inversion risk",
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "Retail attention spike may indicate crowded positioning"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-04",
@@ -109,8 +110,8 @@
         "news_trends": "2025-09-07"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -127,12 +128,10 @@
         "Average LM news sentiment is modestly positive."
       ],
       "counterpoints": [
-        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-        "Google Trends search interest is down 35% week-over-week.",
-        "RSI is above 70, suggesting overbought conditions."
+        "RSI is above 70, suggesting overbought conditions.",
+        "Google Trends search interest is down 35% week-over-week."
       ],
       "risk_flags": [
-        "Front-end inversion risk",
         "Overbought risk"
       ],
       "source_report_dates": {
@@ -161,12 +160,12 @@
       ],
       "counterpoints": [
         "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-        "The stock has negative 5-day return momentum."
+        "Industrial production growth is negative in the latest macro snapshot.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting."
       ],
       "risk_flags": [
-        "Front-end inversion risk",
         "Leverage risk",
-        "Low relative trading volume",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
@@ -185,7 +184,7 @@
       "input_data_date": "2025-09-07",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+      "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
       "reasons": [
         "Return on assets is solid.",
         "Current ratio suggests adequate short-term liquidity.",
@@ -194,12 +193,13 @@
         "MACD is above its signal line, indicating positive momentum."
       ],
       "counterpoints": [
+        "Quick liquidity risk",
         "Price is below the 20-day moving average.",
         "The stock has negative 5-day return momentum.",
-        "Recent company news flow is majority negative.",
-        "Average LM news sentiment is modestly negative."
+        "Industrial production growth is negative in the latest macro snapshot."
       ],
       "risk_flags": [
+        "Overbought risk",
         "Quick liquidity risk"
       ],
       "source_report_dates": {

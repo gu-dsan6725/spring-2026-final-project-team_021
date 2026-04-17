@@ -27,11 +27,11 @@
       ],
       "counterpoints": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
         "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 5-day return momentum."
+        "Consumer sentiment is weak."
       ],
       "risk_flags": [
-        "Front-end inversion risk",
         "Liquidity risk",
         "Quick liquidity risk"
       ],
@@ -42,8 +42,8 @@
         "news_trends": "2025-10-19"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -61,12 +61,10 @@
       ],
       "counterpoints": [
         "MACD is below its signal line, indicating weakening momentum.",
-        "Price is below the 20-day moving average.",
-        "Consumer sentiment is weak."
+        "Price is below the 20-day moving average."
       ],
       "risk_flags": [
-        "Quick liquidity risk",
-        "Weakening momentum"
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-08-01",
@@ -95,8 +93,8 @@
       "counterpoints": [
         "Revenue growth is negative year-over-year.",
         "Price is below the 20-day moving average.",
-        "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 5-day return momentum."
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
         "Front-end inversion risk",
@@ -129,11 +127,14 @@
       ],
       "counterpoints": [
         "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 20-day return momentum."
+        "The stock has negative 20-day return momentum.",
+        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+        "Consumer sentiment is weak."
       ],
       "risk_flags": [
         "Front-end inversion risk",
         "Litigious language appears in recent news",
+        "No recent company news available",
         "Overbought risk"
       ],
       "source_report_dates": {
@@ -164,10 +165,12 @@
         "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
         "MACD is below its signal line, indicating weakening momentum.",
         "The stock has negative 5-day return momentum.",
-        "Recent company news flow is majority negative."
+        "Consumer sentiment is weak."
       ],
       "risk_flags": [
         "Leverage risk",
+        "Litigious language appears in recent news",
+        "Low relative trading volume",
         "Overbought risk",
         "Quick liquidity risk"
       ],
@@ -178,8 +181,8 @@
         "news_trends": "2025-10-19"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.9
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -212,8 +215,8 @@
         "news_trends": "2025-10-19"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     }
   ]

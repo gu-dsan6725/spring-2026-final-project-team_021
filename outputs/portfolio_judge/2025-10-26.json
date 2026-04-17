@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "GOOGL and AAPL lead with the cleanest combination of strong technicals (all bullish indicators firing), solid fundamentals, and minimal risk flags, making them the highest-conviction holdings. AMZN earns a moderate allocation given strong fundamentals but mixed technical signals, while LLY receives a smaller weight due to elevated leverage, litigious news, and MACD weakness despite exceptional revenue growth. XOM and BRK.B are excluded or minimally weighted due to weaker technical setups and fewer differentiating fundamental strengths.",
+  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
   "ranking": [
-    "GOOGL",
     "AAPL",
     "AMZN",
+    "GOOGL",
     "LLY",
     "XOM",
     "BRK.B"
   ],
   "holdings": {
-    "GOOGL": {
-      "weight_pct": 35.0,
-      "reason": "Perfect technical setup with all bullish indicators, minimal D/E (0.098), strong ROE/ROA, clean balance sheet, and the weakest bear case of all tickers."
-    },
     "AAPL": {
-      "weight_pct": 30.0,
-      "reason": "Strong across all dimensions — technicals fully bullish, 9.6% revenue growth, healthy margins and cash flow, with the sub-1.0 current ratio being a well-understood structural feature rather than a true risk."
+      "weight_pct": 17.17,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "AMZN": {
-      "weight_pct": 18.0,
-      "reason": "Strong fundamentals with 13.3% revenue growth and solid margins, but mixed technical signals (EMA and SMA crossovers partially bearish) reduce conviction relative to GOOGL and AAPL."
-    },
-    "LLY": {
-      "weight_pct": 10.0,
-      "reason": "Exceptional revenue growth (37.6%) and margins justify inclusion, but elevated leverage (D/E 2.18), litigious news language, MACD weakness, and multiple risk flags limit position size."
-    },
-    "XOM": {
-      "weight_pct": 5.0,
-      "reason": "Solid technicals and cash flow but thinner fundamental profile, negative 20-day momentum, and retail crowding risk make it the least compelling bullish name."
+      "weight_pct": 17.17,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "BRK.B": {
-      "weight_pct": 0.0,
-      "reason": "Bearish technical signal with price below 20-day MA, negative 5d and 20d momentum, MACD below signal, and negative revenue growth YoY make this the weakest case in the universe."
+      "weight_pct": 14.14,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "GOOGL": {
+      "weight_pct": 17.17,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "LLY": {
+      "weight_pct": 17.17,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "XOM": {
+      "weight_pct": 17.17,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     }
   },
-  "total_allocated_pct": 98.0
+  "total_allocated_pct": 99.99
 }

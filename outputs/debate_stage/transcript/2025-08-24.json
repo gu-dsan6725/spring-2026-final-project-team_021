@@ -28,7 +28,7 @@
         "ticker": "AAPL",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.85,
+        "confidence": 0.8,
         "thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
         "reasons": [
           "Gross margin is strong.",
@@ -40,8 +40,8 @@
         "counterpoints": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
-          "The stock has negative 5-day return momentum."
+          "The stock has negative 5-day return momentum.",
+          "RSI is above 70, suggesting overbought conditions."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -56,7 +56,7 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
+          "llm_case_strength": 0.9,
           "evidence_balance": 0.7
         }
       },
@@ -65,7 +65,7 @@
         "input_data_date": "2025-08-24",
         "supports_stance": true,
         "confidence": 0.85,
-        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
+        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
         "reasons": [
           "Revenue growth is positive and above a modest growth threshold.",
           "Gross margin is strong.",
@@ -74,15 +74,13 @@
           "Average LM news sentiment is modestly positive."
         ],
         "counterpoints": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
+          "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum."
+          "Price is below the 20-day moving average."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "source_report_dates": {
           "fundamental": "2025-08-01",
@@ -92,14 +90,14 @@
         },
         "score_breakdown": {
           "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "evidence_balance": 0.9
         }
       },
       {
         "ticker": "BRK.B",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.8,
+        "confidence": 0.85,
         "thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
         "reasons": [
           "Operating margin indicates solid operating profitability.",
@@ -110,6 +108,8 @@
         ],
         "counterpoints": [
           "Revenue growth is negative year-over-year.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
         "risk_flags": [
@@ -123,8 +123,8 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.9
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.7
         }
       },
       {
@@ -137,14 +137,13 @@
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
           "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive.",
-          "Operating cash flow is positive."
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
         ],
         "counterpoints": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "RSI is above 70, suggesting overbought conditions.",
+          "The 10Y-3M term spread is inverted, which is historically a recession warning."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -165,22 +164,24 @@
         "ticker": "LLY",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.7,
+        "confidence": 0.85,
         "thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
         "reasons": [
           "Revenue growth is positive and above a modest growth threshold.",
           "Gross margin is strong.",
           "Operating margin indicates solid operating profitability.",
-          "Net margin is healthy.",
-          "Return on equity is strong."
+          "Price is above the 20-day moving average.",
+          "MACD is above its signal line, indicating positive momentum."
         ],
         "counterpoints": [
           "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
           "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
+          "Average LM news sentiment is modestly negative.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
@@ -191,8 +192,8 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
         }
       },
       {
@@ -200,7 +201,7 @@
         "input_data_date": "2025-08-24",
         "supports_stance": true,
         "confidence": 0.85,
-        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
         "reasons": [
           "Return on assets is solid.",
           "Current ratio suggests adequate short-term liquidity.",
@@ -216,6 +217,7 @@
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
           "Overbought risk",
           "Quick liquidity risk"
         ],
@@ -250,12 +252,11 @@
         "ticker": "AAPL",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.85,
+        "confidence": 0.7,
         "thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
         "reasons": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "The stock has negative 5-day return momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
@@ -278,22 +279,20 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
         }
       },
       {
         "ticker": "AMZN",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.65,
+        "confidence": 0.7,
         "thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
         "reasons": [
           "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum."
+          "Price is below the 20-day moving average."
         ],
         "counterpoints": [
           "Revenue growth is positive and above a modest growth threshold.",
@@ -302,9 +301,8 @@
           "Recent company news flow is majority positive."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "source_report_dates": {
           "fundamental": "2025-08-01",
@@ -313,22 +311,21 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.8
         }
       },
       {
         "ticker": "BRK.B",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.85,
-        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, cautious macro conditions, and recent news trends, outweighing its solid operating profitability and healthy net margin.",
+        "confidence": 0.7,
+        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and overbought conditions, outweighing the company's solid operating profitability, healthy net margin, and strong return on equity.",
         "reasons": [
           "Revenue growth is negative year-over-year.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "RSI is above 70, suggesting overbought conditions."
         ],
         "counterpoints": [
           "Operating margin indicates solid operating profitability.",
@@ -338,9 +335,8 @@
         ],
         "risk_flags": [
           "Front-end inversion risk",
-          "Litigious language appears in recent news",
-          "Overbought risk",
-          "Retail attention spike may indicate crowded positioning"
+          "Negative revenue growth",
+          "Overbought risk"
         ],
         "source_report_dates": {
           "fundamental": "2025-08-04",
@@ -349,31 +345,31 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
         }
       },
       {
         "ticker": "GOOGL",
         "input_data_date": "2025-08-24",
         "supports_stance": true,
-        "confidence": 0.7,
-        "thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
+        "confidence": 0.6,
+        "thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
         "reasons": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
           "RSI is above 70, suggesting overbought conditions.",
-          "Free cash flow is positive, but it may not be enough to sustain the stock's current price."
+          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
         ],
         "counterpoints": [
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
-          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive."
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "No recent company news available",
           "Overbought risk"
         ],
         "source_report_dates": {
@@ -383,8 +379,8 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
         }
       },
       {
@@ -392,22 +388,22 @@
         "input_data_date": "2025-08-24",
         "supports_stance": true,
         "confidence": 0.8,
-        "thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+        "thesis": "LLY has a credible downside case due to elevated leverage, negative free cash flow, and bearish news trends, which outweigh the bullish evidence.",
         "reasons": [
-          "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-          "[FundamentalAnalyst] Risk flag: Leverage risk",
-          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
-          "[NewsTrendsAnalyst] Recent company news flow is majority negative.",
-          "[NewsTrendsAnalyst] Average LM news sentiment is modestly negative."
+          "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+          "Free cash flow is negative.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
         ],
         "counterpoints": [
-          "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
-          "[FundamentalAnalyst] Gross margin is strong.",
-          "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
-          "[FundamentalAnalyst] Return on equity is strong."
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Price is above the 20-day moving average."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
@@ -419,7 +415,7 @@
         },
         "score_breakdown": {
           "llm_case_strength": 0.7,
-          "evidence_balance": 0.5
+          "evidence_balance": 0.9
         }
       },
       {
@@ -429,11 +425,11 @@
         "confidence": 0.7,
         "thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
         "reasons": [
-          "Quick liquidity risk",
-          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Litigious language appears in recent news"
+          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+          "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "[TechnicalAnalyst] RSI is above 70, suggesting overbought conditions.",
+          "[MacroAnalyst] The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "[NewsTrendsAnalyst] Litigious language appears in recent news"
         ],
         "counterpoints": [
           "Return on assets is solid.",
@@ -443,8 +439,11 @@
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
+          "Negative return momentum",
           "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "source_report_dates": {
           "fundamental": "2025-08-04",
@@ -454,7 +453,7 @@
         },
         "score_breakdown": {
           "llm_case_strength": 0.6,
-          "evidence_balance": 0.8
+          "evidence_balance": 0.5
         }
       }
     ]
@@ -471,24 +470,93 @@
       "LLY",
       "XOM"
     ],
-    "portfolio_summary": "For the week ending 2025-08-24, the judge prefers a concentrated long book in GOOGL, AMZN, XOM while avoiding or underweighting AAPL, BRK.B, LLY.",
+    "portfolio_summary": "For the week ending 2025-08-24, the judge prefers a concentrated long book in AMZN, BRK.B, GOOGL, LLY, XOM, AAPL while avoiding or underweighting the remaining names.",
     "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
     "holdings": [
+      {
+        "ticker": "AMZN",
+        "input_data_date": "2025-08-24",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "suggested_position_pct": 16.67,
+        "summary": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
+        "rationale": [
+          "Strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity.",
+          "Recent company news flow is majority positive.",
+          "Average LM news sentiment is modestly positive.",
+          "The quick liquidity risk is a manageable risk, and the company has a strong track record of navigating such challenges.",
+          "The weakening momentum is a short-term concern, but the company's fundamental metrics remain strong and supportive of long-term growth."
+        ],
+        "dissenting_points": [
+          "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "Price is below the 20-day moving average."
+        ],
+        "risk_flags": [
+          "Quick liquidity risk",
+          "Weakening momentum"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-08-01",
+          "technical": "2025-08-24",
+          "macro": "2025-07-31",
+          "news_trends": "2025-08-24"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
+      {
+        "ticker": "BRK.B",
+        "input_data_date": "2025-08-24",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "suggested_position_pct": 16.67,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more effective rebuttal points.",
+        "rationale": [
+          "BullAgent's thesis is more comprehensive and well-supported, highlighting the company's solid operating profitability, healthy net margin, and strong return on equity.",
+          "BullAgent's rebuttal points effectively address the Bear case's concerns, such as negative revenue growth and weak technical indicators.",
+          "The Bull case's supporting evidence, including operating margin, net margin, and return on equity, outweighs the Bear case's counter-evidence."
+        ],
+        "dissenting_points": [
+          "BearAgent's thesis is well-structured, but ultimately less convincing than BullAgent's.",
+          "BearAgent's rebuttal points, while effective, do not fully address the Bull case's concerns.",
+          "The Bear case's supporting evidence, including negative revenue growth and weak technical indicators, is not sufficient to outweigh the Bull case's counter-evidence."
+        ],
+        "risk_flags": [
+          "Front-end inversion risk",
+          "Overbought risk"
+        ],
+        "source_report_dates": {
+          "fundamental": "2025-08-04",
+          "technical": "2025-08-24",
+          "macro": "2025-07-31",
+          "news_trends": "2025-08-24"
+        },
+        "score_breakdown": {
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
+        }
+      },
       {
         "ticker": "GOOGL",
         "input_data_date": "2025-08-24",
         "signal": "bullish",
         "confidence": 0.85,
-        "suggested_position_pct": 34.7,
-        "summary": "The Bull case presented a stronger argument for a bullish stance on GOOGL, citing solid fundamentals and positive technical indicators.",
+        "suggested_position_pct": 16.67,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case has a higher confidence level and presents stronger supporting evidence, including solid fundamentals and positive technical indicators.",
         "rationale": [
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
-          "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
         ],
         "dissenting_points": [
-          "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-          "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
+          "MACD is below its signal line, indicating weakening momentum.",
+          "RSI is above 70, suggesting overbought conditions.",
+          "The 10Y-3M term spread is inverted, which is historically a recession warning."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -501,40 +569,42 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.9,
-          "llm_conviction": 0.8,
-          "evidence_balance": 0.8
+          "llm_margin": 0.2,
+          "llm_conviction": 0.3
         }
       },
       {
-        "ticker": "AMZN",
+        "ticker": "LLY",
         "input_data_date": "2025-08-24",
         "signal": "bullish",
         "confidence": 0.85,
-        "suggested_position_pct": 32.65,
-        "summary": "The Bull case presented a stronger argument, highlighting AMZN's strong fundamental metrics, positive momentum, and supportive news trends.",
+        "suggested_position_pct": 16.67,
+        "summary": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
         "rationale": [
-          "The Bull case effectively countered the Bear case's points, highlighting the company's strong fundamental metrics and positive momentum.",
-          "The Bull case presented a more convincing thesis, emphasizing AMZN's growth prospects and supportive news trends.",
-          "The Bull case's supporting evidence, including revenue growth, gross margin, and return on equity, outweighed the Bear case's counter-evidence."
+          "The bull case presented by BullAgent is more convincing than the bear case presented by BearAgent.",
+          "The supporting evidence for the bull case, including revenue growth, strong gross margin, and solid operating profitability, outweighs the counter-evidence presented by the bear case.",
+          "The rebuttal points presented by BullAgent effectively address the concerns raised by the bear case, including the elevated debt-to-equity ratio and negative free cash flow."
         ],
         "dissenting_points": [
-          "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-          "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
+          "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
+          "Leverage risk",
+          "Litigious language appears in recent news",
+          "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "source_report_dates": {
-          "fundamental": "2025-08-01",
+          "fundamental": "2025-08-07",
           "technical": "2025-08-24",
           "macro": "2025-07-31",
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.9,
-          "evidence_balance": 0.8
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
         }
       },
       {
@@ -542,19 +612,21 @@
         "input_data_date": "2025-08-24",
         "signal": "bullish",
         "confidence": 0.85,
-        "suggested_position_pct": 32.65,
-        "summary": "The BullAgent's thesis is more convincing due to its stronger evidence balance and higher LLM case strength.",
+        "suggested_position_pct": 16.67,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more effective rebuttal points.",
         "rationale": [
-          "The BullAgent's thesis highlights XOM's strong financial position, positive free cash flow, and adequate short-term liquidity, which are supported by the FundamentalAnalyst's report.",
-          "The BullAgent's rebuttal points effectively address the BearAgent's thesis, highlighting the TechnicalAnalyst's report's positive momentum indicators and the MacroAnalyst's report's less recessionary yield-curve proxy.",
-          "The BullAgent's supporting evidence is more comprehensive, including multiple positive momentum indicators and a solid financial position."
+          "BullAgent's thesis is more comprehensive and well-supported, highlighting both fundamental and technical factors that support a bullish stance.",
+          "BullAgent's rebuttal points effectively address the counter-evidence presented by BearAgent, demonstrating a deeper understanding of the company's financial position and momentum indicators.",
+          "The Bull case is also supported by the analyst reports, particularly the FundamentalAnalyst report, which highlights the company's solid financial position and positive free cash flow."
         ],
         "dissenting_points": [
-          "The BearAgent's thesis highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum, which are valid concerns.",
-          "The TechnicalAnalyst's report also suggests that XOM's price is below the 20-day moving average and has negative return momentum."
+          "[BearAgent] The risk of quick liquidity is not mitigated by the company's positive free cash flow and adequate short-term liquidity, as the risk flag remains.",
+          "[BearAgent] The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum, as the RSI is above 70."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
+          "Overbought risk",
           "Quick liquidity risk"
         ],
         "source_report_dates": {
@@ -571,23 +643,23 @@
       {
         "ticker": "AAPL",
         "input_data_date": "2025-08-24",
-        "signal": "bearish",
+        "signal": "bullish",
         "confidence": 0.85,
-        "suggested_position_pct": 0.0,
-        "summary": "The bear case presented by BearAgent is more convincing than the bull case presented by BullAgent, with a stronger thesis and more relevant evidence.",
+        "suggested_position_pct": 16.65,
+        "summary": "AAPL's strong profitability, cash flow, and solid long-term outlook outweigh its short-term liquidity concerns, justifying a bullish stance.",
         "rationale": [
-          "The bear case thesis is more comprehensive, covering both short-term liquidity concerns and mixed macro conditions.",
-          "The bear case evidence is more relevant, including the inverted 10Y-3M term spread, which is historically a recession warning.",
-          "The bull case evidence, while strong, is not enough to outweigh the significant short-term liquidity concerns and mixed macro conditions."
+          "Strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The inverted term spread is a mixed signal, but it does not outweigh the company's strong fundamentals.",
+          "Recent news trends are broadly supportive, with more bullish than bearish evidence."
         ],
         "dissenting_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While short-term liquidity is a concern, AAPL's strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The negative 5-day return momentum is a short-term blip, and the stock's long-term trend remains positive."
         ],
         "risk_flags": [
           "Front-end inversion risk",
           "Liquidity risk",
+          "Overbought risk",
           "Quick liquidity risk"
         ],
         "source_report_dates": {
@@ -597,86 +669,20 @@
           "news_trends": "2025-08-24"
         },
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
-        }
-      },
-      {
-        "ticker": "BRK.B",
-        "input_data_date": "2025-08-24",
-        "signal": "bearish",
-        "confidence": 0.85,
-        "suggested_position_pct": 0.0,
-        "summary": "BearAgent's bearish thesis is more convincing due to its stronger evidence balance and more robust counter-evidence.",
-        "rationale": [
-          "BearAgent's thesis is more comprehensive and addresses multiple aspects of the company's performance, including revenue growth, technical indicators, and macro conditions.",
-          "BearAgent's supporting evidence is more robust, including the negative revenue growth, weak technical indicators, and cautious macro conditions.",
-          "BearAgent's counter-evidence is more effective in countering BullAgent's points, including the company's solid operating profitability and healthy net margin."
-        ],
-        "dissenting_points": [
-          "While BullAgent's solid operating profitability and healthy net margin are positives, they do not necessarily offset the negative revenue growth and weak technical indicators.",
-          "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions."
-        ],
-        "risk_flags": [
-          "Front-end inversion risk",
-          "Litigious language appears in recent news",
-          "Overbought risk",
-          "Retail attention spike may indicate crowded positioning"
-        ],
-        "source_report_dates": {
-          "fundamental": "2025-08-04",
-          "technical": "2025-08-24",
-          "macro": "2025-07-31",
-          "news_trends": "2025-08-24"
-        },
-        "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
-        }
-      },
-      {
-        "ticker": "LLY",
-        "input_data_date": "2025-08-24",
-        "signal": "bearish",
-        "confidence": 0.8,
-        "suggested_position_pct": 0.0,
-        "summary": "The bear case presented by BearAgent is more convincing due to the elevated leverage, negative free cash flow, and bearish technical indicators.",
-        "rationale": [
-          "Elevated leverage and negative free cash flow are significant concerns that outweigh the positives of strong profitability and revenue growth.",
-          "Bearish technical indicators, such as the 12-day EMA being below the 26-day EMA, suggest weak momentum.",
-          "Recent company news flow is majority negative, and average LM news sentiment is modestly negative."
-        ],
-        "dissenting_points": [
-          "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-          "The bull case presented by BullAgent highlights the company's strong profitability and revenue growth, which are positives."
-        ],
-        "risk_flags": [
-          "Leverage risk",
-          "Low relative trading volume",
-          "Quick liquidity risk"
-        ],
-        "source_report_dates": {
-          "fundamental": "2025-08-07",
-          "technical": "2025-08-24",
-          "macro": "2025-07-31",
-          "news_trends": "2025-08-24"
-        },
-        "score_breakdown": {
-          "llm_margin": 0.7,
+          "llm_margin": 0.9,
           "llm_conviction": 0.8
         }
       }
     ],
     "bullish_tickers": [
-      "GOOGL",
       "AMZN",
-      "XOM"
-    ],
-    "bearish_tickers": [
-      "AAPL",
       "BRK.B",
-      "LLY"
+      "GOOGL",
+      "LLY",
+      "XOM",
+      "AAPL"
     ],
+    "bearish_tickers": [],
     "neutral_tickers": [],
     "total_allocated_pct": 100.0,
     "cash_pct": 0.0
@@ -855,7 +861,7 @@
               "bear_top_points": [
                 "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
                 "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Price is below the 20-day moving average."
+                "The stock has negative 5-day return momentum."
               ],
               "repeated_bull_points": [],
               "repeated_bear_points": []
@@ -865,61 +871,57 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
+              "week_end_date": "2025-11-09",
               "bull_thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
               "bear_thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
               "bull_top_points": [
+                "Revenue growth is positive and above a modest growth threshold.",
                 "Gross margin is strong.",
-                "Operating margin indicates solid operating profitability.",
-                "Net margin is healthy."
+                "Operating margin indicates solid operating profitability."
               ],
               "bear_top_points": [
                 "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Price is below the 20-day moving average."
+                "Industrial production growth is negative in the latest macro snapshot.",
+                "Payroll employment is contracting."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Liquidity risk",
+                "Litigious language appears in recent news",
+                "No recent company news available",
                 "Quick liquidity risk"
               ],
-              "dissenting_points": [
-                "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-                "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-                "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
-              ]
+              "dissenting_points": []
             },
             {
-              "week_end_date": "2025-08-10",
+              "week_end_date": "2025-11-02",
               "bull_thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
               "bear_thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
               "bull_top_points": [
+                "Revenue growth is positive and above a modest growth threshold.",
                 "Gross margin is strong.",
-                "Operating margin indicates solid operating profitability.",
-                "Net margin is healthy."
+                "Operating margin indicates solid operating profitability."
               ],
               "bear_top_points": [
                 "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Price is below the 20-day moving average."
+                "Industrial production growth is negative in the latest macro snapshot.",
+                "Payroll employment is contracting."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Liquidity risk",
+                "Litigious language appears in recent news",
+                "Overbought risk",
                 "Quick liquidity risk"
               ],
-              "dissenting_points": [
-                "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-                "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-                "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
-              ]
+              "dissenting_points": []
             },
             {
-              "week_end_date": "2025-08-03",
+              "week_end_date": "2025-10-26",
               "bull_thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
               "bear_thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
               "bull_top_points": [
@@ -929,27 +931,25 @@
               ],
               "bear_top_points": [
                 "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Price is below the 20-day moving average."
+                "Consumer sentiment is weak.",
+                "MACD is below its signal line, indicating weakening momentum."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Liquidity risk",
+                "Litigious language appears in recent news",
+                "No recent company news available",
                 "Quick liquidity risk"
               ],
-              "dissenting_points": [
-                "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-                "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-                "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
-              ]
+              "dissenting_points": []
             }
           ],
           "signal_history": [
-            "bearish",
-            "bearish",
-            "bearish"
+            "neutral",
+            "neutral",
+            "neutral"
           ],
           "recent_bull_theses": [
             "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
@@ -964,13 +964,10 @@
           "recurring_risk_flags": [
             "Front-end inversion risk",
             "Liquidity risk",
+            "Litigious language appears in recent news",
             "Quick liquidity risk"
           ],
-          "recurring_dissenting_points": [
-            "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-            "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely.",
-            "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions."
-          ],
+          "recurring_dissenting_points": [],
           "ticker": "AAPL"
         }
       },
@@ -980,7 +977,7 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
-        "confidence": 0.85,
+        "confidence": 0.8,
         "supporting_evidence": [
           "Gross margin is strong.",
           "Operating margin indicates solid operating profitability.",
@@ -994,14 +991,14 @@
         "counter_evidence": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "The stock has negative 5-day return momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
         "rebuttal_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While short-term liquidity is a concern, AAPL's strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The inverted term spread is a mixed signal, but it does not outweigh the company's strong fundamentals.",
+          "The negative 5-day return momentum is a short-term blip, and the stock's long-term trend remains positive.",
+          "The overbought conditions are a warning, but they do not necessarily mean the stock will decline; rather, they suggest a potential pullback."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -1010,7 +1007,7 @@
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
+          "llm_case_strength": 0.9,
           "evidence_balance": 0.7
         },
         "memory_used": {
@@ -1019,7 +1016,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Liquidity risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news"
           ]
         }
       },
@@ -1029,11 +1026,10 @@
         "analysis_date": "2025-08-24",
         "stance": "bearish",
         "thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
-        "confidence": 0.85,
+        "confidence": 0.7,
         "supporting_evidence": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "The stock has negative 5-day return momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
@@ -1046,9 +1042,10 @@
           "Free cash flow is positive."
         ],
         "rebuttal_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While AAPL's profitability and cash flow are strong, they do not outweigh the company's short-term liquidity concerns and mixed macro conditions.",
+          "The inverted term spread is a significant warning sign that outweighs the company's strong fundamentals.",
+          "The negative 5-day return momentum and overbought conditions suggest that the stock is due for a pullback, which could exacerbate the company's short-term liquidity concerns.",
+          "The mixed macro conditions, including the inverted term spread and weak consumer sentiment, suggest that the economy is weakening, which could negatively impact AAPL's profitability and cash flow."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -1057,8 +1054,8 @@
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
@@ -1066,7 +1063,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Liquidity risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news"
           ]
         }
       },
@@ -1076,7 +1073,7 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
-        "confidence": 0.85,
+        "confidence": 0.8,
         "supporting_evidence": [
           "Gross margin is strong.",
           "Operating margin indicates solid operating profitability.",
@@ -1090,14 +1087,14 @@
         "counter_evidence": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "The stock has negative 5-day return momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
         "rebuttal_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While short-term liquidity is a concern, AAPL's strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The inverted term spread is a mixed signal, but it does not outweigh the company's strong fundamentals.",
+          "The negative 5-day return momentum is a short-term blip, and the stock's long-term trend remains positive.",
+          "The overbought conditions are a warning, but they do not necessarily mean the stock will decline; rather, they suggest a potential pullback."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -1106,7 +1103,7 @@
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
+          "llm_case_strength": 0.9,
           "evidence_balance": 0.7
         },
         "memory_used": {
@@ -1115,7 +1112,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Liquidity risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news"
           ]
         }
       },
@@ -1125,11 +1122,10 @@
         "analysis_date": "2025-08-24",
         "stance": "bearish",
         "thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
-        "confidence": 0.85,
+        "confidence": 0.7,
         "supporting_evidence": [
           "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
           "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "The stock has negative 5-day return momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
@@ -1142,9 +1138,10 @@
           "Free cash flow is positive."
         ],
         "rebuttal_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While AAPL's profitability and cash flow are strong, they do not outweigh the company's short-term liquidity concerns and mixed macro conditions.",
+          "The inverted term spread is a significant warning sign that outweighs the company's strong fundamentals.",
+          "The negative 5-day return momentum and overbought conditions suggest that the stock is due for a pullback, which could exacerbate the company's short-term liquidity concerns.",
+          "The mixed macro conditions, including the inverted term spread and weak consumer sentiment, suggest that the economy is weakening, which could negatively impact AAPL's profitability and cash flow."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -1153,8 +1150,8 @@
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
@@ -1162,7 +1159,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Liquidity risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news"
           ]
         }
       },
@@ -1170,36 +1167,36 @@
         "agent_name": "JudgeAgent",
         "ticker": "AAPL",
         "analysis_date": "2025-08-24",
-        "signal": "bearish",
+        "signal": "bullish",
         "confidence": 0.85,
-        "position_size": 0.5,
-        "summary": "The bear case presented by BearAgent is more convincing than the bull case presented by BullAgent, with a stronger thesis and more relevant evidence.",
+        "position_size": 0.8,
+        "summary": "AAPL's strong profitability, cash flow, and solid long-term outlook outweigh its short-term liquidity concerns, justifying a bullish stance.",
         "rationale": [
-          "The bear case thesis is more comprehensive, covering both short-term liquidity concerns and mixed macro conditions.",
-          "The bear case evidence is more relevant, including the inverted 10Y-3M term spread, which is historically a recession warning.",
-          "The bull case evidence, while strong, is not enough to outweigh the significant short-term liquidity concerns and mixed macro conditions."
+          "Strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The inverted term spread is a mixed signal, but it does not outweigh the company's strong fundamentals.",
+          "Recent news trends are broadly supportive, with more bullish than bearish evidence."
         ],
         "dissenting_points": [
-          "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
-          "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
-          "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
+          "While short-term liquidity is a concern, AAPL's strong profitability and cash flow provide a solid foundation for long-term growth.",
+          "The negative 5-day return momentum is a short-term blip, and the stock's long-term trend remains positive."
         ],
         "risk_flags": [
           "Front-end inversion risk",
           "Liquidity risk",
+          "Overbought risk",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 1.0,
           "cross_week_weeks_seen": 3.0,
           "recent_signal_history": [
-            "bearish",
-            "bearish",
-            "bearish"
+            "neutral",
+            "neutral",
+            "neutral"
           ]
         }
       },
@@ -1369,7 +1366,7 @@
           "round_history": [
             {
               "round": 1,
-              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
+              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
               "bull_top_points": [
                 "Revenue growth is positive and above a modest growth threshold.",
                 "Gross margin is strong.",
@@ -1378,7 +1375,7 @@
               "bear_thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
               "bear_top_points": [
                 "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+                "MACD is below its signal line, indicating weakening momentum.",
                 "Price is below the 20-day moving average."
               ],
               "repeated_bull_points": [],
@@ -1389,8 +1386,8 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
-              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
+              "week_end_date": "2025-11-09",
+              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
               "bear_thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
               "bull_top_points": [
                 "Revenue growth is positive and above a modest growth threshold.",
@@ -1399,23 +1396,22 @@
               ],
               "bear_top_points": [
                 "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+                "MACD is below its signal line, indicating weakening momentum.",
                 "Price is below the 20-day moving average."
               ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
-                "Quick liquidity risk"
+                "No recent company news available",
+                "Quick liquidity risk",
+                "Weakening momentum"
               ],
-              "dissenting_points": [
-                "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-                "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
-              ]
+              "dissenting_points": []
             },
             {
-              "week_end_date": "2025-08-10",
-              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
+              "week_end_date": "2025-11-02",
+              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
               "bear_thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
               "bull_top_points": [
                 "Revenue growth is positive and above a modest growth threshold.",
@@ -1424,56 +1420,55 @@
               ],
               "bear_top_points": [
                 "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-                "Price is below the 20-day moving average.",
-                "MACD is below its signal line, indicating weakening momentum."
+                "MACD is below its signal line, indicating weakening momentum.",
+                "Price is below the 20-day moving average."
               ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
-              "risk_flags": [
-                "Front-end inversion risk",
-                "Quick liquidity risk"
-              ],
-              "dissenting_points": [
-                "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-                "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
-              ]
-            },
-            {
-              "week_end_date": "2025-08-03",
-              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
-              "bear_thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
-              "bull_top_points": [
-                "Revenue growth is positive and above a modest growth threshold.",
-                "Gross margin is strong.",
-                "Return on equity is strong."
-              ],
-              "bear_top_points": [
-                "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-                "Price is below the 20-day moving average.",
-                "MACD is below its signal line, indicating weakening momentum."
-              ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Litigious language appears in recent news",
-                "Quick liquidity risk"
+                "Quick liquidity risk",
+                "Weakening momentum"
               ],
-              "dissenting_points": [
-                "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-                "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
-              ]
+              "dissenting_points": []
+            },
+            {
+              "week_end_date": "2025-10-26",
+              "bull_thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
+              "bear_thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
+              "bull_top_points": [
+                "Revenue growth is positive and above a modest growth threshold.",
+                "Gross margin is strong.",
+                "Return on equity is strong."
+              ],
+              "bear_top_points": [
+                "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
+                "MACD is below its signal line, indicating weakening momentum.",
+                "Price is below the 20-day moving average."
+              ],
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
+              "risk_flags": [
+                "Front-end inversion risk",
+                "Litigious language appears in recent news",
+                "No recent company news available",
+                "Quick liquidity risk",
+                "Retail attention spike may indicate crowded positioning",
+                "Weakening momentum"
+              ],
+              "dissenting_points": []
             }
           ],
           "signal_history": [
-            "bullish",
-            "bullish",
-            "bullish"
+            "neutral",
+            "neutral",
+            "neutral"
           ],
           "recent_bull_theses": [
-            "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
-            "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
-            "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum."
+            "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
+            "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
+            "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions."
           ],
           "recent_bear_theses": [
             "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
@@ -1482,12 +1477,11 @@
           ],
           "recurring_risk_flags": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Quick liquidity risk",
+            "Weakening momentum",
+            "Litigious language appears in recent news"
           ],
-          "recurring_dissenting_points": [
-            "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum.",
-            "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics."
-          ],
+          "recurring_dissenting_points": [],
           "ticker": "AMZN"
         }
       },
@@ -1496,7 +1490,7 @@
         "ticker": "AMZN",
         "analysis_date": "2025-08-24",
         "stance": "bullish",
-        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
+        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
         "confidence": 0.85,
         "supporting_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
@@ -1506,33 +1500,29 @@
           "Average LM news sentiment is modestly positive."
         ],
         "counter_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
+          "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum.",
-          "The stock has negative 20-day return momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "Price is below the 20-day moving average."
         ],
         "rebuttal_points": [
-          "While the inverted 10Y-3M term spread is a recession warning, macro conditions are mixed, and the yield-curve proxy is positive, which is less recessionary than an inverted curve.",
-          "The price being below the 20-day moving average is a neutral signal, and the stock has positive momentum indicators such as the 12-day EMA being above the 26-day EMA and MACD being above its signal line.",
-          "The weakening momentum is a concern, but recent news trends are broadly supportive, and the company's strong fundamental metrics outweigh the risk factors."
+          "The quick liquidity risk is a manageable risk, and the company has a strong track record of navigating such challenges.",
+          "The weakening momentum is a short-term concern, but the company's fundamental metrics remain strong and supportive of long-term growth."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "evidence_balance": 0.9
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Quick liquidity risk",
+            "Weakening momentum"
           ]
         }
       },
@@ -1542,15 +1532,11 @@
         "analysis_date": "2025-08-24",
         "stance": "bearish",
         "thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
-        "confidence": 0.65,
+        "confidence": 0.7,
         "supporting_evidence": [
           "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum.",
-          "The stock has negative 20-day return momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "Price is below the 20-day moving average."
         ],
         "counter_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
@@ -1560,25 +1546,24 @@
           "Average LM news sentiment is modestly positive."
         ],
         "rebuttal_points": [
-          "While the company's strong fundamental metrics are impressive, the quick liquidity risk and weakening momentum are significant concerns that outweigh the positive factors.",
-          "The inverted 10Y-3M term spread is a recession warning, and the company's risk factors and weakening momentum make it vulnerable to a downturn.",
-          "The price being below the 20-day moving average and MACD being below its signal line indicate weakening momentum, which is a concern for the company's growth prospects."
+          "The quick liquidity risk is a manageable risk, but it still poses a significant threat to the company's financial stability.",
+          "The weakening momentum is a short-term concern, but it may indicate a larger issue with the company's fundamental metrics."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Quick liquidity risk",
+            "Weakening momentum"
           ]
         }
       },
@@ -1587,7 +1572,7 @@
         "ticker": "AMZN",
         "analysis_date": "2025-08-24",
         "stance": "bullish",
-        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive news trends.",
+        "thesis": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
         "confidence": 0.85,
         "supporting_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
@@ -1597,33 +1582,29 @@
           "Average LM news sentiment is modestly positive."
         ],
         "counter_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
+          "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum.",
-          "The stock has negative 20-day return momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "Price is below the 20-day moving average."
         ],
         "rebuttal_points": [
-          "While the inverted 10Y-3M term spread is a recession warning, macro conditions are mixed, and the yield-curve proxy is positive, which is less recessionary than an inverted curve.",
-          "The price being below the 20-day moving average is a neutral signal, and the stock has positive momentum indicators such as the 12-day EMA being above the 26-day EMA and MACD being above its signal line.",
-          "The weakening momentum is a concern, but recent news trends are broadly supportive, and the company's strong fundamental metrics outweigh the risk factors."
+          "The quick liquidity risk is a manageable risk, and the company has a strong track record of navigating such challenges.",
+          "The weakening momentum is a short-term concern, but the company's fundamental metrics remain strong and supportive of long-term growth."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "evidence_balance": 0.9
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Quick liquidity risk",
+            "Weakening momentum"
           ]
         }
       },
@@ -1633,15 +1614,11 @@
         "analysis_date": "2025-08-24",
         "stance": "bearish",
         "thesis": "AMZN's strong fundamental metrics are overshadowed by its quick liquidity risk and weakening momentum.",
-        "confidence": 0.65,
+        "confidence": 0.7,
         "supporting_evidence": [
           "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Price is below the 20-day moving average.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "The stock has negative 5-day return momentum.",
-          "The stock has negative 20-day return momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "Price is below the 20-day moving average."
         ],
         "counter_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
@@ -1651,25 +1628,24 @@
           "Average LM news sentiment is modestly positive."
         ],
         "rebuttal_points": [
-          "While the company's strong fundamental metrics are impressive, the quick liquidity risk and weakening momentum are significant concerns that outweigh the positive factors.",
-          "The inverted 10Y-3M term spread is a recession warning, and the company's risk factors and weakening momentum make it vulnerable to a downturn.",
-          "The price being below the 20-day moving average and MACD being below its signal line indicate weakening momentum, which is a concern for the company's growth prospects."
+          "The quick liquidity risk is a manageable risk, but it still poses a significant threat to the company's financial stability.",
+          "The weakening momentum is a short-term concern, but it may indicate a larger issue with the company's fundamental metrics."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Quick liquidity risk",
+            "Weakening momentum"
           ]
         }
       },
@@ -1680,31 +1656,34 @@
         "signal": "bullish",
         "confidence": 0.85,
         "position_size": 0.8,
-        "summary": "The Bull case presented a stronger argument, highlighting AMZN's strong fundamental metrics, positive momentum, and supportive news trends.",
+        "summary": "AMZN is poised for continued growth driven by strong fundamental metrics, positive momentum, and supportive macro conditions.",
         "rationale": [
-          "The Bull case effectively countered the Bear case's points, highlighting the company's strong fundamental metrics and positive momentum.",
-          "The Bull case presented a more convincing thesis, emphasizing AMZN's growth prospects and supportive news trends.",
-          "The Bull case's supporting evidence, including revenue growth, gross margin, and return on equity, outweighed the Bear case's counter-evidence."
+          "Strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity.",
+          "Recent company news flow is majority positive.",
+          "Average LM news sentiment is modestly positive.",
+          "The quick liquidity risk is a manageable risk, and the company has a strong track record of navigating such challenges.",
+          "The weakening momentum is a short-term concern, but the company's fundamental metrics remain strong and supportive of long-term growth."
         ],
         "dissenting_points": [
-          "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-          "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
+          "AMZN has strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity, but is at risk of quick liquidity issues.",
+          "MACD is below its signal line, indicating weakening momentum.",
+          "Price is below the 20-day moving average."
         ],
         "risk_flags": [
-          "Front-end inversion risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.9,
-          "evidence_balance": 0.8
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 1.0,
           "cross_week_weeks_seen": 3.0,
           "recent_signal_history": [
-            "bullish",
-            "bullish",
-            "bullish"
+            "neutral",
+            "neutral",
+            "neutral"
           ]
         }
       },
@@ -1880,11 +1859,11 @@
                 "Net margin is healthy.",
                 "Return on equity is strong."
               ],
-              "bear_thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, cautious macro conditions, and recent news trends, outweighing its solid operating profitability and healthy net margin.",
+              "bear_thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and overbought conditions, outweighing the company's solid operating profitability, healthy net margin, and strong return on equity.",
               "bear_top_points": [
                 "Revenue growth is negative year-over-year.",
-                "RSI is above 70, suggesting overbought conditions.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning."
+                "The 20-day moving average is below the 50-day moving average.",
+                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
               ],
               "repeated_bull_points": [],
               "repeated_bear_points": []
@@ -1894,107 +1873,116 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
+              "week_end_date": "2025-11-09",
               "bull_thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-              "bear_thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions, outweighing its solid operating profitability and healthy net margin.",
+              "bear_thesis": "BRK.B has a credible downside case because [TechnicalAnalyst] The 20-day moving average is below the 50-day moving average. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
                 "Operating margin indicates solid operating profitability.",
                 "Net margin is healthy.",
                 "Return on equity is strong."
               ],
               "bear_top_points": [
-                "Revenue growth is negative year-over-year.",
-                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning."
+                "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+                "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot."
               ],
               "judge_signal": "bullish",
-              "judge_confidence": 0.85,
+              "judge_confidence": 0.82,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Litigious language appears in recent news",
+                "Overbought risk",
                 "Retail attention spike may indicate crowded positioning"
               ],
               "dissenting_points": [
-                "BearAgent's thesis is weakened by its reliance on short-term bearish technical indicators and cautious macro conditions, which may not be as significant as the company's solid operating profitability and healthy net margin.",
-                "BearAgent's points are also countered by the company's positive free cash flow and operating cash flow, which outweigh the negative revenue growth."
+                "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
+                "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot.",
+                "[MacroAnalyst] Retail sales are contracting, suggesting weaker consumer demand."
               ]
             },
             {
-              "week_end_date": "2025-08-10",
+              "week_end_date": "2025-11-02",
               "bull_thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-              "bear_thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions, outweighing its solid operating profitability and healthy net margin.",
+              "bear_thesis": "BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
                 "Operating margin indicates solid operating profitability.",
                 "Net margin is healthy.",
                 "Return on equity is strong."
               ],
               "bear_top_points": [
-                "Revenue growth is negative year-over-year.",
-                "Price is below the 20-day moving average.",
-                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
+                "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
+                "[TechnicalAnalyst] Price is below the 20-day moving average.",
+                "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average."
               ],
               "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_confidence": 0.8,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Litigious language appears in recent news",
-                "Low relative trading volume",
+                "Overbought risk",
                 "Retail attention spike may indicate crowded positioning"
               ],
               "dissenting_points": [
-                "While BullAgent's solid operating profitability and healthy net margin are positives, they do not necessarily offset the negative revenue growth and weak technical indicators.",
-                "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions."
+                "Operating margin indicates solid operating profitability.",
+                "Net margin is healthy.",
+                "Return on equity is strong.",
+                "Free cash flow is positive."
               ]
             },
             {
-              "week_end_date": "2025-08-03",
-              "bull_thesis": "We believe that BRK.B is a strong buy opportunity due to its positive free cash flow, operating cash flow, and attractive valuation.",
-              "bear_thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions.",
+              "week_end_date": "2025-10-26",
+              "bull_thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
+              "bear_thesis": "BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
-                "Free cash flow is positive.",
-                "Operating cash flow is positive.",
-                "The stock has a positive operating margin of 8.67% and a net margin of 7.75%."
+                "Operating margin indicates solid operating profitability.",
+                "Net margin is healthy.",
+                "Return on equity is strong."
               ],
               "bear_top_points": [
-                "Revenue growth is negative year-over-year.",
-                "The stock has multiple bearish technical indicators, including being below its 20-day moving average, weak momentum, and negative return momentum.",
-                "Macro conditions are mixed, without a strong directional edge, and the 10Y-3M term spread is inverted, which is historically a recession warning."
+                "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
+                "[TechnicalAnalyst] Price is below the 20-day moving average.",
+                "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "bullish",
+              "judge_confidence": 0.8,
               "risk_flags": [
                 "Front-end inversion risk",
                 "Litigious language appears in recent news",
+                "Overbought risk",
                 "Retail attention spike may indicate crowded positioning"
               ],
               "dissenting_points": [
-                "While BullAgent's free cash flow and operating cash flow are positives, they do not necessarily offset the negative revenue growth and weak technical indicators.",
-                "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions."
+                "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
+                "[TechnicalAnalyst] Price is below the 20-day moving average.",
+                "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+                "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
               ]
             }
           ],
           "signal_history": [
             "bullish",
             "bearish",
-            "bearish"
+            "bullish"
           ],
           "recent_bull_theses": [
             "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
             "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-            "We believe that BRK.B is a strong buy opportunity due to its positive free cash flow, operating cash flow, and attractive valuation."
+            "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators."
           ],
           "recent_bear_theses": [
-            "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions, outweighing its solid operating profitability and healthy net margin.",
-            "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions, outweighing its solid operating profitability and healthy net margin.",
-            "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions."
+            "BRK.B has a credible downside case because [TechnicalAnalyst] The 20-day moving average is below the 50-day moving average. and the bullish evidence does not fully neutralize the risks.",
+            "BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks.",
+            "BRK.B has a credible downside case because [FundamentalAnalyst] Revenue growth is negative year-over-year. and the bullish evidence does not fully neutralize the risks."
           ],
           "recurring_risk_flags": [
             "Front-end inversion risk",
             "Litigious language appears in recent news",
+            "Overbought risk",
             "Retail attention spike may indicate crowded positioning"
           ],
           "recurring_dissenting_points": [
-            "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions."
+            "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
           ],
           "ticker": "BRK.B"
         }
@@ -2005,7 +1993,7 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-        "confidence": 0.8,
+        "confidence": 0.85,
         "supporting_evidence": [
           "Operating margin indicates solid operating profitability.",
           "Net margin is healthy.",
@@ -2015,61 +2003,19 @@
         ],
         "counter_evidence": [
           "Revenue growth is negative year-over-year.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
         "rebuttal_points": [
-          "While the bearish technical indicators are a concern, they are short-term in nature and do not necessarily offset the company's solid operating profitability and healthy net margin.",
-          "The company's positive free cash flow and operating cash flow outweigh the negative revenue growth and weak technical indicators."
+          "While revenue growth is negative, the company's solid operating profitability, healthy net margin, and strong return on equity outweigh this concern.",
+          "The 20-day moving average being below the 50-day moving average is a short-term indicator and does not necessarily indicate a long-term trend.",
+          "The 12-day EMA being below the 26-day EMA is a short-term indicator and does not necessarily indicate a long-term trend.",
+          "The overbought risk flag is a concern, but it does not necessarily indicate a reversal in the stock's trend."
         ],
         "risk_flags": [
           "Front-end inversion risk",
           "Overbought risk"
-        ],
-        "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.9
-        },
-        "memory_used": {
-          "short_term_rounds_seen": 0.0,
-          "cross_week_weeks_seen": 3.0,
-          "recurring_risks_used": [
-            "Front-end inversion risk",
-            "Litigious language appears in recent news",
-            "Retail attention spike may indicate crowded positioning"
-          ]
-        }
-      },
-      "bear_round_1": {
-        "agent_name": "BearAgent",
-        "ticker": "BRK.B",
-        "analysis_date": "2025-08-24",
-        "stance": "bearish",
-        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, cautious macro conditions, and recent news trends, outweighing its solid operating profitability and healthy net margin.",
-        "confidence": 0.85,
-        "supporting_evidence": [
-          "Revenue growth is negative year-over-year.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
-        ],
-        "counter_evidence": [
-          "Operating margin indicates solid operating profitability.",
-          "Net margin is healthy.",
-          "Return on equity is strong.",
-          "Free cash flow is positive.",
-          "Operating cash flow is positive."
-        ],
-        "rebuttal_points": [
-          "While the company's solid operating profitability and healthy net margin are positives, they do not necessarily offset the negative revenue growth, weak technical indicators, and cautious macro conditions.",
-          "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions.",
-          "Recent news trends lean cautious, with more bearish than bullish evidence."
-        ],
-        "risk_flags": [
-          "Front-end inversion risk",
-          "Litigious language appears in recent news",
-          "Overbought risk",
-          "Retail attention spike may indicate crowded positioning"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.8,
@@ -2081,7 +2027,51 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Litigious language appears in recent news",
-            "Retail attention spike may indicate crowded positioning"
+            "Overbought risk"
+          ]
+        }
+      },
+      "bear_round_1": {
+        "agent_name": "BearAgent",
+        "ticker": "BRK.B",
+        "analysis_date": "2025-08-24",
+        "stance": "bearish",
+        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and overbought conditions, outweighing the company's solid operating profitability, healthy net margin, and strong return on equity.",
+        "confidence": 0.7,
+        "supporting_evidence": [
+          "Revenue growth is negative year-over-year.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "RSI is above 70, suggesting overbought conditions."
+        ],
+        "counter_evidence": [
+          "Operating margin indicates solid operating profitability.",
+          "Net margin is healthy.",
+          "Return on equity is strong.",
+          "Free cash flow is positive.",
+          "Operating cash flow is positive."
+        ],
+        "rebuttal_points": [
+          "While the company's solid operating profitability, healthy net margin, and strong return on equity are positives, they are outweighed by the negative revenue growth and weak technical indicators.",
+          "The overbought risk flag is a concern, and the recent news trends lean cautious, with more bearish than bullish evidence.",
+          "The company's recent news flow is majority negative, and the average LM news sentiment is modestly negative."
+        ],
+        "risk_flags": [
+          "Front-end inversion risk",
+          "Negative revenue growth",
+          "Overbought risk"
+        ],
+        "score_breakdown": {
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
+        },
+        "memory_used": {
+          "short_term_rounds_seen": 0.0,
+          "cross_week_weeks_seen": 3.0,
+          "recurring_risks_used": [
+            "Front-end inversion risk",
+            "Litigious language appears in recent news",
+            "Overbought risk"
           ]
         }
       },
@@ -2091,7 +2081,7 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "We believe that BRK.B is a strong buy opportunity due to its solid operating profitability, healthy net margin, strong return on equity, positive free cash flow, and operating cash flow, outweighing the negative revenue growth and weak technical indicators.",
-        "confidence": 0.8,
+        "confidence": 0.85,
         "supporting_evidence": [
           "Operating margin indicates solid operating profitability.",
           "Net margin is healthy.",
@@ -2101,19 +2091,23 @@
         ],
         "counter_evidence": [
           "Revenue growth is negative year-over-year.",
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
           "RSI is above 70, suggesting overbought conditions."
         ],
         "rebuttal_points": [
-          "While the bearish technical indicators are a concern, they are short-term in nature and do not necessarily offset the company's solid operating profitability and healthy net margin.",
-          "The company's positive free cash flow and operating cash flow outweigh the negative revenue growth and weak technical indicators."
+          "While revenue growth is negative, the company's solid operating profitability, healthy net margin, and strong return on equity outweigh this concern.",
+          "The 20-day moving average being below the 50-day moving average is a short-term indicator and does not necessarily indicate a long-term trend.",
+          "The 12-day EMA being below the 26-day EMA is a short-term indicator and does not necessarily indicate a long-term trend.",
+          "The overbought risk flag is a concern, but it does not necessarily indicate a reversal in the stock's trend."
         ],
         "risk_flags": [
           "Front-end inversion risk",
           "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.7,
-          "evidence_balance": 0.9
+          "llm_case_strength": 0.8,
+          "evidence_balance": 0.7
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
@@ -2121,7 +2115,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Litigious language appears in recent news",
-            "Retail attention spike may indicate crowded positioning"
+            "Overbought risk"
           ]
         }
       },
@@ -2130,14 +2124,13 @@
         "ticker": "BRK.B",
         "analysis_date": "2025-08-24",
         "stance": "bearish",
-        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, cautious macro conditions, and recent news trends, outweighing its solid operating profitability and healthy net margin.",
-        "confidence": 0.85,
+        "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and overbought conditions, outweighing the company's solid operating profitability, healthy net margin, and strong return on equity.",
+        "confidence": 0.7,
         "supporting_evidence": [
           "Revenue growth is negative year-over-year.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
+          "The 20-day moving average is below the 50-day moving average.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "RSI is above 70, suggesting overbought conditions."
         ],
         "counter_evidence": [
           "Operating margin indicates solid operating profitability.",
@@ -2147,19 +2140,18 @@
           "Operating cash flow is positive."
         ],
         "rebuttal_points": [
-          "While the company's solid operating profitability and healthy net margin are positives, they do not necessarily offset the negative revenue growth, weak technical indicators, and cautious macro conditions.",
-          "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions.",
-          "Recent news trends lean cautious, with more bearish than bullish evidence."
+          "While the company's solid operating profitability, healthy net margin, and strong return on equity are positives, they are outweighed by the negative revenue growth and weak technical indicators.",
+          "The overbought risk flag is a concern, and the recent news trends lean cautious, with more bearish than bullish evidence.",
+          "The company's recent news flow is majority negative, and the average LM news sentiment is modestly negative."
         ],
         "risk_flags": [
           "Front-end inversion risk",
-          "Litigious language appears in recent news",
-          "Overbought risk",
-          "Retail attention spike may indicate crowded positioning"
+          "Negative revenue growth",
+          "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_case_strength": 0.6,
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
@@ -2167,7 +2159,7 @@
           "recurring_risks_used": [
             "Front-end inversion risk",
             "Litigious language appears in recent news",
-            "Retail attention spike may indicate crowded positioning"
+            "Overbought risk"
           ]
         }
       },
@@ -2175,28 +2167,27 @@
         "agent_name": "JudgeAgent",
         "ticker": "BRK.B",
         "analysis_date": "2025-08-24",
-        "signal": "bearish",
+        "signal": "bullish",
         "confidence": 0.85,
-        "position_size": 0.5,
-        "summary": "BearAgent's bearish thesis is more convincing due to its stronger evidence balance and more robust counter-evidence.",
+        "position_size": 0.8,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more effective rebuttal points.",
         "rationale": [
-          "BearAgent's thesis is more comprehensive and addresses multiple aspects of the company's performance, including revenue growth, technical indicators, and macro conditions.",
-          "BearAgent's supporting evidence is more robust, including the negative revenue growth, weak technical indicators, and cautious macro conditions.",
-          "BearAgent's counter-evidence is more effective in countering BullAgent's points, including the company's solid operating profitability and healthy net margin."
+          "BullAgent's thesis is more comprehensive and well-supported, highlighting the company's solid operating profitability, healthy net margin, and strong return on equity.",
+          "BullAgent's rebuttal points effectively address the Bear case's concerns, such as negative revenue growth and weak technical indicators.",
+          "The Bull case's supporting evidence, including operating margin, net margin, and return on equity, outweighs the Bear case's counter-evidence."
         ],
         "dissenting_points": [
-          "While BullAgent's solid operating profitability and healthy net margin are positives, they do not necessarily offset the negative revenue growth and weak technical indicators.",
-          "The bearish technical indicators are short-term in nature, but they are supported by the company's negative revenue growth and cautious macro conditions."
+          "BearAgent's thesis is well-structured, but ultimately less convincing than BullAgent's.",
+          "BearAgent's rebuttal points, while effective, do not fully address the Bull case's concerns.",
+          "The Bear case's supporting evidence, including negative revenue growth and weak technical indicators, is not sufficient to outweigh the Bull case's counter-evidence."
         ],
         "risk_flags": [
           "Front-end inversion risk",
-          "Litigious language appears in recent news",
-          "Overbought risk",
-          "Retail attention spike may indicate crowded positioning"
+          "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.7
+          "llm_margin": 0.9,
+          "llm_conviction": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 1.0,
@@ -2204,7 +2195,7 @@
           "recent_signal_history": [
             "bullish",
             "bearish",
-            "bearish"
+            "bullish"
           ]
         }
       },
@@ -2376,11 +2367,11 @@
                 "Price is above the 20-day moving average.",
                 "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
               ],
-              "bear_thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
+              "bear_thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
               "bear_top_points": [
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Google Trends search interest is down 17% week-over-week.",
-                "MACD is below its signal line, indicating weakening momentum."
+                "MACD is below its signal line, indicating weakening momentum.",
+                "RSI is above 70, suggesting overbought conditions.",
+                "The 10Y-3M term spread is inverted, which is historically a recession warning."
               ],
               "repeated_bull_points": [],
               "repeated_bear_points": []
@@ -2390,85 +2381,81 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
+              "week_end_date": "2025-11-09",
               "bull_thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
-              "bear_thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
+              "bear_thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
               "bull_top_points": [
-                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
-                "Price is above the 20-day moving average.",
-                "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
-              ],
-              "bear_top_points": [
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Google Trends search interest is down 17% week-over-week.",
-                "Free cash flow is positive, but it may not be enough to sustain the stock's current price."
-              ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
-              "risk_flags": [
-                "Front-end inversion risk",
-                "Litigious language appears in recent news"
-              ],
-              "dissenting_points": [
-                "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-                "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
-              ]
-            },
-            {
-              "week_end_date": "2025-08-10",
-              "bull_thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
-              "bear_thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
-              "bull_top_points": [
-                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
-                "Price is above the 20-day moving average.",
-                "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
-              ],
-              "bear_top_points": [
-                "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-                "Google Trends search interest is down 17% week-over-week.",
-                "Free cash flow is positive, but it may not be enough to sustain the stock's current price."
-              ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.88,
-              "risk_flags": [
-                "Front-end inversion risk",
-                "Litigious language appears in recent news"
-              ],
-              "dissenting_points": [
-                "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-                "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
-              ]
-            },
-            {
-              "week_end_date": "2025-08-03",
-              "bull_thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
-              "bear_thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
-              "bull_top_points": [
-                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
+                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive outlook for GOOGL.",
                 "Price is above the 20-day moving average.",
                 "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
               ],
               "bear_top_points": [
                 "The stock has negative 5-day return momentum.",
-                "Google Trends search interest is down 17% week-over-week.",
-                "Litigious language appears in recent news"
+                "MACD is below its signal line, indicating weakening momentum.",
+                "The 10Y-3M term spread is inverted, which is historically a recession warning."
               ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.88,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
-                "Litigious language appears in recent news"
+                "Litigious language appears in recent news",
+                "No recent company news available",
+                "Overbought risk"
               ],
-              "dissenting_points": [
-                "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-                "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
-              ]
+              "dissenting_points": []
+            },
+            {
+              "week_end_date": "2025-11-02",
+              "bull_thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
+              "bear_thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
+              "bull_top_points": [
+                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive outlook for GOOGL.",
+                "Price is above the 20-day moving average.",
+                "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+              ],
+              "bear_top_points": [
+                "RSI is above 70, suggesting overbought conditions.",
+                "Google Trends search interest is down 46% week-over-week.",
+                "Industrial production growth is negative in the latest macro snapshot."
+              ],
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
+              "risk_flags": [
+                "Front-end inversion risk",
+                "Litigious language appears in recent news",
+                "Overbought risk"
+              ],
+              "dissenting_points": []
+            },
+            {
+              "week_end_date": "2025-10-26",
+              "bull_thesis": "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
+              "bear_thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
+              "bull_top_points": [
+                "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
+                "Price is above the 20-day moving average.",
+                "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+              ],
+              "bear_top_points": [
+                "MACD is below its signal line, indicating weakening momentum.",
+                "The stock has negative 20-day return momentum.",
+                "The 10Y-3M term spread is inverted, which is historically a recession warning."
+              ],
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
+              "risk_flags": [
+                "Front-end inversion risk",
+                "Litigious language appears in recent news",
+                "No recent company news available",
+                "Overbought risk"
+              ],
+              "dissenting_points": []
             }
           ],
           "signal_history": [
-            "bullish",
-            "bullish",
-            "bullish"
+            "neutral",
+            "neutral",
+            "neutral"
           ],
           "recent_bull_theses": [
             "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators.",
@@ -2476,18 +2463,17 @@
             "GOOGL is a strong buy due to its solid fundamentals and positive technical indicators."
           ],
           "recent_bear_theses": [
-            "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
-            "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
+            "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
+            "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
             "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction."
           ],
           "recurring_risk_flags": [
             "Front-end inversion risk",
-            "Litigious language appears in recent news"
+            "Litigious language appears in recent news",
+            "Overbought risk",
+            "No recent company news available"
           ],
-          "recurring_dissenting_points": [
-            "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case.",
-            "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution."
-          ],
+          "recurring_dissenting_points": [],
           "ticker": "GOOGL"
         }
       },
@@ -2502,18 +2488,18 @@
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
           "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive.",
-          "Operating cash flow is positive."
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
         ],
         "counter_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "RSI is above 70, suggesting overbought conditions.",
+          "The 10Y-3M term spread is inverted, which is historically a recession warning."
         ],
         "rebuttal_points": [
-          "While the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case.",
-          "The Bull case highlights the importance of focusing on the current fundamentals and technical indicators, which suggest a strong buy opportunity for GOOGL."
+          "The bearish factors from the Technical Analyst report are outweighed by the positive fundamental view from the Fundamental Analyst report.",
+          "The inverted term spread is a concern, but it is not a strong enough reason to outweigh the positive technical indicators.",
+          "The overbought conditions are a risk, but they are not a reason to sell the stock, especially given the solid fundamentals."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -2528,7 +2514,8 @@
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Litigious language appears in recent news"
+            "Litigious language appears in recent news",
+            "Overbought risk"
           ]
         }
       },
@@ -2537,39 +2524,41 @@
         "ticker": "GOOGL",
         "analysis_date": "2025-08-24",
         "stance": "bearish",
-        "thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
-        "confidence": 0.7,
+        "thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
+        "confidence": 0.6,
         "supporting_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
           "RSI is above 70, suggesting overbought conditions.",
-          "Free cash flow is positive, but it may not be enough to sustain the stock's current price."
+          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
         ],
         "counter_evidence": [
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
-          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive."
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
         ],
         "rebuttal_points": [
-          "While the Bull case highlights the importance of focusing on the current fundamentals and technical indicators, these factors do not outweigh the more concerning evidence presented by the Bear case.",
-          "The inverted 10Y-3M term spread and decline in Google Trends search interest suggest a potential short-term correction, and the stock's overbought conditions and weakening momentum only add to these concerns."
+          "The positive fundamental view from the Fundamental Analyst report is outweighed by the weak technical indicators and mixed macroeconomic conditions.",
+          "The inverted term spread is a strong enough reason to outweigh the positive technical indicators.",
+          "The overbought conditions are a reason to sell the stock, especially given the weak technical indicators and mixed macroeconomic conditions."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "No recent company news available",
           "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Litigious language appears in recent news"
+            "Litigious language appears in recent news",
+            "Overbought risk"
           ]
         }
       },
@@ -2584,18 +2573,18 @@
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
           "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive.",
-          "Operating cash flow is positive."
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
         ],
         "counter_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
-          "RSI is above 70, suggesting overbought conditions."
+          "RSI is above 70, suggesting overbought conditions.",
+          "The 10Y-3M term spread is inverted, which is historically a recession warning."
         ],
         "rebuttal_points": [
-          "While the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case.",
-          "The Bull case highlights the importance of focusing on the current fundamentals and technical indicators, which suggest a strong buy opportunity for GOOGL."
+          "The bearish factors from the Technical Analyst report are outweighed by the positive fundamental view from the Fundamental Analyst report.",
+          "The inverted term spread is a concern, but it is not a strong enough reason to outweigh the positive technical indicators.",
+          "The overbought conditions are a risk, but they are not a reason to sell the stock, especially given the solid fundamentals."
         ],
         "risk_flags": [
           "Front-end inversion risk",
@@ -2610,7 +2599,8 @@
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Litigious language appears in recent news"
+            "Litigious language appears in recent news",
+            "Overbought risk"
           ]
         }
       },
@@ -2619,39 +2609,41 @@
         "ticker": "GOOGL",
         "analysis_date": "2025-08-24",
         "stance": "bearish",
-        "thesis": "GOOGL's fundamentals and technical indicators are overstated, and the stock is due for a correction.",
-        "confidence": 0.7,
+        "thesis": "GOOGL is a sell due to its weak technical indicators and mixed macroeconomic conditions.",
+        "confidence": 0.6,
         "supporting_evidence": [
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Google Trends search interest is down 17% week-over-week.",
           "MACD is below its signal line, indicating weakening momentum.",
           "RSI is above 70, suggesting overbought conditions.",
-          "Free cash flow is positive, but it may not be enough to sustain the stock's current price."
+          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "The stock has negative 5-day return momentum.",
+          "The stock has negative 20-day return momentum."
         ],
         "counter_evidence": [
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
-          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-          "Free cash flow is positive."
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
         ],
         "rebuttal_points": [
-          "While the Bull case highlights the importance of focusing on the current fundamentals and technical indicators, these factors do not outweigh the more concerning evidence presented by the Bear case.",
-          "The inverted 10Y-3M term spread and decline in Google Trends search interest suggest a potential short-term correction, and the stock's overbought conditions and weakening momentum only add to these concerns."
+          "The positive fundamental view from the Fundamental Analyst report is outweighed by the weak technical indicators and mixed macroeconomic conditions.",
+          "The inverted term spread is a strong enough reason to outweigh the positive technical indicators.",
+          "The overbought conditions are a reason to sell the stock, especially given the weak technical indicators and mixed macroeconomic conditions."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "No recent company news available",
           "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.7,
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
-            "Litigious language appears in recent news"
+            "Litigious language appears in recent news",
+            "Overbought risk"
           ]
         }
       },
@@ -2661,33 +2653,35 @@
         "analysis_date": "2025-08-24",
         "signal": "bullish",
         "confidence": 0.85,
-        "position_size": 0.85,
-        "summary": "The Bull case presented a stronger argument for a bullish stance on GOOGL, citing solid fundamentals and positive technical indicators.",
+        "position_size": 0.8,
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent. The Bull case has a higher confidence level and presents stronger supporting evidence, including solid fundamentals and positive technical indicators.",
         "rationale": [
           "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
           "Price is above the 20-day moving average.",
-          "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+          "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+          "The stock has positive 5-day return momentum.",
+          "The stock has positive 20-day return momentum."
         ],
         "dissenting_points": [
-          "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-          "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
+          "MACD is below its signal line, indicating weakening momentum.",
+          "RSI is above 70, suggesting overbought conditions.",
+          "The 10Y-3M term spread is inverted, which is historically a recession warning."
         ],
         "risk_flags": [
           "Front-end inversion risk",
           "Overbought risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.9,
-          "llm_conviction": 0.8,
-          "evidence_balance": 0.8
+          "llm_margin": 0.2,
+          "llm_conviction": 0.3
         },
         "memory_used": {
           "short_term_rounds_seen": 1.0,
           "cross_week_weeks_seen": 3.0,
           "recent_signal_history": [
-            "bullish",
-            "bullish",
-            "bullish"
+            "neutral",
+            "neutral",
+            "neutral"
           ]
         }
       },
@@ -2870,11 +2864,11 @@
                 "Gross margin is strong.",
                 "Operating margin indicates solid operating profitability."
               ],
-              "bear_thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+              "bear_thesis": "LLY has a credible downside case due to elevated leverage, negative free cash flow, and bearish news trends, which outweigh the bullish evidence.",
               "bear_top_points": [
-                "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-                "[FundamentalAnalyst] Risk flag: Leverage risk",
-                "[FundamentalAnalyst] Risk flag: Quick liquidity risk"
+                "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+                "Free cash flow is negative.",
+                "Recent company news flow is majority negative."
               ],
               "repeated_bull_points": [],
               "repeated_bear_points": []
@@ -2884,33 +2878,38 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
+              "week_end_date": "2025-11-02",
               "bull_thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
-              "bear_thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+              "bear_thesis": "LLY has a credible downside case because [MacroAnalyst] Industrial production growth is negative in the latest macro snapshot. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
                 "Revenue growth is positive and above a modest growth threshold.",
                 "Gross margin is strong.",
                 "Operating margin indicates solid operating profitability."
               ],
               "bear_top_points": [
-                "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-                "[FundamentalAnalyst] Risk flag: Leverage risk",
-                "[FundamentalAnalyst] Risk flag: Quick liquidity risk"
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot.",
+                "[MacroAnalyst] Retail sales are contracting, suggesting weaker consumer demand.",
+                "[MacroAnalyst] Payroll employment is contracting."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "bullish",
+              "judge_confidence": 0.83,
               "risk_flags": [
-                "Elevated short-term volatility",
                 "Leverage risk",
-                "Quick liquidity risk"
+                "Litigious language appears in recent news",
+                "Low relative trading volume",
+                "Overbought risk",
+                "Quick liquidity risk",
+                "Retail attention spike may indicate crowded positioning"
               ],
               "dissenting_points": [
-                "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-                "The bull case presented by BullAgent highlights the company's strong profitability and revenue growth, which are positives."
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot.",
+                "[MacroAnalyst] Retail sales are contracting, suggesting weaker consumer demand.",
+                "[MacroAnalyst] Payroll employment is contracting.",
+                "[MacroAnalyst] Consumer sentiment is weak."
               ]
             },
             {
-              "week_end_date": "2025-08-10",
+              "week_end_date": "2025-10-26",
               "bull_thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
               "bear_thesis": "LLY has a credible downside case because [FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
@@ -2924,50 +2923,55 @@
                 "[FundamentalAnalyst] Risk flag: Quick liquidity risk"
               ],
               "judge_signal": "bullish",
-              "judge_confidence": 0.7,
+              "judge_confidence": 0.85,
               "risk_flags": [
-                "Front-end inversion risk",
                 "Leverage risk",
-                "No recent company news available",
-                "Oversold volatility risk",
-                "Quick liquidity risk",
-                "Retail attention spike may indicate crowded positioning"
+                "Litigious language appears in recent news",
+                "Low relative trading volume",
+                "Quick liquidity risk"
               ],
               "dissenting_points": [
-                "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-                "Google Trends search interest is down 17% week-over-week."
+                "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+                "[FundamentalAnalyst] Risk flag: Leverage risk",
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+                "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
               ]
             },
             {
-              "week_end_date": "2025-08-03",
+              "week_end_date": "2025-10-19",
               "bull_thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
-              "bear_thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+              "bear_thesis": "LLY has a credible downside case because [FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold. and the bullish evidence does not fully neutralize the risks.",
               "bull_top_points": [
                 "Revenue growth is positive and above a modest growth threshold.",
                 "Gross margin is strong.",
                 "Operating margin indicates solid operating profitability."
               ],
               "bear_top_points": [
-                "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-                "Free cash flow is negative.",
-                "Price is below the 20-day moving average."
+                "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+                "[FundamentalAnalyst] Risk flag: Leverage risk",
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk"
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "bullish",
+              "judge_confidence": 0.83,
               "risk_flags": [
-                "Front-end inversion risk",
-                "Leverage risk"
+                "Leverage risk",
+                "Litigious language appears in recent news",
+                "Low relative trading volume",
+                "Overbought risk",
+                "Quick liquidity risk"
               ],
               "dissenting_points": [
-                "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-                "The bull case presented by BullAgent highlights the company's strong profitability and revenue growth, which are positives."
+                "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+                "[FundamentalAnalyst] Risk flag: Leverage risk",
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+                "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
               ]
             }
           ],
           "signal_history": [
-            "bearish",
             "bullish",
-            "bearish"
+            "bullish",
+            "bullish"
           ],
           "recent_bull_theses": [
             "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
@@ -2975,18 +2979,21 @@
             "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow."
           ],
           "recent_bear_theses": [
-            "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+            "LLY has a credible downside case because [MacroAnalyst] Industrial production growth is negative in the latest macro snapshot. and the bullish evidence does not fully neutralize the risks.",
             "LLY has a credible downside case because [FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold. and the bullish evidence does not fully neutralize the risks.",
-            "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth."
+            "LLY has a credible downside case because [FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold. and the bullish evidence does not fully neutralize the risks."
           ],
           "recurring_risk_flags": [
             "Leverage risk",
-            "Front-end inversion risk",
+            "Litigious language appears in recent news",
+            "Low relative trading volume",
             "Quick liquidity risk"
           ],
           "recurring_dissenting_points": [
-            "The bull case presented by BullAgent highlights the company's strong profitability and revenue growth, which are positives.",
-            "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow."
+            "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+            "[FundamentalAnalyst] Risk flag: Leverage risk",
+            "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+            "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum."
           ],
           "ticker": "LLY"
         }
@@ -2997,43 +3004,44 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
-        "confidence": 0.7,
+        "confidence": 0.85,
         "supporting_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
           "Gross margin is strong.",
           "Operating margin indicates solid operating profitability.",
-          "Net margin is healthy.",
-          "Return on equity is strong.",
-          "Return on assets is solid.",
-          "Current ratio suggests adequate short-term liquidity.",
-          "Free cash flow is positive."
+          "Price is above the 20-day moving average.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "The stock has positive 5-day return momentum."
         ],
         "counter_evidence": [
           "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
           "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
+          "Average LM news sentiment is modestly negative.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "The stock has negative 20-day return momentum."
         ],
         "rebuttal_points": [
-          "While the company's elevated debt-to-equity ratio is a concern, it does not outweigh the positives of strong profitability and revenue growth.",
-          "The bearish news trends are short-term and may not reflect the company's long-term prospects.",
-          "The company's strong profitability and revenue growth are more important than the negative news trends."
+          "While debt-to-equity is elevated, it is not a significant concern given the company's strong profitability and liquidity.",
+          "Recent news trends may be influenced by short-term market volatility, but the company's fundamentals remain strong.",
+          "The bearish factors from the technical analysis are not conclusive, as the stock has shown positive momentum in the short term."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Leverage risk",
-            "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news",
+            "Low relative trading volume"
           ]
         }
       },
@@ -3042,44 +3050,44 @@
         "ticker": "LLY",
         "analysis_date": "2025-08-24",
         "stance": "bearish",
-        "thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+        "thesis": "LLY has a credible downside case due to elevated leverage, negative free cash flow, and bearish news trends, which outweigh the bullish evidence.",
         "confidence": 0.8,
         "supporting_evidence": [
-          "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-          "[FundamentalAnalyst] Risk flag: Leverage risk",
-          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
-          "[NewsTrendsAnalyst] Recent company news flow is majority negative.",
-          "[NewsTrendsAnalyst] Average LM news sentiment is modestly negative."
+          "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+          "Free cash flow is negative.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
         ],
         "counter_evidence": [
-          "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
-          "[FundamentalAnalyst] Gross margin is strong.",
-          "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
-          "[FundamentalAnalyst] Return on equity is strong.",
-          "[FundamentalAnalyst] Return on assets is solid.",
-          "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity."
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Price is above the 20-day moving average.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "The stock has positive 5-day return momentum."
         ],
         "rebuttal_points": [
-          "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-          "The bearish news trends are short-term and may not reflect the company's long-term prospects.",
-          "The company's elevated debt-to-equity ratio is a significant concern that outweighs the positives of strong profitability and revenue growth."
+          "While revenue growth is positive, it does not fully offset the risks associated with elevated leverage and negative free cash flow.",
+          "The bearish news trends are a concern, as they suggest a potential decline in investor sentiment.",
+          "The bullish factors from the technical analysis are not conclusive, as the stock has shown negative momentum in the long term."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.7,
-          "evidence_balance": 0.5
+          "evidence_balance": 0.9
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Leverage risk",
-            "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news",
+            "Low relative trading volume"
           ]
         }
       },
@@ -3089,43 +3097,44 @@
         "analysis_date": "2025-08-24",
         "stance": "bullish",
         "thesis": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
-        "confidence": 0.7,
+        "confidence": 0.85,
         "supporting_evidence": [
           "Revenue growth is positive and above a modest growth threshold.",
           "Gross margin is strong.",
           "Operating margin indicates solid operating profitability.",
-          "Net margin is healthy.",
-          "Return on equity is strong.",
-          "Return on assets is solid.",
-          "Current ratio suggests adequate short-term liquidity.",
-          "Free cash flow is positive."
+          "Price is above the 20-day moving average.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "The stock has positive 5-day return momentum."
         ],
         "counter_evidence": [
           "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
           "Recent company news flow is majority negative.",
-          "Average LM news sentiment is modestly negative."
+          "Average LM news sentiment is modestly negative.",
+          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "The stock has negative 20-day return momentum."
         ],
         "rebuttal_points": [
-          "While the company's elevated debt-to-equity ratio is a concern, it does not outweigh the positives of strong profitability and revenue growth.",
-          "The bearish news trends are short-term and may not reflect the company's long-term prospects.",
-          "The company's strong profitability and revenue growth are more important than the negative news trends."
+          "While debt-to-equity is elevated, it is not a significant concern given the company's strong profitability and liquidity.",
+          "Recent news trends may be influenced by short-term market volatility, but the company's fundamentals remain strong.",
+          "The bearish factors from the technical analysis are not conclusive, as the stock has shown positive momentum in the short term."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_case_strength": 0.8,
-          "evidence_balance": 0.6
+          "llm_case_strength": 0.9,
+          "evidence_balance": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Leverage risk",
-            "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news",
+            "Low relative trading volume"
           ]
         }
       },
@@ -3134,44 +3143,44 @@
         "ticker": "LLY",
         "analysis_date": "2025-08-24",
         "stance": "bearish",
-        "thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
+        "thesis": "LLY has a credible downside case due to elevated leverage, negative free cash flow, and bearish news trends, which outweigh the bullish evidence.",
         "confidence": 0.8,
         "supporting_evidence": [
-          "[FundamentalAnalyst] Debt-to-equity appears elevated relative to a moderate leverage threshold.",
-          "[FundamentalAnalyst] Risk flag: Leverage risk",
-          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
-          "[NewsTrendsAnalyst] Recent company news flow is majority negative.",
-          "[NewsTrendsAnalyst] Average LM news sentiment is modestly negative."
+          "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+          "Free cash flow is negative.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
         ],
         "counter_evidence": [
-          "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
-          "[FundamentalAnalyst] Gross margin is strong.",
-          "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
-          "[FundamentalAnalyst] Return on equity is strong.",
-          "[FundamentalAnalyst] Return on assets is solid.",
-          "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity."
+          "Revenue growth is positive and above a modest growth threshold.",
+          "Gross margin is strong.",
+          "Operating margin indicates solid operating profitability.",
+          "Price is above the 20-day moving average.",
+          "MACD is above its signal line, indicating positive momentum.",
+          "The stock has positive 5-day return momentum."
         ],
         "rebuttal_points": [
-          "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-          "The bearish news trends are short-term and may not reflect the company's long-term prospects.",
-          "The company's elevated debt-to-equity ratio is a significant concern that outweighs the positives of strong profitability and revenue growth."
+          "While revenue growth is positive, it does not fully offset the risks associated with elevated leverage and negative free cash flow.",
+          "The bearish news trends are a concern, as they suggest a potential decline in investor sentiment.",
+          "The bullish factors from the technical analysis are not conclusive, as the stock has shown negative momentum in the long term."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.7,
-          "evidence_balance": 0.5
+          "evidence_balance": 0.9
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Leverage risk",
-            "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Litigious language appears in recent news",
+            "Low relative trading volume"
           ]
         }
       },
@@ -3179,35 +3188,37 @@
         "agent_name": "JudgeAgent",
         "ticker": "LLY",
         "analysis_date": "2025-08-24",
-        "signal": "bearish",
-        "confidence": 0.8,
-        "position_size": 0.5,
-        "summary": "The bear case presented by BearAgent is more convincing due to the elevated leverage, negative free cash flow, and bearish technical indicators.",
+        "signal": "bullish",
+        "confidence": 0.85,
+        "position_size": 0.8,
+        "summary": "Eli Lilly and Company (LLY) is poised for long-term growth due to its strong profitability, liquidity, and revenue growth, despite elevated leverage and negative free cash flow.",
         "rationale": [
-          "Elevated leverage and negative free cash flow are significant concerns that outweigh the positives of strong profitability and revenue growth.",
-          "Bearish technical indicators, such as the 12-day EMA being below the 26-day EMA, suggest weak momentum.",
-          "Recent company news flow is majority negative, and average LM news sentiment is modestly negative."
+          "The bull case presented by BullAgent is more convincing than the bear case presented by BearAgent.",
+          "The supporting evidence for the bull case, including revenue growth, strong gross margin, and solid operating profitability, outweighs the counter-evidence presented by the bear case.",
+          "The rebuttal points presented by BullAgent effectively address the concerns raised by the bear case, including the elevated debt-to-equity ratio and negative free cash flow."
         ],
         "dissenting_points": [
-          "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
-          "The bull case presented by BullAgent highlights the company's strong profitability and revenue growth, which are positives."
+          "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
+          "Recent company news flow is majority negative.",
+          "Average LM news sentiment is modestly negative."
         ],
         "risk_flags": [
           "Leverage risk",
+          "Litigious language appears in recent news",
           "Low relative trading volume",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
-          "llm_margin": 0.7,
+          "llm_margin": 0.9,
           "llm_conviction": 0.8
         },
         "memory_used": {
           "short_term_rounds_seen": 1.0,
           "cross_week_weeks_seen": 3.0,
           "recent_signal_history": [
-            "bearish",
             "bullish",
-            "bearish"
+            "bullish",
+            "bullish"
           ]
         }
       },
@@ -3377,7 +3388,7 @@
           "round_history": [
             {
               "round": 1,
-              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
               "bull_top_points": [
                 "Return on assets is solid.",
                 "Current ratio suggests adequate short-term liquidity.",
@@ -3385,9 +3396,9 @@
               ],
               "bear_thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
               "bear_top_points": [
-                "Quick liquidity risk",
-                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-                "RSI is above 70, suggesting overbought conditions."
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+                "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+                "[TechnicalAnalyst] RSI is above 70, suggesting overbought conditions."
               ],
               "repeated_bull_points": [],
               "repeated_bear_points": []
@@ -3397,8 +3408,37 @@
         "cross_week_memory": {
           "recent_weeks": [
             {
-              "week_end_date": "2025-08-17",
-              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+              "week_end_date": "2025-11-02",
+              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
+              "bear_thesis": "XOM has a credible downside case because [FundamentalAnalyst] Risk flag: Quick liquidity risk and the bullish evidence does not fully neutralize the risks.",
+              "bull_top_points": [
+                "Return on assets is solid.",
+                "Current ratio suggests adequate short-term liquidity.",
+                "Free cash flow is positive."
+              ],
+              "bear_top_points": [
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+                "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot."
+              ],
+              "judge_signal": "bullish",
+              "judge_confidence": 0.85,
+              "risk_flags": [
+                "Front-end inversion risk",
+                "Litigious language appears in recent news",
+                "Overbought risk",
+                "Quick liquidity risk"
+              ],
+              "dissenting_points": [
+                "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+                "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
+                "[MacroAnalyst] Industrial production growth is negative in the latest macro snapshot.",
+                "[MacroAnalyst] Retail sales are contracting, suggesting weaker consumer demand."
+              ]
+            },
+            {
+              "week_end_date": "2025-10-26",
+              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
               "bear_thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
               "bull_top_points": [
                 "Return on assets is solid.",
@@ -3407,94 +3447,70 @@
               ],
               "bear_top_points": [
                 "Quick liquidity risk",
-                "Price is below the 20-day moving average.",
-                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
-              ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
-              "risk_flags": [
-                "Front-end inversion risk",
-                "Quick liquidity risk"
-              ],
-              "dissenting_points": [
-                "The BearAgent's thesis highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum, which are valid concerns.",
-                "The TechnicalAnalyst's report also suggests that XOM's price is below the 20-day moving average and has negative return momentum."
-              ]
-            },
-            {
-              "week_end_date": "2025-08-10",
-              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
-              "bear_thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
-              "bull_top_points": [
-                "Return on assets is solid.",
-                "Current ratio suggests adequate short-term liquidity.",
-                "Free cash flow is positive."
-              ],
-              "bear_top_points": [
-                "Price is below the 20-day moving average.",
-                "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-                "MACD is below its signal line, indicating weakening momentum."
-              ],
-              "judge_signal": "bullish",
-              "judge_confidence": 0.85,
-              "risk_flags": [
-                "Front-end inversion risk",
-                "Quick liquidity risk"
-              ],
-              "dissenting_points": [
-                "The BearAgent's thesis highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum, which are valid concerns.",
-                "The TechnicalAnalyst's report also suggests that XOM's price is below the 20-day moving average and has negative return momentum."
-              ]
-            },
-            {
-              "week_end_date": "2025-08-03",
-              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
-              "bear_thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
-              "bull_top_points": [
-                "Return on assets is solid.",
-                "Current ratio suggests adequate short-term liquidity.",
-                "Free cash flow is positive."
-              ],
-              "bear_top_points": [
-                "Price is below the 20-day moving average.",
                 "MACD is below its signal line, indicating weakening momentum.",
-                "The stock has negative 5-day return momentum."
+                "The stock has negative 20-day return momentum."
               ],
-              "judge_signal": "bearish",
-              "judge_confidence": 0.85,
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
               "risk_flags": [
                 "Front-end inversion risk",
-                "Quick liquidity risk"
+                "Litigious language appears in recent news",
+                "Negative return momentum",
+                "Overbought risk",
+                "Quick liquidity risk",
+                "Weakening momentum"
               ],
-              "dissenting_points": [
-                "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
-                "The 10Y-3M term spread is inverted, which is historically a recession warning, but this does not directly impact XOM's financials, and the company still faces quick liquidity risk."
-              ]
+              "dissenting_points": []
+            },
+            {
+              "week_end_date": "2025-10-19",
+              "bull_thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
+              "bear_thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
+              "bull_top_points": [
+                "Return on assets is solid.",
+                "Current ratio suggests adequate short-term liquidity.",
+                "Free cash flow is positive."
+              ],
+              "bear_top_points": [
+                "Quick liquidity risk",
+                "MACD is below its signal line, indicating weakening momentum.",
+                "The stock has negative 20-day return momentum."
+              ],
+              "judge_signal": "neutral",
+              "judge_confidence": 0.5,
+              "risk_flags": [
+                "Consumer sentiment is weak",
+                "Front-end inversion risk",
+                "Negative return momentum",
+                "Overbought risk",
+                "Quick liquidity risk",
+                "Weakening momentum"
+              ],
+              "dissenting_points": []
             }
           ],
           "signal_history": [
             "bullish",
-            "bullish",
-            "bearish"
+            "neutral",
+            "neutral"
           ],
           "recent_bull_theses": [
-            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
-            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
-            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity."
+            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
+            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
+            "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages."
           ],
           "recent_bear_theses": [
-            "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
+            "XOM has a credible downside case because [FundamentalAnalyst] Risk flag: Quick liquidity risk and the bullish evidence does not fully neutralize the risks.",
             "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
             "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum."
           ],
           "recurring_risk_flags": [
             "Front-end inversion risk",
-            "Quick liquidity risk"
+            "Overbought risk",
+            "Quick liquidity risk",
+            "Litigious language appears in recent news"
           ],
-          "recurring_dissenting_points": [
-            "The BearAgent's thesis highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum, which are valid concerns.",
-            "The TechnicalAnalyst's report also suggests that XOM's price is below the 20-day moving average and has negative return momentum."
-          ],
+          "recurring_dissenting_points": [],
           "ticker": "XOM"
         }
       },
@@ -3503,7 +3519,7 @@
         "ticker": "XOM",
         "analysis_date": "2025-08-24",
         "stance": "bullish",
-        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
         "confidence": 0.85,
         "supporting_evidence": [
           "Return on assets is solid.",
@@ -3523,12 +3539,14 @@
           "Litigious language appears in recent news"
         ],
         "rebuttal_points": [
-          "The TechnicalAnalyst's report also suggests that XOM's price is above the 20-day moving average and has positive return momentum, which contradicts the BearAgent's thesis.",
-          "The MacroAnalyst's report highlights that the yield-curve proxy is positive, which is less recessionary than an inverted curve, and VIX is contained, indicating a calmer risk backdrop.",
-          "The NewsTrendsAnalyst's report shows that recent company news flow is majority positive and average LM news sentiment is modestly positive, which supports the bullish thesis."
+          "The risk of quick liquidity is mitigated by the company's positive free cash flow and adequate short-term liquidity.",
+          "The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum.",
+          "The overbought conditions indicated by RSI are not a concern given the positive momentum indicators.",
+          "The inverted term spread is a macroeconomic indicator that does not directly impact the company's financial position."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
           "Overbought risk",
           "Quick liquidity risk"
         ],
@@ -3541,6 +3559,7 @@
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
+            "Overbought risk",
             "Quick liquidity risk"
           ]
         }
@@ -3553,11 +3572,11 @@
         "thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
         "confidence": 0.7,
         "supporting_evidence": [
-          "Quick liquidity risk",
-          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Litigious language appears in recent news"
+          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+          "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "[TechnicalAnalyst] RSI is above 70, suggesting overbought conditions.",
+          "[MacroAnalyst] The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "[NewsTrendsAnalyst] Litigious language appears in recent news"
         ],
         "counter_evidence": [
           "Return on assets is solid.",
@@ -3568,24 +3587,29 @@
           "The stock has positive 5-day return momentum."
         ],
         "rebuttal_points": [
-          "The TechnicalAnalyst's report also suggests that XOM's price is above the 20-day moving average and has positive return momentum, but this is contradicted by the BearAgent's thesis, which highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum.",
-          "The MacroAnalyst's report highlights that the yield-curve proxy is positive, which is less recessionary than an inverted curve, and VIX is contained, indicating a calmer risk backdrop, but this does not directly address XOM's quick liquidity risk and weakening momentum.",
-          "The NewsTrendsAnalyst's report shows that recent company news flow is majority positive, but this is outweighed by the BearAgent's thesis, which highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum."
+          "The risk of quick liquidity is not mitigated by the company's positive free cash flow and adequate short-term liquidity, as the risk flag remains.",
+          "The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum, as the RSI is above 70.",
+          "The overbought conditions indicated by RSI are a concern given the weakening momentum indicators.",
+          "The inverted term spread is a macroeconomic indicator that directly impacts the company's financial position and is a recession warning."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
+          "Negative return momentum",
           "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.6,
-          "evidence_balance": 0.8
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
+            "Overbought risk",
             "Quick liquidity risk"
           ]
         }
@@ -3595,7 +3619,7 @@
         "ticker": "XOM",
         "analysis_date": "2025-08-24",
         "stance": "bullish",
-        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity.",
+        "thesis": "ExxonMobil (XOM) is a solid investment opportunity due to its strong financial position, positive free cash flow, and adequate short-term liquidity, as well as its positive momentum indicators and strong position above its moving averages.",
         "confidence": 0.85,
         "supporting_evidence": [
           "Return on assets is solid.",
@@ -3615,12 +3639,14 @@
           "Litigious language appears in recent news"
         ],
         "rebuttal_points": [
-          "The TechnicalAnalyst's report also suggests that XOM's price is above the 20-day moving average and has positive return momentum, which contradicts the BearAgent's thesis.",
-          "The MacroAnalyst's report highlights that the yield-curve proxy is positive, which is less recessionary than an inverted curve, and VIX is contained, indicating a calmer risk backdrop.",
-          "The NewsTrendsAnalyst's report shows that recent company news flow is majority positive and average LM news sentiment is modestly positive, which supports the bullish thesis."
+          "The risk of quick liquidity is mitigated by the company's positive free cash flow and adequate short-term liquidity.",
+          "The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum.",
+          "The overbought conditions indicated by RSI are not a concern given the positive momentum indicators.",
+          "The inverted term spread is a macroeconomic indicator that does not directly impact the company's financial position."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
           "Overbought risk",
           "Quick liquidity risk"
         ],
@@ -3633,6 +3659,7 @@
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
+            "Overbought risk",
             "Quick liquidity risk"
           ]
         }
@@ -3645,11 +3672,11 @@
         "thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its quick liquidity risk, weakening momentum, and negative return momentum.",
         "confidence": 0.7,
         "supporting_evidence": [
-          "Quick liquidity risk",
-          "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-          "RSI is above 70, suggesting overbought conditions.",
-          "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-          "Litigious language appears in recent news"
+          "[FundamentalAnalyst] Risk flag: Quick liquidity risk",
+          "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+          "[TechnicalAnalyst] RSI is above 70, suggesting overbought conditions.",
+          "[MacroAnalyst] The 10Y-3M term spread is inverted, which is historically a recession warning.",
+          "[NewsTrendsAnalyst] Litigious language appears in recent news"
         ],
         "counter_evidence": [
           "Return on assets is solid.",
@@ -3660,24 +3687,29 @@
           "The stock has positive 5-day return momentum."
         ],
         "rebuttal_points": [
-          "The TechnicalAnalyst's report also suggests that XOM's price is above the 20-day moving average and has positive return momentum, but this is contradicted by the BearAgent's thesis, which highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum.",
-          "The MacroAnalyst's report highlights that the yield-curve proxy is positive, which is less recessionary than an inverted curve, and VIX is contained, indicating a calmer risk backdrop, but this does not directly address XOM's quick liquidity risk and weakening momentum.",
-          "The NewsTrendsAnalyst's report shows that recent company news flow is majority positive, but this is outweighed by the BearAgent's thesis, which highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum."
+          "The risk of quick liquidity is not mitigated by the company's positive free cash flow and adequate short-term liquidity, as the risk flag remains.",
+          "The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum, as the RSI is above 70.",
+          "The overbought conditions indicated by RSI are a concern given the weakening momentum indicators.",
+          "The inverted term spread is a macroeconomic indicator that directly impacts the company's financial position and is a recession warning."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
+          "Negative return momentum",
           "Overbought risk",
-          "Quick liquidity risk"
+          "Quick liquidity risk",
+          "Weakening momentum"
         ],
         "score_breakdown": {
           "llm_case_strength": 0.6,
-          "evidence_balance": 0.8
+          "evidence_balance": 0.5
         },
         "memory_used": {
           "short_term_rounds_seen": 0.0,
           "cross_week_weeks_seen": 3.0,
           "recurring_risks_used": [
             "Front-end inversion risk",
+            "Overbought risk",
             "Quick liquidity risk"
           ]
         }
@@ -3689,18 +3721,20 @@
         "signal": "bullish",
         "confidence": 0.85,
         "position_size": 0.8,
-        "summary": "The BullAgent's thesis is more convincing due to its stronger evidence balance and higher LLM case strength.",
+        "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more effective rebuttal points.",
         "rationale": [
-          "The BullAgent's thesis highlights XOM's strong financial position, positive free cash flow, and adequate short-term liquidity, which are supported by the FundamentalAnalyst's report.",
-          "The BullAgent's rebuttal points effectively address the BearAgent's thesis, highlighting the TechnicalAnalyst's report's positive momentum indicators and the MacroAnalyst's report's less recessionary yield-curve proxy.",
-          "The BullAgent's supporting evidence is more comprehensive, including multiple positive momentum indicators and a solid financial position."
+          "BullAgent's thesis is more comprehensive and well-supported, highlighting both fundamental and technical factors that support a bullish stance.",
+          "BullAgent's rebuttal points effectively address the counter-evidence presented by BearAgent, demonstrating a deeper understanding of the company's financial position and momentum indicators.",
+          "The Bull case is also supported by the analyst reports, particularly the FundamentalAnalyst report, which highlights the company's solid financial position and positive free cash flow."
         ],
         "dissenting_points": [
-          "The BearAgent's thesis highlights XOM's quick liquidity risk, weakening momentum, and negative return momentum, which are valid concerns.",
-          "The TechnicalAnalyst's report also suggests that XOM's price is below the 20-day moving average and has negative return momentum."
+          "[BearAgent] The risk of quick liquidity is not mitigated by the company's positive free cash flow and adequate short-term liquidity, as the risk flag remains.",
+          "[BearAgent] The weak momentum indicated by the 12-day EMA is not supported by the positive 5-day and 20-day return momentum, as the RSI is above 70."
         ],
         "risk_flags": [
           "Front-end inversion risk",
+          "Litigious language appears in recent news",
+          "Overbought risk",
           "Quick liquidity risk"
         ],
         "score_breakdown": {
@@ -3712,8 +3746,8 @@
           "cross_week_weeks_seen": 3.0,
           "recent_signal_history": [
             "bullish",
-            "bullish",
-            "bearish"
+            "neutral",
+            "neutral"
           ]
         }
       },

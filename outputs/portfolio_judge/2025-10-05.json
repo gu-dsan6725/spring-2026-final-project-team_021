@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLY earns the top weight due to its exceptional 37.6% revenue growth, 84% gross margins, positive technicals, and surging search interest — the strongest fundamental growth story in the universe by a wide margin. AAPL gets the second-largest allocation given its comprehensive bullish profile across fundamentals, macro, and technicals, though the RSI at 79.6 warrants some restraint. AMZN receives a smaller allocation as its strong fundamentals are offset by clearly bearish near-term technicals; GOOGL is trimmed due to significant litigation risk. BRK.B and XOM are excluded given negative revenue growth and negative news sentiment respectively.",
+  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
   "ranking": [
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
     "LLY",
     "AAPL",
-    "AMZN",
-    "GOOGL",
-    "BRK.B",
     "XOM"
   ],
   "holdings": {
-    "LLY": {
-      "weight_pct": 38.0,
-      "reason": "Best fundamental growth story with 37.6% revenue growth, 84% gross margins, positive technicals, and surging search interest with manageable risks."
-    },
     "AAPL": {
-      "weight_pct": 28.0,
-      "reason": "Comprehensive bullish profile across fundamentals, macro, and technicals with strong FCF, though overbought RSI at 79.6 limits sizing."
+      "weight_pct": 0.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "AMZN": {
-      "weight_pct": 18.0,
-      "reason": "Strong fundamentals and positive news sentiment support a position, but clearly bearish technicals (price below MA, negative momentum) reduce conviction."
-    },
-    "GOOGL": {
-      "weight_pct": 10.0,
-      "reason": "Strong ROE and cash flows with positive news, but 16 litigious articles and missing fundamental data create meaningful uncertainty."
+      "weight_pct": 25.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "BRK.B": {
-      "weight_pct": 0.0,
-      "reason": "Negative revenue growth (-3.3%) and weakening momentum undermine the bull case relative to higher-conviction alternatives."
+      "weight_pct": 25.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "GOOGL": {
+      "weight_pct": 25.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "LLY": {
+      "weight_pct": 25.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "XOM": {
       "weight_pct": 0.0,
-      "reason": "Majority negative news flow, negative LM sentiment, and retail attention spike suggesting crowded positioning make this the weakest risk/reward in the universe."
+      "reason": "Fallback: confidence-weighted bullish allocation."
     }
   },
-  "total_allocated_pct": 94.0
+  "total_allocated_pct": 100.0
 }
