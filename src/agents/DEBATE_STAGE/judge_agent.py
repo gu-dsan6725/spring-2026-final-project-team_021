@@ -20,6 +20,8 @@ class JudgeAgent:
     """Select the stronger debate case and size the resulting trade."""
 
     agent_name = "JudgeAgent"
+    _MAX_TEXT_FIELD_LEN = 320
+    _MAX_THESIS_LEN = 500
 
     def __init__(self, max_position_size: float = 0.08, neutral_margin: float = 0.75):
         self.max_position_size = max_position_size
@@ -67,11 +69,13 @@ class JudgeAgent:
             "analysis_date": analysis_date,
             "max_position_size": self.max_position_size,
             "neutral_margin": self.neutral_margin,
-            "bull_case": bull,
-            "bear_case": bear,
-            "analyst_reports": reports,
-            "memory_context": memory_context or {},
+            "bull_case": self._llm_case_payload(bull),
+            "bear_case": self._llm_case_payload(bear),
+            "analyst_reports": [self._llm_report_payload(report) for report in reports],
+            "memory_context": self._llm_memory_payload(memory_context),
         }
+        compact_payload = json.dumps(payload, ensure_ascii=False)
+        print(f"[{self.agent_name}] compact LLM payload bytes={len(compact_payload.encode('utf-8'))}")
         raw_output = call_llm(
             messages=[{"role": "user", "content": json.dumps(payload, indent=2, ensure_ascii=False)}],
             system_prompt=JUDGE_SYSTEM_PROMPT,
@@ -368,6 +372,135 @@ class JudgeAgent:
         ]
         analysis_date = max(candidate_dates)
         return ticker, analysis_date
+
+    @classmethod
+    def _clip_text(cls, value: Any, limit: int | None = None) -> str:
+        text = str(value or "").strip()
+        max_len = limit or cls._MAX_TEXT_FIELD_LEN
+        if len(text) <= max_len:
+            return text
+        return f"{text[: max_len - 3].rstrip()}..."
+
+    @classmethod
+    def _clip_list(cls, value: Any, limit: int, item_len: int | None = None) -> list[str]:
+        return [
+            cls._clip_text(item, limit=item_len)
+            for item in cls._as_list(value)[:limit]
+            if cls._clip_text(item, limit=item_len)
+        ]
+
+    @classmethod
+    def _llm_case_payload(cls, case: dict[str, Any]) -> dict[str, Any]:
+        score_breakdown = cls._coerce_score_breakdown(case.get("score_breakdown"))
+        return {
+            "agent_name": str(case.get("agent_name", "")),
+            "ticker": str(case.get("ticker", "")),
+            "analysis_date": str(case.get("analysis_date", "")),
+            "stance": str(case.get("stance", "")),
+            "thesis": cls._clip_text(case.get("thesis"), limit=cls._MAX_THESIS_LEN),
+            "confidence": cls._bounded_confidence(case.get("confidence", 0.5)),
+            "supporting_evidence": cls._clip_list(case.get("supporting_evidence"), limit=5),
+            "counter_evidence": cls._clip_list(case.get("counter_evidence"), limit=4),
+            "rebuttal_points": cls._clip_list(case.get("rebuttal_points"), limit=3),
+            "risk_flags": cls._clip_list(case.get("risk_flags"), limit=6, item_len=120),
+            "score_breakdown": {
+                key: value for key, value in score_breakdown.items() if key in {"argument_score", "aligned_support", "opposing_pressure"}
+            },
+        }
+
+    @classmethod
+    def _llm_report_payload(cls, report: dict[str, Any]) -> dict[str, Any]:
+        score_breakdown = cls._coerce_score_breakdown(report.get("score_breakdown"))
+        compact: dict[str, Any] = {
+            "agent_name": str(report.get("agent_name", "UnknownAnalyst")),
+            "analysis_date": str(report.get("analysis_date", "")),
+        }
+        if report.get("ticker") is not None:
+            compact["ticker"] = str(report.get("ticker", ""))
+        if report.get("signal") is not None:
+            compact["signal"] = str(report.get("signal", ""))
+        if report.get("confidence") is not None:
+            compact["confidence"] = cls._bounded_confidence(report.get("confidence", 0.5))
+
+        text_fields = (
+            "summary",
+            "thesis",
+            "investment_summary",
+            "outlook",
+        )
+        for field in text_fields:
+            if report.get(field):
+                compact[field] = cls._clip_text(report.get(field))
+
+        list_fields = (
+            "bullish_factors",
+            "bearish_factors",
+            "key_drivers",
+            "supporting_evidence",
+            "counter_evidence",
+            "risk_flags",
+        )
+        for field in list_fields:
+            clipped = cls._clip_list(report.get(field), limit=4, item_len=220)
+            if clipped:
+                compact[field] = clipped
+
+        if score_breakdown:
+            compact["score_breakdown"] = dict(list(score_breakdown.items())[:6])
+        return compact
+
+    @classmethod
+    def _llm_memory_payload(cls, memory_context: dict[str, Any] | None) -> dict[str, Any]:
+        short_term = cls._short_term_memory(memory_context)
+        cross_week = cls._cross_week_memory(memory_context)
+        round_history = short_term.get("round_history") or []
+
+        compact_rounds: list[dict[str, Any]] = []
+        for item in round_history[-2:]:
+            if not isinstance(item, dict):
+                continue
+            compact_rounds.append(
+                {
+                    "round": item.get("round"),
+                    "bull_thesis": cls._clip_text(item.get("bull_thesis")),
+                    "bear_thesis": cls._clip_text(item.get("bear_thesis")),
+                    "repeated_bull_points": cls._clip_list(item.get("repeated_bull_points"), limit=2),
+                    "repeated_bear_points": cls._clip_list(item.get("repeated_bear_points"), limit=2),
+                }
+            )
+
+        recent_weeks = []
+        for item in (cross_week.get("recent_weeks") or [])[:3]:
+            if not isinstance(item, dict):
+                continue
+            recent_weeks.append(
+                {
+                    "week_end_date": str(item.get("week_end_date", "")),
+                    "judge_signal": str(item.get("judge_signal", "neutral")),
+                    "judge_confidence": cls._bounded_confidence(item.get("judge_confidence", 0.5)),
+                    "risk_flags": cls._clip_list(item.get("risk_flags"), limit=4, item_len=120),
+                    "dissenting_points": cls._clip_list(item.get("dissenting_points"), limit=3),
+                }
+            )
+
+        return {
+            "short_term_memory": {
+                "round_history": compact_rounds,
+            },
+            "cross_week_memory": {
+                "signal_history": cls._clip_list(cross_week.get("signal_history"), limit=4, item_len=32),
+                "recurring_risk_flags": cls._clip_list(
+                    cross_week.get("recurring_risk_flags"),
+                    limit=4,
+                    item_len=120,
+                ),
+                "recurring_dissenting_points": cls._clip_list(
+                    cross_week.get("recurring_dissenting_points"),
+                    limit=4,
+                ),
+                "recent_weeks": recent_weeks,
+            },
+        }
 
     @staticmethod
     def _coerce_case(case: dict[str, Any] | Any) -> dict[str, Any]:
