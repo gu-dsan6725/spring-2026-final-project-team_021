@@ -10,28 +10,89 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_summary": "For the week ending 2025-08-03, the judge prefers a concentrated long book in AAPL, AMZN, GOOGL while avoiding or underweighting BRK.B, LLY, XOM.",
+  "portfolio_summary": "For the week ending 2025-08-03, the judge prefers a concentrated long book in AMZN, GOOGL while avoiding or underweighting AAPL, BRK.B, LLY, XOM.",
   "allocation_method": "Use each bullish stock's raw judge conviction as its target weight. If combined bullish weights exceed 100%, scale them down proportionally; otherwise leave the remainder as cash. Bearish and neutral names receive 0%.",
   "holdings": [
     {
-      "ticker": "AAPL",
+      "ticker": "AMZN",
       "input_data_date": "2025-08-03",
       "signal": "bullish",
       "confidence": 0.85,
-      "suggested_position_pct": 33.34,
-      "summary": "AAPL's strong profitability, cash flow, and solid long-term outlook outweigh its short-term liquidity concerns and mixed macro conditions.",
+      "suggested_position_pct": 51.52,
+      "summary": "The Bull case presented a more comprehensive and convincing argument, highlighting the company's strong fundamental metrics and positive momentum.",
       "rationale": [
-        "Strong profitability, cash flow, and a solid long-term outlook for AAPL justify a bullish stance.",
-        "Gross margin is strong.",
-        "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong."
+        "The Bull case effectively countered the Bear case's points, highlighting the company's strong fundamental metrics and positive momentum.",
+        "The Fundamental Analyst's view highlighted the company's strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity.",
+        "The Technical Analyst's neutral view highlighted some bearish factors, but the Bull case's points outweighed these concerns."
       ],
       "dissenting_points": [
-        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
-        "The 10Y-3M term spread is inverted, which is historically a recession warning.",
-        "Price is below the 20-day moving average.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
+        "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
+        "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
+      ],
+      "risk_flags": [
+        "Quick liquidity risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-08-01",
+        "technical": "2025-08-03",
+        "macro": "2025-07-31",
+        "news_trends": "2025-08-03"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "input_data_date": "2025-08-03",
+      "signal": "bullish",
+      "confidence": 0.88,
+      "suggested_position_pct": 48.48,
+      "summary": "The Bull case presented a more compelling argument, with strong fundamental and technical indicators outweighing the concerns raised by the Bear case.",
+      "rationale": [
+        "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
+        "Price is above the 20-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
+        "MACD is above its signal line, indicating positive momentum.",
+        "The stock has positive 20-day return momentum."
+      ],
+      "dissenting_points": [
+        "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
+        "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
+      ],
+      "risk_flags": [
+        "Front-end inversion risk",
+        "Litigious language appears in recent news"
+      ],
+      "source_report_dates": {
+        "fundamental": "2025-07-24",
+        "technical": "2025-08-03",
+        "macro": "2025-07-31",
+        "news_trends": "2025-08-03"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.92,
+        "llm_conviction": 0.84,
+        "evidence_balance": 0.84
+      }
+    },
+    {
+      "ticker": "AAPL",
+      "input_data_date": "2025-08-03",
+      "signal": "bearish",
+      "confidence": 0.85,
+      "suggested_position_pct": 0.0,
+      "summary": "Bearish case presented stronger evidence and more convincing arguments.",
+      "rationale": [
+        "Bearish case presented more evidence of short-term liquidity concerns and mixed macro conditions.",
+        "Bearish case had a stronger thesis and more convincing rebuttal points.",
+        "Bullish case relied heavily on AAPL's strong profitability and cash flow, which were not enough to outweigh the bearish factors."
+      ],
+      "dissenting_points": [
+        "While AAPL's profitability and cash flow are strong, they do not outweigh the significant short-term liquidity concerns and mixed macro conditions.",
+        "The inverted 10Y-3M term spread is a recession warning that cannot be ignored, and it outweighs AAPL's strong profitability and cash flow.",
+        "The price below the 20-day moving average and weak momentum indicators suggest that the market is already pricing in a bearish scenario, making a bullish stance less likely."
       ],
       "risk_flags": [
         "Front-end inversion risk",
@@ -45,84 +106,21 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.75,
-        "evidence_balance": 0.9
-      }
-    },
-    {
-      "ticker": "AMZN",
-      "input_data_date": "2025-08-03",
-      "signal": "bullish",
-      "confidence": 0.85,
-      "suggested_position_pct": 33.33,
-      "summary": "AMZN is poised for continued growth driven by strong fundamental metrics and positive momentum.",
-      "rationale": [
-        "The Bull case presented strong fundamental metrics, including positive revenue growth, high gross margin, and solid return on equity.",
-        "The Bull case effectively rebutted the Bear case's points, highlighting the company's strong fundamental metrics and positive momentum.",
-        "The Technical Analyst's neutral view was outweighed by the Bull case's strong evidence and effective rebuttal of the Bear case's points."
-      ],
-      "dissenting_points": [
-        "The Bear case highlighted the quick liquidity risk and weakening momentum, which may offset the company's strong fundamental metrics.",
-        "The Bear case effectively countered the Bull case's points, highlighting the company's risk factors and weakening momentum."
-      ],
-      "risk_flags": [
-        "Front-end inversion risk",
-        "Litigious language appears in recent news",
-        "Quick liquidity risk"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-08-01",
-        "technical": "2025-08-03",
-        "macro": "2025-07-31",
-        "news_trends": "2025-08-03"
-      },
-      "score_breakdown": {
-        "llm_case_strength": 0.9,
-        "llm_conviction": 0.8,
-        "evidence_balance": 0.85
-      }
-    },
-    {
-      "ticker": "GOOGL",
-      "input_data_date": "2025-08-03",
-      "signal": "bullish",
-      "confidence": 0.85,
-      "suggested_position_pct": 33.33,
-      "summary": "The Bull case presented by BullAgent is more convincing than the Bear case presented by BearAgent, with a stronger thesis and more compelling supporting evidence.",
-      "rationale": [
-        "BullAgent's thesis is more comprehensive and well-supported, highlighting both fundamental and technical indicators that suggest a positive outlook for GOOGL.",
-        "The Bull case presents more convincing evidence, including strong return on equity, solid return on assets, and adequate short-term liquidity, as well as positive technical indicators such as a price above the 20-day moving average and a 12-day EMA above the 26-day EMA.",
-        "The Bear case, on the other hand, relies heavily on short-term negative momentum and a decline in Google Trends search interest, which may not be indicative of a longer-term trend."
-      ],
-      "dissenting_points": [
-        "The Bear case raises valid concerns about the potential for a short-term correction, and the inverted 10Y-3M term spread and decline in Google Trends search interest do suggest some caution.",
-        "However, these concerns are not enough to outweigh the more compelling evidence presented by the Bull case."
-      ],
-      "risk_flags": [
-        "Front-end inversion risk"
-      ],
-      "source_report_dates": {
-        "fundamental": "2025-07-24",
-        "technical": "2025-08-03",
-        "macro": "2025-07-31",
-        "news_trends": "2025-08-03"
-      },
-      "score_breakdown": {
-        "llm_margin": 0.9,
-        "llm_conviction": 0.8
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "BRK.B",
       "input_data_date": "2025-08-03",
       "signal": "bearish",
-      "confidence": 0.75,
+      "confidence": 0.85,
       "suggested_position_pct": 0.0,
-      "summary": "The bear case presented by BearAgent is more convincing due to its stronger evidence balance and more compelling rebuttal points.",
+      "summary": "The bearish case presented by BearAgent is more convincing due to its stronger evidence balance and higher confidence level.",
       "rationale": [
         "BearAgent's thesis is more comprehensive, covering negative revenue growth, weak technical indicators, and cautious macro conditions.",
-        "BearAgent's supporting evidence is more robust, including multiple bearish technical indicators and a recession warning from the 10Y-3M term spread.",
-        "BearAgent's rebuttal points effectively address the counter-evidence presented by BullAgent, highlighting the short-term nature of the bearish technical indicators and the company's strong financial position."
+        "BearAgent's supporting evidence is more robust, including multiple bearish technical indicators and recent company news flow being majority negative.",
+        "BearAgent's rebuttal points effectively address the counter-evidence presented by BullAgent, highlighting the company's negative revenue growth and cautious macro conditions as more significant concerns."
       ],
       "dissenting_points": [
         "While BullAgent's free cash flow and operating cash flow are positives, they do not necessarily offset the negative revenue growth and weak technical indicators.",
@@ -140,21 +138,21 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_margin": 0.2,
-        "llm_conviction": 0.5
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
       }
     },
     {
       "ticker": "LLY",
       "input_data_date": "2025-08-03",
       "signal": "bearish",
-      "confidence": 0.65,
+      "confidence": 0.85,
       "suggested_position_pct": 0.0,
-      "summary": "The bear case presented by BearAgent and supported by TechnicalAnalyst's bearish technical indicators, as well as NewsTrendsAnalyst's cautious news trends, outweighs the bull case presented by BullAgent.",
+      "summary": "The bear case presented by BearAgent is more convincing due to its stronger evidence balance and higher confidence.",
       "rationale": [
-        "Bearish technical indicators, including being below its 20-day moving average, weak momentum, and negative return momentum over both 5 and 20 days.",
-        "Recent news trends lean cautious, with more bearish than bullish evidence.",
-        "Elevated leverage and negative free cash flow are concerns that outweigh the company's strong profitability and revenue growth."
+        "BearAgent's thesis is more comprehensive, addressing both fundamental and technical factors.",
+        "BearAgent's supporting evidence is more robust, including multiple bearish technical indicators and negative news trends.",
+        "BearAgent's rebuttal points effectively address the bull case's concerns, highlighting the importance of elevated leverage and negative free cash flow."
       ],
       "dissenting_points": [
         "While the company's strong profitability and revenue growth are positives, they do not outweigh the concerns of elevated leverage and negative free cash flow.",
@@ -171,8 +169,8 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_margin": 0.55,
-        "llm_conviction": 0.7
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
       }
     },
     {
@@ -183,9 +181,9 @@
       "suggested_position_pct": 0.0,
       "summary": "The bear case presented by BearAgent is more convincing due to its stronger evidence balance and higher LLM case strength.",
       "rationale": [
-        "The bear case presented by BearAgent has a stronger evidence balance, with more supporting evidence and fewer counter-evidence points.",
-        "BearAgent's LLM case strength is higher, indicating a more convincing argument.",
-        "The bearish factors presented by TechnicalAnalyst, such as the stock being below its 20-day moving average and weakening momentum, outweigh the single bullish factor of the 12-day EMA being above the 26-day EMA."
+        "BearAgent's thesis is more comprehensive, covering quick liquidity risk, weakening momentum, and negative return momentum.",
+        "BearAgent's supporting evidence is more robust, including multiple bearish factors such as price below 20-day moving average, MACD below signal line, and negative return momentum.",
+        "BearAgent's rebuttal points are more effective, highlighting the company's quick liquidity risk despite the 10Y-3M term spread inversion."
       ],
       "dissenting_points": [
         "The 12-day EMA is above the 26-day EMA, supporting positive momentum.",
@@ -208,11 +206,11 @@
     }
   ],
   "bullish_tickers": [
-    "AAPL",
     "AMZN",
     "GOOGL"
   ],
   "bearish_tickers": [
+    "AAPL",
     "BRK.B",
     "LLY",
     "XOM"
