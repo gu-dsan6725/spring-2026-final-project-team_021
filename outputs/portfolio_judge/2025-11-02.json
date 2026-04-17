@@ -9,39 +9,39 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLY stands out as the highest-conviction pick with the strongest fundamental profile (85% revenue growth, clean balance sheet, no bearish fundamental factors, bullish technicals with RSI not overbought), and the bear case relies entirely on generic macro headwinds that don't directly affect a pharma company. AMZN earns second place with exceptional revenue growth (26%), strong technicals including a massive volume surge, and a weak bear case. GOOGL and AAPL are both solid but carry overbought RSI risk (84 and 80 respectively), reducing near-term conviction. XOM has a thinner fundamental profile with missing key metrics and energy-sector macro sensitivity. BRK.B is excluded as the judge ruled bearish.",
+  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
   "ranking": [
-    "LLY",
+    "AAPL",
     "AMZN",
     "GOOGL",
-    "AAPL",
+    "LLY",
     "XOM",
     "BRK.B"
   ],
   "holdings": {
-    "LLY": {
-      "weight_pct": 35.0,
-      "reason": "Strongest all-around bull case: 85% revenue growth, clean fundamentals with no bearish factors, bullish technicals without overbought conditions, and a weak bear case relying only on irrelevant macro headwinds."
+    "AAPL": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "AMZN": {
-      "weight_pct": 25.0,
-      "reason": "Exceptional 26% revenue growth, strong margins, and the most impressive technical setup with 3x volume surge and strong momentum, with a bear case that fails to overcome the fundamental strength."
-    },
-    "GOOGL": {
-      "weight_pct": 18.0,
-      "reason": "Strong ROE, clean balance sheet, positive cash flows, and supportive news trends, but RSI at 84.7 is the highest overbought reading in the universe, warranting a smaller position."
-    },
-    "AAPL": {
-      "weight_pct": 12.0,
-      "reason": "Solid fundamentals and positive momentum but RSI at 80.5 signals overbought conditions and the liquidity ratio below 1.0 adds a modest concern, justifying a smaller allocation than GOOGL."
-    },
-    "XOM": {
-      "weight_pct": 10.0,
-      "reason": "Bullish judge signal with positive technicals and cash flows, but thin fundamental data (missing revenue growth, margins) and energy-sector macro sensitivity limit conviction relative to peers."
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "BRK.B": {
       "weight_pct": 0.0,
-      "reason": "Judge ruled bearish with negative revenue growth, multiple bearish technical signals (price below all moving averages, negative momentum), and the bear case clearly outargued the bull case."
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "LLY": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "XOM": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     }
   },
   "total_allocated_pct": 100.0

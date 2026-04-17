@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "GOOGL stands out as the top pick with the strongest combination of bullish signals: majority-positive news flow, 56% surge in search interest, strong fundamentals with minimal debt, and clean technical momentum — with the bear case relying on a trivially low D/E ratio mischaracterized as high. LLY earns second place due to exceptional revenue growth (37.6%), best-in-class margins, and a clear bull-over-bear advantage, despite leverage risk. AAPL and AMZN share similar judge confidence but AAPL's stronger technical momentum and superior margins edge it ahead; AMZN's weaker free cash flow conversion and balanced news sentiment reduce conviction. BRK.B is penalized for negative revenue growth and overbought RSI. XOM is the weakest hold given bearish news trends, negative 5-day momentum, price below 20-day MA, and the most negative news sentiment score in the universe.",
+  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
   "ranking": [
-    "GOOGL",
-    "LLY",
     "AAPL",
     "AMZN",
     "BRK.B",
+    "GOOGL",
+    "LLY",
     "XOM"
   ],
   "holdings": {
-    "GOOGL": {
-      "weight_pct": 32.0,
-      "reason": "Strongest multi-factor bull case: positive news sentiment, 56% search interest surge, clean balance sheet, strong technicals, and bear case built on a misidentified risk."
-    },
-    "LLY": {
-      "weight_pct": 25.0,
-      "reason": "Best revenue growth (37.6%) and margins in the universe with a clear bull-over-bear advantage; leverage risk is manageable given strong cash generation."
-    },
     "AAPL": {
-      "weight_pct": 18.0,
-      "reason": "High judge confidence (0.85), strong technicals with RSI not yet overbought, and best-in-class profitability metrics offset the minor liquidity concern."
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "AMZN": {
-      "weight_pct": 13.0,
-      "reason": "Solid fundamentals and clean technicals but weaker free cash flow conversion and balanced/negative news sentiment reduce conviction relative to AAPL."
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "BRK.B": {
-      "weight_pct": 7.0,
-      "reason": "Negative revenue growth and overbought RSI (74.3) limit upside; modest weight reflects defensive quality but near-term mean-reversion risk."
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "GOOGL": {
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "LLY": {
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "XOM": {
-      "weight_pct": 5.0,
-      "reason": "Weakest case in the universe: bearish news trends, price below 20-day MA, negative 5-day momentum, and the most negative news sentiment score warrant minimal exposure."
+      "weight_pct": 16.67,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     }
   },
-  "total_allocated_pct": 100.0
+  "total_allocated_pct": 100.02
 }

@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLY stands apart as the only ticker with both bullish technicals (price above 20-day MA, MACD positive, strong 20-day momentum) and exceptional fundamentals (37.6% revenue growth, 84% gross margin), making it the highest-conviction holding. GOOGL offers a compelling oversold rebound setup (RSI ~26) with clean balance sheet and minimal debt, while AAPL provides steady fundamental quality with longer-term technical support. AMZN and XOM are excluded due to comprehensive technical deterioration across all momentum indicators, and BRK.B receives minimal weight given negative revenue growth and weak technicals.",
+  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
   "ranking": [
-    "LLY",
-    "GOOGL",
     "AAPL",
     "BRK.B",
-    "AMZN",
-    "XOM"
+    "GOOGL",
+    "LLY",
+    "XOM",
+    "AMZN"
   ],
   "holdings": {
-    "LLY": {
-      "weight_pct": 40.0,
-      "reason": "Only ticker with simultaneously bullish technicals and exceptional fundamentals — 37.6% revenue growth, 84% gross margin, price above 20-day MA with positive MACD and strong 20-day momentum."
-    },
-    "GOOGL": {
-      "weight_pct": 28.0,
-      "reason": "Deeply oversold (RSI 25.7) with positive EMA/MA structure suggesting rebound, clean balance sheet (D/E 0.098), strong ROE 31%, and bear case relies on unsupported claims about declining ROE."
-    },
     "AAPL": {
-      "weight_pct": 18.0,
-      "reason": "Solid fundamental quality with 9.6% revenue growth, strong margins, and positive FCF; longer-term technical structure intact despite short-term pullback below 20-day MA."
-    },
-    "BRK.B": {
-      "weight_pct": 7.0,
-      "reason": "Positive news sentiment and solid operating margins provide some support, but negative revenue growth and comprehensive technical weakness limit conviction."
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "AMZN": {
       "weight_pct": 0.0,
-      "reason": "All technical indicators bearish with 0.9 confidence — price below both 20-day and 50-day MA, negative EMA crossover, and negative momentum on both 5-day and 20-day timeframes."
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "BRK.B": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
+    },
+    "LLY": {
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     },
     "XOM": {
-      "weight_pct": 0.0,
-      "reason": "Comprehensive technical deterioration mirrors AMZN, with thinner fundamental support and retail attention spike suggesting crowded positioning risk."
+      "weight_pct": 20.0,
+      "reason": "Fallback: confidence-weighted bullish allocation."
     }
   },
-  "total_allocated_pct": 93.0
+  "total_allocated_pct": 100.0
 }
