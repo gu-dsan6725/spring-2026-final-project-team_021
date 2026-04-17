@@ -16,7 +16,7 @@
       "ticker": "AAPL",
       "input_data_date": "2025-08-03",
       "supports_stance": true,
-      "confidence": 0.7,
+      "confidence": 0.85,
       "thesis": "AAPL's short-term liquidity concerns and mixed macro conditions outweigh its strong profitability and cash flow, justifying a bearish stance.",
       "reasons": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
@@ -43,7 +43,7 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.6,
+        "llm_case_strength": 0.7,
         "evidence_balance": 0.8
       }
     },
@@ -64,7 +64,7 @@
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Return on equity is strong.",
-        "Return on assets is solid."
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
       ],
       "risk_flags": [
         "Front-end inversion risk",
@@ -78,20 +78,22 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.6,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.6
       }
     },
     {
       "ticker": "BRK.B",
       "input_data_date": "2025-08-03",
       "supports_stance": true,
-      "confidence": 0.75,
+      "confidence": 0.85,
       "thesis": "We believe that BRK.B is a sell opportunity due to its negative revenue growth, weak technical indicators, and cautious macro conditions.",
       "reasons": [
         "Revenue growth is negative year-over-year.",
         "The stock has multiple bearish technical indicators, including being below its 20-day moving average, weak momentum, and negative return momentum.",
-        "Macro conditions are mixed, without a strong directional edge, and the 10Y-3M term spread is inverted, which is historically a recession warning."
+        "Macro conditions are mixed, without a strong directional edge, and the 10Y-3M term spread is inverted, which is historically a recession warning.",
+        "Recent company news flow is majority negative.",
+        "Litigious language appears in recent news"
       ],
       "counterpoints": [
         "Free cash flow is positive.",
@@ -124,7 +126,8 @@
         "The stock has negative 5-day return momentum.",
         "Google Trends search interest is down 17% week-over-week.",
         "Litigious language appears in recent news",
-        "The 10Y-3M term spread is inverted, which is historically a recession warning."
+        "The inverted 10Y-3M term spread suggests a recession warning.",
+        "The 10-year treasury yield is higher than the 3-month treasury yield, indicating a front-end inversion risk."
       ],
       "counterpoints": [
         "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive fundamental view for GOOGL.",
@@ -143,15 +146,15 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.6,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.6
       }
     },
     {
       "ticker": "LLY",
       "input_data_date": "2025-08-03",
       "supports_stance": true,
-      "confidence": 0.65,
+      "confidence": 0.85,
       "thesis": "Eli Lilly and Company (LLY) is poised for a decline due to its elevated leverage, negative free cash flow, and bearish technical indicators, despite its strong profitability and revenue growth.",
       "reasons": [
         "Debt-to-equity appears elevated relative to a moderate leverage threshold.",
@@ -177,8 +180,8 @@
         "news_trends": "2025-08-03"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.5
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
       }
     },
     {
