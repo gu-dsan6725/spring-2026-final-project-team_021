@@ -383,11 +383,19 @@ def _extract_memory_snapshot(
     }
 
 
-def _summarize_cross_week_memory(memory_data: dict, lookback: int) -> dict:
+def _summarize_cross_week_memory(
+    memory_data: dict,
+    lookback: int,
+    cutoff_date: str | None = None,
+) -> dict:
     recent_weeks = [
         item
         for item in _as_list(memory_data.get("recent_weeks"))
         if isinstance(item, dict)
+        and (
+            cutoff_date is None
+            or str(item.get("week_end_date", "")) < cutoff_date
+        )
     ]
     recent_weeks = sorted(
         recent_weeks,
@@ -427,6 +435,7 @@ def _load_cross_week_memory(
     ticker: str,
     output_dir: str,
     lookback: int = DEFAULT_MEMORY_LOOKBACK_WEEKS,
+    cutoff_date: str | None = None,
 ) -> dict:
     path = _memory_path(output_dir=output_dir, ticker=ticker)
     if not path.exists():
@@ -441,7 +450,11 @@ def _load_cross_week_memory(
         }
 
     memory_data = _load_json(path)
-    summary = _summarize_cross_week_memory(memory_data=memory_data, lookback=lookback)
+    summary = _summarize_cross_week_memory(
+        memory_data=memory_data,
+        lookback=lookback,
+        cutoff_date=cutoff_date,
+    )
     summary["ticker"] = ticker
     return summary
 
@@ -695,6 +708,7 @@ def run_for_week(
             ticker=ticker,
             output_dir=output_dir,
             lookback=memory_lookback,
+            cutoff_date=week_end_date,
         )
 
         bull_case, bear_case, judge_decision, ticker_transcript = _run_debate_for_ticker(
