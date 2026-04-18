@@ -25,8 +25,8 @@ Instead of letting agents generate free-form responses, prompts enforce:
 
 Used by analyst agents to convert structured features into signals.
 
-- Technical Analyst → :contentReference[oaicite:0]{index=0}  
-- Fundamental Analyst → :contentReference[oaicite:1]{index=1}  
+- Technical Analyst → `technical_prompt.py`
+- Fundamental Analyst → `fundamental_prompt.py`
 
 Key design:
 - input = rule-extracted factors + metrics  
@@ -43,7 +43,7 @@ Constraints:
 
 Used in the multi-agent debate stage.
 
-File: `debate_stage_prompt.py` :contentReference[oaicite:2]{index=2}  
+File: `debate_stage_prompt.py`
 
 Includes:
 - Bull Agent  
@@ -65,7 +65,7 @@ Key idea:
 
 ### (3) Portfolio Prompt
 
-File: `portfolio_judge_prompt.py` :contentReference[oaicite:3]{index=3}  
+File: `portfolio_judge_prompt.py`
 
 Used by the Portfolio Judge.
 
@@ -83,7 +83,7 @@ Key design:
 
 ### (4) Risk Prompt
 
-File: `risk_management_prompt.py` :contentReference[oaicite:4]{index=4}  
+File: `risk_management_prompt.py`
 
 Used to generate human-readable risk commentary.
 
@@ -171,7 +171,7 @@ With structured prompts:
 
 Data → Features → Prompts → Agents → Debate → Portfolio → Risk
 
-```id="8k2mzn"
+```
 
 - features provide structured inputs  
 - prompts define reasoning rules  
