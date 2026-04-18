@@ -26,7 +26,7 @@ Provide simplified access to structured features for agents.
 
 #### Technical Tools
 
-File: `technical_tools.py` :contentReference[oaicite:0]{index=0}  
+File: `technical_tools.py`
 
 - wraps technical feature computation  
 - returns a clean snapshot with key indicators  
@@ -46,7 +46,7 @@ Used by:
 
 #### Fundamental Tools
 
-File: `fundamental_tools.py` :contentReference[oaicite:1]{index=1}  
+File: `fundamental_tools.py`
 
 - wraps fundamental feature extraction  
 - returns key financial metrics  
@@ -65,7 +65,7 @@ Used by:
 
 ### (2) LLM Utilities
 
-File: `llm_client.py` :contentReference[oaicite:2]{index=2}  
+File: `llm_client.py`
 
 Provides a unified interface for calling language models.
 
@@ -139,7 +139,7 @@ With tools:
 
 Data → Features → Tools → Agents → Pipeline
 
-```id="2k1nzo"
+```
 
 - features build structured data  
 - tools expose that data  

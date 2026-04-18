@@ -25,7 +25,7 @@ The system follows a two-stage architecture:
 
 Data Collection → Analyst Agents → Debate (Bull vs Bear) → Judge → Final Signal
 
-````
+```
 
 - Data collection provides structured inputs
 - Analyst agents generate independent signals
@@ -40,7 +40,7 @@ All data is collected through a unified pipeline:
 
 ```bash
 python src/data_collection/run_pipeline.py
-````
+```
 
 ### Data Sources
 
@@ -189,9 +189,12 @@ This stage helps reduce bias from any single agent and improves robustness.
 ```
 src/
 ├── data_collection/     # Data pipeline (price, fundamentals, sentiment, etc.)
-├── pipeline/            # End-to-end execution (analyst + debate stages)
-├── agents/              # Analyst, Bull, Bear, Judge agents
+├── features/            # Feature builders: raw data → structured snapshots
+├── agents/              # Analyst, Bull, Bear, Judge, Portfolio, Risk agents
 ├── schemas/             # Data formats shared across agents
+├── prompts/             # LLM system prompts for all agents
+├── tools/               # Shared utilities (LLM client, feature access)
+├── pipeline/            # End-to-end execution scripts
 ```
 
 ---
@@ -236,7 +239,7 @@ python src/data_collection/run_pipeline.py
 
 ## Future Work
 
-* Integrate LLM-based reasoning directly into analyst agents
-* Improve evaluation framework and backtesting
-* Add more data sources (options, alternative data, etc.)
-* Enhance risk management and portfolio allocation
+* Expand stock universe beyond the current six large-cap tickers
+* Add more data sources (options flow, alternative data, etc.)
+* Introduce more realistic backtest assumptions (transaction costs, slippage)
+* Evaluate debate quality more systematically (argument consistency, contribution to final decisions)

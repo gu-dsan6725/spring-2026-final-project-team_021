@@ -26,7 +26,7 @@ Each script represents one stage in the full system.
 
 Data → Features → Analysts → Debate → Portfolio → Risk → Backtest
 
-````
+```
 
 - features: build structured inputs  
 - analysts: generate signals  
@@ -41,13 +41,13 @@ Data → Features → Analysts → Debate → Portfolio → Risk → Backtest
 
 ### (1) Run Analysts
 
-File: `run_analysts.py` :contentReference[oaicite:0]{index=0}
+File: `run_analysts.py`
 
 Runs technical and fundamental analysts for selected tickers.
 
 ```bash
 uv run python -m src.pipeline.run_analysts --ticker AAPL
-````
+```
 
 Output:
 

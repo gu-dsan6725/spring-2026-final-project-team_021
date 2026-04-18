@@ -23,7 +23,7 @@ This ensures:
 
 ### (1) Technical Features
 
-File: `technical_features.py` :contentReference[oaicite:0]{index=0}
+File: `technical_features.py`
 
 Builds price-based indicators from OHLCV data.
 
@@ -150,9 +150,9 @@ With this design:
 
 ## 5. How It Fits In The Pipeline
 
-````
+```
 Raw Data → Feature Builders → Analyst Agents → Debate → Portfolio → Risk
-``` id="4r2nxy"
+```
 
 - data_collection → raw data  
 - features → structured snapshots  

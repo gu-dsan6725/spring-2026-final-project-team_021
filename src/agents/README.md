@@ -16,17 +16,10 @@ This directory includes three types of agents:
 
 Generate independent signals from different perspectives.
 
-- `TechnicalAnalyst` :contentReference[oaicite:0]{index=0}  
-  Uses price-based indicators (trend, momentum, volatility)
-
-- `FundamentalAnalyst` :contentReference[oaicite:1]{index=1}  
-  Uses financial statements and ratios (growth, margins, leverage)
-
-- `MacroAnalyst` :contentReference[oaicite:2]{index=2}  
-  Evaluates macroeconomic conditions (rates, inflation, labor market)
-
-- `NewsTrendsAnalyst` :contentReference[oaicite:3]{index=3}  
-  Uses company news and Google Trends sentiment
+- `TechnicalAnalyst` — uses price-based indicators (trend, momentum, volatility)
+- `FundamentalAnalyst` — uses financial statements and ratios (growth, margins, leverage)
+- `MacroAnalyst` — evaluates macroeconomic conditions (rates, inflation, labor market)
+- `NewsTrendsAnalyst` — uses company news and Google Trends sentiment
 
 All analyst agents output a standardized schema:
 
@@ -39,7 +32,7 @@ All analyst agents output a standardized schema:
   "bearish_factors": [],
   "risk_flags": []
 }
-````
+```
 
 ---
 
@@ -75,18 +68,17 @@ All agents follow a consistent pattern:
 
 ### Hybrid (Rules + LLM)
 
-* Deterministic logic extracts structured evidence
-* LLM synthesizes final outputs (signal, summary, confidence)
+The `TechnicalAnalyst` and `FundamentalAnalyst` follow a hybrid pattern:
 
-Example (Technical Analyst):
+* deterministic rules extract bullish/bearish factors and risk flags
+* an LLM synthesizes the final signal, confidence, and summary
 
-* rules → extract indicators (MA, RSI, MACD)
-* LLM → generate final decision 
+The `MacroAnalyst` and `NewsTrendsAnalyst` are fully rule-based: they score indicators deterministically and derive the final signal without any LLM call.
 
-This provides:
+This design provides:
 
 * interpretability from rules
-* flexibility from LLM reasoning
+* flexibility from LLM reasoning where it adds value
 * robustness via fallback behavior
 
 ---
