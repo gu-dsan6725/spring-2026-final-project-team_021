@@ -219,6 +219,38 @@ Run full data pipeline:
 python src/data_collection/run_pipeline.py
 ```
 
+Run end-to-end sample demo:
+
+```bash
+uv run python -m src.demo.run_project_demo --ticker AAPL
+```
+
+For a deterministic local-only showcase with no API calls:
+
+```bash
+uv run python -m src.demo.run_project_demo --ticker AAPL --offline
+```
+
+This demo uses the bundled sample datasets under `data/sample/` and prints:
+- four analyst outputs
+- bull and bear debate theses
+- final judge signal and suggested position size
+
+If LLM credentials are configured, the technical and fundamental analysts use them.
+If not, the demo automatically falls back to local rule-based summaries so the
+showcase still runs offline.
+
+Build a searchable demo webpage from historical outputs:
+
+```bash
+python -m src.demo.build_demo_site
+```
+
+This generates `outputs/demo_site/index.html`, a self-contained page that lets
+you filter historical decisions by ticker, week, signal, and keyword while
+viewing bull/bear theses, judge rationale, risk flags, position sizing, and the
+embedded backtest chart from `outputs/backtest/chart.html`.
+
 ---
 
 ## Key Design Choices
