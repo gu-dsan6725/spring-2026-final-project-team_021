@@ -251,6 +251,21 @@ you filter historical decisions by ticker, week, signal, and keyword while
 viewing bull/bear theses, judge rationale, risk flags, position sizing, and the
 embedded backtest chart from `outputs/backtest/chart.html`.
 
+Build a GitHub Pages-ready site under `docs/`:
+
+```bash
+python -m src.demo.build_demo_site --publish-dir docs
+```
+
+This generates:
+- `docs/index.html`
+- `docs/backtest/chart.html`
+- `docs/.nojekyll`
+
+Then enable GitHub Pages in the repository settings using:
+- Branch: `main`
+- Folder: `/docs`
+
 ---
 
 ## Key Design Choices
