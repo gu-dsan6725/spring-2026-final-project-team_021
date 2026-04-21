@@ -15,16 +15,19 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 from pathlib import Path
 from statistics import mean
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OUTPUT_PATH = PROJECT_ROOT / "outputs" / "demo_site" / "index.html"
+DEFAULT_PAGES_DIR = PROJECT_ROOT / "docs"
 JUDGE_DIR = PROJECT_ROOT / "outputs" / "debate_stage" / "judge"
 BULL_DIR = PROJECT_ROOT / "outputs" / "debate_stage" / "bull"
 BEAR_DIR = PROJECT_ROOT / "outputs" / "debate_stage" / "bear"
 BACKTEST_RESULTS_PATH = PROJECT_ROOT / "outputs" / "backtest" / "results.json"
+BACKTEST_CHART_SOURCE_PATH = PROJECT_ROOT / "outputs" / "backtest" / "chart.html"
 BACKTEST_CHART_RELATIVE_PATH = "../backtest/chart.html"
 
 
@@ -160,6 +163,35 @@ def _build_site_payload() -> dict:
         "weekly_rollups": weekly_rollups,
         "backtest": _build_backtest_summary(),
     }
+
+
+def _resolve_output_path(output_arg: str | None, publish_dir_arg: str | None) -> Path:
+    if publish_dir_arg:
+        publish_dir = Path(publish_dir_arg)
+        if not publish_dir.is_absolute():
+            publish_dir = PROJECT_ROOT / publish_dir
+        return publish_dir / "index.html"
+
+    if output_arg is None:
+        return DEFAULT_OUTPUT_PATH
+
+    output_path = Path(output_arg)
+    if not output_path.is_absolute():
+        output_path = PROJECT_ROOT / output_path
+    return output_path
+
+
+def _publish_backtest_chart(output_path: Path) -> str:
+    target_dir = output_path.parent / "backtest"
+    target_dir.mkdir(parents=True, exist_ok=True)
+    target_chart_path = target_dir / "chart.html"
+    shutil.copyfile(BACKTEST_CHART_SOURCE_PATH, target_chart_path)
+    return "./backtest/chart.html"
+
+
+def _write_nojekyll(output_path: Path) -> None:
+    nojekyll_path = output_path.parent / ".nojekyll"
+    nojekyll_path.write_text("", encoding="utf-8")
 
 
 def _html_template(site_payload: dict) -> str:
@@ -885,21 +917,28 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=str,
-        default=str(DEFAULT_OUTPUT_PATH),
-        help="Output HTML path",
+        default=None,
+        help="Output HTML path. Ignored when --publish-dir is set.",
+    )
+    parser.add_argument(
+        "--publish-dir",
+        type=str,
+        default=None,
+        help="Directory for GitHub Pages output, e.g. docs",
     )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    output_path = Path(args.output)
-    if not output_path.is_absolute():
-        output_path = PROJECT_ROOT / output_path
-
+    output_path = _resolve_output_path(args.output, args.publish_dir)
     site_payload = _build_site_payload()
+    if args.publish_dir:
+        site_payload["backtest_chart_path"] = _publish_backtest_chart(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     output_path.write_text(_html_template(site_payload), encoding="utf-8")
+    if args.publish_dir:
+        _write_nojekyll(output_path)
     print(f"Demo site written to {output_path}")
 
 
