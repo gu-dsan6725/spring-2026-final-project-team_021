@@ -16,21 +16,24 @@
       "ticker": "AAPL",
       "input_data_date": "2026-03-08",
       "supports_stance": true,
-      "confidence": 0.8,
-      "thesis": "AAPL is a strong buy due to its solid fundamental performance, positive revenue growth, and healthy margins.",
+      "confidence": 0.85,
+      "thesis": "AAPL's strong fundamental metrics, positive macro conditions, and supportive technical indicators outweigh its liquidity concerns and bearish factors, making it a solid long-term investment opportunity.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+        "The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
       ],
       "counterpoints": [
-        "Current ratio is below 1.0, suggesting weaker short-term liquidity."
+        "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Quick liquidity risk"
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-01-30",
@@ -39,8 +42,8 @@
         "news_trends": "2026-03-08"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.9
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -48,7 +51,7 @@
       "input_data_date": "2026-03-08",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "AMZN is a strong buy due to its positive fundamental metrics, positive momentum in its stock price, and a favorable macroeconomic backdrop.",
+      "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and positive technical indicators.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -57,12 +60,13 @@
         "Return on assets is solid."
       ],
       "counterpoints": [
+        "Quick liquidity risk",
+        "Google Trends search interest is down 17% week-over-week.",
         "The 20-day moving average is below the 50-day moving average.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "The stock has negative 20-day return momentum.",
-        "Payroll employment is contracting."
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
       ],
       "risk_flags": [
+        "Oversold volatility risk",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
@@ -81,26 +85,24 @@
       "input_data_date": "2026-03-08",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "BRK.B is a solid long-term investment opportunity due to its strong financials, positive macro conditions, and a potential for long-term growth.",
+      "thesis": "The stock is poised for long-term growth due to its strong operating profitability, healthy net margin, and solid return on equity and assets, supported by positive macro conditions and recent news trends.",
       "reasons": [
         "Free cash flow is positive.",
         "Operating cash flow is positive.",
-        "GDP growth is positive in the latest macro snapshot.",
-        "Industrial production growth is positive in the latest macro snapshot.",
-        "Retail sales are growing, which supports consumer demand."
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
       ],
       "counterpoints": [
         "Revenue growth is negative year-over-year.",
         "Operating margin is thin.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "MACD is below its signal line, indicating weakening momentum."
+        "The stock has multiple bearish factors, including price below the 20-day moving average, weakening momentum, and negative return momentum, outweighing the bullish factors.",
+        "Recent company news flow is majority negative."
       ],
       "risk_flags": [
-        "Bearish momentum indicators",
-        "Negative news trends",
-        "Negative return momentum",
-        "Negative revenue growth",
-        "Thin operating margin"
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2026-03-02",
@@ -117,8 +119,8 @@
       "ticker": "GOOGL",
       "input_data_date": "2026-03-08",
       "supports_stance": true,
-      "confidence": 0.8,
-      "thesis": "GOOGL is a strong buy due to its solid financials and positive growth prospects.",
+      "confidence": 0.85,
+      "thesis": "GOOGL is poised for continued growth due to strong fundamentals, positive macro conditions, and supportive news trends.",
       "reasons": [
         "Return on equity is strong.",
         "Return on assets is solid.",
@@ -133,7 +135,9 @@
         "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
-        "Low relative trading volume"
+        "Debt levels are a concern, but the current ratio suggests adequate short-term liquidity.",
+        "Litigious language appears in recent news",
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-05",
@@ -142,16 +146,16 @@
         "news_trends": "2026-03-08"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "LLY",
       "input_data_date": "2026-03-08",
       "supports_stance": true,
-      "confidence": 0.85,
-      "thesis": "Eli Lilly & Co. is a strong fundamental performer with a solid growth outlook, supported by positive revenue growth, healthy profitability, and adequate liquidity.",
+      "confidence": 0.8,
+      "thesis": "Eli Lilly & Co. exhibits strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity, outweighing the lack of bearish factors and risk flags.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -161,12 +165,15 @@
       ],
       "counterpoints": [
         "The stock is showing bearish signs with multiple indicators pointing to weakening momentum and a price below its moving averages.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
-        "Housing permits are weakening, pointing to softer forward activity."
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum."
       ],
       "risk_flags": [
-        "The company's debt-to-equity ratio is high, which may indicate a higher risk of financial distress."
+        "Litigious language appears in recent news",
+        "Low relative trading volume",
+        "Negative 20-day return momentum",
+        "Weak consumer sentiment"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-12",
@@ -175,31 +182,30 @@
         "news_trends": "2026-03-08"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.9
       }
     },
     {
       "ticker": "XOM",
       "input_data_date": "2026-03-08",
       "supports_stance": true,
-      "confidence": 0.75,
-      "thesis": "ExxonMobil (XOM) is poised for long-term growth due to its stable financials and improving macroeconomic conditions.",
+      "confidence": 0.7,
+      "thesis": "ExxonMobil (XOM) is poised for long-term growth due to its solid financial position, positive momentum indicators, and favorable macro conditions.",
       "reasons": [
-        "XOM has a positive free cash flow and operating cash flow.",
-        "The company's debt-to-equity ratio and profitability metrics are relatively stable.",
-        "Macro conditions are mixed, but the yield-curve proxy is positive, supporting a healthier growth backdrop.",
-        "GDP growth is positive in the latest macro snapshot.",
-        "Industrial production growth is positive in the latest macro snapshot."
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
       ],
       "counterpoints": [
-        "The stock has negative 5-day return momentum.",
         "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
         "Google Trends search interest is down 15% week-over-week."
       ],
       "risk_flags": [
-        "Quick liquidity risk",
-        "Retail attention spike may indicate crowded positioning"
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-18",
@@ -209,7 +215,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "evidence_balance": 0.6
       }
     }
   ]

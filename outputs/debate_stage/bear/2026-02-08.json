@@ -17,7 +17,7 @@
       "input_data_date": "2026-02-08",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "AAPL's strong fundamentals are overshadowed by liquidity risk, overbought conditions, and weakening macro indicators, leading to a bearish outlook.",
+      "thesis": "AAPL's liquidity concerns and technical bearish factors outweigh its strong fundamental metrics and positive macro conditions, making it a high-risk investment opportunity.",
       "reasons": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
         "The 20-day moving average is below the 50-day moving average.",
@@ -29,12 +29,11 @@
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Overbought risk",
-        "Weakening macro indicators"
+        "Overbought risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-01-30",
@@ -51,20 +50,19 @@
       "ticker": "AMZN",
       "input_data_date": "2026-02-08",
       "supports_stance": true,
-      "confidence": 0.65,
-      "thesis": "AMZN is at risk of a significant decline due to quick liquidity issues, weak technical indicators, and mixed macro conditions.",
+      "confidence": 0.6,
+      "thesis": "AMZN is a sell due to its high valuation, quick liquidity risk, and negative technical indicators.",
       "reasons": [
         "Quick liquidity risk",
-        "Price is below the 20-day moving average.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
         "MACD is below its signal line, indicating weakening momentum.",
-        "The stock has negative 5-day return momentum."
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Google Trends search interest is down 21% week-over-week."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Net margin is healthy.",
-        "Return on equity is strong."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "risk_flags": [
         "Oversold volatility risk",
@@ -78,32 +76,29 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.7,
-        "evidence_balance": 0.6
+        "evidence_balance": 0.5
       }
     },
     {
       "ticker": "BRK.B",
       "input_data_date": "2026-02-08",
       "supports_stance": true,
-      "confidence": 0.6,
-      "thesis": "BRK.B is a sell due to its high valuation, weak macroeconomic indicators, and declining search interest.",
+      "confidence": 0.7,
+      "thesis": "The stock is poised for a decline due to its weakening momentum, negative return momentum, and bearish technical factors, outweighing the company's strong operating profitability and positive macro conditions.",
       "reasons": [
-        "The 20-day moving average is below the 50-day moving average.",
-        "Retail sales are contracting, suggesting weaker consumer demand.",
-        "Consumer sentiment is weak.",
-        "Housing permits are weakening, pointing to softer forward activity.",
-        "Google Trends search interest is down 19% week-over-week."
+        "The stock has multiple bearish factors, including price below the 20-day moving average, weakening momentum, and negative return momentum, outweighing the bullish factors.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Litigious language appears in recent news, which could negatively impact the company's reputation and stock price."
       ],
       "counterpoints": [
-        "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong.",
-        "Return on assets is solid."
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
       ],
       "risk_flags": [
-        "Declining search interest",
-        "High valuation",
-        "Weak macroeconomic indicators"
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2025-11-03",
@@ -112,31 +107,32 @@
         "news_trends": "2026-02-08"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.5
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.6
       }
     },
     {
       "ticker": "GOOGL",
       "input_data_date": "2026-02-08",
       "supports_stance": true,
-      "confidence": 0.59,
-      "thesis": "GOOGL has a credible downside case because [TechnicalAnalyst] Price is below the 20-day moving average. and the bullish evidence does not fully neutralize the risks.",
+      "confidence": 0.85,
+      "thesis": "GOOGL's strong fundamentals are overshadowed by bearish technical indicators and risk flags, leading to a bearish outlook.",
       "reasons": [
-        "[TechnicalAnalyst] Price is below the 20-day moving average.",
-        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum.",
-        "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
-        "[TechnicalAnalyst] The stock has negative 20-day return momentum.",
-        "[TechnicalAnalyst] Directional signal is bearish with confidence 0.70."
+        "Price is below the 20-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Google Trends search interest is down 47% week-over-week."
       ],
       "counterpoints": [
-        "[FundamentalAnalyst] Return on equity is strong.",
-        "[FundamentalAnalyst] Return on assets is solid.",
-        "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity.",
-        "[FundamentalAnalyst] Free cash flow is positive."
+        "Return on equity is strong.",
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive."
       ],
       "risk_flags": [
-        "No recent company news available"
+        "Debt levels are a concern, but the current ratio suggests adequate short-term liquidity.",
+        "The stock has negative 20-day return momentum, which is a concern."
       ],
       "source_report_dates": {
         "fundamental": "2026-02-05",
@@ -145,32 +141,34 @@
         "news_trends": "2026-02-08"
       },
       "score_breakdown": {
-        "FundamentalAnalyst": -3.6,
-        "TechnicalAnalyst": 1.47,
-        "MacroAnalyst": -2.73,
-        "NewsTrendsAnalyst": 0.495,
-        "argument_score": -3.765,
-        "aligned_support": 5.078,
-        "opposing_pressure": 9.442
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
       }
     },
     {
       "ticker": "LLY",
       "input_data_date": "2026-02-08",
       "supports_stance": true,
-      "confidence": 0.65,
-      "thesis": "Eli Lilly's weak technical indicators, contracting retail sales, and declining Google Trends search interest outweigh its strong fundamental metrics and positive macro conditions.",
+      "confidence": 0.7,
+      "thesis": "Eli Lilly's bearish technical signals and macro risks outweigh its strong fundamental metrics.",
       "reasons": [
-        "TechnicalAnalyst's report suggests bearish technical indicators, including a bearish MACD and weak momentum.",
-        "MacroAnalyst's report notes that retail sales are contracting, suggesting weaker consumer demand.",
-        "NewsTrendsAnalyst's report notes a 25% week-over-week decline in Google Trends search interest."
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Retail sales are contracting, suggesting weaker consumer demand."
       ],
       "counterpoints": [
-        "FundamentalAnalyst's report highlights Eli Lilly's positive revenue growth, solid profitability, and healthy margins.",
-        "MacroAnalyst's report indicates broadly supportive macro conditions, with a positive yield-curve proxy and a positive 10Y-3M term spread."
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "risk_flags": [
-        "The bearish technical indicators noted by TechnicalAnalyst's report and the decline in Google Trends search interest noted by NewsTrendsAnalyst's report may pose significant risks to the bearish thesis."
+        "Low relative trading volume",
+        "Negative 20-day return momentum",
+        "Weak consumer sentiment",
+        "Weakening housing permits"
       ],
       "source_report_dates": {
         "fundamental": "2025-10-30",
@@ -179,22 +177,22 @@
         "news_trends": "2026-02-08"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.6,
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "XOM",
       "input_data_date": "2026-02-08",
       "supports_stance": true,
-      "confidence": 0.65,
-      "thesis": "ExxonMobil (XOM) is poised for a decline due to its exposure to quick liquidity risk, overbought conditions, and negative news trends.",
+      "confidence": 0.7,
+      "thesis": "ExxonMobil (XOM) is vulnerable to a decline in its stock price due to its exposure to quick liquidity risk, low relative trading volume, and weak macroeconomic conditions.",
       "reasons": [
-        "ExxonMobil (XOM) is exposed to quick liquidity risk.",
-        "RSI is above 70, suggesting overbought conditions.",
-        "Recent company news flow is majority negative.",
-        "Average LM news sentiment is modestly negative.",
-        "Google Trends search interest is down 22% week-over-week."
+        "ExxonMobil's exposure to quick liquidity risk.",
+        "Low relative trading volume.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Consumer sentiment is weak.",
+        "Housing permits are weakening, pointing to softer forward activity."
       ],
       "counterpoints": [
         "Return on assets is solid.",
@@ -203,7 +201,7 @@
         "Price is above the 20-day moving average."
       ],
       "risk_flags": [
-        "Litigious language appears in recent news",
+        "Litigious language in recent news",
         "Overbought risk",
         "Quick liquidity risk"
       ],
@@ -215,7 +213,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.6
+        "evidence_balance": 0.8
       }
     }
   ]

@@ -17,23 +17,23 @@
       "input_data_date": "2026-03-01",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "AAPL is poised for continued growth due to strong fundamental performance, positive momentum, and supportive macro conditions.",
+      "thesis": "AAPL's strong fundamental metrics, positive macro conditions, and supportive technical indicators outweigh its liquidity concerns and bearish factors, making it a solid long-term investment opportunity.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong."
+        "The 20-day moving average is above the 50-day moving average.",
+        "MACD is above its signal line, indicating positive momentum."
       ],
       "counterpoints": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
         "Price is below the 20-day moving average.",
-        "The stock has negative 5-day return momentum.",
-        "Payroll employment is contracting."
+        "The 20-day moving average is below the 50-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum."
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Litigious language appears in recent news"
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-01-30",
@@ -50,14 +50,14 @@
       "ticker": "AMZN",
       "input_data_date": "2026-03-01",
       "supports_stance": true,
-      "confidence": 0.85,
-      "thesis": "AMZN is a strong long-term investment opportunity due to its solid fundamental metrics, positive revenue growth, and supportive news trends.",
+      "confidence": 0.7,
+      "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and positive technical indicators.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Net margin is healthy.",
-        "Return on equity is strong.",
-        "Return on assets is solid."
+        "Recent company news flow is majority positive.",
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "counterpoints": [
         "Price is below the 20-day moving average.",
@@ -66,7 +66,7 @@
         "The stock has negative 5-day return momentum."
       ],
       "risk_flags": [
-        "Litigious language appears in recent news",
+        "Oversold volatility risk",
         "Quick liquidity risk"
       ],
       "source_report_dates": {
@@ -76,7 +76,7 @@
         "news_trends": "2026-03-01"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.9,
+        "llm_case_strength": 0.6,
         "evidence_balance": 0.8
       }
     },
@@ -84,18 +84,19 @@
       "ticker": "BRK.B",
       "input_data_date": "2026-03-01",
       "supports_stance": true,
-      "confidence": 0.85,
-      "thesis": "BRK.B is a strong buy due to its solid operating profitability, healthy net margin, and positive momentum indicators.",
+      "confidence": 0.95,
+      "thesis": "The stock is poised for long-term growth due to its strong operating profitability, healthy net margin, and solid return on equity and assets, supported by positive macro conditions and recent news trends.",
       "reasons": [
         "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence.",
         "The stock has a strong bullish case due to its positive momentum indicators and favorable moving averages, with no bearish factors present.",
         "Google Trends search interest is up 60% week-over-week."
       ],
       "counterpoints": [
         "Recent company news flow is majority negative.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
-        "Housing permits are weakening, pointing to softer forward activity."
+        "Average LM news sentiment is modestly negative.",
+        "The stock has multiple bearish factors, including price below the 20-day moving average, weakening momentum, and negative return momentum, outweighing the bullish factors."
       ],
       "risk_flags": [
         "Retail attention spike may indicate crowded positioning"
@@ -108,15 +109,15 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.9,
-        "evidence_balance": 0.8
+        "evidence_balance": 0.85
       }
     },
     {
       "ticker": "GOOGL",
       "input_data_date": "2026-03-01",
       "supports_stance": true,
-      "confidence": 0.7,
-      "thesis": "GOOGL is a strong buy due to its solid fundamentals, positive technical indicators, and supportive macro conditions.",
+      "confidence": 0.85,
+      "thesis": "GOOGL is poised for continued growth due to strong fundamentals, positive macro conditions, and supportive news trends.",
       "reasons": [
         "Return on equity is strong.",
         "Return on assets is solid.",
@@ -126,12 +127,14 @@
       ],
       "counterpoints": [
         "Price is below the 20-day moving average.",
-        "The 20-day moving average is below the 50-day moving average.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "MACD is below its signal line, indicating weakening momentum."
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Litigious language appears in recent news"
       ],
       "risk_flags": [
-        "Litigious language appears in recent news"
+        "Debt levels are a concern, but the current ratio suggests adequate short-term liquidity.",
+        "Litigious language appears in recent news",
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-05",
@@ -140,8 +143,8 @@
         "news_trends": "2026-03-01"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.6
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
@@ -149,7 +152,7 @@
       "input_data_date": "2026-03-01",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "Eli Lilly & Co. is poised for continued growth due to its strong fundamental performance, positive momentum, and favorable macro conditions.",
+      "thesis": "Eli Lilly & Co. exhibits strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity, outweighing the lack of bearish factors and risk flags.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
@@ -158,10 +161,9 @@
         "Return on equity is strong."
       ],
       "counterpoints": [
-        "The 20-day moving average is below the 50-day moving average.",
-        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative.",
+        "Litigious language appears in recent news"
       ],
       "risk_flags": [
         "Litigious language appears in recent news"
@@ -181,23 +183,22 @@
       "ticker": "XOM",
       "input_data_date": "2026-03-01",
       "supports_stance": true,
-      "confidence": 0.75,
-      "thesis": "ExxonMobil (XOM) is poised for growth due to its strong free cash flow, positive momentum, and supportive macro conditions.",
+      "confidence": 0.85,
+      "thesis": "ExxonMobil (XOM) is poised for long-term growth due to its solid financial position, positive momentum indicators, and favorable macro conditions.",
       "reasons": [
-        "XOM has a positive free cash flow and operating cash flow.",
-        "The company's debt-to-equity ratio and profitability metrics are relatively stable.",
-        "XOM is showing positive momentum with multiple bullish factors.",
-        "Macro conditions are mixed, but the yield-curve proxy is positive, which is less recessionary than an inverted curve.",
-        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
       ],
       "counterpoints": [
-        "XOM is exposed to quick liquidity risk.",
-        "A bearish MACD signal is a concern.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Litigious language appears in recent news",
+        "Retail attention spike may indicate crowded positioning"
       ],
       "risk_flags": [
-        "Litigious language appears in recent news",
+        "Litigious language in recent news",
         "Quick liquidity risk",
         "Retail attention spike may indicate crowded positioning"
       ],
@@ -208,8 +209,8 @@
         "news_trends": "2026-03-01"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.8,
-        "evidence_balance": 0.7
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     }
   ]
