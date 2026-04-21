@@ -131,17 +131,32 @@ def extract_json_object(raw_text: str) -> dict[str, Any]:
 
 def _resolve_provider(provider: str | None) -> str:
     explicit = (provider or os.getenv(DEFAULT_PROVIDER_ENV) or "").strip().lower()
-    if explicit:
-        return explicit
+    anthropic_available = bool(os.getenv("ANTHROPIC_API_KEY", "").strip())
+    groq_available = bool(os.getenv("GROQ_API_KEY", "").strip())
 
-    if os.getenv("ANTHROPIC_API_KEY", "").strip():
+    if explicit:
+        if explicit == "anthropic":
+            if anthropic_available:
+                return "anthropic"
+            if groq_available:
+                return "groq"
+        elif explicit == "groq":
+            if groq_available:
+                return "groq"
+            if anthropic_available:
+                return "anthropic"
+        else:
+            raise ValueError(f"Unsupported LLM provider: {explicit}")
+
+    if anthropic_available:
         return "anthropic"
-    if os.getenv("GROQ_API_KEY", "").strip():
+    if groq_available:
         return "groq"
 
     raise RuntimeError(
-        "No LLM provider configured. Set ANTHROPIC_API_KEY or GROQ_API_KEY, "
-        "or set DEBATETRADER_LLM_PROVIDER explicitly."
+        "No usable LLM provider configured. Set ANTHROPIC_API_KEY or GROQ_API_KEY. "
+        "If DEBATETRADER_LLM_PROVIDER is set, the client will fall back to the other "
+        "provider when the preferred provider's API key is missing."
     )
 
 

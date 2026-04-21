@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY earns the top allocation due to its exceptional 36% revenue growth, strong margins, and three consecutive bullish judge signals — the most consistent conviction in the universe. AMZN is second given solid revenue growth, improved technicals, and a weak bear case. AAPL gets a modest allocation for its strong profitability and clean technical picture, though zero revenue growth and recurring neutral history cap conviction. GOOGL's extreme RSI (83.7) and very low judge conviction scores (llm_margin 0.2) make it a small position despite positive news. BRK.B and XOM are excluded due to overbought conditions, negative revenue growth, and bearish news respectively.",
   "ranking": [
-    "AAPL",
-    "AMZN",
-    "BRK.B",
-    "GOOGL",
     "LLY",
+    "AMZN",
+    "AAPL",
+    "GOOGL",
+    "BRK.B",
     "XOM"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "LLY": {
+      "weight_pct": 38.0,
+      "reason": "Best fundamental case in the universe with 36% revenue growth, strong margins, and three consecutive bullish judge signals providing the highest conviction."
     },
     "AMZN": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 25.0,
+      "reason": "10% revenue growth, strong gross margins, improved technicals with price above 20-day and positive MACD, and a bear case that fails to overcome the fundamental strength."
     },
-    "BRK.B": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "AAPL": {
+      "weight_pct": 18.0,
+      "reason": "Exceptional profitability metrics and clean bullish technicals justify inclusion, though zero revenue growth and three prior neutral judge signals limit conviction."
     },
     "GOOGL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 8.0,
+      "reason": "Positive news sentiment and strong fundamentals are offset by an extreme RSI of 83.7 and very low judge conviction scores, warranting only a small position."
     },
-    "LLY": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Overbought RSI at 74, negative revenue growth, and mixed signal history (bullish/bearish/bullish) make the risk-reward unattractive relative to peers."
     },
     "XOM": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 0.0,
+      "reason": "Price below 20-day SMA, majority-negative news sentiment, bearish news analyst signal, and predominantly neutral/mixed signal history eliminate this from the portfolio."
     }
   },
-  "total_allocated_pct": 100.02
+  "total_allocated_pct": 89.0
 }

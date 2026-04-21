@@ -9,39 +9,39 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "GOOGL and AMZN lead on the clearest bull-over-bear evidence quality: GOOGL has zero fundamental bearish factors, pristine technicals, and a bear case that contradicts its own data; AMZN adds strong revenue growth and equally clean technicals. AAPL earns a meaningful allocation on profitability and technical momentum, while BRK.B gets a smaller weight given negative revenue growth and mixed signal history. XOM receives minimal weight because the technical picture is clearly bearish despite the judge's bullish verdict. LLY is excluded entirely given the neutral judge signal.",
   "ranking": [
-    "AAPL",
-    "AMZN",
-    "BRK.B",
     "GOOGL",
+    "AMZN",
+    "AAPL",
+    "BRK.B",
     "XOM",
     "LLY"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "GOOGL": {
+      "weight_pct": 32.0,
+      "reason": "Cleanest bull case in the universe: no fundamental bearish factors, all technical indicators bullish, and the bear final case self-contradicts the actual data."
     },
     "AMZN": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 28.0,
+      "reason": "Strong 10% revenue growth, 58.7% gross margin, and fully bullish technicals with a weak bear case that relies on stale momentum data contradicted by current indicators."
+    },
+    "AAPL": {
+      "weight_pct": 22.0,
+      "reason": "Excellent margins, strong FCF, and positive technical momentum; the sub-1.0 current ratio is a minor concern for a company generating $27B+ in operating cash flow."
     },
     "BRK.B": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 10.0,
+      "reason": "Solid profitability and FCF support the bull case, but negative revenue growth and the 12-day EMA below 26-day EMA limit conviction relative to the top three."
     },
-    "GOOGL": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "XOM": {
+      "weight_pct": 8.0,
+      "reason": "Minimal weight given clearly bearish technicals (price below 20-day MA, negative MACD, negative 20-day return) that undermine the judge's bullish verdict; only positive news sentiment and FCF support the bull case."
     },
     "LLY": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "XOM": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is neutral at 0.5 confidence; excluded per policy."
     }
   },
   "total_allocated_pct": 100.0
