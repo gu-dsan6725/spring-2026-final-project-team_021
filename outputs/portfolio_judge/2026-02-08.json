@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-02-08",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL is excluded as the judge rendered a bearish signal. Among the bullish names, BRK.B stands out with clean technicals (price above 20-day MA, positive MACD, positive momentum), strong fundamentals, and no liquidity risk flags, making it the highest-conviction pick. AAPL and LLY both carry judge confidence of 0.85 but LLY's fundamental data is stale (Oct 2025) and its technicals are more mixed; AAPL has overbought risk but strong recent price momentum. AMZN is deeply oversold with strong fundamentals but heavy near-term technical deterioration. XOM has the lowest judge confidence (0.65) with litigious news, majority-negative news flow, and extreme overbought RSI of 84.",
+  "ranking": [
+    "BRK.B",
+    "AAPL",
+    "LLY",
+    "AMZN",
+    "XOM",
+    "GOOGL"
+  ],
+  "holdings": {
+    "BRK.B": {
+      "weight_pct": 32.0,
+      "reason": "Cleanest technical picture among bullish names (price above 20-day MA, positive MACD, positive 5- and 20-day momentum), solid fundamentals, no liquidity risk, and positive news sentiment with judge confidence 0.85."
+    },
+    "AAPL": {
+      "weight_pct": 25.0,
+      "reason": "Consistent bullish signal over three weeks, strong margins and cash flow, price well above 20-day MA with positive momentum, though overbought RSI warrants slightly lower weight than BRK.B."
+    },
+    "LLY": {
+      "weight_pct": 20.0,
+      "reason": "Exceptional fundamental profile (54% revenue growth, 83% gross margin) with judge confidence 0.85, but stale fundamental data and persistent bearish technical momentum reduce conviction relative to AAPL."
+    },
+    "AMZN": {
+      "weight_pct": 13.0,
+      "reason": "Strong fundamentals and oversold RSI below 30 suggest rebound potential, but severe near-term technical deterioration (-12% 5-day return, MACD well below signal) warrants a smaller position."
+    },
+    "XOM": {
+      "weight_pct": 5.0,
+      "reason": "Bullish judge signal but lowest confidence (0.65) in the group, with extreme overbought RSI of 84, majority-negative news flow, litigious language, and stale fundamental data limiting conviction."
+    },
+    "GOOGL": {
+      "weight_pct": 0.0,
+      "reason": "Judge rendered a bearish signal; excluded from portfolio."
+    }
+  },
+  "total_allocated_pct": 95.0
+}

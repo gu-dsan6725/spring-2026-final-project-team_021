@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-03-01",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "BRK.B leads with a perfect technical sweep (all 6 indicators bullish, no bearish factors) and solid fundamentals, while the bear case is exceptionally weak. LLY offers the strongest fundamental growth story in the universe (42% revenue growth, 67% gross margin) with positive technicals, though litigious news warrants a slight discount. AAPL rounds out the core with broad fundamental strength and a weak bear case. GOOGL and AMZN are excluded due to fully bearish technical pictures that create genuine near-term downside risk despite decent fundamentals.",
+  "ranking": [
+    "BRK.B",
+    "LLY",
+    "AAPL",
+    "XOM",
+    "GOOGL",
+    "AMZN"
+  ],
+  "holdings": {
+    "BRK.B": {
+      "weight_pct": 35.0,
+      "reason": "Perfect technical sweep with all 6 indicators bullish, solid fundamentals, and a bear case that scored only 0.4 on case strength — highest conviction in the universe."
+    },
+    "LLY": {
+      "weight_pct": 28.0,
+      "reason": "Strongest fundamental growth story (42.5% revenue growth, 67% gross margin, 49% operating margin) with positive price momentum, partially discounted for heavy litigious news flow."
+    },
+    "AAPL": {
+      "weight_pct": 22.0,
+      "reason": "Broad fundamental strength across all profitability metrics with mostly bullish technicals; bear case rests on a trivially sub-1.0 current ratio that is immaterial given AAPL's cash generation."
+    },
+    "XOM": {
+      "weight_pct": 10.0,
+      "reason": "Strong technical momentum (5 of 6 indicators bullish) and positive news trends support a modest position, but thin fundamental quality and retail attention spike limit conviction."
+    },
+    "GOOGL": {
+      "weight_pct": 0.0,
+      "reason": "All 6 technical indicators are bearish with -7.8% 20-day return; technical headwinds are too significant despite solid fundamentals."
+    },
+    "AMZN": {
+      "weight_pct": 0.0,
+      "reason": "Bull and bear cases are essentially tied with both scoring identically, and the -13% 20-day return with 5 bearish technical indicators makes this the weakest bull conviction in the universe."
+    }
+  },
+  "total_allocated_pct": 95.0
+}

@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "GOOGL stands out as the highest-conviction bullish pick with both fundamental strength (strong ROE, ROA, adequate liquidity, positive FCF) and positive technical momentum (price above 20-day MA, EMA crossover bullish, positive MACD), with a relatively weak bear case. AMZN is second with strong fundamentals and revenue growth, though technical momentum is mixed. AAPL earns a smaller allocation given its bullish judge signal but persistent neutral history and bearish technicals. BRK.B, LLY, and XOM are excluded as the judge signals neutral or bearish for all three.",
   "ranking": [
-    "AAPL",
-    "AMZN",
     "GOOGL",
+    "AMZN",
+    "AAPL",
     "BRK.B",
     "LLY",
     "XOM"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 33.33,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "GOOGL": {
+      "weight_pct": 45.0,
+      "reason": "Strongest bull case with both fundamental and technical alignment, highest judge conviction among bullish names, and the weakest bear counter-arguments."
     },
     "AMZN": {
-      "weight_pct": 33.33,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 30.0,
+      "reason": "Strong revenue growth, high gross margin, and positive EMA momentum support the bull case, with the bear case relying mainly on minor liquidity and short-term momentum concerns."
+    },
+    "AAPL": {
+      "weight_pct": 15.0,
+      "reason": "Judge signal is bullish with solid profitability and cash flow, but persistent neutral history and fully bearish technicals warrant a smaller allocation."
     },
     "BRK.B": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "GOOGL": {
-      "weight_pct": 33.33,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is neutral with balanced bull/bear cases, negative revenue growth, and majority-negative news flow."
     },
     "LLY": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is bearish driven by elevated leverage, negative FCF, bearish technicals, and majority-negative news sentiment."
     },
     "XOM": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is bearish with weakening momentum, negative return momentum, and declining search interest outweighing modest fundamental positives."
     }
   },
-  "total_allocated_pct": 99.99
+  "total_allocated_pct": 90.0
 }

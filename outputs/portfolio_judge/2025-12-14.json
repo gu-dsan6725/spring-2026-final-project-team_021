@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "GOOGL and AAPL lead with judge confidence of 0.85 each, clean fundamental profiles, and positive technical momentum across multiple timeframes; GOOGL edges ahead due to zero liquidity risk flags and a very low debt-to-equity ratio. LLY has exceptional fundamentals (85% revenue growth, 83% gross margin) but is penalized by bearish news/technical signals and litigation risk. BRK.B has negative revenue growth and weak technicals, making it a lower-conviction hold. AMZN is technically broken across all momentum indicators with a bearish technical signal at 0.9 confidence, reducing conviction despite strong fundamentals. XOM receives zero weight as the judge returned a neutral signal.",
+  "portfolio_rationale": "XOM leads with the cleanest bull case — all six technical indicators bullish, positive news sentiment, and solid fundamentals with no meaningful bear rebuttal. AAPL follows with exceptional margins and cash flow where the bear case (sub-1.0 current ratio) is immaterial given $26B FCF. GOOGL earns a moderate allocation on strong ROE and technicals but with less fundamental detail available. LLY and BRK.B receive small allocations given meaningful bear-side evidence (negative news/technicals respectively), while AMZN is excluded due to a technically bearish signal at maximum confidence across all indicators.",
   "ranking": [
-    "GOOGL",
+    "XOM",
     "AAPL",
+    "GOOGL",
     "LLY",
     "BRK.B",
-    "AMZN",
-    "XOM"
+    "AMZN"
   ],
   "holdings": {
-    "GOOGL": {
-      "weight_pct": 35.0,
-      "reason": "Highest-quality bull case with 0.85 judge confidence, no liquidity or leverage risk, strong ROE/ROA, positive technical momentum, and the bear rebuttal was weak (debt-to-equity of 0.087 is actually very low, not high)."
+    "XOM": {
+      "weight_pct": 32.0,
+      "reason": "Only ticker with all six technical indicators bullish plus positive news sentiment and solid fundamentals, making it the highest-conviction bull case in the universe."
     },
     "AAPL": {
       "weight_pct": 28.0,
-      "reason": "Strong fundamentals across all profitability metrics, positive technical momentum with price above both 20d and 50d MAs, and 0.85 judge confidence; minor liquidity concern is manageable given massive free cash flow."
+      "reason": "Exceptional margins (47% gross, 32% operating), 22% revenue growth, and price above all MAs; the sub-1.0 current ratio bear case is immaterial given $26B in free cash flow."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Strong ROE of 36%, low debt, price above 20d MA with +11% 20d return momentum, and a clearly weaker bear case than bull case."
     },
     "LLY": {
-      "weight_pct": 20.0,
-      "reason": "Exceptional fundamental profile with 85% revenue growth and 83% gross margin driving 0.85 judge confidence, but bearish news sentiment, litigation risk, and price below 20d MA warrant a reduced position."
+      "weight_pct": 10.0,
+      "reason": "Outstanding fundamentals (54% revenue growth, 83% gross margin) justify a position but negative news flow and price below 20d MA warrant reduced sizing."
     },
     "BRK.B": {
-      "weight_pct": 10.0,
-      "reason": "Solid profitability metrics and positive macro support a 0.70 judge confidence bullish signal, but negative revenue growth and weak technicals across all momentum indicators limit conviction."
+      "weight_pct": 5.0,
+      "reason": "Solid profitability metrics but technical analyst is bearish at 0.8 confidence with negative 5d and 20d momentum limiting conviction."
     },
     "AMZN": {
-      "weight_pct": 7.0,
-      "reason": "Strong fundamentals are overshadowed by a technically bearish setup with all six momentum indicators negative and a 0.90-confidence bearish technical signal, warranting only a small position on fundamental value."
-    },
-    "XOM": {
       "weight_pct": 0.0,
-      "reason": "Judge returned a neutral signal with 0.50 confidence; bull and bear cases were deemed too close to justify a directional trade."
+      "reason": "Technical analyst bearish at maximum 1.0 confidence with all six indicators negative including negative 5d and 20d momentum; excluded despite strong fundamentals."
     }
   },
-  "total_allocated_pct": 100.0
+  "total_allocated_pct": 95.0
 }

@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-03-08",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "AMZN earns the top spot with the highest judge confidence (0.85) among bullish signals, supported by both strong fundamentals and improving technical momentum (price above 20-day MA, MACD above signal). XOM ranks second with a clean bullish technical picture (price above all key MAs, positive 20-day momentum) and positive cash flows, though fundamentals are thinner. GOOGL and LLY are both bullish but carry heavier technical headwinds and lower conviction; LLY's bear case is particularly strong given the technical analyst's 0.9 confidence bearish signal. AAPL is neutral per the judge and receives no weight; BRK.B is explicitly bearish and receives no weight.",
+  "ranking": [
+    "AMZN",
+    "XOM",
+    "GOOGL",
+    "LLY",
+    "AAPL",
+    "BRK.B"
+  ],
+  "holdings": {
+    "AMZN": {
+      "weight_pct": 45.0,
+      "reason": "Highest judge confidence (0.85) among bullish names, strong fundamentals with 15.7% revenue growth, improving technicals with price above 20-day MA and MACD above signal line."
+    },
+    "XOM": {
+      "weight_pct": 25.0,
+      "reason": "Bullish judge signal (0.70 confidence) with the cleanest technical picture in the universe — price above 20/50-day MAs, EMA12 above EMA26, and positive 20-day return momentum."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Bullish judge signal (0.70 confidence) backed by strong ROE/ROA and solid liquidity, though all technical indicators are bearish and warrant a reduced position."
+    },
+    "LLY": {
+      "weight_pct": 10.0,
+      "reason": "Bullish judge signal but lowest conviction (0.60) with a technically bearish analyst at 0.9 confidence and all momentum indicators negative; small position reflects the weak risk/reward balance."
+    },
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is neutral (0.50 confidence); bull and bear cases are balanced with negative price momentum and liquidity risk unresolved."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is explicitly bearish (0.65 confidence) with negative revenue growth, thin margins, majority-negative news sentiment, and all momentum indicators pointing down."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-01-25",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "AMZN and GOOGL lead on the combination of strong fundamentals and confirmed technical momentum (both trading above key moving averages with positive return momentum), making their bull cases most clearly superior. LLY earns a meaningful allocation on exceptional fundamental strength (54% revenue growth, 83% gross margin) despite mixed technicals, while AAPL gets a smaller position on oversold rebound potential backed by solid fundamentals. XOM and BRK.B are excluded due to thin fundamental evidence, overbought/weak technicals respectively, and persistent negative news flows.",
+  "ranking": [
+    "AMZN",
+    "GOOGL",
+    "LLY",
+    "AAPL",
+    "XOM",
+    "BRK.B"
+  ],
+  "holdings": {
+    "AMZN": {
+      "weight_pct": 35.0,
+      "reason": "Strongest combination of confirmed technical momentum (price above all MAs, positive 5d/20d returns) and solid fundamentals with the bear case well-rebutted by strong operating cash flow."
+    },
+    "GOOGL": {
+      "weight_pct": 30.0,
+      "reason": "Best balance sheet quality (ROE 36%, near-zero debt, current ratio 1.75), price above key MAs with positive 20d momentum, and bear case relies on minor MACD weakness without substantive news risk."
+    },
+    "LLY": {
+      "weight_pct": 20.0,
+      "reason": "Exceptional fundamental metrics including 54% revenue growth and 83% gross margin with positive news sentiment, though multiple risk flags and mixed technicals warrant a reduced weight."
+    },
+    "AAPL": {
+      "weight_pct": 15.0,
+      "reason": "Extremely oversold RSI of 12 creates rebound potential supported by strong fundamentals, but persistent downtrend below all moving averages limits conviction."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Overbought technicals, majority negative news flow with litigious language, and thin fundamental data (no revenue growth or margin metrics) make the bull case insufficiently compelling."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Recent bearish judge signal, bearish news analyst, litigious language, and deeply weak technical picture (RSI 22, all MAs bearish) make this the least convincing bull case in the universe."
+    }
+  },
+  "total_allocated_pct": 100.0
+}
