@@ -17,26 +17,60 @@
       "input_data_date": "2026-04-05",
       "supports_stance": true,
       "confidence": 0.85,
-      "thesis": "AAPL is poised for continued growth due to strong fundamental performance, positive momentum, and a favorable macroeconomic backdrop.",
+      "thesis": "AAPL's strong fundamental metrics, positive macro conditions, and supportive technical indicators outweigh its liquidity concerns and bearish factors, making it a solid long-term investment opportunity.",
       "reasons": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy.",
-        "Return on equity is strong."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
+        "The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
       ],
       "counterpoints": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative."
+      ],
+      "risk_flags": [
+        "Liquidity risk",
+        "Oversold volatility risk"
+      ],
+      "source_report_dates": {
+        "fundamental": "2026-01-30",
+        "technical": "2026-04-05",
+        "macro": "2026-03-31",
+        "news_trends": "2026-04-05"
+      },
+      "score_breakdown": {
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.7
+      }
+    },
+    {
+      "ticker": "AMZN",
+      "input_data_date": "2026-04-05",
+      "supports_stance": true,
+      "confidence": 0.85,
+      "thesis": "AMZN is a strong buy due to its positive fundamental metrics, supportive macro conditions, and positive technical indicators.",
+      "reasons": [
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Net margin is healthy.",
+        "Return on equity is strong.",
+        "Return on assets is solid."
+      ],
+      "counterpoints": [
+        "Quick liquidity risk",
         "The 20-day moving average is below the 50-day moving average.",
         "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
         "The stock has negative 20-day return momentum."
       ],
       "risk_flags": [
-        "Elevated volatility regime",
-        "Liquidity risk"
+        "Oversold volatility risk",
+        "Quick liquidity risk"
       ],
       "source_report_dates": {
-        "fundamental": "2026-01-30",
+        "fundamental": "2026-02-06",
         "technical": "2026-04-05",
         "macro": "2026-03-31",
         "news_trends": "2026-04-05"
@@ -47,68 +81,28 @@
       }
     },
     {
-      "ticker": "AMZN",
-      "input_data_date": "2026-04-05",
-      "supports_stance": true,
-      "confidence": 0.68,
-      "thesis": "AMZN has a constructive long setup because [FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold. and the main concerns appear manageable rather than thesis-breaking.",
-      "reasons": [
-        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
-        "[FundamentalAnalyst] Gross margin is strong.",
-        "[FundamentalAnalyst] Net margin is healthy.",
-        "[FundamentalAnalyst] Return on equity is strong.",
-        "[FundamentalAnalyst] Return on assets is solid."
-      ],
-      "counterpoints": [
-        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
-        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "[TechnicalAnalyst] The stock has negative 20-day return momentum.",
-        "[MacroAnalyst] Payroll employment is contracting."
-      ],
-      "risk_flags": [
-        "Elevated volatility regime",
-        "Litigious language appears in recent news",
-        "Quick liquidity risk"
-      ],
-      "source_report_dates": {
-        "fundamental": "2026-02-06",
-        "technical": "2026-04-05",
-        "macro": "2026-03-31",
-        "news_trends": "2026-04-05"
-      },
-      "score_breakdown": {
-        "FundamentalAnalyst": 5.08,
-        "TechnicalAnalyst": 0.78,
-        "MacroAnalyst": 1.064,
-        "NewsTrendsAnalyst": 1.528,
-        "argument_score": 8.452,
-        "aligned_support": 11.39,
-        "opposing_pressure": 2.938
-      }
-    },
-    {
       "ticker": "BRK.B",
       "input_data_date": "2026-04-05",
-      "supports_stance": false,
-      "confidence": 0.5,
-      "thesis": "BRK.B has a constructive long setup because [FundamentalAnalyst] Free cash flow is positive. and the main concerns appear manageable rather than thesis-breaking.",
+      "supports_stance": true,
+      "confidence": 0.7,
+      "thesis": "The stock is poised for long-term growth due to its strong operating profitability, healthy net margin, and solid return on equity and assets, supported by positive macro conditions and recent news trends.",
       "reasons": [
-        "[FundamentalAnalyst] Free cash flow is positive.",
-        "[FundamentalAnalyst] Operating cash flow is positive.",
-        "[TechnicalAnalyst] The stock has positive 5-day return momentum.",
-        "[MacroAnalyst] The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
-        "[MacroAnalyst] The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
+        "GDP growth is positive in the latest macro snapshot.",
+        "Industrial production growth is positive in the latest macro snapshot."
       ],
       "counterpoints": [
-        "[FundamentalAnalyst] Revenue growth is negative year-over-year.",
-        "[FundamentalAnalyst] Operating margin is thin.",
-        "[TechnicalAnalyst] Price is below the 20-day moving average.",
-        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average."
+        "Revenue growth is negative year-over-year.",
+        "Operating margin is thin.",
+        "Recent company news flow is majority negative.",
+        "Average LM news sentiment is modestly negative."
       ],
       "risk_flags": [
-        "Elevated volatility regime",
         "Litigious language appears in recent news",
-        "Low relative trading volume"
+        "MACD is below its signal line, indicating weakening momentum",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2026-03-02",
@@ -117,37 +111,33 @@
         "news_trends": "2026-04-05"
       },
       "score_breakdown": {
-        "FundamentalAnalyst": 0.225,
-        "TechnicalAnalyst": -1.35,
-        "MacroAnalyst": 1.064,
-        "NewsTrendsAnalyst": -1.17,
-        "argument_score": -1.231,
-        "aligned_support": 3.83,
-        "opposing_pressure": 5.061
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.6
       }
     },
     {
       "ticker": "GOOGL",
       "input_data_date": "2026-04-05",
       "supports_stance": true,
-      "confidence": 0.55,
-      "thesis": "GOOGL has a constructive long setup because [FundamentalAnalyst] Return on equity is strong. and the main concerns appear manageable rather than thesis-breaking.",
+      "confidence": 0.85,
+      "thesis": "GOOGL is poised for continued growth due to strong fundamentals, positive macro conditions, and supportive news trends.",
       "reasons": [
-        "[FundamentalAnalyst] Return on equity is strong.",
-        "[FundamentalAnalyst] Return on assets is solid.",
-        "[FundamentalAnalyst] Current ratio suggests adequate short-term liquidity.",
-        "[FundamentalAnalyst] Free cash flow is positive.",
-        "[FundamentalAnalyst] Operating cash flow is positive."
+        "Return on equity is strong.",
+        "Return on assets is solid.",
+        "Current ratio suggests adequate short-term liquidity.",
+        "Free cash flow is positive.",
+        "Operating cash flow is positive."
       ],
       "counterpoints": [
-        "[TechnicalAnalyst] Price is below the 20-day moving average.",
-        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
-        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "[TechnicalAnalyst] The stock has negative 20-day return momentum."
+        "Price is below the 20-day moving average.",
+        "The 20-day moving average is below the 50-day moving average.",
+        "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
+        "The stock has negative 20-day return momentum."
       ],
       "risk_flags": [
-        "Elevated volatility regime",
-        "Litigious language appears in recent news"
+        "Debt levels are a concern, as the current ratio does not guarantee long-term sustainability.",
+        "Litigious language appears in recent news",
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-05",
@@ -156,37 +146,31 @@
         "news_trends": "2026-04-05"
       },
       "score_breakdown": {
-        "FundamentalAnalyst": 4.0,
-        "TechnicalAnalyst": -1.54,
-        "MacroAnalyst": 1.064,
-        "NewsTrendsAnalyst": -1.202,
-        "argument_score": 2.322,
-        "aligned_support": 8.02,
-        "opposing_pressure": 5.698
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     },
     {
       "ticker": "LLY",
       "input_data_date": "2026-04-05",
       "supports_stance": true,
-      "confidence": 0.59,
-      "thesis": "LLY has a constructive long setup because [FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold. and the main concerns appear manageable rather than thesis-breaking.",
+      "confidence": 0.8,
+      "thesis": "Eli Lilly & Co. exhibits strong fundamental performance with positive revenue growth, solid profitability, and healthy liquidity, outweighing the lack of bearish factors and risk flags.",
       "reasons": [
-        "[FundamentalAnalyst] Revenue growth is positive and above a modest growth threshold.",
-        "[FundamentalAnalyst] Gross margin is strong.",
-        "[FundamentalAnalyst] Operating margin indicates solid operating profitability.",
-        "[FundamentalAnalyst] Net margin is healthy.",
-        "[FundamentalAnalyst] Return on equity is strong."
+        "Revenue growth is positive and above a modest growth threshold.",
+        "Gross margin is strong.",
+        "Operating margin indicates solid operating profitability.",
+        "Net margin is healthy.",
+        "Return on equity is strong."
       ],
       "counterpoints": [
-        "[TechnicalAnalyst] Price is below the 20-day moving average.",
-        "[TechnicalAnalyst] The 20-day moving average is below the 50-day moving average.",
-        "[TechnicalAnalyst] The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "[TechnicalAnalyst] The stock has negative 20-day return momentum."
+        "The TechnicalAnalyst's report noted that the stock has negative 5-day return momentum.",
+        "The TechnicalAnalyst's report noted that the stock has negative 20-day return momentum.",
+        "The NewsTrendsAnalyst's report noted that recent company news flow is majority negative."
       ],
       "risk_flags": [
-        "Elevated volatility regime",
-        "Litigious language appears in recent news"
+        "Litigious language appears in recent news",
+        "Low relative trading volume"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-12",
@@ -195,38 +179,33 @@
         "news_trends": "2026-04-05"
       },
       "score_breakdown": {
-        "FundamentalAnalyst": 6.56,
-        "TechnicalAnalyst": -1.76,
-        "MacroAnalyst": 1.064,
-        "NewsTrendsAnalyst": -1.17,
-        "argument_score": 4.694,
-        "aligned_support": 10.22,
-        "opposing_pressure": 5.526
+        "llm_case_strength": 0.7,
+        "evidence_balance": 0.9
       }
     },
     {
       "ticker": "XOM",
       "input_data_date": "2026-04-05",
       "supports_stance": true,
-      "confidence": 0.57,
-      "thesis": "XOM has a constructive long setup because [FundamentalAnalyst] Free cash flow is positive. and the main concerns appear manageable rather than thesis-breaking.",
+      "confidence": 0.85,
+      "thesis": "ExxonMobil (XOM) is poised for long-term growth due to its solid financial position, positive momentum indicators, and favorable macro conditions.",
       "reasons": [
-        "[FundamentalAnalyst] Free cash flow is positive.",
-        "[FundamentalAnalyst] Operating cash flow is positive.",
-        "[FundamentalAnalyst] Directional signal is bullish with confidence 0.70.",
-        "[TechnicalAnalyst] Price is above the 20-day moving average.",
-        "[TechnicalAnalyst] The 20-day moving average is above the 50-day moving average."
+        "Free cash flow is positive.",
+        "Operating cash flow is positive.",
+        "Price is above the 20-day moving average.",
+        "The 20-day moving average is above the 50-day moving average.",
+        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
       ],
       "counterpoints": [
-        "[TechnicalAnalyst] MACD is below its signal line, indicating weakening momentum.",
-        "[TechnicalAnalyst] The stock has negative 5-day return momentum.",
-        "[MacroAnalyst] Payroll employment is contracting.",
-        "[MacroAnalyst] VIX is elevated, indicating higher market stress."
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "Payroll employment is contracting.",
+        "VIX is elevated, indicating higher market stress."
       ],
       "risk_flags": [
-        "Elevated volatility regime",
-        "Litigious language appears in recent news",
-        "Quick liquidity risk"
+        "Low relative trading volume",
+        "Quick liquidity risk",
+        "Weak macroeconomic conditions"
       ],
       "source_report_dates": {
         "fundamental": "2026-02-18",
@@ -235,13 +214,8 @@
         "news_trends": "2026-04-05"
       },
       "score_breakdown": {
-        "FundamentalAnalyst": 1.645,
-        "TechnicalAnalyst": 1.96,
-        "MacroAnalyst": 1.064,
-        "NewsTrendsAnalyst": -1.855,
-        "argument_score": 2.814,
-        "aligned_support": 7.14,
-        "opposing_pressure": 4.326
+        "llm_case_strength": 0.9,
+        "evidence_balance": 0.8
       }
     }
   ]

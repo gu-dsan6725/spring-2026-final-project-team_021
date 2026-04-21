@@ -16,25 +16,24 @@
       "ticker": "AAPL",
       "input_data_date": "2026-01-11",
       "supports_stance": true,
-      "confidence": 0.58,
-      "thesis": "AAPL's fundamental metrics are overshadowed by liquidity concerns and bearish technical signals, while macro conditions are mixed.",
+      "confidence": 0.7,
+      "thesis": "AAPL's liquidity concerns and technical bearish factors outweigh its strong fundamental metrics and positive macro conditions, making it a high-risk investment opportunity.",
       "reasons": [
         "Current ratio is below 1.0, suggesting weaker short-term liquidity.",
         "Price is below the 20-day moving average.",
-        "The 20-day moving average is below the 50-day moving average.",
         "The 12-day EMA is below the 26-day EMA, suggesting weak momentum.",
-        "MACD is below its signal line, indicating weakening momentum."
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Retail sales are contracting, suggesting weaker consumer demand."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Operating margin indicates solid operating profitability.",
-        "Net margin is healthy."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "risk_flags": [
         "Liquidity risk",
-        "Oversold volatility risk",
-        "Quick liquidity risk"
+        "Oversold volatility risk"
       ],
       "source_report_dates": {
         "fundamental": "2025-10-31",
@@ -43,7 +42,7 @@
         "news_trends": "2026-01-11"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.5,
+        "llm_case_strength": 0.8,
         "evidence_balance": 0.6
       }
     },
@@ -52,19 +51,19 @@
       "input_data_date": "2026-01-11",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "AMZN's strong fundamental metrics are overshadowed by macroeconomic headwinds and technical warning signs, leading to a bearish outlook.",
+      "thesis": "AMZN is a sell due to its high valuation, quick liquidity risk, and negative technical indicators.",
       "reasons": [
-        "Retail sales are contracting, suggesting weaker consumer demand.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
+        "Quick liquidity risk",
         "The 20-day moving average is below the 50-day moving average.",
-        "RSI is above 70, suggesting overbought conditions."
+        "RSI is above 70, suggesting overbought conditions.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
         "Gross margin is strong.",
         "Net margin is healthy.",
-        "Return on equity is strong."
+        "The yield-curve proxy is positive, which is less recessionary than an inverted curve."
       ],
       "risk_flags": [
         "Overbought risk",
@@ -77,33 +76,29 @@
         "news_trends": "2026-01-11"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.6,
-        "evidence_balance": 0.8
+        "llm_case_strength": 0.8,
+        "evidence_balance": 0.6
       }
     },
     {
       "ticker": "BRK.B",
       "input_data_date": "2026-01-11",
       "supports_stance": true,
-      "confidence": 0.65,
-      "thesis": "BRK.B is a sell due to its weak technicals, mixed macro conditions, and negative news trends.",
+      "confidence": 0.7,
+      "thesis": "The stock is poised for a decline due to its weakening momentum, negative return momentum, and bearish technical factors, outweighing the company's strong operating profitability and positive macro conditions.",
       "reasons": [
-        "The stock has bearish factors such as price below the 20-day moving average, weak momentum, and weakening momentum, outweighing the bullish factors.",
-        "Retail sales are contracting, suggesting weaker consumer demand.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
-        "Google Trends search interest is down 16% week-over-week."
+        "The stock has multiple bearish factors, including price below the 20-day moving average, weakening momentum, and negative return momentum, outweighing the bullish factors.",
+        "Litigious language appears in recent news, which could negatively impact the company's reputation and stock price."
       ],
       "counterpoints": [
         "The company's strong operating profitability, healthy net margin, and solid return on equity and assets indicate a positive fundamental view.",
         "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
-        "The yield-curve proxy is positive, which is less recessionary than an inverted curve.",
-        "The 10Y-3M term spread is positive, which supports a healthier growth backdrop."
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
       ],
       "risk_flags": [
-        "Mixed macro conditions",
-        "Negative news trends",
-        "Weak technicals"
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum",
+        "Price is below the 20-day moving average"
       ],
       "source_report_dates": {
         "fundamental": "2025-11-03",
@@ -112,7 +107,7 @@
         "news_trends": "2026-01-11"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
+        "llm_case_strength": 0.8,
         "evidence_balance": 0.6
       }
     },
@@ -120,23 +115,26 @@
       "ticker": "GOOGL",
       "input_data_date": "2026-01-11",
       "supports_stance": true,
-      "confidence": 0.6,
-      "thesis": "GOOGL's financials are overstated due to its high debt-to-equity ratio and weak consumer sentiment, which may negatively impact its future growth.",
+      "confidence": 0.7,
+      "thesis": "GOOGL's strong fundamentals are overshadowed by bearish technical indicators and risk flags, leading to a bearish outlook.",
       "reasons": [
-        "The debt-to-equity ratio is 8.71%, which is relatively high and may indicate financial leverage.",
-        "Retail sales are contracting, suggesting weaker consumer demand.",
-        "Payroll employment is contracting.",
-        "Consumer sentiment is weak."
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 20-day return momentum.",
+        "Litigious language appears in recent news",
+        "Overbought risk",
+        "RSI is above 70, suggesting overbought conditions."
       ],
       "counterpoints": [
         "Strong return on equity, solid return on assets, and adequate short-term liquidity suggest a positive outlook for GOOGL.",
-        "Price is above the 20-day moving average.",
-        "The 20-day moving average is above the 50-day moving average.",
-        "The 12-day EMA is above the 26-day EMA, supporting positive momentum."
+        "Macro conditions are broadly supportive, with more bullish than bearish evidence.",
+        "Recent news trends are broadly supportive, with more bullish than bearish evidence."
       ],
       "risk_flags": [
-        "High debt-to-equity ratio",
-        "Weakening consumer environment"
+        "Litigious language appears in recent news",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "Overbought risk",
+        "RSI is above 70, suggesting overbought conditions.",
+        "The stock has negative 20-day return momentum."
       ],
       "source_report_dates": {
         "fundamental": "2025-10-30",
@@ -145,7 +143,7 @@
         "news_trends": "2026-01-11"
       },
       "score_breakdown": {
-        "llm_case_strength": 0.7,
+        "llm_case_strength": 0.6,
         "evidence_balance": 0.5
       }
     },
@@ -153,13 +151,14 @@
       "ticker": "LLY",
       "input_data_date": "2026-01-11",
       "supports_stance": true,
-      "confidence": 0.65,
-      "thesis": "Eli Lilly's fundamental metrics are not as strong as they appear, and the company is vulnerable to macroeconomic headwinds and technical weakness.",
+      "confidence": 0.7,
+      "thesis": "Eli Lilly's strong fundamental metrics are not enough to offset the bearish technical signals and macro risks.",
       "reasons": [
-        "The FundamentalAnalyst report highlights that Eli Lilly has no bearish factors present, but this may be due to a lack of analysis rather than a genuine absence of risks.",
-        "The TechnicalAnalyst report shows that the stock is trading below its short-term moving averages, indicating potential technical weakness.",
-        "The MacroAnalyst report highlights that retail sales are contracting, suggesting weaker consumer demand, and payroll employment is contracting, which may impact Eli Lilly's fundamental performance.",
-        "The NewsTrendsAnalyst report shows that Google Trends search interest is down 21% week-over-week, indicating a potential decline in investor interest."
+        "Price is below the 20-day moving average.",
+        "MACD is below its signal line, indicating weakening momentum.",
+        "The stock has negative 5-day return momentum.",
+        "Retail sales are contracting, suggesting weaker consumer demand.",
+        "Payroll employment is contracting."
       ],
       "counterpoints": [
         "Revenue growth is positive and above a modest growth threshold.",
@@ -168,8 +167,11 @@
         "Net margin is healthy."
       ],
       "risk_flags": [
-        "No recent company news available",
-        "The stock is trading below its short-term moving averages, indicating potential technical weakness."
+        "Low relative trading volume",
+        "Negative 20-day return momentum",
+        "Weak consumer sentiment",
+        "Weakening housing permits",
+        "Weakening momentum"
       ],
       "source_report_dates": {
         "fundamental": "2025-10-30",
@@ -179,7 +181,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.7
+        "evidence_balance": 0.8
       }
     },
     {
@@ -187,13 +189,13 @@
       "input_data_date": "2026-01-11",
       "supports_stance": true,
       "confidence": 0.7,
-      "thesis": "ExxonMobil (XOM) is a high-risk investment opportunity due to its exposure to quick liquidity risk, weak consumer sentiment, and contracting retail sales.",
+      "thesis": "ExxonMobil (XOM) is vulnerable to a decline in its stock price due to its exposure to quick liquidity risk, low relative trading volume, and weak macroeconomic conditions.",
       "reasons": [
-        "ExxonMobil (XOM) is exposed to quick liquidity risk.",
+        "ExxonMobil's exposure to quick liquidity risk.",
+        "Low relative trading volume.",
         "Retail sales are contracting, suggesting weaker consumer demand.",
         "Payroll employment is contracting.",
-        "Consumer sentiment is weak.",
-        "Google Trends search interest is down 54% week-over-week."
+        "Consumer sentiment is weak."
       ],
       "counterpoints": [
         "Return on assets is solid.",
@@ -202,9 +204,12 @@
         "Price is above the 20-day moving average."
       ],
       "risk_flags": [
-        "Contracting retail sales",
+        "Consumer sentiment is weak",
+        "Google Trends search interest is down 54% week-over-week",
+        "Low relative trading volume",
+        "Payroll employment is contracting",
         "Quick liquidity risk",
-        "Weak consumer sentiment"
+        "Retail sales are contracting"
       ],
       "source_report_dates": {
         "fundamental": "2025-11-03",
@@ -214,7 +219,7 @@
       },
       "score_breakdown": {
         "llm_case_strength": 0.6,
-        "evidence_balance": 0.7
+        "evidence_balance": 0.8
       }
     }
   ]
