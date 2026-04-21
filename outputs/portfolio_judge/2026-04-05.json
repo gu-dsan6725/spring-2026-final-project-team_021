@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-04-05",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "LLY leads with the strongest fundamental case (42.5% revenue growth, near-50% operating margins) and the weakest bear opposition (bear confidence only 0.40), making it the highest-conviction position. AMZN earns the second slot due to strong multi-dimensional fundamentals and positive news/search trends that differentiate it from peers. AAPL and GOOGL receive smaller allocations as their bull cases are solid but face more credible headwinds from negative news sentiment and technical weakness; GOOGL's heavily negative news flow (60 negative vs 30 positive articles) caps its weight. BRK.B is excluded on a bearish judge signal, and XOM is excluded due to thin fundamental quality relative to alternatives.",
+  "ranking": [
+    "LLY",
+    "AMZN",
+    "AAPL",
+    "GOOGL",
+    "XOM",
+    "BRK.B"
+  ],
+  "holdings": {
+    "LLY": {
+      "weight_pct": 38.0,
+      "reason": "Exceptional 42.5% revenue growth, near-50% operating margins, and a bear case with only 0.40 confidence make this the clearest high-conviction long in the universe."
+    },
+    "AMZN": {
+      "weight_pct": 28.0,
+      "reason": "Strong multi-dimensional fundamentals with positive news sentiment and +29% WoW search interest provide the best combination of quality and near-term momentum."
+    },
+    "AAPL": {
+      "weight_pct": 20.0,
+      "reason": "Solid revenue growth and industry-leading margins support the bull case, though negative news flow and mixed technicals warrant a moderate rather than large position."
+    },
+    "GOOGL": {
+      "weight_pct": 14.0,
+      "reason": "Strong ROE/ROA and liquidity support the bull thesis, but heavily negative news sentiment (60 vs 30 articles) and persistent technical weakness limit conviction relative to peers."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish; excluded from portfolio."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Weakest fundamental profile in the universe with thin ROE/ROA, no revenue growth data, and a mixed recent signal history including a bearish week."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

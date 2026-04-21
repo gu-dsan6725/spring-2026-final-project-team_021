@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-03-29",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "LLY stands out as the highest-conviction bull case with exceptional fundamental metrics (42.5% revenue growth, 67.6% gross margin, 48.9% operating margin), a weak bear case (confidence only 0.4), and positive news sentiment — the only ticker with bullish news trends. AAPL and GOOGL both have judge confidence of 0.85 with consistent bullish signals, but AAPL has stronger multi-dimensional fundamentals while GOOGL faces more severe technical deterioration and heavily negative news sentiment. AMZN is bullish but with lower judge confidence (0.65) and a stronger bear case; BRK.B and XOM are excluded as bearish judge decisions.",
+  "ranking": [
+    "LLY",
+    "AAPL",
+    "GOOGL",
+    "AMZN",
+    "BRK.B",
+    "XOM"
+  ],
+  "holdings": {
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest bull case in the universe: 42.5% revenue growth, best-in-class margins, positive news sentiment, and a bear case with only 0.4 confidence that relies solely on technical momentum."
+    },
+    "AAPL": {
+      "weight_pct": 25.0,
+      "reason": "Consistent bullish judge signal at 0.85 confidence with strong fundamentals (48% gross margin, 29% net margin, $51.5B FCF) and the bear case is limited to technical/liquidity concerns that are well-rebutted."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Judge confidence of 0.85 with strong ROE/ROA and clean balance sheet, though heavily negative news sentiment and severe technical deterioration (RSI 22, -12% 20d return) warrant a smaller position than AAPL."
+    },
+    "AMZN": {
+      "weight_pct": 15.0,
+      "reason": "Bullish judge signal but lower conviction (0.65) with a credible bear case, negative news trends, and both 5-day and 20-day negative momentum reducing near-term attractiveness."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish (0.7 confidence); negative revenue growth, thin margins, and persistent bearish technicals outweigh the bull case."
+    },
+    "XOM": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish (0.8 confidence); despite strong technical momentum, the overbought RSI (82), negative news flow, and liquidity concerns drove a bearish verdict."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-01-18",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "XOM stands out as the highest-conviction bull case with clean technical momentum (all indicators bullish, RSI near 68, price well above both MAs), solid fundamentals, and the fewest unresolved bear arguments — the bear case rests mainly on macro headwinds that are sector-agnostic. AMZN is second with strong technicals (price above MAs, positive MACD) and robust fundamentals, with only minor liquidity and short-term momentum concerns. GOOGL has excellent technicals and fundamentals but carries overbought risk and litigious news flags. AAPL is deeply oversold (RSI ~10) with strong fundamentals but persistent technical weakness. LLY has exceptional fundamentals but bearish technicals, negative news sentiment, and litigious language create near-term headwinds. BRK.B receives zero weight as the judge explicitly ruled bearish.",
+  "ranking": [
+    "XOM",
+    "AMZN",
+    "GOOGL",
+    "AAPL",
+    "LLY",
+    "BRK.B"
+  ],
+  "holdings": {
+    "XOM": {
+      "weight_pct": 35.0,
+      "reason": "Strongest technical setup in the universe — all six momentum indicators bullish, price 6% above 50-day MA, solid FCF, and the bear case is the weakest relative to the bull case."
+    },
+    "AMZN": {
+      "weight_pct": 25.0,
+      "reason": "Strong technicals with price above both MAs and positive MACD, robust margins and ROE, with only minor quick-liquidity and 5-day momentum concerns that are well-rebutted."
+    },
+    "GOOGL": {
+      "weight_pct": 20.0,
+      "reason": "Excellent fundamentals (ROE 36%, strong FCF) and bullish technicals, but overbought RSI and litigious news flags warrant a smaller position than XOM/AMZN."
+    },
+    "AAPL": {
+      "weight_pct": 12.0,
+      "reason": "Strong fundamentals and extreme oversold RSI (~10) suggest mean-reversion potential, but persistent technical weakness and multiple bearish momentum signals limit conviction."
+    },
+    "LLY": {
+      "weight_pct": 8.0,
+      "reason": "Exceptional fundamental metrics (54% revenue growth, 83% gross margin) support a small position, but bearish technicals, negative news sentiment, and litigious language reduce near-term conviction."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is explicitly bearish — excluded from portfolio."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

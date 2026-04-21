@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-01-04",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "GOOGL offers the cleanest bull case with bullish technicals, strong fundamentals, positive news momentum, and a consecutive bullish signal — it earns the largest weight. AMZN follows with high judge conviction and strong fundamentals despite mixed technicals. LLY has exceptional fundamentals but overbought conditions and negative news flow warrant a reduced position, while BRK.B and XOM receive small allocations given thinner fundamental evidence or crowded positioning concerns. AAPL is excluded due to pervasive bearish technical signals dominating an otherwise solid fundamental picture.",
+  "ranking": [
+    "GOOGL",
+    "AMZN",
+    "LLY",
+    "BRK.B",
+    "XOM",
+    "AAPL"
+  ],
+  "holdings": {
+    "GOOGL": {
+      "weight_pct": 35.0,
+      "reason": "Cleanest bull case: bullish technicals (price above all MAs, positive 5-day momentum), strong ROE/ROA/FCF, 39% WoW search interest surge, and consecutive bullish signal with judge llm_margin of 0.9."
+    },
+    "AMZN": {
+      "weight_pct": 28.0,
+      "reason": "High judge conviction (llm_conviction 0.9), strong fundamentals across margins and returns, improving MACD, and 28% WoW search interest surge with a weak bear case."
+    },
+    "LLY": {
+      "weight_pct": 18.0,
+      "reason": "Exceptional revenue growth (54%) and margins are compelling, but RSI overbought at 77, majority-negative news flow, and heavy litigious language (10 articles) justify a reduced position."
+    },
+    "BRK.B": {
+      "weight_pct": 10.0,
+      "reason": "Strong operating and net margins with supportive macro and news, but thin fundamental data (no FCF, no revenue growth detail) and mild bearish technicals limit conviction."
+    },
+    "XOM": {
+      "weight_pct": 5.0,
+      "reason": "Strongest technical setup in the universe but very thin fundamental case, 263% search interest spike suggesting crowded positioning, and low judge llm_margin (0.2) indicate limited edge."
+    },
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Pervasive bearish technical signals (price below 20-day MA, negative 5-day and 20-day momentum, RSI near 31, MACD below signal) dominate despite solid fundamentals."
+    }
+  },
+  "total_allocated_pct": 96.0
+}

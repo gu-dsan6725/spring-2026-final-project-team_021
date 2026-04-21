@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY stands out with the strongest bull case: 36% revenue growth, strong margins across the board, consistent bullish judge signals over three weeks, and a bear case that relies primarily on elevated leverage which the bull effectively rebuts. GOOGL and BRK.B both received bullish judge signals at 0.85 confidence with solid fundamental support, though GOOGL's recurring neutral history and litigation risk temper conviction slightly. AMZN received a bullish judge signal but has persistent weakening momentum and three prior neutral weeks, warranting a smaller allocation. AAPL and XOM were judged neutral and receive zero weight.",
   "ranking": [
-    "AMZN",
-    "BRK.B",
-    "GOOGL",
     "LLY",
+    "GOOGL",
+    "BRK.B",
+    "AMZN",
     "AAPL",
     "XOM"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "AMZN": {
-      "weight_pct": 25.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 25.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest fundamental case with 36% revenue growth, consistent bullish judge signals for 3+ weeks, and a bear case that fails to overcome the breadth of bullish evidence."
     },
     "GOOGL": {
-      "weight_pct": 25.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 22.0,
+      "reason": "Bullish judge at 0.85 confidence with strong ROE, positive news sentiment, and a bear case that is notably weaker than the bull; litigation risk and recurring neutral history limit sizing."
     },
-    "LLY": {
-      "weight_pct": 25.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "BRK.B": {
+      "weight_pct": 18.0,
+      "reason": "Bullish judge at 0.85 confidence with solid operating profitability and cash flow; negative revenue growth and mixed signal history (bullish/bearish/bullish) reduce conviction relative to LLY and GOOGL."
+    },
+    "AMZN": {
+      "weight_pct": 10.0,
+      "reason": "Bullish judge signal with strong fundamentals and positive news, but persistent weakening technical momentum and three prior neutral judge weeks warrant a modest allocation only."
+    },
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is neutral with three consecutive neutral weeks; bull and bear cases are evenly balanced with no clear edge."
     },
     "XOM": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is neutral; negative news sentiment and weakening momentum offset solid financials, with no clear bullish edge."
     }
   },
-  "total_allocated_pct": 100.0
+  "total_allocated_pct": 90.0
 }

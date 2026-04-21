@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY earns the top weight due to its exceptional 36% revenue growth, consistent 3-week bullish signal history, clean technical setup, and a bull case that clearly dominates the bear case. AAPL earns the second slot on the strength of its technical momentum (RSI 64, volume 2.9x, price well above MAs) and superior profitability metrics. AMZN receives a modest allocation given solid fundamentals but weakening near-term momentum. GOOGL, BRK.B, and XOM are excluded: GOOGL's RSI of 90.6 signals extreme overbought risk, BRK.B has negative revenue growth and weak technicals undermining the bull case, and XOM has the weakest internal conviction scores (llm_margin 0.2) with a mixed signal history.",
   "ranking": [
+    "LLY",
     "AAPL",
     "AMZN",
-    "BRK.B",
     "GOOGL",
-    "LLY",
+    "BRK.B",
     "XOM"
   ],
   "holdings": {
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest fundamental growth (36% revenue YoY), consistent 3-week bullish signal history, clean technical setup with MACD above signal and volume 2x average, and bull case clearly outargues the bear."
+    },
     "AAPL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 35.0,
+      "reason": "Exceptional technical momentum (RSI 64, volume 2.9x average, price 5% above 20-day MA) combined with best-in-class margins and strong FCF make the bull case compelling despite minor liquidity flags."
     },
     "AMZN": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 15.0,
+      "reason": "Solid 10% revenue growth and strong gross margins support a bullish view, but MACD below signal line and barely-above-MA price action limit conviction relative to LLY and AAPL."
     },
     "GOOGL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 0.0,
+      "reason": "RSI of 90.6 represents extreme overbought conditions and a +27.6% 20-day return suggests near-term correction risk that outweighs the otherwise solid fundamental case."
     },
-    "LLY": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Negative revenue growth YoY, price below 20-day MA, negative 5-day momentum, and MACD below signal line create too many technical headwinds despite solid profitability metrics."
     },
     "XOM": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 0.0,
+      "reason": "Weakest internal conviction scores (llm_margin 0.2, llm_conviction 0.6) and mixed signal history (bullish/neutral/neutral) with numerous risk flags make this the least compelling bullish case in the universe."
     }
   },
-  "total_allocated_pct": 100.02
+  "total_allocated_pct": 90.0
 }

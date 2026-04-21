@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "GOOGL and AAPL lead with the strongest combination of fundamental quality and positive technical momentum, where the bear cases are clearly outargued. LLY gets a smaller allocation given its strong fundamental growth story but severe near-term technical breakdown warrants caution. XOM and AMZN receive minimal or no weight due to uniformly bearish technicals and weaker bull-vs-bear differentiation. BRK.B is excluded entirely given a bearish judge signal.",
   "ranking": [
-    "AAPL",
     "GOOGL",
+    "AAPL",
     "LLY",
     "XOM",
     "AMZN",
     "BRK.B"
   ],
   "holdings": {
+    "GOOGL": {
+      "weight_pct": 40.0,
+      "reason": "Strongest bull case with clean technicals (all momentum indicators positive, price well above MA), strong fundamentals (ROE 26%, low debt, adequate liquidity), and a weak bear case relying only on minor macro concerns and search trends."
+    },
     "AAPL": {
-      "weight_pct": 20.73,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 30.0,
+      "reason": "Strong profitability metrics, positive technical momentum with price above MA and elevated volume, and the liquidity concern is structurally normal for AAPL's capital-return model."
+    },
+    "LLY": {
+      "weight_pct": 15.0,
+      "reason": "Exceptional revenue growth (36%) and margins support the long-term bull case, but position is sized down due to severe near-term technical breakdown (RSI 27, -21% 20-day return) creating meaningful entry risk."
+    },
+    "XOM": {
+      "weight_pct": 10.0,
+      "reason": "Positive news sentiment and solid fundamentals provide a foundation, but uniformly bearish technicals limit conviction to a small position."
     },
     "AMZN": {
-      "weight_pct": 17.07,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 5.0,
+      "reason": "Strong long-term fundamentals but the weakest near-term bull case with price below MA, negative 20-day momentum, and a competitive bear argument warrants minimal exposure."
     },
     "BRK.B": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "GOOGL": {
-      "weight_pct": 20.73,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "LLY": {
-      "weight_pct": 20.73,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "XOM": {
-      "weight_pct": 20.73,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is bearish at high confidence (0.85); excluded from portfolio."
     }
   },
-  "total_allocated_pct": 99.99
+  "total_allocated_pct": 100.0
 }

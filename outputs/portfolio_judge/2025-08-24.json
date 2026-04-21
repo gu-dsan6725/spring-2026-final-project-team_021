@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "AMZN leads with the strongest bull-to-bear asymmetry — robust fundamentals, positive news sentiment, and a bear case that relies on a manageable liquidity metric. LLY earns second place on exceptional revenue growth and a consistent 3-week bullish signal history, though its elevated leverage and negative news flow warrant a discount. XOM benefits from overwhelmingly positive news sentiment, clean balance sheet, and positive price momentum. GOOGL and BRK.B are excluded due to the lowest internal conviction scores and negative revenue/news dynamics respectively.",
   "ranking": [
-    "AAPL",
     "AMZN",
-    "BRK.B",
-    "GOOGL",
     "LLY",
-    "XOM"
+    "XOM",
+    "AAPL",
+    "GOOGL",
+    "BRK.B"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
     "AMZN": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "GOOGL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 35.0,
+      "reason": "Strongest bull case with 10% revenue growth, 58.7% gross margin, positive news sentiment, and a bear case that rests on a trivially manageable quick-ratio concern."
     },
     "LLY": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 25.0,
+      "reason": "Exceptional 36% revenue growth and consistent 3-week bullish judge signals justify inclusion, though elevated D/E and negative news sentiment cap the weight."
     },
     "XOM": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 22.0,
+      "reason": "Overwhelmingly positive news flow (24 positive vs 2 negative articles), positive 5d and 20d momentum, and a very clean balance sheet (D/E 0.15) support a meaningful allocation."
+    },
+    "AAPL": {
+      "weight_pct": 18.0,
+      "reason": "Strong profitability metrics and positive FCF provide a solid foundation, though zero revenue growth and overbought technicals limit upside conviction relative to top picks."
+    },
+    "GOOGL": {
+      "weight_pct": 0.0,
+      "reason": "Lowest internal conviction scores (llm_margin 0.2, llm_conviction 0.3), no recent news data, and 3 consecutive neutral historical signals make this the weakest bullish case."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Negative revenue growth, majority-negative news sentiment, most overbought RSI in the universe (79.7), and a mixed signal history (bullish/bearish/bullish) disqualify this week."
     }
   },
-  "total_allocated_pct": 100.02
+  "total_allocated_pct": 100.0
 }

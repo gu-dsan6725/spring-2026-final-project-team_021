@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-03-15",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "XOM leads with the only genuinely bullish technical picture (price above all key MAs, positive momentum across timeframes) combined with a bullish judge signal, making it the highest-conviction holding. AAPL and AMZN both carry strong fundamentals and bullish judge signals at 0.85 confidence, with AAPL's oversold RSI suggesting near-term rebound potential. BRK.B and LLY are excluded due to bearish judge signals.",
+  "ranking": [
+    "XOM",
+    "AAPL",
+    "AMZN",
+    "GOOGL",
+    "BRK.B",
+    "LLY"
+  ],
+  "holdings": {
+    "XOM": {
+      "weight_pct": 35.0,
+      "reason": "Strongest technical confirmation with price above all key MAs and positive momentum on both 5d and 20d timeframes, backed by consistent bullish judge signals over three weeks."
+    },
+    "AAPL": {
+      "weight_pct": 28.0,
+      "reason": "Exceptional fundamentals (15.6% revenue growth, 48% gross margin, $52B OCF) with RSI at 30 signaling oversold rebound potential, and the bear case rests primarily on minor liquidity concerns."
+    },
+    "AMZN": {
+      "weight_pct": 22.0,
+      "reason": "Strong fundamental profile (15.7% revenue growth, 44% gross margin, solid ROE/ROA) with MACD above signal line and positive 20d return momentum supporting the bullish thesis."
+    },
+    "GOOGL": {
+      "weight_pct": 15.0,
+      "reason": "Strong ROE/ROA and excellent liquidity with a bullish judge signal, but missing revenue/margin data and recurring litigation risk flags reduce conviction relative to peers."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Bearish judge signal with negative revenue growth, thin operating margin, and multiple bearish technical indicators."
+    },
+    "LLY": {
+      "weight_pct": 0.0,
+      "reason": "Bearish judge signal at 0.85 confidence driven by strongly bearish technicals (TechnicalAnalyst 0.9 confidence bearish) and negative news sentiment despite strong fundamentals."
+    }
+  },
+  "total_allocated_pct": 100.0
+}
