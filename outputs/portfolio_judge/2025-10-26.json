@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "GOOGL leads with the cleanest bull case: zero bearish technical factors, strong fundamentals, low debt, and a bear case that relied on contradicted data. LLY earns the second slot with consistent 3-week bullish signals, exceptional 36% revenue growth, and broadly positive news sentiment despite leverage risk. AAPL and AMZN receive smaller allocations as solid but less differentiated bullish cases with recurring risk flags; XOM gets a minimal allocation given its thin fundamental case and six risk flags; BRK.B is excluded due to bearish technicals, negative revenue growth, and the weakest judge confidence in the group.",
   "ranking": [
-    "AAPL",
-    "AMZN",
     "GOOGL",
     "LLY",
+    "AAPL",
+    "AMZN",
     "XOM",
     "BRK.B"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 17.17,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "AMZN": {
-      "weight_pct": 17.17,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 14.14,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
     "GOOGL": {
-      "weight_pct": 17.17,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 32.0,
+      "reason": "Cleanest bull case with zero bearish technical factors, strong ROE/ROA, low leverage, and a bear rebuttal that was clearly outargued."
     },
     "LLY": {
-      "weight_pct": 17.17,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 28.0,
+      "reason": "Three consecutive bullish judge signals, 36% revenue growth, majority-positive news flow, and strong margins outweigh the elevated leverage concern."
+    },
+    "AAPL": {
+      "weight_pct": 18.0,
+      "reason": "Strong profitability and clean technical sweep support the bull case, though zero revenue growth and recurring liquidity flags limit conviction relative to top picks."
+    },
+    "AMZN": {
+      "weight_pct": 14.0,
+      "reason": "10% revenue growth and improving momentum are compelling, but recurring weakening-momentum risk flags and three prior neutral signals reduce relative conviction."
     },
     "XOM": {
-      "weight_pct": 17.17,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 8.0,
+      "reason": "Positive technicals and solid FCF support a modest position, but six risk flags including negative 20-day return momentum and thin fundamental disclosure cap the allocation."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Bearish technical analyst signal, negative revenue growth, price below key moving averages, and the lowest judge confidence in the universe make this the weakest bull case."
     }
   },
-  "total_allocated_pct": 99.99
+  "total_allocated_pct": 100.0
 }

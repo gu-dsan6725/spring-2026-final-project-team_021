@@ -9,40 +9,40 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY leads with the strongest differentiated bull case: 36% revenue growth, consistent 3-week bullish signal history, and positive technical setup, making it the highest-conviction holding. GOOGL earns the second slot due to its clean balance sheet, strong ROE, bullish technical analyst signal, and price above key moving averages, with a relatively weak bear case. AAPL receives a smaller allocation given strong profitability but recurring neutral signals and mixed technicals. AMZN and XOM are excluded due to severely bearish technical setups (AMZN: price below both 20d and 50d MA, RSI 38; XOM: thin llm_margin of 0.10 and two prior neutral weeks), and BRK.B is excluded due to negative revenue growth and inconsistent signal history.",
   "ranking": [
-    "AAPL",
-    "AMZN",
-    "BRK.B",
-    "GOOGL",
     "LLY",
+    "GOOGL",
+    "AAPL",
+    "BRK.B",
+    "AMZN",
     "XOM"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "AMZN": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest bull case with 36% revenue growth, consistent 3-week bullish signal history, positive technical setup above all key moving averages, and the most differentiated fundamental story in the universe."
     },
     "GOOGL": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 28.0,
+      "reason": "Clean balance sheet (D/E 0.10, current ratio 1.9), strong ROE/ROA, price above 20d and 50d MAs, bullish technical analyst signal, and a weak bear case make this the second-highest conviction position."
     },
-    "LLY": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "AAPL": {
+      "weight_pct": 15.0,
+      "reason": "Strong profitability metrics and positive free cash flow justify inclusion, but recurring neutral signal history and mixed technicals (price below 20d MA) limit conviction relative to LLY and GOOGL."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Negative revenue growth, inconsistent signal history (bullish/bearish/bullish), and multiple unresolved technical risk flags reduce conviction below threshold for inclusion."
+    },
+    "AMZN": {
+      "weight_pct": 0.0,
+      "reason": "Strongly bearish technical setup with price below both 20d and 50d MAs, RSI at 38, negative 5d and 20d returns, and three prior neutral weeks undermine the bull case despite solid fundamentals."
     },
     "XOM": {
-      "weight_pct": 16.67,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 0.0,
+      "reason": "Weakest bull case quality with llm_margin of only 0.10, two prior neutral weeks, bearish technicals, and a fundamental profile lacking key margin data to support conviction."
     }
   },
-  "total_allocated_pct": 100.02
+  "total_allocated_pct": 83.0
 }

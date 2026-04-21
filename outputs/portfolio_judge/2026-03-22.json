@@ -1,0 +1,48 @@
+{
+  "week_end_date": "2026-03-22",
+  "agent_name": "PortfolioJudge",
+  "tickers": [
+    "AAPL",
+    "AMZN",
+    "BRK.B",
+    "GOOGL",
+    "LLY",
+    "XOM"
+  ],
+  "portfolio_rationale": "XOM is the top pick as the only stock with a clean technical uptrend across all indicators, providing strong near-term momentum conviction. LLY and AAPL follow with exceptional fundamentals and oversold conditions suggesting rebound potential, while GOOGL offers solid balance sheet quality. AMZN receives minimal weight as the weakest bull case, and BRK.B is excluded due to a bearish judge signal.",
+  "ranking": [
+    "XOM",
+    "LLY",
+    "AAPL",
+    "GOOGL",
+    "AMZN",
+    "BRK.B"
+  ],
+  "holdings": {
+    "XOM": {
+      "weight_pct": 35.0,
+      "reason": "Only stock with all 7 technical indicators bullish, clear price uptrend, and consistent 3-week bullish signal with the bear case effectively rebutted."
+    },
+    "LLY": {
+      "weight_pct": 25.0,
+      "reason": "Exceptional fundamentals (42.5% revenue growth, 49% operating margin) with RSI at 20 suggesting extreme oversold conditions and high rebound potential despite near-term technical weakness."
+    },
+    "AAPL": {
+      "weight_pct": 20.0,
+      "reason": "Strong fundamentals with 15.6% revenue growth, 48% gross margin, and RSI at 23.6 indicating oversold conditions with high volume confirming rebound potential."
+    },
+    "GOOGL": {
+      "weight_pct": 12.0,
+      "reason": "Best-in-class balance sheet quality with 37.6% ROE, 2.0 current ratio, and MACD turning positive, though missing revenue growth data reduces conviction."
+    },
+    "AMZN": {
+      "weight_pct": 8.0,
+      "reason": "Solid fundamentals but weakest technical picture among bullish names with no oversold signal and declining search trends reducing near-term conviction."
+    },
+    "BRK.B": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is bearish; excluded from portfolio."
+    }
+  },
+  "total_allocated_pct": 100.0
+}

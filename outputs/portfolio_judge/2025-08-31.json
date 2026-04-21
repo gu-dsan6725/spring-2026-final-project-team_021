@@ -9,39 +9,39 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY leads with the strongest fundamental growth story (36% revenue growth, consistent 3-week bullish signal history) and a bear case that fails to overcome the company's sector-specific demand drivers. AMZN and GOOGL both received bullish judge verdicts with strong multi-dimensional support and weak bear cases, warranting meaningful allocations. BRK.B and XOM are held at reduced weights due to extreme RSI readings (89.75 and 95.5 respectively) that signal near-term overbought risk despite bullish judge signals. AAPL is excluded entirely given its neutral judge signal and three consecutive neutral weeks.",
   "ranking": [
-    "AMZN",
-    "BRK.B",
-    "GOOGL",
     "LLY",
+    "AMZN",
+    "GOOGL",
+    "BRK.B",
     "XOM",
     "AAPL"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "LLY": {
+      "weight_pct": 35.0,
+      "reason": "Strongest fundamental case with 36% revenue growth, consistent 3-week bullish signal history, and a bear case that relies only on elevated leverage and sector-agnostic macro headwinds."
     },
     "AMZN": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "BRK.B": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 28.0,
+      "reason": "Clean technical picture with MACD above signal, price above 20-day MA, positive news sentiment, and 10% revenue growth; bear case arguments are stale and contradicted by current data."
     },
     "GOOGL": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 22.0,
+      "reason": "Strong ROE, solid liquidity, all momentum indicators positive, and a 59% search interest spike support the bull case while the bear case rests only on RSI overbought and generic macro concerns."
     },
-    "LLY": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "BRK.B": {
+      "weight_pct": 10.0,
+      "reason": "Bullish judge verdict with solid profitability metrics and positive news, but RSI at 89.75 is extremely overbought warranting a reduced position."
     },
     "XOM": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 5.0,
+      "reason": "Bullish judge verdict but RSI at 95.5 is the most extreme overbought reading in the universe and the fundamental case is thinner than peers, limiting conviction."
+    },
+    "AAPL": {
+      "weight_pct": 0.0,
+      "reason": "Judge signal is neutral with 0.5 confidence and three consecutive neutral weeks; excluded from portfolio."
     }
   },
   "total_allocated_pct": 100.0

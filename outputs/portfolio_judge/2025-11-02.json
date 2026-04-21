@@ -9,39 +9,39 @@
     "LLY",
     "XOM"
   ],
-  "portfolio_rationale": "LLM unavailable. Fallback: weights proportional to per-stock judge confidence among bullish tickers.",
+  "portfolio_rationale": "LLY stands out as the highest-conviction pick with the cleanest bull case: 54% revenue growth, no bearish fundamental factors, all-green technical indicators (RSI not overbought), rising search trends, and a consistent 3-week bullish signal history. AMZN earns second place with strong momentum confirmation and a bullish technical reversal (price now above 20-day MA, MACD positive), though news trends are mixed. AAPL is third with solid fundamentals and positive momentum but carries overbought risk (RSI 80+) and a recent history of neutral judge signals. GOOGL has an extremely overbought RSI (84.7) and a 46% drop in search trends, making the bull case less convincing despite the judge's bullish signal. XOM has a weaker fundamental profile (limited metrics available, older data) and energy sector macro headwinds. BRK.B receives zero weight as the judge explicitly ruled bearish.",
   "ranking": [
-    "AAPL",
-    "AMZN",
-    "GOOGL",
     "LLY",
+    "AMZN",
+    "AAPL",
+    "GOOGL",
     "XOM",
     "BRK.B"
   ],
   "holdings": {
-    "AAPL": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+    "LLY": {
+      "weight_pct": 40.0,
+      "reason": "Strongest bull case in the universe: 54% revenue growth, clean technicals with no overbought signal, rising search interest, and three consecutive bullish judge decisions with high confidence."
     },
     "AMZN": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "weight_pct": 25.0,
+      "reason": "Strong fundamental metrics, confirmed technical momentum reversal with price above 20-day MA and MACD positive, and bullish judge at 0.85 confidence, though mixed news trends limit sizing."
+    },
+    "AAPL": {
+      "weight_pct": 18.0,
+      "reason": "Solid profitability and cash flow with bullish judge at 0.85, but RSI at 80.5 signals overbought conditions and recent signal history shows two prior neutral calls, warranting a moderate position."
+    },
+    "GOOGL": {
+      "weight_pct": 10.0,
+      "reason": "Bullish judge at 0.85 confidence with strong ROE and positive technicals, but RSI at 84.7 is extremely overbought and Google Trends dropped 46% week-over-week, limiting conviction."
+    },
+    "XOM": {
+      "weight_pct": 7.0,
+      "reason": "Consistent three-week bullish signal history and positive technicals, but fundamental data is stale (August 2025) and the bull case rests on limited metrics, warranting a small position."
     },
     "BRK.B": {
       "weight_pct": 0.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "GOOGL": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "LLY": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
-    },
-    "XOM": {
-      "weight_pct": 20.0,
-      "reason": "Fallback: confidence-weighted bullish allocation."
+      "reason": "Judge signal is explicitly bearish at 0.85 confidence with negative revenue growth, multiple bearish technical indicators, and a bear case that clearly outargued the bull case."
     }
   },
   "total_allocated_pct": 100.0
