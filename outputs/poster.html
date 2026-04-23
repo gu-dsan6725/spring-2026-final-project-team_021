@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DebateTrader Poster</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:  #0a2342; --blue:  #1a4a8a; --sky:   #2d7dd2;
+      --teal:  #1b998b; --gold:  #f0a500; --light: #f4f7fb;
+      --white: #ffffff; --text:  #1c1c2e; --muted: #4a5568; --border:#c8d8ec;
+    }
+    html, body { background: #cdd4de; width: 100%; height: 100%; }
+
+    #scale-outer { width: 100vw; overflow: hidden; }
+
+    /* ── Poster canvas: 48 × 36 in at 96 dpi ── */
+    #poster {
+      width: 4608px; height: 3456px;
+      transform: none;
+      overflow: hidden;
+      transform-origin: top left;
+      background: var(--light);
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: var(--text);
+      display: grid;
+      grid-template-rows: 360px 1fr 250px;
+    }
+
+    /* ════════════ HEADER ════════════ */
+    #header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 60%, var(--sky) 100%);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 240px 1fr 820px;
+      align-items: center;
+      padding: 0 90px;
+      gap: 60px;
+      border-bottom: 14px solid var(--gold);
+    }
+    .logo-block { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .uni-badge {
+      background: var(--gold); color: var(--navy);
+      font-size: 28px; font-weight: 900; letter-spacing: 2px;
+      padding: 16px 28px; border-radius: 10px; text-align: center; line-height: 1.3; text-transform: uppercase;
+    }
+    .course-tag { font-size: 26px; opacity: 0.82; letter-spacing: 1px; text-align: center; }
+    .title-block { min-width: 0; }
+    #header h1 { font-size: 86px; font-weight: 800; line-height: 1.08; letter-spacing: -1px; }
+    #header h1 .accent { color: var(--gold); }
+    #header .subtitle { font-size: 36px; font-weight: 400; opacity: 0.88; margin-top: 14px; }
+    #header .authors  { font-size: 30px; opacity: 0.72; margin-top: 10px; }
+
+    /* Header right: at-a-glance tiles */
+    .header-glance { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .hg-tile {
+      background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 14px; padding: 18px 16px; text-align: center;
+    }
+    .hg-tile .hg-val { font-size: 52px; font-weight: 900; color: var(--gold); line-height: 1; }
+    .hg-tile .hg-lbl { font-size: 24px; opacity: 0.82; margin-top: 6px; font-weight: 600; }
+
+    /* ════════════ BODY ════════════ */
+    #body {
+      display: grid;
+      grid-template-columns: 1fr 1.18fr 1fr;
+      column-gap: 52px;
+      padding: 52px 76px 40px;
+      align-items: stretch;
+    }
+    .col { display: flex; flex-direction: column; }
+
+    /* ════════════ FOOTER ════════════ */
+    #footer {
+      background: var(--navy); color: var(--white);
+      display: flex; align-items: center;
+      padding: 0 100px; gap: 80px;
+      border-top: 14px solid var(--gold);
+    }
+    .footer-text { flex: 1; font-size: 28px; line-height: 1.65; opacity: 0.88; }
+    .footer-text strong { color: var(--gold); }
+    .footer-sub { font-size: 24px; opacity: 0.6; margin-top: 10px; }
+    .qr-block { flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .qr-block p { font-size: 26px; text-align: center; opacity: 0.85; }
+    .qr-sub { font-size: 21px; opacity: 0.6; text-align: center; }
+    #qrcode canvas, #qrcode img { border: 7px solid white; border-radius: 8px; display: block; }
+
+    /* ════════════ CARD ════════════ */
+    .card {
+      background: var(--white); border-radius: 20px;
+      border: 2px solid var(--border); padding: 50px 56px;
+      margin-bottom: 52px;
+      box-shadow: 0 4px 20px rgba(10,35,66,0.07);
+    }
+    .card.fill { flex: 1; margin-bottom: 0; }
+    .card h2 {
+      font-size: 50px; font-weight: 800; color: var(--navy);
+      border-bottom: 5px solid var(--sky);
+      padding-bottom: 16px; margin-bottom: 30px;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
+    .card p, .card li { font-size: 32px; line-height: 1.7; }
+    .card ul { padding-left: 40px; margin-top: 12px; }
+    .card ul li { margin-bottom: 12px; }
+
+    /* ════════════ ARCH DIAGRAM ════════════ */
+    .arch { display: flex; flex-direction: column; gap: 0; }
+    .arch-row { display: flex; gap: 12px; }
+    .arch-box {
+      border-radius: 14px; padding: 20px 28px;
+      font-size: 29px; font-weight: 700; text-align: center; flex: 1; line-height: 1.3;
+    }
+    .ab-data  { background:#e8f4fd; border:3px solid var(--sky);  color:var(--blue); }
+    .ab-agent { background:#e8f8f5; border:3px solid var(--teal); color:#145a52; }
+    .ab-deb   { background:#fff3e0; border:3px solid var(--gold); color:#7d5100; }
+    .ab-port  { background:#f0eeff; border:3px solid #7c5cbf;    color:#3d2b80; }
+    .ab-risk  { background:#fdecea; border:3px solid #d9534f;    color:#7a1515; }
+    .ab-stock { background:var(--navy); border:3px solid var(--gold); color:var(--gold); }
+    .arch-arrow  { text-align:center; font-size:40px; color:var(--muted); margin:4px 0; }
+    .arch-label  { text-align:center; font-size:25px; color:var(--muted); font-weight:700; margin-bottom:5px; }
+    .arch-sub    { text-align:center; font-size:23px; color:var(--muted); margin:3px 0 8px; }
+
+    /* ════════════ METRIC TILES ════════════ */
+    .metric-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:16px; }
+    .metric-tile { border-radius:16px; padding:28px 22px; text-align:center; border:2px solid var(--border); }
+    .mt-hi { background:var(--navy); color:var(--white); border-color:var(--navy); }
+    .mt-lo { background:#f4f7fb; }
+    .metric-tile .val { font-size:64px; font-weight:900; line-height:1; color:var(--gold); }
+    .mt-lo .val { color:var(--sky); }
+    .metric-tile .lbl { font-size:26px; margin-top:8px; font-weight:600; opacity:0.88; }
+
+    /* ════════════ COMPARISON TABLE ════════════ */
+    table.cmp { width:100%; border-collapse:collapse; font-size:29px; margin-top:24px; }
+    table.cmp th {
+      background:var(--navy); color:var(--gold);
+      padding:16px 18px; text-align:center; font-size:27px;
+    }
+    table.cmp th:first-child { text-align:left; border-radius:8px 0 0 0; }
+    table.cmp th:last-child  { border-radius:0 8px 0 0; }
+    table.cmp td { padding:15px 18px; border-bottom:1px solid var(--border); text-align:center; }
+    table.cmp td:first-child { text-align:left; font-weight:700; }
+    table.cmp tr.dt td { background:#eef6ff; font-weight:700; color:var(--navy); }
+    table.cmp tr:last-child td { border-bottom:none; }
+    .best { color:#1a8a3a; font-weight:800; }
+    .low  { color:#c0392b; }
+
+    /* ════════════ CALLOUT ════════════ */
+    .callout {
+      border-left:10px solid var(--gold); background:#fffbeb;
+      border-radius:0 14px 14px 0; padding:26px 34px;
+      margin-top:28px; font-size:31px; line-height:1.65; color:#5c3d02;
+    }
+
+    /* ════════════ TAGS ════════════ */
+    .tags { display:flex; flex-wrap:wrap; gap:14px; margin-top:20px; }
+    .tag { border-radius:100px; padding:10px 26px; font-size:27px; font-weight:700; }
+    .t-blue  { background:#dbeafe; color:var(--blue);  border:2px solid #93c5fd; }
+    .t-green { background:#dcfce7; color:#166534;      border:2px solid #86efac; }
+    .t-gold  { background:#fef9c3; color:#7d5700;      border:2px solid #fde68a; }
+    .t-red   { background:#fee2e2; color:#991b1b;      border:2px solid #fca5a5; }
+
+    /* ════════════ TWO-COL MINI ════════════ */
+    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:16px; }
+    .mini-card {
+      background:#f4f7fb; border-radius:12px;
+      padding:24px 28px; border:2px solid var(--border);
+    }
+    .mini-card h3 { font-size:31px; color:var(--blue); margin-bottom:10px; font-weight:800; }
+    .mini-card p, .mini-card li { font-size:28px; line-height:1.65; }
+    .mini-card ul { padding-left:26px; }
+
+    /* ════════════ PRINT / WEASYPRINT ════════════ */
+    @media print {
+      @page { size: 48in 36in; margin: 0; }
+      html, body { width: 48in; height: 36in; background: white; }
+      #scale-outer { width: 48in; height: 36in; overflow: visible; }
+      #poster { transform: none !important; margin-left: 0 !important; }
+    }
+  </style>
+</head>
+<body>
+<div id="scale-outer">
+<div id="poster">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <div id="header">
+    <div class="logo-block">
+      <div class="uni-badge">Georgetown<br>University</div>
+      <div class="course-tag">DSAN 6725<br>Spring 2026</div>
+    </div>
+
+    <div class="title-block">
+      <h1><span class="accent">DebateTrader</span>: A Multi-Agent LLM Framework<br>with Structured Bull–Bear Debate for Stock Trading</h1>
+      <div class="subtitle">Multi-Agent · LLM Reasoning · Adversarial Debate · Portfolio Optimization · Backtesting</div>
+      <div class="authors">Binghui Ni &nbsp;·&nbsp; Siru Wu &nbsp;·&nbsp; Linjin He &nbsp;·&nbsp; Yanan Wu &nbsp;|&nbsp; Team 021 · Georgetown University</div>
+    </div>
+
+    <div class="header-glance">
+      <div class="hg-tile">
+        <div class="hg-val">+41.0%</div>
+        <div class="hg-lbl">Total Return</div>
+      </div>
+      <div class="hg-tile">
+        <div class="hg-val">+64.3%</div>
+        <div class="hg-lbl">Annualized Return</div>
+      </div>
+      <div class="hg-tile">
+        <div class="hg-val">3.052</div>
+        <div class="hg-lbl">Sharpe Ratio</div>
+      </div>
+      <div class="hg-tile">
+        <div class="hg-val">72.2%</div>
+        <div class="hg-lbl">Win Rate</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ BODY ══════════ -->
+  <div id="body">
+
+    <!-- ── LEFT COL ── -->
+    <div class="col">
+
+      <div class="card">
+        <h2>💡 Motivation</h2>
+        <p>Most LLM-based trading systems use a <b>single agent</b> to produce signals — prone to <b>confirmation bias</b> with no internal critique of conflicting evidence.</p>
+        <div class="tags">
+          <span class="tag t-red">Single-agent bias</span>
+          <span class="tag t-red">No internal debate</span>
+          <span class="tag t-red">Limited interpretability</span>
+        </div>
+        <div style="text-align:center;font-size:52px;color:var(--sky);margin:18px 0;">↓</div>
+        <p><b>DebateTrader</b> decomposes each weekly decision into <b>analysis → adversarial debate → judgment → portfolio allocation</b>, making reasoning transparent and contestable at every stage.</p>
+      </div>
+
+      <div class="card">
+        <h2>🗂 Data Sources</h2>
+        <table style="width:100%;border-collapse:collapse;font-size:29px;">
+          <thead>
+            <tr style="background:var(--navy);color:var(--gold);">
+              <th style="padding:14px 15px;text-align:left;border-radius:6px 0 0 0;">Source</th>
+              <th style="padding:14px 15px;text-align:center;">Data Type</th>
+              <th style="padding:14px 15px;text-align:center;border-radius:0 6px 0 0;">Freq.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:13px 15px;font-weight:700;">yfinance</td>
+              <td style="padding:13px 15px;text-align:center;">OHLCV prices</td>
+              <td style="padding:13px 15px;text-align:center;">Daily</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:#f8fbff;">
+              <td style="padding:13px 15px;font-weight:700;">SEC EDGAR</td>
+              <td style="padding:13px 15px;text-align:center;">10-K / 10-Q</td>
+              <td style="padding:13px 15px;text-align:center;">Quarterly</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:13px 15px;font-weight:700;">FRED</td>
+              <td style="padding:13px 15px;text-align:center;">Macro indicators</td>
+              <td style="padding:13px 15px;text-align:center;">Monthly</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);background:#f8fbff;">
+              <td style="padding:13px 15px;font-weight:700;">Finnhub</td>
+              <td style="padding:13px 15px;text-align:center;">News headlines</td>
+              <td style="padding:13px 15px;text-align:center;">Daily</td>
+            </tr>
+            <tr>
+              <td style="padding:13px 15px;font-weight:700;">Google Trends</td>
+              <td style="padding:13px 15px;text-align:center;">Retail attention</td>
+              <td style="padding:13px 15px;text-align:center;">Weekly</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:20px;font-size:28px;color:var(--muted);">Data filtered by <b>filing date</b> (not period-end) — prevents look-ahead bias.</p>
+      </div>
+
+      <div class="card fill">
+        <h2>🛡 Responsible AI</h2>
+        <ul>
+          <li><b>Structured JSON outputs</b> across all stages — reduces hallucination surface</li>
+          <li><b>Rule-based factor extraction</b> before LLM synthesis — model sees only pre-extracted evidence</li>
+          <li><b>Deterministic fallbacks</b> at debate and portfolio stages — pipeline always produces a valid output even when LLM calls fail</li>
+          <li><b>Hard position &amp; sector caps</b> in risk layer — LLM commentary cannot override allocation constraints</li>
+          <li><b>Paper-trading only</b> — no live broker execution; results are for research evaluation</li>
+        </ul>
+        <div class="tags">
+          <span class="tag t-green">No hallucinated data</span>
+          <span class="tag t-green">Deterministic risk layer</span>
+          <span class="tag t-gold">Research prototype</span>
+        </div>
+        <div style="margin-top:34px;background:#f0f4ff;border-radius:14px;padding:30px 34px;border:2px solid var(--border);">
+          <p style="font-size:30px;font-weight:800;color:var(--navy);margin-bottom:14px;">Limitations</p>
+          <ul style="font-size:29px;">
+            <li>Fixed 6-stock universe — not directly generalizable</li>
+            <li>No transaction costs, slippage, or tax assumptions</li>
+            <li>LLM priors on well-known companies may not be fully overridden by supplied evidence</li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /left -->
+
+    <!-- ── MIDDLE COL ── -->
+    <div class="col">
+
+      <div class="card">
+        <h2>🏗 System Architecture</h2>
+        <div class="arch">
+          <div class="arch-row">
+            <div class="arch-box ab-stock" style="padding:22px 28px;">
+              6 S&amp;P 500 Stocks · 6 GICS Sectors<br>
+              <span style="font-size:24px;opacity:0.85;">AAPL (IT) · AMZN (Cons. Disc.) · BRK.B (Fin.) · GOOGL (Comm. Svcs.) · LLY (Health) · XOM (Energy)</span>
+            </div>
+          </div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-row">
+            <div class="arch-box ab-data">yfinance</div>
+            <div class="arch-box ab-data">SEC EDGAR</div>
+            <div class="arch-box ab-data">FRED</div>
+            <div class="arch-box ab-data">Finnhub</div>
+            <div class="arch-box ab-data">Google Trends</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-label">ANALYST TEAM (parallel, per ticker)</div>
+          <div class="arch-row">
+            <div class="arch-box ab-agent" style="font-size:27px;">📈 Technical<br><span style="font-size:22px;font-weight:400;color:var(--muted);">Rule + LLM</span></div>
+            <div class="arch-box ab-agent" style="font-size:27px;">📊 Fundamental<br><span style="font-size:22px;font-weight:400;color:var(--muted);">Rule + LLM</span></div>
+            <div class="arch-box ab-agent" style="font-size:27px;">🌍 Macro<br><span style="font-size:22px;font-weight:400;color:var(--muted);">Rule-only</span></div>
+            <div class="arch-box ab-agent" style="font-size:27px;">📰 News &amp; Trend<br><span style="font-size:22px;font-weight:400;color:var(--muted);">Rule-only</span></div>
+          </div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-label">DEBATE STAGE</div>
+          <!-- FIX: stacked vertically -->
+          <div class="arch-row">
+            <div class="arch-box ab-deb">🐂 Bull Agent &nbsp;⚔&nbsp; 🐻 Bear Agent</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+          <div class="arch-row">
+            <div class="arch-box ab-deb">⚖️ Judge Agent → Final Decision</div>
+          </div>
+          <div class="arch-sub">Groq · Llama 3.1 8B · 3-week memory context</div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-row">
+            <div class="arch-box ab-port">🧠 Portfolio Judge — cross-ticker conviction weighting</div>
+          </div>
+          <div class="arch-sub">Anthropic · Claude Sonnet 4.6 · single call for all 6 tickers</div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-row">
+            <div class="arch-box ab-risk">🔒 Risk Management — position &amp; sector caps, normalization</div>
+          </div>
+          <div class="arch-arrow">↓</div>
+
+          <div class="arch-row">
+            <div class="arch-box ab-data">📉 Backtesting — weekly rebalancing, 36 weeks (Aug 2025 – Apr 2026)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card fill">
+        <h2>🤖 Model Design</h2>
+        <div class="two-col">
+          <div class="mini-card">
+            <h3>🐂🐻 Debate Stage</h3>
+            <p><b>Groq</b> · Llama 3.1 8B Instant</p>
+            <ul style="margin-top:12px;">
+              <li>Bull case from all 4 analyst reports</li>
+              <li>Bear rebuttal with access to Bull's case</li>
+              <li>Judge produces final signal &amp; rationale</li>
+              <li>Low temperature (0.2) + JSON-constrained prompting</li>
+            </ul>
+          </div>
+          <div class="mini-card">
+            <h3>🧠 Portfolio Judge</h3>
+            <p><b>Anthropic</b> · Claude Sonnet 4.6</p>
+            <ul style="margin-top:12px;">
+              <li>All 6 debate transcripts in one call</li>
+              <li>Relative conviction-based weighting</li>
+              <li>Forces cross-ticker comparison</li>
+              <li>Fallback: confidence-weighted allocation</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout">
+          <b>Hybrid design:</b> Technical &amp; Fundamental analysts use <b>rule extraction → LLM synthesis</b>. Macro &amp; News analysts are <b>fully rule-based</b> (no LLM call). Risk management applies <b>deterministic constraints</b> before any LLM commentary is generated.
+        </div>
+        <div style="margin-top:34px;background:#f0f4ff;border-radius:14px;padding:28px 34px;border:2px solid var(--border);">
+          <p style="font-size:30px;font-weight:800;color:var(--navy);margin-bottom:14px;">Shared LLM Client</p>
+          <p style="font-size:29px;line-height:1.65;">Provider-agnostic wrapper supports both Anthropic and Groq. Selection via <code style="background:#e8f0fe;padding:2px 10px;border-radius:6px;font-size:27px;">DEBATETRADER_LLM_PROVIDER</code> env variable, with automatic fallback based on available API keys.</p>
+        </div>
+      </div>
+
+    </div><!-- /middle -->
+
+    <!-- ── RIGHT COL ── -->
+    <div class="col">
+
+      <div class="card">
+        <h2>📈 Backtest Results</h2>
+        <p style="font-size:27px;color:var(--muted);margin-bottom:20px;">36 weeks · Weekly rebalancing · Aug 2025 – Apr 2026</p>
+
+        <table class="cmp">
+          <thead>
+            <tr>
+              <th>Strategy</th>
+              <th>Return</th>
+              <th>Sharpe</th>
+              <th>Max DD</th>
+              <th>Win Rate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="dt">
+              <td>DebateTrader</td>
+              <td class="best">+41.00%</td>
+              <td>3.0521</td>
+              <td class="low">9.72%</td>
+              <td>72.2%</td>
+            </tr>
+            <tr>
+              <td>Equal-Weight</td>
+              <td>+29.01%</td>
+              <td class="best">3.0670</td>
+              <td>6.29%</td>
+              <td>72.2%</td>
+            </tr>
+            <tr style="background:#f8fbff;">
+              <td>SPY B&amp;H</td>
+              <td>+7.86%</td>
+              <td>1.1369</td>
+              <td>7.32%</td>
+              <td>55.6%</td>
+            </tr>
+            <tr>
+              <td>60/40</td>
+              <td>+4.81%</td>
+              <td>1.0892</td>
+              <td class="best">4.94%</td>
+              <td>52.8%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout">
+          DebateTrader achieved the <b>highest raw return</b> (+41% vs +29% equal-weight) while maintaining a competitive Sharpe ratio. Max drawdown of 9.72% was higher than all benchmarks — a clear <b>return vs. risk trade-off</b>.
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🗂 Portfolio Behavior</h2>
+        <ul>
+          <li><b>36 unique allocation patterns</b> across 36 weekly decisions</li>
+          <li>Active holdings per week: <b>3–6 tickers</b>, avg <b>4.53 per week</b></li>
+          <li>Portfolio judge produced <b>differentiated weights</b> — did not collapse to equal-weight</li>
+          <li>3-week debate memory provided <b>continuity</b> without overriding current-week analyst evidence</li>
+          <li>Risk manager normalized 14 under-allocated portfolios (&lt;100% total weight) across the backtest</li>
+        </ul>
+      </div>
+
+      <div class="card fill">
+        <h2>🔍 Key Findings</h2>
+        <ul>
+          <li><b>Staged pipeline + JSON artifacts</b> made each component independently inspectable; intermediate outputs were reusable across debugging runs</li>
+          <li><b>Debate mechanism</b> surfaced competing interpretations — judge preserved dissenting points from the weaker side in most weekly decisions</li>
+          <li><b>Memory look-ahead risk</b> is subtle: temporal correctness must apply to agent state (memory artifacts), not only to market data</li>
+          <li><b>LLM reliability</b> was operationally significant — rate limits and parsing failures occurred during full backtest runs; deterministic fallbacks kept the pipeline running</li>
+        </ul>
+        <p style="font-size:30px;font-weight:800;color:var(--navy);margin-top:32px;margin-bottom:14px;">Future Directions</p>
+        <div class="tags">
+          <span class="tag t-blue">Broader stock universe</span>
+          <span class="tag t-blue">Transaction costs &amp; slippage</span>
+          <span class="tag t-green">Debate quality metrics</span>
+          <span class="tag t-gold">Longer-horizon memory design</span>
+        </div>
+      </div>
+
+    </div><!-- /right -->
+
+  </div><!-- /body -->
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <div id="footer">
+    <div class="footer-text">
+      <strong>DebateTrader</strong> introduces structured adversarial debate into multi-agent LLM-based stock trading, combining deterministic feature extraction, constrained LLM reasoning, and rule-based risk management into a single interpretable pipeline. A 36-week backtest demonstrates competitive performance while surfacing important trade-offs in risk-adjusted returns and scalability.
+      <div class="footer-sub">Binghui Ni · Siru Wu · Linjin He · Yanan Wu &nbsp;|&nbsp; DSAN 6725 · Georgetown University · Spring 2026 · Team 021</div>
+    </div>
+    <div class="qr-block">
+      <p>GitHub Repository</p>
+      <div id="qrcode"></div>
+      <p class="qr-sub">spring-2026-final-project-team_021</p>
+    </div>
+  </div>
+
+</div><!-- /poster -->
+</div><!-- /scale-outer -->
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "https://github.com/gu-dsan6725/spring-2026-final-project-team_021",
+    width: 220, height: 220,
+    colorDark: "#0a2342", colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+
+  const PW = 4608, PH = 3456;
+  function scalePoster() {
+    const poster = document.getElementById("poster");
+    const outer  = document.getElementById("scale-outer");
+    const scale  = Math.min(window.innerWidth / PW, window.innerHeight / PH);
+    const offsetX = (window.innerWidth - PW * scale) / 2;
+    poster.style.transform  = "scale(" + scale + ")";
+    poster.style.marginLeft = offsetX + "px";
+    outer.style.height = (PH * scale) + "px";
+  }
+  scalePoster();
+  window.addEventListener("resize", scalePoster);
+</script>
+</body>
+</html>
